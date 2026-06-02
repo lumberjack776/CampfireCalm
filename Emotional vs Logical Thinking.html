@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light">
+<title>Emotional vs Logical Thinking — Campfire Calm</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Mulish:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{color-scheme:light;--cream:#f9f2e7;--cream-2:#fef9ef;--paper:#fffdf8;--charcoal:#2a201a;--ember:#e7702f;--ember-deep:#cf551a;--amber:#f0a94f;--sage-deep:#4f7a5d;--ink:#352b23;--ink-soft:#6a5c4e;--line:rgba(60,50,42,.13);--brown:#2e2117;--shadow-sm:0 8px 24px -14px rgba(60,40,25,.3);--r:16px}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Mulish',sans-serif;color:var(--ink);background:linear-gradient(180deg,var(--cream),#fcefdf);line-height:1.7;-webkit-font-smoothing:antialiased}
+  h1,h2,h3{font-family:'Fraunces',serif;font-weight:500;color:var(--charcoal);letter-spacing:-.01em;line-height:1.15}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:760px;margin:0 auto;padding:0 24px}
+  nav{position:sticky;top:0;z-index:50;background:rgba(249,242,231,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px;max-width:760px;margin:0 auto;padding:0 24px}
+  .brand{display:flex;align-items:center;gap:9px;font-family:'Fraunces',serif;font-size:1.18rem;font-weight:600}
+  .flame{width:22px;height:22px}
+  .back{font-weight:700;font-size:.88rem;color:var(--ember-deep)}
+  header{background:var(--brown);color:#fdf7ec;padding:54px 0 48px;position:relative;overflow:hidden}
+  header::after{content:"";position:absolute;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,rgba(240,169,79,.32),transparent 65%);top:-130px;right:-90px}
+  .eyebrow{font-weight:700;text-transform:uppercase;letter-spacing:.18em;font-size:.7rem;color:var(--amber);margin-bottom:12px;position:relative}
+  header h1{color:#fdf7ec;font-size:clamp(2rem,6vw,3rem);margin-bottom:14px;position:relative}
+  header p{color:#e7d8c2;font-size:1.06rem;position:relative;max-width:34em}
+  .meta{display:flex;gap:22px;margin-top:22px;position:relative}
+  .meta div{font-size:.82rem;color:#cbb89f}
+  .meta b{display:block;font-family:'Fraunces',serif;font-size:1.5rem;color:var(--amber);font-weight:600}
+  main{padding:46px 0 20px}
+  .prompt{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:28px 26px;margin-bottom:22px;box-shadow:var(--shadow-sm)}
+  .pnum{font-family:'Fraunces',serif;font-size:.9rem;font-weight:600;color:var(--ember-deep);margin-bottom:8px}
+  .prompt h2{font-size:1.28rem;margin-bottom:18px}
+  .block{margin-bottom:16px}
+  .block .lab{font-weight:700;text-transform:uppercase;letter-spacing:.1em;font-size:.7rem;margin-bottom:6px}
+  .insight .lab{color:var(--sage-deep)}
+  .exercise{background:rgba(240,169,79,.1);border-left:3px solid var(--amber);border-radius:0 10px 10px 0;padding:14px 16px}
+  .exercise .lab{color:var(--ember-deep)}
+  .reflect{margin-top:18px}
+  .reflect .lab{font-weight:700;font-size:.78rem;color:var(--ink-soft);margin-bottom:8px}
+  .reflect-input{display:block;width:100%;min-height:132px;font-family:'Mulish',sans-serif;font-size:1rem;color:var(--ink);
+    line-height:32px;padding:5px 14px 8px;border:1px solid var(--line);border-radius:10px;resize:vertical;
+    background-color:var(--paper);
+    background-image:repeating-linear-gradient(transparent,transparent 31px,var(--line) 31px,var(--line) 32px);
+    background-attachment:local;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .reflect-input:focus{outline:none;border-color:var(--ember);box-shadow:0 0 0 3px rgba(231,112,47,.12)}
+  .reflect-input::placeholder{color:var(--ink-soft);opacity:.7}
+  .closing{text-align:center;background:var(--brown);color:#fdf7ec;border-radius:20px;padding:38px 30px;margin:30px 0}
+  .closing h2{color:#fdf7ec;font-size:1.6rem;margin-bottom:10px}
+  .closing p{color:#e7d8c2;max-width:30em;margin:0 auto}
+  .saved{text-align:center;font-size:.8rem;color:var(--sage-deep);margin:-6px 0 22px;min-height:1em}
+  .actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin:8px 0 40px}
+  .btn{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:.95rem;padding:13px 24px;border-radius:100px;cursor:pointer;border:0}
+  .btn-primary{background:var(--ember-deep);color:#fff}
+  .btn-ghost{background:transparent;border:1.5px solid var(--line);color:var(--charcoal)}
+  .disclaimer{background:var(--cream-2);border-top:1px solid var(--line);padding:26px 0;color:var(--ink-soft);font-size:.88rem;text-align:center;font-style:italic}
+  footer{background:var(--charcoal);color:rgba(255,255,255,.6);padding:30px 0;font-size:.86rem;text-align:center}
+  @media print{nav,.actions,.back,.saved{display:none}body{background:#fff}.prompt{break-inside:avoid;box-shadow:none}.reflect-input{border-color:#ccc}header,.closing,.exercise,.reflect-input{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+  @media(max-width:560px){header{padding:42px 0 36px}.prompt{padding:22px 20px}}
+</style>
+</head>
+<body>
+<nav><div class="nav-inner">
+  <a href="../../resource-library.html" class="brand"><svg class="flame" viewBox="0 0 24 24"><path d="M12 2c1.5 3.5-1 5-1 7.5 0 1.5 1 2.5 2 2.5s2-1 1.8-3c2 1.2 3.2 3.4 3.2 6 0 3.6-3 6.5-6 6.5S6 18.6 6 15c0-4 3-6.5 6-13z" fill="#e7702f"/></svg>Campfire Calm</a>
+  <a href="../../resource-library.html" class="back">← Library</a>
+</div></nav>
+<header><div class="wrap">
+  <div class="eyebrow">Guided Reflection Workbook</div>
+  <h1>Emotional vs Logical Thinking</h1>
+  <p>A guided self-reflection worksheet designed to help you explore your inner landscape through thoughtful prompts and exercises.</p>
+  <div class="meta"><div><b>20</b>Prompts</div><div><b>20</b>Insights</div><div><b>20</b>Exercises</div></div>
+</div></header>
+<main><div class="wrap">
+  <div class="prompt">
+    <div class="pnum">Prompt 01</div>
+    <h2>When faced with a difficult decision, how can you recognize if your emotions are overshadowing your logical reasoning?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Notice if your thoughts are fueled by immediate feelings like fear or anger rather than facts. Emotional thinking often comes with urgency and a sense of overwhelm, while logic looks for evidence and weighs pros and cons calmly. Pausing before deciding helps observe this difference.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Next time you make a choice, write down your immediate emotional reaction and then list three objective facts related to the situation. Compare them to see which is driving your decision more.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 02</div>
+    <h2>How might dismissing your emotions in favor of pure logic lead to unhelpful outcomes?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Ignoring emotions can disconnect you from your values and needs, causing choices that feel hollow or unsatisfying. Emotions offer essential data about what matters to you, so balancing feelings with facts creates more authentic and sustainable decisions.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Recall a recent decision you made purely on logic. Reflect on what emotions you might have ignored and how acknowledging them could have influenced a different outcome.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 03</div>
+    <h2>What strategies can help you bring rational thinking to moments of intense emotional distress?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Grounding techniques like deep breathing or naming your emotions help create space to assess the facts. Then, break the problem into smaller parts and ask yourself, “What evidence supports this fear?” This slows emotional escalation and invites clearer thinking.</div>
+    <div class="block exercise"><div class="lab">Try this</div>When overwhelmed next time, pause and write down your feelings, then identify one fact that contradicts your emotional assumption. Notice how this shifts your perspective.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 04</div>
+    <h2>How can you use logical thinking to validate or challenge your emotional responses instead of suppressing them?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Treat emotions as hypotheses rather than truths. Ask yourself what evidence supports or contradicts your feelings. This approach respects emotions while preventing them from dictating actions unchecked.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Pick an emotion you felt strongly recently. Write it down, then list two facts that back it up and two that challenge it. Reflect on how this exercise balances your view.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 05</div>
+    <h2>In what ways can emotions distort your perception of risk, and how can logic help recalibrate it?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Emotions like anxiety may inflate danger, making risks seem larger than they are. Logic can bring in statistical reality and past experiences to provide a clearer picture, reducing unnecessary fear-driven avoidance.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Identify a risk you are avoiding due to fear. Research facts about its actual likelihood and consequences. Write a balanced statement combining your feelings and the facts.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 06</div>
+    <h2>How do cognitive distortions blur the line between emotional and logical thinking?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Distortions like catastrophizing or black-and-white thinking exaggerate emotions and simplify logic, leading to poor decisions. Recognizing and challenging these patterns restores a more nuanced balance between feeling and reasoning.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Think of a recent thought that felt extreme or absolute. Identify the distortion and reframe it into a balanced statement that incorporates both emotional awareness and logical analysis.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 07</div>
+    <h2>How can you differentiate between intuition and emotional reactivity in your decision-making process?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Intuition is a calm, often subtle insight informed by experience, while emotional reactivity is impulsive and driven by heightened feelings. Mindful reflection helps you distinguish these, allowing intuition to guide without emotional hijack.</div>
+    <div class="block exercise"><div class="lab">Try this</div>When you have a strong urge or feeling, pause and journal about what past experiences might be informing this gut feeling versus what emotional triggers are present.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 08</div>
+    <h2>Can logical thinking help you manage emotional triggers more effectively? How?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Yes, logic can help by identifying trigger patterns and creating coping plans in advance. Understanding why certain situations provoke strong emotions allows you to prepare rational responses rather than react impulsively.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Identify a common emotional trigger. Write down the thoughts and facts about this trigger, then develop a step-by-step plan to respond calmly next time it occurs.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 09</div>
+    <h2>How does integrating emotional awareness enhance logical problem-solving skills?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Emotional awareness provides motivation and context, helping to prioritize problems that truly matter to you. It also improves empathy, leading to solutions that consider human factors, not just abstract logic.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Choose a problem you are facing. Write down the emotions involved and how they influence your priorities. Use this insight to adjust your problem-solving approach.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 10</div>
+    <h2>What role does self-compassion play in balancing emotional and logical thinking?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Self-compassion reduces harsh self-judgment that often clouds clear thinking. It creates a supportive internal environment where emotions can be acknowledged without shame, allowing logic to engage without defensiveness.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Practice a self-compassionate statement when you notice emotional overwhelm, such as “It’s okay to feel this way. I can handle this with kindness and clear thinking.” Journal how this affects your mindset.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 11</div>
+    <h2>How can you avoid using logic to invalidate others’ emotional experiences in conversations?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Recognize that emotions are valid subjective experiences even if you don’t agree with them. Use active listening and reflective statements before offering logical input, creating space for empathy alongside reason.</div>
+    <div class="block exercise"><div class="lab">Try this</div>In your next conversation, practice summarizing the other person&#x27;s feelings without judgment before sharing your logical perspective. Note how this changes the dynamic.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 12</div>
+    <h2>What techniques help prevent emotional reasoning from leading to negative self-beliefs?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Challenge emotional reasoning by asking for objective evidence and alternative explanations. This CBT approach prevents feelings from becoming automatic truths that harm self-esteem.</div>
+    <div class="block exercise"><div class="lab">Try this</div>When you catch yourself thinking “I’m a failure” based on emotion, write down evidence for and against this belief. Develop a balanced statement that respects your feelings and facts.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 13</div>
+    <h2>How can you cultivate a habit of checking in with both your emotions and logic before reacting?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Build a mental pause by asking two questions: “What am I feeling right now?” and “What do I know to be true here?” Practicing this habit strengthens your decision-making muscle over time.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Set reminders throughout the day to pause and answer these two questions in different situations. Track how it affects your responses.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 14</div>
+    <h2>How do cultural or personal backgrounds influence the balance between emotional and logical thinking?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Backgrounds shape what emotions feel acceptable and how logic is defined. Being aware of these influences helps you question biases and embrace a more flexible thinking style.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Reflect on a belief or reaction influenced by your upbringing. Consider how emotional and logical factors from your background shape it, and explore alternative perspectives.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 15</div>
+    <h2>How can journaling support distinguishing between emotional impulses and logical conclusions?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Journaling externalizes your thoughts and feelings, making it easier to see patterns and inconsistencies. Writing separates raw emotion from considered reflection, clarifying your mental process.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Keep a daily journal where you first write your emotional reactions and then follow with logical analysis. Review entries weekly to notice growth in balance.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 16</div>
+    <h2>What is the impact of stress on your ability to balance emotional and logical thinking, and how can you mitigate it?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Stress narrows focus to emotional survival, impairing logic. Managing stress through relaxation, exercise, or mindfulness restores cognitive flexibility, improving balanced thinking.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Identify a stressful period and list coping strategies you can use to reduce emotional overwhelm. Plan to implement one next time stress rises.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 17</div>
+    <h2>How can you use logic to reframe emotional setbacks as learning opportunities?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Logic helps you analyze what happened without blame, identifying specific factors and solutions. This reframing reduces emotional sting and fosters growth-oriented thinking.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Write about a recent emotional setback. List what facts you learned and how you can apply them moving forward.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 18</div>
+    <h2>How do you practice empathy without losing logical clarity in emotionally charged situations?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Empathy involves understanding emotions without adopting them as your own. Stay curious and ask clarifying questions to maintain logical perspective while validating feelings.</div>
+    <div class="block exercise"><div class="lab">Try this</div>In your next emotional interaction, focus on asking open-ended questions and summarizing feelings before offering advice or solutions.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 19</div>
+    <h2>How can you teach yourself to pause before reacting emotionally and engage logical thinking instead?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Create a personal cue—like counting to ten or deep breathing—that interrupts impulsive reactions and invites reflection. This small delay allows logic to enter before action.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Choose a cue to use when you feel triggered. Practice it daily until it becomes automatic, then notice changes in your responses.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 20</div>
+    <h2>What role does mindset play in balancing emotional and logical thinking during conflict resolution?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>A growth mindset encourages seeing conflict as a chance to understand emotions and find rational solutions, rather than a threat. This openness fosters balanced responses.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Reflect on a recent conflict and reimagine it with a growth mindset approach. Write down how this perspective could change your emotional and logical reactions.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="saved" id="savedNote"></div>
+  <div class="closing">
+    <h2>Your journey continues</h2>
+    <p>Reflection isn't a one-time exercise. Return to these prompts whenever you need a steady place to think.</p>
+  </div>
+  <div class="actions">
+    <button class="btn btn-primary" onclick="window.print()">Download / Print PDF</button>
+    <a href="../../resource-library.html" class="btn btn-ghost">← Back to library</a>
+  </div>
+</div></main>
+<div class="disclaimer"><div class="wrap">This workbook is for education and self-reflection. It is not a diagnosis or a substitute for therapy. If you are in crisis, call or text 988.</div></div>
+<footer><div class="wrap">© <span id="yr"></span> Campfire Calm™ · Jason M. Leclair, LPC</div></footer>
+<script>
+  document.getElementById('yr').textContent=new Date().getFullYear();
+  (function(){
+    var key="cc-reflect:emotional-vs-logical-thinking:";
+    var areas=document.querySelectorAll('.reflect-input');
+    var note=document.getElementById('savedNote');
+    function save(i,v){try{localStorage.setItem(key+i,v);note.textContent='Saved on this device';clearTimeout(window._t);window._t=setTimeout(function(){note.textContent='';},1500);}catch(e){}}
+    areas.forEach(function(a,i){
+      try{var v=localStorage.getItem(key+i);if(v)a.value=v;}catch(e){}
+      a.addEventListener('input',function(){save(i,a.value);});
+    });
+  })();
+</script>
+</body>
+</html>

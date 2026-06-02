@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light">
+<title>Childhood Influence — Campfire Calm</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Mulish:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{color-scheme:light;--cream:#f9f2e7;--cream-2:#fef9ef;--paper:#fffdf8;--charcoal:#2a201a;--ember:#e7702f;--ember-deep:#cf551a;--amber:#f0a94f;--sage-deep:#4f7a5d;--ink:#352b23;--ink-soft:#6a5c4e;--line:rgba(60,50,42,.13);--brown:#2e2117;--shadow-sm:0 8px 24px -14px rgba(60,40,25,.3);--r:16px}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Mulish',sans-serif;color:var(--ink);background:linear-gradient(180deg,var(--cream),#fcefdf);line-height:1.7;-webkit-font-smoothing:antialiased}
+  h1,h2,h3{font-family:'Fraunces',serif;font-weight:500;color:var(--charcoal);letter-spacing:-.01em;line-height:1.15}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:760px;margin:0 auto;padding:0 24px}
+  nav{position:sticky;top:0;z-index:50;background:rgba(249,242,231,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px;max-width:760px;margin:0 auto;padding:0 24px}
+  .brand{display:flex;align-items:center;gap:9px;font-family:'Fraunces',serif;font-size:1.18rem;font-weight:600}
+  .flame{width:22px;height:22px}
+  .back{font-weight:700;font-size:.88rem;color:var(--ember-deep)}
+  header{background:var(--brown);color:#fdf7ec;padding:54px 0 48px;position:relative;overflow:hidden}
+  header::after{content:"";position:absolute;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,rgba(240,169,79,.32),transparent 65%);top:-130px;right:-90px}
+  .eyebrow{font-weight:700;text-transform:uppercase;letter-spacing:.18em;font-size:.7rem;color:var(--amber);margin-bottom:12px;position:relative}
+  header h1{color:#fdf7ec;font-size:clamp(2rem,6vw,3rem);margin-bottom:14px;position:relative}
+  header p{color:#e7d8c2;font-size:1.06rem;position:relative;max-width:34em}
+  .meta{display:flex;gap:22px;margin-top:22px;position:relative}
+  .meta div{font-size:.82rem;color:#cbb89f}
+  .meta b{display:block;font-family:'Fraunces',serif;font-size:1.5rem;color:var(--amber);font-weight:600}
+  main{padding:46px 0 20px}
+  .prompt{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:28px 26px;margin-bottom:22px;box-shadow:var(--shadow-sm)}
+  .pnum{font-family:'Fraunces',serif;font-size:.9rem;font-weight:600;color:var(--ember-deep);margin-bottom:8px}
+  .prompt h2{font-size:1.28rem;margin-bottom:18px}
+  .block{margin-bottom:16px}
+  .block .lab{font-weight:700;text-transform:uppercase;letter-spacing:.1em;font-size:.7rem;margin-bottom:6px}
+  .insight .lab{color:var(--sage-deep)}
+  .exercise{background:rgba(240,169,79,.1);border-left:3px solid var(--amber);border-radius:0 10px 10px 0;padding:14px 16px}
+  .exercise .lab{color:var(--ember-deep)}
+  .reflect{margin-top:18px}
+  .reflect .lab{font-weight:700;font-size:.78rem;color:var(--ink-soft);margin-bottom:8px}
+  .reflect-input{display:block;width:100%;min-height:132px;font-family:'Mulish',sans-serif;font-size:1rem;color:var(--ink);
+    line-height:32px;padding:5px 14px 8px;border:1px solid var(--line);border-radius:10px;resize:vertical;
+    background-color:var(--paper);
+    background-image:repeating-linear-gradient(transparent,transparent 31px,var(--line) 31px,var(--line) 32px);
+    background-attachment:local;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .reflect-input:focus{outline:none;border-color:var(--ember);box-shadow:0 0 0 3px rgba(231,112,47,.12)}
+  .reflect-input::placeholder{color:var(--ink-soft);opacity:.7}
+  .closing{text-align:center;background:var(--brown);color:#fdf7ec;border-radius:20px;padding:38px 30px;margin:30px 0}
+  .closing h2{color:#fdf7ec;font-size:1.6rem;margin-bottom:10px}
+  .closing p{color:#e7d8c2;max-width:30em;margin:0 auto}
+  .saved{text-align:center;font-size:.8rem;color:var(--sage-deep);margin:-6px 0 22px;min-height:1em}
+  .actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin:8px 0 40px}
+  .btn{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:.95rem;padding:13px 24px;border-radius:100px;cursor:pointer;border:0}
+  .btn-primary{background:var(--ember-deep);color:#fff}
+  .btn-ghost{background:transparent;border:1.5px solid var(--line);color:var(--charcoal)}
+  .disclaimer{background:var(--cream-2);border-top:1px solid var(--line);padding:26px 0;color:var(--ink-soft);font-size:.88rem;text-align:center;font-style:italic}
+  footer{background:var(--charcoal);color:rgba(255,255,255,.6);padding:30px 0;font-size:.86rem;text-align:center}
+  @media print{nav,.actions,.back,.saved{display:none}body{background:#fff}.prompt{break-inside:avoid;box-shadow:none}.reflect-input{border-color:#ccc}header,.closing,.exercise,.reflect-input{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+  @media(max-width:560px){header{padding:42px 0 36px}.prompt{padding:22px 20px}}
+</style>
+</head>
+<body>
+<nav><div class="nav-inner">
+  <a href="../../resource-library.html" class="brand"><svg class="flame" viewBox="0 0 24 24"><path d="M12 2c1.5 3.5-1 5-1 7.5 0 1.5 1 2.5 2 2.5s2-1 1.8-3c2 1.2 3.2 3.4 3.2 6 0 3.6-3 6.5-6 6.5S6 18.6 6 15c0-4 3-6.5 6-13z" fill="#e7702f"/></svg>Campfire Calm</a>
+  <a href="../../resource-library.html" class="back">← Library</a>
+</div></nav>
+<header><div class="wrap">
+  <div class="eyebrow">Guided Reflection Workbook</div>
+  <h1>Childhood Influence</h1>
+  <p>A guided self-reflection worksheet designed to help you explore your inner landscape through thoughtful prompts and exercises.</p>
+  <div class="meta"><div><b>20</b>Prompts</div><div><b>20</b>Insights</div><div><b>20</b>Exercises</div></div>
+</div></header>
+<main><div class="wrap">
+  <div class="prompt">
+    <div class="pnum">Prompt 01</div>
+    <h2>How did your earliest experiences with authority figures shape your current response to criticism?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Early interactions with authority often form a blueprint for how we handle feedback. If those encounters were harsh or inconsistent, you might react defensively or withdraw when criticized now. Recognizing this pattern allows you to consciously choose a calmer, more constructive response, separating past fears from present reality.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Recall a recent moment you felt criticized. Write down your immediate reaction and trace it back to a childhood memory with an authority figure. How might you respond differently now, knowing this connection?</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 02</div>
+    <h2>In what ways did your childhood environment teach you to cope with stress, and how do those strategies affect you today?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Childhood coping methods, whether healthy or avoidant, often become our default. If you learned to escape stress through distraction or suppression, you might struggle with emotional awareness now. Understanding these roots helps you develop more adaptive tools, like mindful breathing or problem-solving, to handle stress effectively.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Identify a current stressor. Notice your instinctive coping method and trace its origin to a childhood experience. Practice replacing it with a new, healthier response this week.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 03</div>
+    <h2>How did your parents or caregivers model emotional expression, and how does that influence your ability to share feelings now?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Children absorb emotional cues from caregivers, learning either openness or suppression. If emotions were dismissed or punished, you might find vulnerability challenging. Acknowledging this allows you to practice safe, gradual emotional sharing, strengthening your connections and self-understanding.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Journal about a time you held back your feelings. Then, imagine how your caregiver might have responded differently. Role-play expressing that feeling to a trusted person today.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 04</div>
+    <h2>What messages did you receive about failure in childhood, and how do they impact your risk-taking today?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Early messages can create fear or resilience around failure. If failure was met with shame or punishment, you might avoid challenges now. Recognizing that failure is a learning step empowers you to take calculated risks and grow beyond your comfort zone.</div>
+    <div class="block exercise"><div class="lab">Try this</div>List three recent situations where fear of failure held you back. Reflect on the childhood beliefs behind this fear and reframe each with a growth mindset statement.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 05</div>
+    <h2>How did your childhood experiences shape your beliefs about your own worthiness?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Early validation or neglect influences how worthy we feel. If you lacked consistent affirmation, you might struggle with self-esteem. Understanding this helps you build internal validation habits and challenge negative self-beliefs with evidence of your strengths.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Write down common negative thoughts about yourself. For each, note a childhood event that may have contributed. Then, counter each with a positive truth about who you are now.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 06</div>
+    <h2>In what ways did your family handle conflict, and how does that affect how you manage disagreements now?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Childhood conflict styles—avoidance, aggression, or collaboration—often become our default. If conflict was unsafe or ignored, you might avoid it or explode emotionally. By recognizing this, you can practice calm communication and set healthy boundaries in disagreements.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Recall a recent conflict and your response. Explore your family’s typical conflict approach and consider a new strategy to try next time.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 07</div>
+    <h2>How did your childhood experiences influence your ability to trust others?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Trust builds from early attachments. If your caregivers were inconsistent or unreliable, trusting others now may feel risky or impossible. Recognizing this helps you take small steps to build trust gradually, noticing when people show consistency and care.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Identify one person you find hard to trust. List small, observable behaviors that could help you feel safer with them. Plan a low-risk interaction to test these signals.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 08</div>
+    <h2>How did your childhood environment affect your sense of control over life events, and how does that shape your stress levels now?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Feeling powerless as a child can lead to a learned helplessness mindset. This may cause you to feel overwhelmed or anxious in adult challenges. Understanding this can motivate you to reclaim control by focusing on actionable steps and realistic goals.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Think of a current situation causing stress. Break it down into aspects you can control and those you can’t. Commit to acting on what’s controllable, letting go of the rest.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 09</div>
+    <h2>What childhood experiences contributed to your current patterns of perfectionism or self-criticism?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>If approval felt conditional on achievement, perfectionism or harsh self-judgment may have developed as survival mechanisms. Recognizing this allows you to cultivate self-compassion and accept imperfection as part of growth.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Notice a moment you criticize yourself today. Ask: “Would I speak this way to a child?” Practice a kinder internal dialogue instead.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 10</div>
+    <h2>How did your early friendships or social experiences influence your social confidence now?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Childhood social successes or rejections shape how safe and confident you feel connecting with others. If you faced exclusion or bullying, social anxiety may linger. Acknowledging this helps you challenge negative social beliefs and practice gradual exposure to social situations.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Identify a social fear linked to childhood. Create a step-by-step plan to face it in small, manageable ways over the next month.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 11</div>
+    <h2>How did your childhood experiences with praise or reward shape your motivation and value system?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>If praise was inconsistent or focused only on outcomes, you might tie your worth to achievements, risking burnout or dissatisfaction. Understanding this helps you develop intrinsic motivation and appreciate effort and growth over results.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Reflect on a recent success. Write down what you liked about the process rather than the outcome. Celebrate your effort regardless of results.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 12</div>
+    <h2>How did your childhood experiences shape your beliefs about expressing needs and asking for help?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>If needs were ignored or punished, you might avoid asking for support now, leading to isolation. Recognizing this pattern encourages you to practice clear, assertive requests and accept help as a strength, not a weakness.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Identify a current need you are hesitant to express. Write a simple, direct statement to communicate it and plan a safe context to share it.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 13</div>
+    <h2>How did your early family dynamics influence your boundaries with others today?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Enmeshed or neglectful family systems can lead to weak or rigid boundaries. Understanding how your childhood shaped your limits allows you to reassess and set boundaries that protect your well-being while fostering healthy relationships.</div>
+    <div class="block exercise"><div class="lab">Try this</div>List three boundaries you struggle with. Reflect on childhood lessons about limits and rewrite each boundary statement in a way that feels balanced and respectful.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 14</div>
+    <h2>How did childhood experiences influence your relationship with control and uncertainty?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Growing up in unpredictable environments can foster either excessive control or avoidance of decisions. Recognizing this helps you tolerate uncertainty and build flexible coping skills that reduce anxiety and increase resilience.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Note a recent moment when uncertainty triggered discomfort. Practice a grounding technique and reflect on how embracing some uncertainty can lead to new opportunities.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 15</div>
+    <h2>How did your childhood shape your relationship with your body and physical sensations?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>If your physical needs or discomforts were dismissed, you might be disconnected from your body or mistrust bodily signals. Becoming aware of this helps you listen to and care for your body with compassion, improving overall well-being.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Spend five minutes scanning your body, noticing sensations without judgment. Write about any surprises or emotions that arise.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 16</div>
+    <h2>How did your early experiences influence your beliefs around success and failure in relationships?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Childhood attachment patterns teach us what to expect in relationships. If love felt conditional or inconsistent, you may fear abandonment or rejection now. Understanding this allows you to challenge unhelpful beliefs and build secure, trusting bonds.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Identify a recurring relationship fear. Trace its origins to childhood and write down three ways you can remind yourself that past patterns don’t dictate your present.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 17</div>
+    <h2>How did your childhood messages about emotions influence your ability to regulate intense feelings today?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>If strong emotions were labeled “bad” or overwhelming, you might suppress or explode when upset now. Recognizing this lets you practice tolerating emotions through grounding and labeling, reducing their intensity over time.</div>
+    <div class="block exercise"><div class="lab">Try this</div>When feeling a strong emotion next time, pause and name it silently. Take three deep breaths and note how this changes your experience.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 18</div>
+    <h2>How did your early experiences with praise and criticism impact your internal dialogue?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Internal voices often echo childhood feedback. If criticism was frequent, your inner critic may be harsh and relentless. Becoming aware of this lets you challenge and soften that voice with compassionate, balanced self-talk.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Write down the last self-critical thought. Ask yourself what a compassionate friend would say instead. Practice repeating that kindness inwardly.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 19</div>
+    <h2>How did your childhood influence your patterns of avoiding discomfort or difficult emotions?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Avoidance can be a learned survival strategy from environments where emotional expression was unsafe. While it offers short-term relief, it limits growth. Recognizing avoidance patterns helps you gradually face discomfort with supportive strategies.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Identify a recent moment you avoided discomfort. Rate your distress on a scale of 1–10. Challenge yourself to stay present next time, using a coping skill like deep breathing or distraction.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 20</div>
+    <h2>How did your early family narrative shape your understanding of what it means to be “strong”?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>If strength was equated with stoicism or self-reliance, you might suppress vulnerability or support-seeking. Understanding that true strength includes openness and connection allows you to embrace a fuller, healthier sense of resilience.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Reflect on what “being strong” meant in your family. Write a new definition that includes emotional honesty and asking for help. Practice living by this new definition in small ways.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="saved" id="savedNote"></div>
+  <div class="closing">
+    <h2>Your journey continues</h2>
+    <p>Reflection isn't a one-time exercise. Return to these prompts whenever you need a steady place to think.</p>
+  </div>
+  <div class="actions">
+    <button class="btn btn-primary" onclick="window.print()">Download / Print PDF</button>
+    <a href="../../resource-library.html" class="btn btn-ghost">← Back to library</a>
+  </div>
+</div></main>
+<div class="disclaimer"><div class="wrap">This workbook is for education and self-reflection. It is not a diagnosis or a substitute for therapy. If you are in crisis, call or text 988.</div></div>
+<footer><div class="wrap">© <span id="yr"></span> Campfire Calm™ · Jason M. Leclair, LPC</div></footer>
+<script>
+  document.getElementById('yr').textContent=new Date().getFullYear();
+  (function(){
+    var key="cc-reflect:childhood-influence:";
+    var areas=document.querySelectorAll('.reflect-input');
+    var note=document.getElementById('savedNote');
+    function save(i,v){try{localStorage.setItem(key+i,v);note.textContent='Saved on this device';clearTimeout(window._t);window._t=setTimeout(function(){note.textContent='';},1500);}catch(e){}}
+    areas.forEach(function(a,i){
+      try{var v=localStorage.getItem(key+i);if(v)a.value=v;}catch(e){}
+      a.addEventListener('input',function(){save(i,a.value);});
+    });
+  })();
+</script>
+</body>
+</html>

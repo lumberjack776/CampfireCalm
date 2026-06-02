@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light">
+<title>Detachment from Thoughts — Campfire Calm</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Mulish:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{color-scheme:light;--cream:#f9f2e7;--cream-2:#fef9ef;--paper:#fffdf8;--charcoal:#2a201a;--ember:#e7702f;--ember-deep:#cf551a;--amber:#f0a94f;--sage-deep:#4f7a5d;--ink:#352b23;--ink-soft:#6a5c4e;--line:rgba(60,50,42,.13);--brown:#2e2117;--shadow-sm:0 8px 24px -14px rgba(60,40,25,.3);--r:16px}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Mulish',sans-serif;color:var(--ink);background:linear-gradient(180deg,var(--cream),#fcefdf);line-height:1.7;-webkit-font-smoothing:antialiased}
+  h1,h2,h3{font-family:'Fraunces',serif;font-weight:500;color:var(--charcoal);letter-spacing:-.01em;line-height:1.15}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:760px;margin:0 auto;padding:0 24px}
+  nav{position:sticky;top:0;z-index:50;background:rgba(249,242,231,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px;max-width:760px;margin:0 auto;padding:0 24px}
+  .brand{display:flex;align-items:center;gap:9px;font-family:'Fraunces',serif;font-size:1.18rem;font-weight:600}
+  .flame{width:22px;height:22px}
+  .back{font-weight:700;font-size:.88rem;color:var(--ember-deep)}
+  header{background:var(--brown);color:#fdf7ec;padding:54px 0 48px;position:relative;overflow:hidden}
+  header::after{content:"";position:absolute;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,rgba(240,169,79,.32),transparent 65%);top:-130px;right:-90px}
+  .eyebrow{font-weight:700;text-transform:uppercase;letter-spacing:.18em;font-size:.7rem;color:var(--amber);margin-bottom:12px;position:relative}
+  header h1{color:#fdf7ec;font-size:clamp(2rem,6vw,3rem);margin-bottom:14px;position:relative}
+  header p{color:#e7d8c2;font-size:1.06rem;position:relative;max-width:34em}
+  .meta{display:flex;gap:22px;margin-top:22px;position:relative}
+  .meta div{font-size:.82rem;color:#cbb89f}
+  .meta b{display:block;font-family:'Fraunces',serif;font-size:1.5rem;color:var(--amber);font-weight:600}
+  main{padding:46px 0 20px}
+  .prompt{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:28px 26px;margin-bottom:22px;box-shadow:var(--shadow-sm)}
+  .pnum{font-family:'Fraunces',serif;font-size:.9rem;font-weight:600;color:var(--ember-deep);margin-bottom:8px}
+  .prompt h2{font-size:1.28rem;margin-bottom:18px}
+  .block{margin-bottom:16px}
+  .block .lab{font-weight:700;text-transform:uppercase;letter-spacing:.1em;font-size:.7rem;margin-bottom:6px}
+  .insight .lab{color:var(--sage-deep)}
+  .exercise{background:rgba(240,169,79,.1);border-left:3px solid var(--amber);border-radius:0 10px 10px 0;padding:14px 16px}
+  .exercise .lab{color:var(--ember-deep)}
+  .reflect{margin-top:18px}
+  .reflect .lab{font-weight:700;font-size:.78rem;color:var(--ink-soft);margin-bottom:8px}
+  .reflect-input{display:block;width:100%;min-height:132px;font-family:'Mulish',sans-serif;font-size:1rem;color:var(--ink);
+    line-height:32px;padding:5px 14px 8px;border:1px solid var(--line);border-radius:10px;resize:vertical;
+    background-color:var(--paper);
+    background-image:repeating-linear-gradient(transparent,transparent 31px,var(--line) 31px,var(--line) 32px);
+    background-attachment:local;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .reflect-input:focus{outline:none;border-color:var(--ember);box-shadow:0 0 0 3px rgba(231,112,47,.12)}
+  .reflect-input::placeholder{color:var(--ink-soft);opacity:.7}
+  .closing{text-align:center;background:var(--brown);color:#fdf7ec;border-radius:20px;padding:38px 30px;margin:30px 0}
+  .closing h2{color:#fdf7ec;font-size:1.6rem;margin-bottom:10px}
+  .closing p{color:#e7d8c2;max-width:30em;margin:0 auto}
+  .saved{text-align:center;font-size:.8rem;color:var(--sage-deep);margin:-6px 0 22px;min-height:1em}
+  .actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin:8px 0 40px}
+  .btn{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:.95rem;padding:13px 24px;border-radius:100px;cursor:pointer;border:0}
+  .btn-primary{background:var(--ember-deep);color:#fff}
+  .btn-ghost{background:transparent;border:1.5px solid var(--line);color:var(--charcoal)}
+  .disclaimer{background:var(--cream-2);border-top:1px solid var(--line);padding:26px 0;color:var(--ink-soft);font-size:.88rem;text-align:center;font-style:italic}
+  footer{background:var(--charcoal);color:rgba(255,255,255,.6);padding:30px 0;font-size:.86rem;text-align:center}
+  @media print{nav,.actions,.back,.saved{display:none}body{background:#fff}.prompt{break-inside:avoid;box-shadow:none}.reflect-input{border-color:#ccc}header,.closing,.exercise,.reflect-input{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+  @media(max-width:560px){header{padding:42px 0 36px}.prompt{padding:22px 20px}}
+</style>
+</head>
+<body>
+<nav><div class="nav-inner">
+  <a href="../../resource-library.html" class="brand"><svg class="flame" viewBox="0 0 24 24"><path d="M12 2c1.5 3.5-1 5-1 7.5 0 1.5 1 2.5 2 2.5s2-1 1.8-3c2 1.2 3.2 3.4 3.2 6 0 3.6-3 6.5-6 6.5S6 18.6 6 15c0-4 3-6.5 6-13z" fill="#e7702f"/></svg>Campfire Calm</a>
+  <a href="../../resource-library.html" class="back">← Library</a>
+</div></nav>
+<header><div class="wrap">
+  <div class="eyebrow">Guided Reflection Workbook</div>
+  <h1>Detachment from Thoughts</h1>
+  <p>A guided self-reflection worksheet designed to help you explore your inner landscape through thoughtful prompts and exercises.</p>
+  <div class="meta"><div><b>18</b>Prompts</div><div><b>18</b>Insights</div><div><b>18</b>Exercises</div></div>
+</div></header>
+<main><div class="wrap">
+  <div class="prompt">
+    <div class="pnum">Prompt 01</div>
+    <h2>How can I recognize when I am overly attached to a distressing thought instead of observing it objectively?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Notice when a thought triggers strong emotions or repetitive mental loops that consume your focus. This signals attachment. Instead of diving into the thought’s content, practice stepping back and labeling it as “just a thought,” which helps create mental distance.</div>
+    <div class="block exercise"><div class="lab">Try this</div>When a troubling thought arises today, pause and mentally say, “This is a thought, not a fact,” then note how your emotional intensity changes.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 02</div>
+    <h2>What practical steps can I take to separate my identity from intrusive or negative thoughts?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Remind yourself that thoughts are transient mental events, not definitions of who you are. Use techniques like mindfulness or thought labeling (“I am having the thought that…”) to create a boundary between your sense of self and your mind’s chatter.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Write down a negative thought you frequently have, then rewrite it starting with “I am having the thought that,” noticing the shift in how you relate to it.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 03</div>
+    <h2>How does detaching from thoughts reduce emotional suffering in day-to-day life?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Emotional suffering often stems from taking thoughts as absolute truths, which fuels anxiety or sadness. Detachment allows you to witness thoughts without reacting impulsively, giving you space to choose a calmer, more balanced response.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Track moments today when a negative thought popped up; note if stepping back from it changed how upset you felt afterward.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 04</div>
+    <h2>Why do some people struggle to let go of thoughts, even when they know it causes distress?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Attachment to thoughts can serve as a misguided attempt to control uncertainty or protect against vulnerability. Recognizing this helps you develop compassion for yourself and gently practice loosening the grip instead of forcing detachment.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Reflect on a recent moment you clung to a thought; ask yourself what you might have been trying to achieve or avoid by holding on.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 05</div>
+    <h2>What role does mindfulness play in learning to detach from persistent thoughts?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Mindfulness trains you to observe thoughts as passing events without judgment, which naturally weakens their hold over you. It builds awareness that thoughts come and go, reducing the impulse to engage or resist them.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Spend five minutes focusing on your breath and noticing any thoughts that arise without trying to change them; simply watch and let them drift away.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 06</div>
+    <h2>How can I use cognitive restructuring to help detach from harmful thought patterns?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Identify and challenge distorted thoughts by examining evidence and considering alternative perspectives. This process reduces automatic belief in negative thoughts, creating mental space between you and these patterns.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Pick one negative thought, write down evidence for and against it, then create a balanced, realistic alternative thought.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 07</div>
+    <h2>Can detachment from thoughts improve decision-making? How?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>When you detach, you reduce impulsive reactions driven by emotional or biased thoughts. This clarity allows you to consider options more objectively and choose actions aligned with your values rather than immediate mental noise.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Next time you face a decision, pause to notice your initial thoughts without acting on them; reflect on how this pause affects your choice.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 08</div>
+    <h2>How might habitual rumination affect my ability to detach from thoughts?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Rumination reinforces attachment by replaying thoughts repeatedly, making them feel more real and urgent. Breaking this cycle through distraction or refocusing techniques helps weaken their hold.</div>
+    <div class="block exercise"><div class="lab">Try this</div>When you catch yourself ruminating, practice shifting attention to an engaging activity or sensory experience for five minutes, then observe changes in your mental state.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 09</div>
+    <h2>What is the difference between detaching from thoughts and suppressing them?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Detachment means observing thoughts without judgment or reaction, allowing them to come and go naturally. Suppression tries to push thoughts away forcibly, often increasing their intensity and persistence.</div>
+    <div class="block exercise"><div class="lab">Try this</div>When a difficult thought arises, try to notice it fully without trying to block it; note how this openness changes your experience compared to past attempts to suppress it.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 10</div>
+    <h2>How can I create a daily habit that strengthens my ability to detach from unhelpful thoughts?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Consistent mindfulness practice, journaling your thoughts with an observer stance, or scheduled “worry time” where you briefly engage then release thoughts can build detachment muscle over time.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Set aside 10 minutes daily to mindfully observe your thoughts or write them down, then intentionally let them go before moving on.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 11</div>
+    <h2>How does self-compassion support detachment from self-critical thoughts?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Self-compassion soothes the emotional charge behind self-critical thoughts, making it easier to see them as separate from your worth. This gentle attitude reduces identification with harsh mental messages.</div>
+    <div class="block exercise"><div class="lab">Try this</div>When a self-critical thought arises, silently offer yourself kindness or imagine comforting a friend with the same thought.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 12</div>
+    <h2>How can physical sensations help me detach from overwhelming thoughts?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Grounding in the body—like feeling your feet on the floor or focusing on breath—anchors you in the present moment, shifting attention away from runaway thoughts and reducing their power.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Next time you feel overwhelmed by thoughts, pause to notice three physical sensations around you, describing them silently to yourself.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 13</div>
+    <h2>How do labels like “just a thought” or “mental event” change my relationship with intrusive thoughts?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>These labels remind you that thoughts are temporary and not necessarily true, creating psychological distance and reducing automatic belief and emotional reactivity.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Practice silently tagging intrusive thoughts today with “just a thought” and observe how this affects your engagement with them.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 14</div>
+    <h2>What is the role of acceptance in detaching from difficult thoughts?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Accepting that thoughts will arise without needing to control or fight them reduces resistance, which often fuels distress. Acceptance creates space for detachment by allowing thoughts to exist without struggle.</div>
+    <div class="block exercise"><div class="lab">Try this</div>When a distressing thought appears, acknowledge it without judgment or attempts to change it; notice how this acceptance influences your emotional response.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 15</div>
+    <h2>How can journaling help me detach from recurring negative thoughts?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Writing thoughts down externalizes them, making them less abstract and more manageable. This process also enables you to reflect with curiosity rather than getting lost inside them.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Spend 10 minutes journaling a recurring negative thought today, then reread it as if it belonged to someone else.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 16</div>
+    <h2>How does detachment from thoughts contribute to better emotional regulation?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>When you detach, you interrupt automatic emotional escalation triggered by thought patterns, giving you more control over your feelings and responses.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Observe an emotional reaction linked to a thought, and practice stepping back to watch the thought without reacting immediately, then note any changes in intensity.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 17</div>
+    <h2>How can I use visualization to aid in detaching from persistent worries?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Imagine placing the thought on a leaf floating down a stream or a cloud passing by; these images help reinforce the idea that thoughts come and go, not stuck inside you.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Visualize a current worry as a passing object in nature for two minutes and notice how this shift affects your mental grip on it.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 18</div>
+    <h2>How can detaching from thoughts improve my ability to focus on the present moment?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Detachment reduces mental clutter caused by distracting or repetitive thoughts, allowing attention to settle on immediate experience, which enhances clarity and calm.</div>
+    <div class="block exercise"><div class="lab">Try this</div>During a routine activity, notice when your mind drifts to thoughts, gently bring attention back to the task, and practice releasing the wandering thought without judgment.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="saved" id="savedNote"></div>
+  <div class="closing">
+    <h2>Your journey continues</h2>
+    <p>Reflection isn't a one-time exercise. Return to these prompts whenever you need a steady place to think.</p>
+  </div>
+  <div class="actions">
+    <button class="btn btn-primary" onclick="window.print()">Download / Print PDF</button>
+    <a href="../../resource-library.html" class="btn btn-ghost">← Back to library</a>
+  </div>
+</div></main>
+<div class="disclaimer"><div class="wrap">This workbook is for education and self-reflection. It is not a diagnosis or a substitute for therapy. If you are in crisis, call or text 988.</div></div>
+<footer><div class="wrap">© <span id="yr"></span> Campfire Calm™ · Jason M. Leclair, LPC</div></footer>
+<script>
+  document.getElementById('yr').textContent=new Date().getFullYear();
+  (function(){
+    var key="cc-reflect:detachment-from-thoughts:";
+    var areas=document.querySelectorAll('.reflect-input');
+    var note=document.getElementById('savedNote');
+    function save(i,v){try{localStorage.setItem(key+i,v);note.textContent='Saved on this device';clearTimeout(window._t);window._t=setTimeout(function(){note.textContent='';},1500);}catch(e){}}
+    areas.forEach(function(a,i){
+      try{var v=localStorage.getItem(key+i);if(v)a.value=v;}catch(e){}
+      a.addEventListener('input',function(){save(i,a.value);});
+    });
+  })();
+</script>
+</body>
+</html>

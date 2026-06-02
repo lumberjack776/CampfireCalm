@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light">
+<title>Passive Behavior — Campfire Calm</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Mulish:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{color-scheme:light;--cream:#f9f2e7;--cream-2:#fef9ef;--paper:#fffdf8;--charcoal:#2a201a;--ember:#e7702f;--ember-deep:#cf551a;--amber:#f0a94f;--sage-deep:#4f7a5d;--ink:#352b23;--ink-soft:#6a5c4e;--line:rgba(60,50,42,.13);--brown:#2e2117;--shadow-sm:0 8px 24px -14px rgba(60,40,25,.3);--r:16px}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Mulish',sans-serif;color:var(--ink);background:linear-gradient(180deg,var(--cream),#fcefdf);line-height:1.7;-webkit-font-smoothing:antialiased}
+  h1,h2,h3{font-family:'Fraunces',serif;font-weight:500;color:var(--charcoal);letter-spacing:-.01em;line-height:1.15}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:760px;margin:0 auto;padding:0 24px}
+  nav{position:sticky;top:0;z-index:50;background:rgba(249,242,231,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px;max-width:760px;margin:0 auto;padding:0 24px}
+  .brand{display:flex;align-items:center;gap:9px;font-family:'Fraunces',serif;font-size:1.18rem;font-weight:600}
+  .flame{width:22px;height:22px}
+  .back{font-weight:700;font-size:.88rem;color:var(--ember-deep)}
+  header{background:var(--brown);color:#fdf7ec;padding:54px 0 48px;position:relative;overflow:hidden}
+  header::after{content:"";position:absolute;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,rgba(240,169,79,.32),transparent 65%);top:-130px;right:-90px}
+  .eyebrow{font-weight:700;text-transform:uppercase;letter-spacing:.18em;font-size:.7rem;color:var(--amber);margin-bottom:12px;position:relative}
+  header h1{color:#fdf7ec;font-size:clamp(2rem,6vw,3rem);margin-bottom:14px;position:relative}
+  header p{color:#e7d8c2;font-size:1.06rem;position:relative;max-width:34em}
+  .meta{display:flex;gap:22px;margin-top:22px;position:relative}
+  .meta div{font-size:.82rem;color:#cbb89f}
+  .meta b{display:block;font-family:'Fraunces',serif;font-size:1.5rem;color:var(--amber);font-weight:600}
+  main{padding:46px 0 20px}
+  .prompt{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:28px 26px;margin-bottom:22px;box-shadow:var(--shadow-sm)}
+  .pnum{font-family:'Fraunces',serif;font-size:.9rem;font-weight:600;color:var(--ember-deep);margin-bottom:8px}
+  .prompt h2{font-size:1.28rem;margin-bottom:18px}
+  .block{margin-bottom:16px}
+  .block .lab{font-weight:700;text-transform:uppercase;letter-spacing:.1em;font-size:.7rem;margin-bottom:6px}
+  .insight .lab{color:var(--sage-deep)}
+  .exercise{background:rgba(240,169,79,.1);border-left:3px solid var(--amber);border-radius:0 10px 10px 0;padding:14px 16px}
+  .exercise .lab{color:var(--ember-deep)}
+  .reflect{margin-top:18px}
+  .reflect .lab{font-weight:700;font-size:.78rem;color:var(--ink-soft);margin-bottom:8px}
+  .reflect-input{display:block;width:100%;min-height:132px;font-family:'Mulish',sans-serif;font-size:1rem;color:var(--ink);
+    line-height:32px;padding:5px 14px 8px;border:1px solid var(--line);border-radius:10px;resize:vertical;
+    background-color:var(--paper);
+    background-image:repeating-linear-gradient(transparent,transparent 31px,var(--line) 31px,var(--line) 32px);
+    background-attachment:local;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .reflect-input:focus{outline:none;border-color:var(--ember);box-shadow:0 0 0 3px rgba(231,112,47,.12)}
+  .reflect-input::placeholder{color:var(--ink-soft);opacity:.7}
+  .closing{text-align:center;background:var(--brown);color:#fdf7ec;border-radius:20px;padding:38px 30px;margin:30px 0}
+  .closing h2{color:#fdf7ec;font-size:1.6rem;margin-bottom:10px}
+  .closing p{color:#e7d8c2;max-width:30em;margin:0 auto}
+  .saved{text-align:center;font-size:.8rem;color:var(--sage-deep);margin:-6px 0 22px;min-height:1em}
+  .actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin:8px 0 40px}
+  .btn{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:.95rem;padding:13px 24px;border-radius:100px;cursor:pointer;border:0}
+  .btn-primary{background:var(--ember-deep);color:#fff}
+  .btn-ghost{background:transparent;border:1.5px solid var(--line);color:var(--charcoal)}
+  .disclaimer{background:var(--cream-2);border-top:1px solid var(--line);padding:26px 0;color:var(--ink-soft);font-size:.88rem;text-align:center;font-style:italic}
+  footer{background:var(--charcoal);color:rgba(255,255,255,.6);padding:30px 0;font-size:.86rem;text-align:center}
+  @media print{nav,.actions,.back,.saved{display:none}body{background:#fff}.prompt{break-inside:avoid;box-shadow:none}.reflect-input{border-color:#ccc}header,.closing,.exercise,.reflect-input{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+  @media(max-width:560px){header{padding:42px 0 36px}.prompt{padding:22px 20px}}
+</style>
+</head>
+<body>
+<nav><div class="nav-inner">
+  <a href="../../resource-library.html" class="brand"><svg class="flame" viewBox="0 0 24 24"><path d="M12 2c1.5 3.5-1 5-1 7.5 0 1.5 1 2.5 2 2.5s2-1 1.8-3c2 1.2 3.2 3.4 3.2 6 0 3.6-3 6.5-6 6.5S6 18.6 6 15c0-4 3-6.5 6-13z" fill="#e7702f"/></svg>Campfire Calm</a>
+  <a href="../../resource-library.html" class="back">← Library</a>
+</div></nav>
+<header><div class="wrap">
+  <div class="eyebrow">Guided Reflection Workbook</div>
+  <h1>Passive Behavior</h1>
+  <p>A guided self-reflection worksheet designed to help you explore your inner landscape through thoughtful prompts and exercises.</p>
+  <div class="meta"><div><b>20</b>Prompts</div><div><b>20</b>Insights</div><div><b>20</b>Exercises</div></div>
+</div></header>
+<main><div class="wrap">
+  <div class="prompt">
+    <div class="pnum">Prompt 01</div>
+    <h2>When you want to express your needs but hold back to avoid conflict, what thoughts run through your mind?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Often, passive behavior stems from fearing negative reactions or rejection. Recognizing these thoughts helps you see they are assumptions, not facts. You can challenge them by asking, “What evidence do I have that speaking up will harm me?” This shift creates space for assertiveness</div>
+    <div class="block exercise"><div class="lab">Try this</div>Write down a recent situation where you stayed silent. Note what you feared and then list three possible positive outcomes if you had spoken up.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 02</div>
+    <h2>How do you feel physically and emotionally when you agree to things you don’t want to do?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Your body and emotions often send early signals, like tension, frustration, or exhaustion, when you suppress your true feelings. Tuning into these cues helps you identify passive behavior before it escalates, allowing you to pause and reconsider your response</div>
+    <div class="block exercise"><div class="lab">Try this</div>For one day, check in with your body every few hours. Record any discomfort or stress and link it to moments you said “yes” reluctantly.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 03</div>
+    <h2>What do you believe will happen if you assert your boundaries with others?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Passive behavior often arises from overestimating the risks of boundary-setting. Exploring these beliefs reveals that many fears are exaggerated or outdated. Gradually testing boundaries in small ways builds resilience and shows relationships can adapt positively</div>
+    <div class="block exercise"><div class="lab">Try this</div>Identify one small boundary you can set this week. Afterward, journal what actually happened versus what you feared.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 04</div>
+    <h2>How do you interpret silence in conversations when you’re tempted to remain passive?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Silence can feel like a safe retreat, but it often communicates avoidance or disengagement, which may harm relationships over time. Learning to fill silence with honest, calm expression strengthens connection and reduces misunderstandings</div>
+    <div class="block exercise"><div class="lab">Try this</div>Practice holding a brief pause before responding in a conversation. Use that moment to breathe and then share one honest feeling or thought.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 05</div>
+    <h2>In what ways has passive behavior impacted your self-esteem?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Consistently putting others’ needs before your own can erode your sense of worth, making you feel invisible or unimportant. Recognizing that your voice matters is a first step to rebuilding self-esteem through small acts of self-advocacy</div>
+    <div class="block exercise"><div class="lab">Try this</div>Write a letter to yourself acknowledging your value and one way you will honor your needs this week.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 06</div>
+    <h2>When you look back, can you identify a pattern or trigger that makes you default to passive responses?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Triggers often include fear of judgment, past criticism, or desire to keep peace. Spotting these patterns allows you to prepare alternative responses and practice new behaviors in less charged moments</div>
+    <div class="block exercise"><div class="lab">Try this</div>Keep a trigger journal for a week, noting situations where passivity arises and what emotions or thoughts preceded it.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 07</div>
+    <h2>How do you differentiate between being polite and being passive?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Politeness respects others while honoring your own needs; passivity sacrifices your needs to avoid discomfort. Understanding this balance helps you communicate with kindness and firmness, fostering healthier interactions</div>
+    <div class="block exercise"><div class="lab">Try this</div>Reflect on a recent “polite” interaction. Identify if you compromised your needs. Rewrite the scenario with a more balanced response.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 08</div>
+    <h2>What is one fear that stops you from saying “no” even when you want to?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Fear of disappointing others or being disliked is common but often misplaced. Saying “no” respectfully can actually build respect and clarify expectations, reducing resentment and overwhelm</div>
+    <div class="block exercise"><div class="lab">Try this</div>Practice saying “no” in low-stakes situations, noticing your feelings and any surprises in others’ reactions.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 09</div>
+    <h2>How do you respond internally when someone criticizes or disagrees with you?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Passive behavior may come from avoiding conflict or internalizing criticism. Learning to separate feedback from personal worth helps you respond calmly and choose when to engage or disengage</div>
+    <div class="block exercise"><div class="lab">Try this</div>Recall a recent criticism. Write down your automatic response, then reframe it with a balanced perspective focusing on facts, not emotions.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 10</div>
+    <h2>What role does your past experience with authority figures play in your passive behavior?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Early experiences with strict or unresponsive authority can condition you to suppress your voice to stay safe. Recognizing this influence empowers you to rewrite your response patterns in adult relationships</div>
+    <div class="block exercise"><div class="lab">Try this</div>Reflect on your childhood interactions with authority. Identify one belief you formed about speaking up and challenge whether it still serves you.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 11</div>
+    <h2>How might passive behavior affect your long-term goals or personal growth?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Avoiding self-expression can lead to missed opportunities, unresolved needs, and stagnation. Embracing assertiveness opens pathways for growth by aligning daily actions with your true desires</div>
+    <div class="block exercise"><div class="lab">Try this</div>List three personal goals and note how passive behavior might be hindering progress. Plan one assertive step toward each goal.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 12</div>
+    <h2>What inner dialogue do you have when deciding whether to speak up or stay silent?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>This dialogue often includes self-criticism or fear-based “what if” scenarios. Becoming aware of these thoughts allows you to challenge and replace them with supportive, realistic self-talk</div>
+    <div class="block exercise"><div class="lab">Try this</div>Capture your inner dialogue during a conversation. Identify negative patterns and craft alternative, encouraging statements.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 13</div>
+    <h2>How do you feel about conflict, and how does this feeling influence your passivity?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Viewing conflict as inherently dangerous leads to avoidance and passivity. Reframing conflict as a natural, manageable part of relationships reduces fear and empowers you to engage constructively</div>
+    <div class="block exercise"><div class="lab">Try this</div>Reflect on a recent conflict. Note what you learned and how you might approach it differently with less fear.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 14</div>
+    <h2>When you suppress your opinions, what impact does it have on your relationships?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Suppression can create distance and misunderstandings, as others may sense a lack of authenticity. Sharing your true thoughts fosters trust and deeper connection</div>
+    <div class="block exercise"><div class="lab">Try this</div>Identify one relationship where you feel unheard. Plan a small, honest disclosure to enhance openness.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 15</div>
+    <h2>How do you balance your desire to please others with your need for self-respect?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>True respect comes from honoring both parties’ needs. Learning to say “yes” selectively and “no” when necessary maintains harmony without sacrificing your dignity</div>
+    <div class="block exercise"><div class="lab">Try this</div>Review recent decisions made to please others. Assess how they affected your self-respect and adjust future choices accordingly.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 16</div>
+    <h2>What strategies can you use to gradually build confidence in expressing your thoughts?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Starting small, practicing assertive body language, and rehearsing key phrases can ease the transition from passivity to assertiveness. Consistency strengthens new neural pathways, making confident expression natural</div>
+    <div class="block exercise"><div class="lab">Try this</div>Role-play a scenario where you express a simple preference. Notice your posture, tone, and feelings during the exercise.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 17</div>
+    <h2>How do you interpret others’ reactions when you assert yourself?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Passive behavior often comes from expecting negative responses, but many people respond neutrally or positively. Observing actual reactions helps recalibrate your expectations and reduces anxiety</div>
+    <div class="block exercise"><div class="lab">Try this</div>After asserting yourself, note the other person’s response objectively. Compare it to your initial fear or expectation.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 18</div>
+    <h2>What role does perfectionism play in your passive behavior?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Perfectionism can paralyze action due to fear of making mistakes or being judged. Accepting that imperfection is human frees you to express yourself without harsh self-judgment</div>
+    <div class="block exercise"><div class="lab">Try this</div>Identify one situation where perfectionism kept you silent. Write a compassionate note to yourself about the value of imperfection.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 19</div>
+    <h2>How do you feel about the phrase “your feelings are valid,” especially when you struggle with passivity?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Sometimes, passivity stems from doubting your feelings or considering them unimportant. Embracing the validity of your emotions empowers you to honor and communicate them authentically</div>
+    <div class="block exercise"><div class="lab">Try this</div>Choose one feeling you’ve ignored recently. Validate it by writing “My feeling of ___ is valid because ___,” then consider sharing it with someone safe.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 20</div>
+    <h2>What small action can you take today to move from passive to more active communication?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Change happens in manageable steps. A simple action, like stating a preference or asking a question, builds momentum toward assertiveness and self-respect</div>
+    <div class="block exercise"><div class="lab">Try this</div>Identify one small communication goal for today, such as expressing a preference or setting a boundary. Reflect afterward on how it felt and what you learned.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="saved" id="savedNote"></div>
+  <div class="closing">
+    <h2>Your journey continues</h2>
+    <p>Reflection isn't a one-time exercise. Return to these prompts whenever you need a steady place to think.</p>
+  </div>
+  <div class="actions">
+    <button class="btn btn-primary" onclick="window.print()">Download / Print PDF</button>
+    <a href="../../resource-library.html" class="btn btn-ghost">← Back to library</a>
+  </div>
+</div></main>
+<div class="disclaimer"><div class="wrap">This workbook is for education and self-reflection. It is not a diagnosis or a substitute for therapy. If you are in crisis, call or text 988.</div></div>
+<footer><div class="wrap">© <span id="yr"></span> Campfire Calm™ · Jason M. Leclair, LPC</div></footer>
+<script>
+  document.getElementById('yr').textContent=new Date().getFullYear();
+  (function(){
+    var key="cc-reflect:passive-behavior:";
+    var areas=document.querySelectorAll('.reflect-input');
+    var note=document.getElementById('savedNote');
+    function save(i,v){try{localStorage.setItem(key+i,v);note.textContent='Saved on this device';clearTimeout(window._t);window._t=setTimeout(function(){note.textContent='';},1500);}catch(e){}}
+    areas.forEach(function(a,i){
+      try{var v=localStorage.getItem(key+i);if(v)a.value=v;}catch(e){}
+      a.addEventListener('input',function(){save(i,a.value);});
+    });
+  })();
+</script>
+</body>
+</html>

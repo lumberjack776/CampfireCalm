@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light">
+<title>Execution Problems — Campfire Calm</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Mulish:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{color-scheme:light;--cream:#f9f2e7;--cream-2:#fef9ef;--paper:#fffdf8;--charcoal:#2a201a;--ember:#e7702f;--ember-deep:#cf551a;--amber:#f0a94f;--sage-deep:#4f7a5d;--ink:#352b23;--ink-soft:#6a5c4e;--line:rgba(60,50,42,.13);--brown:#2e2117;--shadow-sm:0 8px 24px -14px rgba(60,40,25,.3);--r:16px}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Mulish',sans-serif;color:var(--ink);background:linear-gradient(180deg,var(--cream),#fcefdf);line-height:1.7;-webkit-font-smoothing:antialiased}
+  h1,h2,h3{font-family:'Fraunces',serif;font-weight:500;color:var(--charcoal);letter-spacing:-.01em;line-height:1.15}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:760px;margin:0 auto;padding:0 24px}
+  nav{position:sticky;top:0;z-index:50;background:rgba(249,242,231,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px;max-width:760px;margin:0 auto;padding:0 24px}
+  .brand{display:flex;align-items:center;gap:9px;font-family:'Fraunces',serif;font-size:1.18rem;font-weight:600}
+  .flame{width:22px;height:22px}
+  .back{font-weight:700;font-size:.88rem;color:var(--ember-deep)}
+  header{background:var(--brown);color:#fdf7ec;padding:54px 0 48px;position:relative;overflow:hidden}
+  header::after{content:"";position:absolute;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,rgba(240,169,79,.32),transparent 65%);top:-130px;right:-90px}
+  .eyebrow{font-weight:700;text-transform:uppercase;letter-spacing:.18em;font-size:.7rem;color:var(--amber);margin-bottom:12px;position:relative}
+  header h1{color:#fdf7ec;font-size:clamp(2rem,6vw,3rem);margin-bottom:14px;position:relative}
+  header p{color:#e7d8c2;font-size:1.06rem;position:relative;max-width:34em}
+  .meta{display:flex;gap:22px;margin-top:22px;position:relative}
+  .meta div{font-size:.82rem;color:#cbb89f}
+  .meta b{display:block;font-family:'Fraunces',serif;font-size:1.5rem;color:var(--amber);font-weight:600}
+  main{padding:46px 0 20px}
+  .prompt{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:28px 26px;margin-bottom:22px;box-shadow:var(--shadow-sm)}
+  .pnum{font-family:'Fraunces',serif;font-size:.9rem;font-weight:600;color:var(--ember-deep);margin-bottom:8px}
+  .prompt h2{font-size:1.28rem;margin-bottom:18px}
+  .block{margin-bottom:16px}
+  .block .lab{font-weight:700;text-transform:uppercase;letter-spacing:.1em;font-size:.7rem;margin-bottom:6px}
+  .insight .lab{color:var(--sage-deep)}
+  .exercise{background:rgba(240,169,79,.1);border-left:3px solid var(--amber);border-radius:0 10px 10px 0;padding:14px 16px}
+  .exercise .lab{color:var(--ember-deep)}
+  .reflect{margin-top:18px}
+  .reflect .lab{font-weight:700;font-size:.78rem;color:var(--ink-soft);margin-bottom:8px}
+  .reflect-input{display:block;width:100%;min-height:132px;font-family:'Mulish',sans-serif;font-size:1rem;color:var(--ink);
+    line-height:32px;padding:5px 14px 8px;border:1px solid var(--line);border-radius:10px;resize:vertical;
+    background-color:var(--paper);
+    background-image:repeating-linear-gradient(transparent,transparent 31px,var(--line) 31px,var(--line) 32px);
+    background-attachment:local;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .reflect-input:focus{outline:none;border-color:var(--ember);box-shadow:0 0 0 3px rgba(231,112,47,.12)}
+  .reflect-input::placeholder{color:var(--ink-soft);opacity:.7}
+  .closing{text-align:center;background:var(--brown);color:#fdf7ec;border-radius:20px;padding:38px 30px;margin:30px 0}
+  .closing h2{color:#fdf7ec;font-size:1.6rem;margin-bottom:10px}
+  .closing p{color:#e7d8c2;max-width:30em;margin:0 auto}
+  .saved{text-align:center;font-size:.8rem;color:var(--sage-deep);margin:-6px 0 22px;min-height:1em}
+  .actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin:8px 0 40px}
+  .btn{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:.95rem;padding:13px 24px;border-radius:100px;cursor:pointer;border:0}
+  .btn-primary{background:var(--ember-deep);color:#fff}
+  .btn-ghost{background:transparent;border:1.5px solid var(--line);color:var(--charcoal)}
+  .disclaimer{background:var(--cream-2);border-top:1px solid var(--line);padding:26px 0;color:var(--ink-soft);font-size:.88rem;text-align:center;font-style:italic}
+  footer{background:var(--charcoal);color:rgba(255,255,255,.6);padding:30px 0;font-size:.86rem;text-align:center}
+  @media print{nav,.actions,.back,.saved{display:none}body{background:#fff}.prompt{break-inside:avoid;box-shadow:none}.reflect-input{border-color:#ccc}header,.closing,.exercise,.reflect-input{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+  @media(max-width:560px){header{padding:42px 0 36px}.prompt{padding:22px 20px}}
+</style>
+</head>
+<body>
+<nav><div class="nav-inner">
+  <a href="../../resource-library.html" class="brand"><svg class="flame" viewBox="0 0 24 24"><path d="M12 2c1.5 3.5-1 5-1 7.5 0 1.5 1 2.5 2 2.5s2-1 1.8-3c2 1.2 3.2 3.4 3.2 6 0 3.6-3 6.5-6 6.5S6 18.6 6 15c0-4 3-6.5 6-13z" fill="#e7702f"/></svg>Campfire Calm</a>
+  <a href="../../resource-library.html" class="back">← Library</a>
+</div></nav>
+<header><div class="wrap">
+  <div class="eyebrow">Guided Reflection Workbook</div>
+  <h1>Execution Problems</h1>
+  <p>A guided self-reflection worksheet designed to help you explore your inner landscape through thoughtful prompts and exercises.</p>
+  <div class="meta"><div><b>20</b>Prompts</div><div><b>20</b>Insights</div><div><b>20</b>Exercises</div></div>
+</div></header>
+<main><div class="wrap">
+  <div class="prompt">
+    <div class="pnum">Prompt 01</div>
+    <h2>What specific thoughts arise when you find yourself procrastinating on an important task?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Notice the exact thoughts fueling your delay—are they about fear of failure, perfectionism, or feeling overwhelmed? Identifying these helps break the cycle by challenging unhelpful beliefs and shifting focus onto actionable steps instead.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Write down your thoughts the next time you procrastinate, then question their truth and reframe them into encouraging, realistic statements.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 02</div>
+    <h2>How do small distractions derail your focus during work or projects?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Distractions often hijack attention when your mind craves novelty or relief from discomfort. Recognize these triggers and create intentional breaks or environment changes to manage urges without losing momentum.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Track your distractions for a day, noting what interrupts you and how you felt before and after. Plan two specific strategies to reduce these interruptions tomorrow.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 03</div>
+    <h2>When you fail to start a task, what feelings or bodily sensations do you notice?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Avoidance often links to uncomfortable emotions like anxiety, dread, or fatigue. Tune into your body’s signals—tight chest, restless legs—and use grounding or breathing techniques to ease tension and build readiness to begin.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Before starting your next task, pause to identify and describe your emotions and physical state, then practice a calming exercise for 3 minutes.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 04</div>
+    <h2>How do you typically respond when a task feels too complex or overwhelming?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Overwhelm can trigger shutdown or avoidance. Break tasks into smaller, manageable parts and focus on just the next step, which reduces anxiety and builds momentum through achievable wins.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Choose a daunting task and list three micro-steps you can take to start it within the next hour.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 05</div>
+    <h2>What self-talk do you use when you make a mistake during task execution?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Notice if your internal dialogue is harsh or forgiving. Harsh self-criticism increases avoidance, while compassionate self-talk helps maintain motivation and resilience. Practice replacing “I failed” with “I’m learning and improving.”</div>
+    <div class="block exercise"><div class="lab">Try this</div>Recall a recent mistake, write down your self-talk, and then rewrite it with a kinder, growth-oriented tone.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 06</div>
+    <h2>What role does your environment play in your ability to execute tasks effectively?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Your surroundings can either support focus or invite distraction. Creating a dedicated, clutter-free workspace signals your brain that it’s time to work, enhancing concentration and reducing procrastination.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Assess your current work environment and identify three changes that could improve your focus for tomorrow’s session.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 07</div>
+    <h2>How do you prioritize tasks when everything feels urgent?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Feeling everything is urgent can paralyze action. Use a priority matrix to distinguish tasks by importance and urgency, helping you focus on what truly moves you forward and reduce stress.</div>
+    <div class="block exercise"><div class="lab">Try this</div>List your tasks for today and categorize them using the Eisenhower Box: urgent/important, important/not urgent, urgent/not important, neither.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 08</div>
+    <h2>How do past failures influence your current ability to start or finish projects?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Past failures can create a fear-based mindset that sabotages new efforts. Acknowledge what you learned rather than dwelling on loss, and remind yourself that mistakes are part of growth, not a reflection of your worth.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Write about a past failure and list three lessons or strengths you gained from it.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 09</div>
+    <h2>What patterns do you notice in your daily routine that either support or hinder task execution?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Daily habits shape your capacity to act. Consistent routines create predictability and reduce decision fatigue, making it easier to start and complete tasks. Identify rituals that energize or drain you.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Map out your typical day and highlight two habits that improve your productivity and two that undermine it, then plan how to enhance or replace them.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 10</div>
+    <h2>How do you feel about asking for help when you struggle to execute a task?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Resistance to seeking help often stems from pride or fear of judgment but can increase isolation and difficulty. Recognize that collaboration is a strength, and reaching out can provide new perspectives and motivation.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Identify one task you’re avoiding and list two people who could support you; plan a specific way to ask for their help.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 11</div>
+    <h2>What expectations do you set for yourself that make task execution more difficult?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Unrealistic or perfectionistic expectations create pressure that can trigger procrastination or avoidance. Aim for “good enough” progress instead of flawless performance to maintain forward movement.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Reflect on a recent task, note any perfectionistic thoughts, and rewrite your expectations using kinder, achievable standards.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 12</div>
+    <h2>How do you manage your energy levels throughout the day in relation to task completion?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Energy fluctuations strongly impact productivity. Align challenging tasks with your peak energy times and schedule breaks or lower-effort activities during slumps to sustain momentum.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Track your energy levels over two days and plan tomorrow’s tasks according to your natural rhythms.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 13</div>
+    <h2>When faced with multiple distractions, how do you decide what to focus on?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Without clear criteria, distractions pull you in many directions. Establish simple decision rules based on goals or deadlines to quickly prioritize and redirect focus.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Before starting work, write down your top three priorities and refer to them when distractions arise.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 14</div>
+    <h2>How does fear of judgment impact your ability to execute tasks, especially in public or group settings?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Fear of judgment can cause avoidance or over-preparation, draining energy and delaying action. Practice self-compassion and remind yourself that others are mostly focused on their own concerns, reducing the power of perceived scrutiny.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Recall a recent moment when you feared judgment; write down evidence for and against your fear, then create a balanced perspective.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 15</div>
+    <h2>What role does your sense of meaning or purpose play in motivating execution?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Tasks aligned with your values spark intrinsic motivation, making execution feel more rewarding and less burdensome. When meaning fades, reconnecting with your why can reignite commitment.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Identify one task you’ve been avoiding and write about how it connects to a deeper value or goal.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 16</div>
+    <h2>How do you respond to unexpected setbacks during task execution?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Setbacks are inevitable, but how you respond shapes progress. Cultivate a flexible mindset by viewing obstacles as challenges to adapt to rather than insurmountable barriers.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Recall a recent setback and list three alternative approaches you could try next time you face a similar issue.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 17</div>
+    <h2>How does multitasking affect your ability to complete tasks efficiently?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Multitasking often reduces quality and increases time spent due to frequent switching costs. Focus on one task at a time to improve concentration and finish faster.</div>
+    <div class="block exercise"><div class="lab">Try this</div>For a work session, commit to focusing on a single task for 25 minutes and observe how your productivity changes.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 18</div>
+    <h2>What internal rewards or reinforcements do you use to encourage yourself to complete difficult tasks?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Positive reinforcement strengthens motivation. Identify meaningful rewards that celebrate progress, whether a short break, a favorite snack, or a moment of relaxation.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Plan a small reward for after you complete your next challenging task and reflect on how it influences your drive.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 19</div>
+    <h2>How do you handle feelings of boredom when working on repetitive or monotonous tasks?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Boredom saps attention and motivation. Introduce variety by changing your pace, environment, or incorporating mini-challenges to maintain engagement and momentum.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Next time you feel bored during a task, try altering your approach or setting a timer to work in short, focused bursts.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 20</div>
+    <h2>How do you balance the need for planning with the risk of getting stuck in overthinking before action?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Overplanning can become a form of avoidance. Set a time limit for planning and commit to starting action, knowing you can adjust as you go. Progress over perfection is key.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Before your next project, allocate a fixed amount of time (e.g., 30 minutes) for planning, then begin the first step regardless of how complete the plan feels.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="saved" id="savedNote"></div>
+  <div class="closing">
+    <h2>Your journey continues</h2>
+    <p>Reflection isn't a one-time exercise. Return to these prompts whenever you need a steady place to think.</p>
+  </div>
+  <div class="actions">
+    <button class="btn btn-primary" onclick="window.print()">Download / Print PDF</button>
+    <a href="../../resource-library.html" class="btn btn-ghost">← Back to library</a>
+  </div>
+</div></main>
+<div class="disclaimer"><div class="wrap">This workbook is for education and self-reflection. It is not a diagnosis or a substitute for therapy. If you are in crisis, call or text 988.</div></div>
+<footer><div class="wrap">© <span id="yr"></span> Campfire Calm™ · Jason M. Leclair, LPC</div></footer>
+<script>
+  document.getElementById('yr').textContent=new Date().getFullYear();
+  (function(){
+    var key="cc-reflect:execution-problems:";
+    var areas=document.querySelectorAll('.reflect-input');
+    var note=document.getElementById('savedNote');
+    function save(i,v){try{localStorage.setItem(key+i,v);note.textContent='Saved on this device';clearTimeout(window._t);window._t=setTimeout(function(){note.textContent='';},1500);}catch(e){}}
+    areas.forEach(function(a,i){
+      try{var v=localStorage.getItem(key+i);if(v)a.value=v;}catch(e){}
+      a.addEventListener('input',function(){save(i,a.value);});
+    });
+  })();
+</script>
+</body>
+</html>

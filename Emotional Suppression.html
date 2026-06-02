@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light">
+<title>Emotional Suppression — Campfire Calm</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Mulish:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{color-scheme:light;--cream:#f9f2e7;--cream-2:#fef9ef;--paper:#fffdf8;--charcoal:#2a201a;--ember:#e7702f;--ember-deep:#cf551a;--amber:#f0a94f;--sage-deep:#4f7a5d;--ink:#352b23;--ink-soft:#6a5c4e;--line:rgba(60,50,42,.13);--brown:#2e2117;--shadow-sm:0 8px 24px -14px rgba(60,40,25,.3);--r:16px}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Mulish',sans-serif;color:var(--ink);background:linear-gradient(180deg,var(--cream),#fcefdf);line-height:1.7;-webkit-font-smoothing:antialiased}
+  h1,h2,h3{font-family:'Fraunces',serif;font-weight:500;color:var(--charcoal);letter-spacing:-.01em;line-height:1.15}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:760px;margin:0 auto;padding:0 24px}
+  nav{position:sticky;top:0;z-index:50;background:rgba(249,242,231,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px;max-width:760px;margin:0 auto;padding:0 24px}
+  .brand{display:flex;align-items:center;gap:9px;font-family:'Fraunces',serif;font-size:1.18rem;font-weight:600}
+  .flame{width:22px;height:22px}
+  .back{font-weight:700;font-size:.88rem;color:var(--ember-deep)}
+  header{background:var(--brown);color:#fdf7ec;padding:54px 0 48px;position:relative;overflow:hidden}
+  header::after{content:"";position:absolute;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,rgba(240,169,79,.32),transparent 65%);top:-130px;right:-90px}
+  .eyebrow{font-weight:700;text-transform:uppercase;letter-spacing:.18em;font-size:.7rem;color:var(--amber);margin-bottom:12px;position:relative}
+  header h1{color:#fdf7ec;font-size:clamp(2rem,6vw,3rem);margin-bottom:14px;position:relative}
+  header p{color:#e7d8c2;font-size:1.06rem;position:relative;max-width:34em}
+  .meta{display:flex;gap:22px;margin-top:22px;position:relative}
+  .meta div{font-size:.82rem;color:#cbb89f}
+  .meta b{display:block;font-family:'Fraunces',serif;font-size:1.5rem;color:var(--amber);font-weight:600}
+  main{padding:46px 0 20px}
+  .prompt{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:28px 26px;margin-bottom:22px;box-shadow:var(--shadow-sm)}
+  .pnum{font-family:'Fraunces',serif;font-size:.9rem;font-weight:600;color:var(--ember-deep);margin-bottom:8px}
+  .prompt h2{font-size:1.28rem;margin-bottom:18px}
+  .block{margin-bottom:16px}
+  .block .lab{font-weight:700;text-transform:uppercase;letter-spacing:.1em;font-size:.7rem;margin-bottom:6px}
+  .insight .lab{color:var(--sage-deep)}
+  .exercise{background:rgba(240,169,79,.1);border-left:3px solid var(--amber);border-radius:0 10px 10px 0;padding:14px 16px}
+  .exercise .lab{color:var(--ember-deep)}
+  .reflect{margin-top:18px}
+  .reflect .lab{font-weight:700;font-size:.78rem;color:var(--ink-soft);margin-bottom:8px}
+  .reflect-input{display:block;width:100%;min-height:132px;font-family:'Mulish',sans-serif;font-size:1rem;color:var(--ink);
+    line-height:32px;padding:5px 14px 8px;border:1px solid var(--line);border-radius:10px;resize:vertical;
+    background-color:var(--paper);
+    background-image:repeating-linear-gradient(transparent,transparent 31px,var(--line) 31px,var(--line) 32px);
+    background-attachment:local;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .reflect-input:focus{outline:none;border-color:var(--ember);box-shadow:0 0 0 3px rgba(231,112,47,.12)}
+  .reflect-input::placeholder{color:var(--ink-soft);opacity:.7}
+  .closing{text-align:center;background:var(--brown);color:#fdf7ec;border-radius:20px;padding:38px 30px;margin:30px 0}
+  .closing h2{color:#fdf7ec;font-size:1.6rem;margin-bottom:10px}
+  .closing p{color:#e7d8c2;max-width:30em;margin:0 auto}
+  .saved{text-align:center;font-size:.8rem;color:var(--sage-deep);margin:-6px 0 22px;min-height:1em}
+  .actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin:8px 0 40px}
+  .btn{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:.95rem;padding:13px 24px;border-radius:100px;cursor:pointer;border:0}
+  .btn-primary{background:var(--ember-deep);color:#fff}
+  .btn-ghost{background:transparent;border:1.5px solid var(--line);color:var(--charcoal)}
+  .disclaimer{background:var(--cream-2);border-top:1px solid var(--line);padding:26px 0;color:var(--ink-soft);font-size:.88rem;text-align:center;font-style:italic}
+  footer{background:var(--charcoal);color:rgba(255,255,255,.6);padding:30px 0;font-size:.86rem;text-align:center}
+  @media print{nav,.actions,.back,.saved{display:none}body{background:#fff}.prompt{break-inside:avoid;box-shadow:none}.reflect-input{border-color:#ccc}header,.closing,.exercise,.reflect-input{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+  @media(max-width:560px){header{padding:42px 0 36px}.prompt{padding:22px 20px}}
+</style>
+</head>
+<body>
+<nav><div class="nav-inner">
+  <a href="../../resource-library.html" class="brand"><svg class="flame" viewBox="0 0 24 24"><path d="M12 2c1.5 3.5-1 5-1 7.5 0 1.5 1 2.5 2 2.5s2-1 1.8-3c2 1.2 3.2 3.4 3.2 6 0 3.6-3 6.5-6 6.5S6 18.6 6 15c0-4 3-6.5 6-13z" fill="#e7702f"/></svg>Campfire Calm</a>
+  <a href="../../resource-library.html" class="back">← Library</a>
+</div></nav>
+<header><div class="wrap">
+  <div class="eyebrow">Guided Reflection Workbook</div>
+  <h1>Emotional Suppression</h1>
+  <p>A guided self-reflection worksheet designed to help you explore your inner landscape through thoughtful prompts and exercises.</p>
+  <div class="meta"><div><b>20</b>Prompts</div><div><b>20</b>Insights</div><div><b>20</b>Exercises</div></div>
+</div></header>
+<main><div class="wrap">
+  <div class="prompt">
+    <div class="pnum">Prompt 01</div>
+    <h2>When you feel a strong emotion, what thoughts come up that make you want to push it away or ignore it?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Notice how your mind might tell you that feeling vulnerable is unsafe or that emotions are a sign of weakness. These thoughts often lead us to shut down instead of processing. Recognizing this pattern is the first step toward allowing yourself to feel without judgment.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Write down the last time you suppressed an emotion. Identify the thoughts that told you to hide it, then challenge those thoughts by asking, “What would happen if I allowed myself to feel this fully?”</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 02</div>
+    <h2>How does holding back your emotions affect your relationships with others?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Suppressing emotions can create distance and misunderstandings because others can’t see your authentic experience. It may also cause resentment to build quietly inside you. Opening up in small, safe ways can improve connection and reduce inner tension.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Think of a recent interaction where you held back your feelings. Imagine how sharing one honest emotion might have changed the conversation. Write a short dialogue reflecting this new openness.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 03</div>
+    <h2>What physical sensations do you notice when you try to suppress emotions?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Emotions don’t vanish when suppressed—they often manifest as tightness, headaches, or fatigue. Paying attention to these signs helps you catch suppressed feelings earlier, giving you a chance to address them before they overwhelm you.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Spend five minutes doing a body scan. Note any areas of tension or discomfort. Ask yourself, “Is there an emotion I’m avoiding that might be connected to this sensation?”</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 04</div>
+    <h2>In what ways has emotional suppression served you in the past, and how might it be limiting you now?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Suppression can feel like protection during overwhelming moments, but over time it narrows your emotional range and blocks growth. Reflect on the balance between temporary relief and long-term costs to decide when it’s time to face feelings head-on.</div>
+    <div class="block exercise"><div class="lab">Try this</div>List situations where suppressing emotions helped you cope and situations where it caused problems. Identify one small step you can take to express feelings more openly next time.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 05</div>
+    <h2>How do you differentiate between controlling your emotions and suppressing them?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Controlling emotions means managing how you respond without denying their presence, while suppression involves pushing feelings down completely. Learning to observe emotions without becoming overwhelmed allows for healthier regulation.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Recall a recent emotional moment. Describe how you responded and whether you acknowledged the feeling internally or tried to ignore it. Practice observing your emotions next time without judgment.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 06</div>
+    <h2>What fears or beliefs underlie your urge to suppress certain emotions?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Often, we fear rejection, vulnerability, or losing control. These beliefs can trap us in silence. Identifying and gently questioning these fears can free you to experience emotions as part of being human.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Write down one fear that comes up when you think about expressing a difficult emotion. Challenge its truth with evidence from your life that shows you can handle emotional openness.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 07</div>
+    <h2>How might suppressing sadness differ from suppressing anger in your experience?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Different emotions carry unique messages and social stigmas. Sadness may lead to withdrawal, while anger might trigger defensiveness. Understanding their distinct roles can help you respond to each with compassion rather than avoidance.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Choose one suppressed sadness and one suppressed anger you’ve experienced recently. Write how each felt in your body and mind. Then, imagine expressing those feelings safely and noticing what changes.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 08</div>
+    <h2>When you suppress emotions, how does it influence your decision-making and behavior?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Suppressed emotions can cloud judgment and lead to impulsive reactions or avoidance behaviors. Bringing awareness to these hidden feelings helps clarify your motivations and supports more thoughtful choices.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Think of a recent decision you made. Explore whether any suppressed emotion affected it. Write how acknowledging that emotion might have led to a different outcome.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 09</div>
+    <h2>What role does self-compassion play in reducing emotional suppression?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Self-compassion gently encourages you to accept all emotions without harsh judgment. This kindness creates a safe internal environment where feelings can surface and be processed, reducing the need to suppress.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Practice speaking to yourself as you would a close friend who is struggling with emotions. Write down kind phrases you can use to comfort yourself when feeling overwhelmed.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 10</div>
+    <h2>How do cultural or family messages influence your tendency to suppress emotions?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Early messages about “being strong” or “not causing trouble” can teach us that emotions are dangerous or inappropriate. Recognizing these learned beliefs allows you to question and rewrite your emotional rules.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Reflect on one message about emotions you received growing up. Consider whether it still serves you and how you might develop a healthier belief about emotional expression.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 11</div>
+    <h2>What is the relationship between emotional suppression and anxiety in your life?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Suppression often increases anxiety because unexpressed emotions create internal tension. Learning to identify and express feelings can reduce this pressure, leading to calmer, more grounded experiences.</div>
+    <div class="block exercise"><div class="lab">Try this</div>When feeling anxious, pause to ask, “What emotion am I avoiding right now?” Write down your insights and practice naming that emotion without judgment.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 12</div>
+    <h2>How does emotional suppression impact your ability to experience joy or positive emotions?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Suppressing emotions can numb your entire emotional spectrum, dulling joy and pleasure. Allowing yourself to feel fully—even the hard emotions—opens the door to richer, more vibrant experiences.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Recall a recent joyful moment. Notice if you held back any emotion during it. Practice amplifying your positive feelings next time by fully immersing yourself in the experience.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 13</div>
+    <h2>How can journaling help break the habit of emotional suppression?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Journaling provides a private, judgment-free space to explore feelings as they arise, making the process of emotional expression safer and more manageable. It helps you identify patterns and gain insight.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Commit to writing freely about your emotions for five minutes each day, focusing on whatever you usually suppress. Notice how this practice affects your comfort with feeling.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 14</div>
+    <h2>What small, immediate actions can you take when you notice yourself suppressing an emotion?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Simple acts like taking a deep breath, naming the emotion silently, or grounding yourself in the present moment create space for feelings to surface without overwhelm. These steps build emotional resilience.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Create a list of three quick grounding techniques you can use when emotions feel too intense to face. Practice using one the next time you catch yourself suppressing.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 15</div>
+    <h2>How might emotional suppression contribute to feelings of emptiness or disconnection?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>When emotions are blocked, parts of your authentic self are hidden, leading to a sense of emptiness or numbness. Reconnecting with your feelings restores vitality and deeper connection to life and others.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Identify one emotion you often suppress. Spend time visualizing it as a color or shape inside you. Imagine slowly inviting it out to reconnect with your inner world.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 16</div>
+    <h2>How can mindfulness practices reduce the tendency to suppress emotions?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Mindfulness cultivates a non-reactive awareness that lets you observe emotions without needing to change or avoid them. This acceptance reduces fear and resistance, encouraging natural emotional flow.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Practice a 3-minute mindfulness exercise focusing on your breath and noticing any emotions that arise. Simply observe them without trying to fix or push them away.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 17</div>
+    <h2>What is the impact of emotional suppression on your sleep and rest patterns?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Unprocessed emotions can lead to restless sleep or insomnia as the mind stays active trying to manage hidden feelings. Addressing emotions during the day can improve rest and recovery.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Keep a sleep journal for a week. Note any nights of poor sleep and reflect on whether emotional suppression during the day might have contributed. Plan one emotional check-in before bedtime.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 18</div>
+    <h2>How can sharing your emotions selectively help balance vulnerability and safety?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Choosing trusted people to share emotions with builds connection without risking overwhelm. This selective sharing fosters safety and gradually reduces the habit of suppressing feelings.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Identify one person you feel safe with emotionally. Plan a conversation where you share a small, vulnerable feeling. Reflect afterward on how it felt to express and be heard.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 19</div>
+    <h2>How do perfectionism and emotional suppression interact in your experience?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Perfectionism often demands control over feelings to maintain an image of flawlessness, which fuels suppression. Challenging perfectionist beliefs can open space for genuine emotional expression and relief.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Write about a time when your need to appear perfect stopped you from expressing an emotion. Explore how embracing imperfection might change your emotional experience.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 20</div>
+    <h2>What role does emotional suppression play in your stress response?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Suppressing emotions can escalate stress by preventing natural emotional release, causing buildup that affects your body and mind. Learning to express feelings is a vital stress management tool.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Next time you feel stressed, pause and ask, “Am I holding back any feelings about this?” Practice expressing one small emotion related to the stress, either aloud or in writing.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="saved" id="savedNote"></div>
+  <div class="closing">
+    <h2>Your journey continues</h2>
+    <p>Reflection isn't a one-time exercise. Return to these prompts whenever you need a steady place to think.</p>
+  </div>
+  <div class="actions">
+    <button class="btn btn-primary" onclick="window.print()">Download / Print PDF</button>
+    <a href="../../resource-library.html" class="btn btn-ghost">← Back to library</a>
+  </div>
+</div></main>
+<div class="disclaimer"><div class="wrap">This workbook is for education and self-reflection. It is not a diagnosis or a substitute for therapy. If you are in crisis, call or text 988.</div></div>
+<footer><div class="wrap">© <span id="yr"></span> Campfire Calm™ · Jason M. Leclair, LPC</div></footer>
+<script>
+  document.getElementById('yr').textContent=new Date().getFullYear();
+  (function(){
+    var key="cc-reflect:emotional-suppression:";
+    var areas=document.querySelectorAll('.reflect-input');
+    var note=document.getElementById('savedNote');
+    function save(i,v){try{localStorage.setItem(key+i,v);note.textContent='Saved on this device';clearTimeout(window._t);window._t=setTimeout(function(){note.textContent='';},1500);}catch(e){}}
+    areas.forEach(function(a,i){
+      try{var v=localStorage.getItem(key+i);if(v)a.value=v;}catch(e){}
+      a.addEventListener('input',function(){save(i,a.value);});
+    });
+  })();
+</script>
+</body>
+</html>

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light">
+<title>Safety Patterns — Campfire Calm</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Mulish:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{color-scheme:light;--cream:#f9f2e7;--cream-2:#fef9ef;--paper:#fffdf8;--charcoal:#2a201a;--ember:#e7702f;--ember-deep:#cf551a;--amber:#f0a94f;--sage-deep:#4f7a5d;--ink:#352b23;--ink-soft:#6a5c4e;--line:rgba(60,50,42,.13);--brown:#2e2117;--shadow-sm:0 8px 24px -14px rgba(60,40,25,.3);--r:16px}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Mulish',sans-serif;color:var(--ink);background:linear-gradient(180deg,var(--cream),#fcefdf);line-height:1.7;-webkit-font-smoothing:antialiased}
+  h1,h2,h3{font-family:'Fraunces',serif;font-weight:500;color:var(--charcoal);letter-spacing:-.01em;line-height:1.15}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:760px;margin:0 auto;padding:0 24px}
+  nav{position:sticky;top:0;z-index:50;background:rgba(249,242,231,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px;max-width:760px;margin:0 auto;padding:0 24px}
+  .brand{display:flex;align-items:center;gap:9px;font-family:'Fraunces',serif;font-size:1.18rem;font-weight:600}
+  .flame{width:22px;height:22px}
+  .back{font-weight:700;font-size:.88rem;color:var(--ember-deep)}
+  header{background:var(--brown);color:#fdf7ec;padding:54px 0 48px;position:relative;overflow:hidden}
+  header::after{content:"";position:absolute;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,rgba(240,169,79,.32),transparent 65%);top:-130px;right:-90px}
+  .eyebrow{font-weight:700;text-transform:uppercase;letter-spacing:.18em;font-size:.7rem;color:var(--amber);margin-bottom:12px;position:relative}
+  header h1{color:#fdf7ec;font-size:clamp(2rem,6vw,3rem);margin-bottom:14px;position:relative}
+  header p{color:#e7d8c2;font-size:1.06rem;position:relative;max-width:34em}
+  .meta{display:flex;gap:22px;margin-top:22px;position:relative}
+  .meta div{font-size:.82rem;color:#cbb89f}
+  .meta b{display:block;font-family:'Fraunces',serif;font-size:1.5rem;color:var(--amber);font-weight:600}
+  main{padding:46px 0 20px}
+  .prompt{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:28px 26px;margin-bottom:22px;box-shadow:var(--shadow-sm)}
+  .pnum{font-family:'Fraunces',serif;font-size:.9rem;font-weight:600;color:var(--ember-deep);margin-bottom:8px}
+  .prompt h2{font-size:1.28rem;margin-bottom:18px}
+  .block{margin-bottom:16px}
+  .block .lab{font-weight:700;text-transform:uppercase;letter-spacing:.1em;font-size:.7rem;margin-bottom:6px}
+  .insight .lab{color:var(--sage-deep)}
+  .exercise{background:rgba(240,169,79,.1);border-left:3px solid var(--amber);border-radius:0 10px 10px 0;padding:14px 16px}
+  .exercise .lab{color:var(--ember-deep)}
+  .reflect{margin-top:18px}
+  .reflect .lab{font-weight:700;font-size:.78rem;color:var(--ink-soft);margin-bottom:8px}
+  .reflect-input{display:block;width:100%;min-height:132px;font-family:'Mulish',sans-serif;font-size:1rem;color:var(--ink);
+    line-height:32px;padding:5px 14px 8px;border:1px solid var(--line);border-radius:10px;resize:vertical;
+    background-color:var(--paper);
+    background-image:repeating-linear-gradient(transparent,transparent 31px,var(--line) 31px,var(--line) 32px);
+    background-attachment:local;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .reflect-input:focus{outline:none;border-color:var(--ember);box-shadow:0 0 0 3px rgba(231,112,47,.12)}
+  .reflect-input::placeholder{color:var(--ink-soft);opacity:.7}
+  .closing{text-align:center;background:var(--brown);color:#fdf7ec;border-radius:20px;padding:38px 30px;margin:30px 0}
+  .closing h2{color:#fdf7ec;font-size:1.6rem;margin-bottom:10px}
+  .closing p{color:#e7d8c2;max-width:30em;margin:0 auto}
+  .saved{text-align:center;font-size:.8rem;color:var(--sage-deep);margin:-6px 0 22px;min-height:1em}
+  .actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin:8px 0 40px}
+  .btn{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:.95rem;padding:13px 24px;border-radius:100px;cursor:pointer;border:0}
+  .btn-primary{background:var(--ember-deep);color:#fff}
+  .btn-ghost{background:transparent;border:1.5px solid var(--line);color:var(--charcoal)}
+  .disclaimer{background:var(--cream-2);border-top:1px solid var(--line);padding:26px 0;color:var(--ink-soft);font-size:.88rem;text-align:center;font-style:italic}
+  footer{background:var(--charcoal);color:rgba(255,255,255,.6);padding:30px 0;font-size:.86rem;text-align:center}
+  @media print{nav,.actions,.back,.saved{display:none}body{background:#fff}.prompt{break-inside:avoid;box-shadow:none}.reflect-input{border-color:#ccc}header,.closing,.exercise,.reflect-input{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+  @media(max-width:560px){header{padding:42px 0 36px}.prompt{padding:22px 20px}}
+</style>
+</head>
+<body>
+<nav><div class="nav-inner">
+  <a href="../../resource-library.html" class="brand"><svg class="flame" viewBox="0 0 24 24"><path d="M12 2c1.5 3.5-1 5-1 7.5 0 1.5 1 2.5 2 2.5s2-1 1.8-3c2 1.2 3.2 3.4 3.2 6 0 3.6-3 6.5-6 6.5S6 18.6 6 15c0-4 3-6.5 6-13z" fill="#e7702f"/></svg>Campfire Calm</a>
+  <a href="../../resource-library.html" class="back">← Library</a>
+</div></nav>
+<header><div class="wrap">
+  <div class="eyebrow">Guided Reflection Workbook</div>
+  <h1>Safety Patterns</h1>
+  <p>A guided self-reflection worksheet designed to help you explore your inner landscape through thoughtful prompts and exercises.</p>
+  <div class="meta"><div><b>20</b>Prompts</div><div><b>20</b>Insights</div><div><b>20</b>Exercises</div></div>
+</div></header>
+<main><div class="wrap">
+  <div class="prompt">
+    <div class="pnum">Prompt 01</div>
+    <h2>When you feel unsafe in a situation, what immediate thoughts run through your mind, and how do they influence your actions?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Notice that your mind often jumps to worst-case scenarios to protect you from harm. While this can be helpful, it may also keep you stuck in fear. Try to gently challenge these thoughts by asking, “What evidence do I have that this is truly dangerous right now?” This can help you respond calmly rather than react impulsively.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Write down a recent moment when you felt unsafe. List the automatic thoughts you had and then write down more balanced alternatives that acknowledge safety cues in your environment.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 02</div>
+    <h2>How do you typically respond when your personal boundaries feel threatened, and what safety behaviors emerge?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Many people retreat, become overly accommodating, or aggressively defend themselves to regain safety. Recognize which pattern you fall into and ask if it truly protects you or leads to further distress. Sometimes, calmly asserting your boundaries is the most effective safety strategy.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Identify a boundary you recently felt was crossed. Reflect on your response and brainstorm three alternative ways to protect your boundary that feel respectful and empowering.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 03</div>
+    <h2>In what ways do you avoid situations or people because they trigger feelings of insecurity?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Avoidance can provide short-term relief but often strengthens fear over time. Safely exposing yourself to mild triggers gradually builds resilience. It’s okay to start small and take control of your exposure rather than let fear dictate your choices.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Make a list of avoided situations ranked from least to most anxiety-provoking. Choose the least distressing one and plan a small, manageable step to face it this week.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 04</div>
+    <h2>How does your body physically react when you sense danger, and how do you usually manage these sensations?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Your body’s fight, flight, or freeze response is a natural survival mechanism. Instead of suppressing these sensations, try to observe them without judgment and use grounding techniques like deep breathing to regain control. This awareness helps you respond thoughtfully rather than react out of fear.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Next time you feel physical tension or discomfort, pause and describe the sensations in detail. Practice slow, deep breaths to calm your nervous system and note the change in your feelings.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 05</div>
+    <h2>What stories or beliefs about yourself contribute to feeling unsafe in relationships?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Often, internal narratives like “I’m unlovable” or “I will be abandoned” fuel insecurity. These beliefs shape your expectations and behaviors, creating self-fulfilling prophecies. Challenging and rewriting these stories allows you to build trust and experience safety with others.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Write down one negative belief about yourself related to safety in relationships. Then, write a compassionate, evidence-based statement that counters this belief. Repeat it daily.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 06</div>
+    <h2>How do your past experiences influence your current sense of safety, and do you notice any patterns repeating?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Our brains link past trauma or neglect to present situations, sometimes inaccurately signaling danger. Recognizing these patterns helps you separate past from present and choose responses based on current reality rather than old wounds.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Identify a recurring safety concern and trace it back to a past experience. Reflect on how today’s context differs and what new, safer choices you can make.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 07</div>
+    <h2>When you feel overwhelmed by fear, what calming strategies have you found effective or ineffective?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Not all coping strategies help in the long run; some may numb or avoid emotions rather than address them. Experiment with grounding, mindfulness, or cognitive reframing to find what truly soothes your nervous system and increases your sense of control.</div>
+    <div class="block exercise"><div class="lab">Try this</div>List your current calming techniques. Rate their effectiveness and try adding one new method, such as the 5-4-3-2-1 grounding exercise, for a week.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 08</div>
+    <h2>How do you differentiate between real danger and perceived threats created by anxiety?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Anxiety often distorts reality by amplifying minor risks into major threats. Developing a habit of asking, “What’s the evidence?” or “What’s the worst that could realistically happen?” can help you recalibrate your threat perception and reduce unnecessary fear.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Choose a recent anxiety-provoking thought and write down the facts supporting it and those contradicting it. Reflect on the balance between perception and reality.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 09</div>
+    <h2>What role does control play in your sense of safety, and how do you react when control is lost?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Feeling in control can create safety, but trying to control everything can increase anxiety and frustration. Learning to tolerate uncertainty and focus on what you can influence strengthens emotional resilience and reduces fear.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Identify one area where you feel a need for control. Practice letting go of outcomes in a small way and notice how it affects your anxiety and sense of safety.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 10</div>
+    <h2>How do you communicate your need for safety to others, and what responses do you receive?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Clear, calm communication about your needs helps others understand how to support you. If you notice dismissive or invalidating responses, it’s important to set boundaries or seek support elsewhere to maintain your safety.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Think of a recent time you expressed a need for safety. Reflect on how it was received and plan how you might communicate more effectively or seek support from different people.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 11</div>
+    <h2>How do safety patterns show up in your daily routines, and do they help or hinder your growth?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Safety behaviors can become rituals that limit experiences and learning. While routines offer comfort, being mindful when they restrict your life helps you balance security with flexibility and growth.</div>
+    <div class="block exercise"><div class="lab">Try this</div>List your daily safety routines. Choose one that limits you and experiment with modifying it slightly to expand your comfort zone.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 12</div>
+    <h2>When feeling emotionally unsafe, how do you soothe yourself without relying on unhealthy habits?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Emotional safety comes from self-compassion and healthy coping strategies rather than avoidance or numbing. Techniques like journaling, talking to a trusted friend, or engaging in creative outlets provide constructive comfort.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Identify one unhealthy soothing habit. Replace it with a healthier alternative for one week and journal your emotional changes.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 13</div>
+    <h2>How does your inner critic affect your feelings of safety, and can you recognize when it’s undermining you?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>The inner critic often exaggerates risks and faults, eroding your sense of safety. Learning to observe this voice without accepting its messages allows you to cultivate a kinder, more supportive inner dialogue.</div>
+    <div class="block exercise"><div class="lab">Try this</div>When you notice self-critical thoughts, pause and write them down. Then, write a compassionate response to each, as if comforting a friend.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 14</div>
+    <h2>What triggers your fight, flight, or freeze responses most often, and how do you respond afterward?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Identifying specific triggers helps you prepare and choose healthier responses. After a reaction, grounding yourself and reflecting on what happened can reduce future automatic responses and build safety.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Keep a trigger journal for one week, noting situations that activate fight, flight, or freeze. After each, write down how you calmed yourself and what you might do differently next time.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 15</div>
+    <h2>How comfortable are you with asking for help when you feel unsafe, and what fears come up around vulnerability?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Asking for help can feel risky but is often essential for safety. Recognizing fears about rejection or judgment allows you to gently challenge them and practice vulnerability in safe relationships.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Identify a safe person you could ask for support. Plan a small, specific request and reflect on the experience afterward.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 16</div>
+    <h2>How do you balance the need for safety with the desire for new experiences and growth?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Safety often tempts us to stay in comfort zones, but growth requires stepping into uncertainty. Gradual exposure, paired with self-compassion, helps you expand safely without overwhelming your nervous system.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Choose one new experience you’ve been avoiding. Break it into small steps and commit to one manageable action this week.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 17</div>
+    <h2>What role does trust play in your safety patterns, and how do you build or erode trust in yourself and others?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Trust is foundational to safety. When you keep promises to yourself and others, safety deepens. Notice moments when distrust arises and explore whether it reflects past hurt or current reality.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Reflect on a recent time you followed through on a commitment. Celebrate this to reinforce self-trust, then consider one small way to build trust in a relationship.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 18</div>
+    <h2>How do you manage safety in social settings where you feel out of control or overwhelmed?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Social overwhelm can trigger escape or shutdown. Preparing coping tools like rehearsing responses, finding quiet spaces, or using grounding techniques can help you maintain safety and engagement.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Before a social event, list three grounding strategies you can use if overwhelmed. After the event, journal what worked and what you might adjust next time.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 19</div>
+    <h2>How does your environment affect your sense of safety, and what changes could enhance it?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Physical surroundings deeply impact emotional safety. Small changes—like organizing your space, adding comforting items, or reducing noise—can create a sanctuary that soothes anxiety and supports well-being.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Assess one environment where you spend time regularly. Identify and implement two changes that could make it feel safer and more calming.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 20</div>
+    <h2>When you reflect on your safety patterns, what strengths do you notice that help you cope?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Recognizing your resilience and adaptive strategies empowers you to face challenges with confidence. Even imperfect safety behaviors often contain seeds of strength that you can nurture and build upon.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Write a list of your safety-related strengths and how they have helped you. Choose one to focus on cultivating further in the next month.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="saved" id="savedNote"></div>
+  <div class="closing">
+    <h2>Your journey continues</h2>
+    <p>Reflection isn't a one-time exercise. Return to these prompts whenever you need a steady place to think.</p>
+  </div>
+  <div class="actions">
+    <button class="btn btn-primary" onclick="window.print()">Download / Print PDF</button>
+    <a href="../../resource-library.html" class="btn btn-ghost">← Back to library</a>
+  </div>
+</div></main>
+<div class="disclaimer"><div class="wrap">This workbook is for education and self-reflection. It is not a diagnosis or a substitute for therapy. If you are in crisis, call or text 988.</div></div>
+<footer><div class="wrap">© <span id="yr"></span> Campfire Calm™ · Jason M. Leclair, LPC</div></footer>
+<script>
+  document.getElementById('yr').textContent=new Date().getFullYear();
+  (function(){
+    var key="cc-reflect:safety-patterns:";
+    var areas=document.querySelectorAll('.reflect-input');
+    var note=document.getElementById('savedNote');
+    function save(i,v){try{localStorage.setItem(key+i,v);note.textContent='Saved on this device';clearTimeout(window._t);window._t=setTimeout(function(){note.textContent='';},1500);}catch(e){}}
+    areas.forEach(function(a,i){
+      try{var v=localStorage.getItem(key+i);if(v)a.value=v;}catch(e){}
+      a.addEventListener('input',function(){save(i,a.value);});
+    });
+  })();
+</script>
+</body>
+</html>

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light">
+<title>Emotional Triggers — Campfire Calm</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Mulish:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{color-scheme:light;--cream:#f9f2e7;--cream-2:#fef9ef;--paper:#fffdf8;--charcoal:#2a201a;--ember:#e7702f;--ember-deep:#cf551a;--amber:#f0a94f;--sage-deep:#4f7a5d;--ink:#352b23;--ink-soft:#6a5c4e;--line:rgba(60,50,42,.13);--brown:#2e2117;--shadow-sm:0 8px 24px -14px rgba(60,40,25,.3);--r:16px}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Mulish',sans-serif;color:var(--ink);background:linear-gradient(180deg,var(--cream),#fcefdf);line-height:1.7;-webkit-font-smoothing:antialiased}
+  h1,h2,h3{font-family:'Fraunces',serif;font-weight:500;color:var(--charcoal);letter-spacing:-.01em;line-height:1.15}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:760px;margin:0 auto;padding:0 24px}
+  nav{position:sticky;top:0;z-index:50;background:rgba(249,242,231,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px;max-width:760px;margin:0 auto;padding:0 24px}
+  .brand{display:flex;align-items:center;gap:9px;font-family:'Fraunces',serif;font-size:1.18rem;font-weight:600}
+  .flame{width:22px;height:22px}
+  .back{font-weight:700;font-size:.88rem;color:var(--ember-deep)}
+  header{background:var(--brown);color:#fdf7ec;padding:54px 0 48px;position:relative;overflow:hidden}
+  header::after{content:"";position:absolute;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,rgba(240,169,79,.32),transparent 65%);top:-130px;right:-90px}
+  .eyebrow{font-weight:700;text-transform:uppercase;letter-spacing:.18em;font-size:.7rem;color:var(--amber);margin-bottom:12px;position:relative}
+  header h1{color:#fdf7ec;font-size:clamp(2rem,6vw,3rem);margin-bottom:14px;position:relative}
+  header p{color:#e7d8c2;font-size:1.06rem;position:relative;max-width:34em}
+  .meta{display:flex;gap:22px;margin-top:22px;position:relative}
+  .meta div{font-size:.82rem;color:#cbb89f}
+  .meta b{display:block;font-family:'Fraunces',serif;font-size:1.5rem;color:var(--amber);font-weight:600}
+  main{padding:46px 0 20px}
+  .prompt{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:28px 26px;margin-bottom:22px;box-shadow:var(--shadow-sm)}
+  .pnum{font-family:'Fraunces',serif;font-size:.9rem;font-weight:600;color:var(--ember-deep);margin-bottom:8px}
+  .prompt h2{font-size:1.28rem;margin-bottom:18px}
+  .block{margin-bottom:16px}
+  .block .lab{font-weight:700;text-transform:uppercase;letter-spacing:.1em;font-size:.7rem;margin-bottom:6px}
+  .insight .lab{color:var(--sage-deep)}
+  .exercise{background:rgba(240,169,79,.1);border-left:3px solid var(--amber);border-radius:0 10px 10px 0;padding:14px 16px}
+  .exercise .lab{color:var(--ember-deep)}
+  .reflect{margin-top:18px}
+  .reflect .lab{font-weight:700;font-size:.78rem;color:var(--ink-soft);margin-bottom:8px}
+  .reflect-input{display:block;width:100%;min-height:132px;font-family:'Mulish',sans-serif;font-size:1rem;color:var(--ink);
+    line-height:32px;padding:5px 14px 8px;border:1px solid var(--line);border-radius:10px;resize:vertical;
+    background-color:var(--paper);
+    background-image:repeating-linear-gradient(transparent,transparent 31px,var(--line) 31px,var(--line) 32px);
+    background-attachment:local;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .reflect-input:focus{outline:none;border-color:var(--ember);box-shadow:0 0 0 3px rgba(231,112,47,.12)}
+  .reflect-input::placeholder{color:var(--ink-soft);opacity:.7}
+  .closing{text-align:center;background:var(--brown);color:#fdf7ec;border-radius:20px;padding:38px 30px;margin:30px 0}
+  .closing h2{color:#fdf7ec;font-size:1.6rem;margin-bottom:10px}
+  .closing p{color:#e7d8c2;max-width:30em;margin:0 auto}
+  .saved{text-align:center;font-size:.8rem;color:var(--sage-deep);margin:-6px 0 22px;min-height:1em}
+  .actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin:8px 0 40px}
+  .btn{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:.95rem;padding:13px 24px;border-radius:100px;cursor:pointer;border:0}
+  .btn-primary{background:var(--ember-deep);color:#fff}
+  .btn-ghost{background:transparent;border:1.5px solid var(--line);color:var(--charcoal)}
+  .disclaimer{background:var(--cream-2);border-top:1px solid var(--line);padding:26px 0;color:var(--ink-soft);font-size:.88rem;text-align:center;font-style:italic}
+  footer{background:var(--charcoal);color:rgba(255,255,255,.6);padding:30px 0;font-size:.86rem;text-align:center}
+  @media print{nav,.actions,.back,.saved{display:none}body{background:#fff}.prompt{break-inside:avoid;box-shadow:none}.reflect-input{border-color:#ccc}header,.closing,.exercise,.reflect-input{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+  @media(max-width:560px){header{padding:42px 0 36px}.prompt{padding:22px 20px}}
+</style>
+</head>
+<body>
+<nav><div class="nav-inner">
+  <a href="../../resource-library.html" class="brand"><svg class="flame" viewBox="0 0 24 24"><path d="M12 2c1.5 3.5-1 5-1 7.5 0 1.5 1 2.5 2 2.5s2-1 1.8-3c2 1.2 3.2 3.4 3.2 6 0 3.6-3 6.5-6 6.5S6 18.6 6 15c0-4 3-6.5 6-13z" fill="#e7702f"/></svg>Campfire Calm</a>
+  <a href="../../resource-library.html" class="back">← Library</a>
+</div></nav>
+<header><div class="wrap">
+  <div class="eyebrow">Guided Reflection Workbook</div>
+  <h1>Emotional Triggers</h1>
+  <p>A guided self-reflection worksheet designed to help you explore your inner landscape through thoughtful prompts and exercises.</p>
+  <div class="meta"><div><b>20</b>Prompts</div><div><b>20</b>Insights</div><div><b>20</b>Exercises</div></div>
+</div></header>
+<main><div class="wrap">
+  <div class="prompt">
+    <div class="pnum">Prompt 01</div>
+    <h2>What specific situations tend to ignite strong emotional reactions in me, and why do I think these particular scenarios affect me deeply?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Identifying situations that trigger intense emotions helps uncover underlying beliefs or past experiences that shape your reactions. These triggers often connect to unmet needs or vulnerabilities. Recognizing this link allows you to approach these moments with curiosity instead of automatic reactivity.</div>
+    <div class="block exercise"><div class="lab">Try this</div>List three recent moments when your emotions felt overwhelming. For each, write down what happened, how you felt, and what past experience or belief might be influencing your reaction.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 02</div>
+    <h2>How does my body physically respond when I’m emotionally triggered, and what can this tell me about managing my reactions?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Physical signs such as tension, rapid heartbeat, or shallow breathing often accompany emotional triggers. These sensations signal your nervous system is activated. Noticing them early gives you a chance to pause, breathe deeply, and use grounding techniques before emotions escalate.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Next time you feel triggered, pause and note three physical sensations in your body. Practice slow, deep breathing for one minute, then observe any changes in your emotional intensity.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 03</div>
+    <h2>What automatic thoughts run through my mind during emotional triggers, and how realistic or helpful are they?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Our minds often generate quick judgments or catastrophic predictions during emotional spikes. These thoughts may exaggerate reality or ignore alternative explanations. Challenging them gently can reduce emotional intensity and open space for more balanced thinking.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Recall a recent emotional trigger and write down the automatic thoughts you had. Then, ask yourself: “What evidence supports this thought? What evidence contradicts it?”</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 04</div>
+    <h2>How do my past experiences shape the intensity and type of emotional triggers I face today?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Early experiences, especially those involving attachment or trauma, create emotional patterns that resurface in triggering moments. Understanding this history helps you recognize why certain situations feel disproportionately painful and guides you toward healing responses.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Reflect on a recurring emotional trigger. Write about any childhood memories or past events that might connect to this feeling and consider how that history influences your current reaction.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 05</div>
+    <h2>In what ways do I tend to cope with emotional triggers, and which of these strategies help or harm me?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Coping mechanisms vary from avoidance and distraction to confrontation and reflection. Some offer temporary relief but deepen distress over time. Identifying which strategies truly support your well-being empowers you to make healthier choices.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Make a list of coping strategies you use when triggered. Next to each, write if it helps you feel better long-term or only momentarily, and brainstorm one healthier alternative if needed.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 06</div>
+    <h2>How might my expectations of others contribute to my emotional triggers?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Unmet expectations or assumptions about how others “should” behave can create feelings of frustration or betrayal. Becoming aware of these expectations allows you to adjust them, communicate more clearly, and reduce emotional upheaval.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Identify a recent time you felt triggered by someone else’s behavior. Ask yourself what expectation you held in that moment and consider how shifting this expectation might change your emotional response.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 07</div>
+    <h2>What role does self-compassion play when I experience emotional triggers?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Responding with kindness toward yourself during emotional distress reduces shame and self-criticism, which often worsen triggers. Self-compassion creates a safe inner space to explore feelings and recover more quickly.</div>
+    <div class="block exercise"><div class="lab">Try this</div>The next time you feel emotionally triggered, silently repeat a compassionate phrase to yourself, such as “It’s okay to feel this way,” and notice how your emotional experience shifts.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 08</div>
+    <h2>How do triggers affect my decision-making, and how can I create space to respond more thoughtfully?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Emotional triggers can cloud judgment, pushing you toward impulsive or defensive choices. Practicing mindfulness or pausing before reacting helps you choose responses aligned with your values rather than your immediate feelings.</div>
+    <div class="block exercise"><div class="lab">Try this</div>When triggered, count slowly to ten before making any decisions or replies. Reflect afterward on whether this pause changed your response and outcome.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 09</div>
+    <h2>What patterns do I notice in the people or environments that tend to trigger me?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Triggers often arise in predictable contexts or with certain individuals who evoke unresolved feelings. Awareness of these patterns allows you to prepare, set boundaries, or seek support to manage emotional intensity.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Chart your emotional triggers over a week, noting the people or places involved. Review your chart to identify any recurring patterns and brainstorm ways to modify your exposure or responses.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 10</div>
+    <h2>How can I use journaling to better understand and process my emotional triggers?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Writing about triggers externalizes your experience, making it easier to analyze thoughts and feelings without judgment. This reflective process fosters insight, reduces overwhelm, and supports cognitive restructuring.</div>
+    <div class="block exercise"><div class="lab">Try this</div>After a triggering event, spend five minutes journaling about what happened, how you felt, and what you learned. Revisit your notes weekly to track progress.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 11</div>
+    <h2>How do my beliefs about vulnerability influence my reaction to emotional triggers?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>If you associate vulnerability with weakness or danger, you may resist or suppress emotions, intensifying your reaction. Embracing vulnerability as courage allows you to face triggers with openness and self-acceptance.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Write about a time you felt vulnerable and what you told yourself about that experience. Challenge any negative beliefs by listing evidence of your strength in being vulnerable.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 12</div>
+    <h2>What small, practical steps can I take to reduce the power of my emotional triggers over time?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Gradual exposure, developing coping skills, and altering thought patterns can desensitize triggers. Consistent practice builds emotional resilience and a greater sense of control.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Choose one common trigger and create a step-by-step plan to face it in manageable doses, noting how you will support yourself during each step.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 13</div>
+    <h2>How do emotional triggers impact my relationships, and what communication strategies can help?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Triggers can lead to misunderstandings or conflicts if reactions are intense or unclear. Using “I” statements and expressing feelings calmly helps others understand your experience and fosters connection.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Think of a recent conflict linked to a trigger. Rewrite your response using “I feel…” statements and consider how this might change the interaction.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 14</div>
+    <h2>What role does mindfulness play in noticing emotional triggers before they escalate?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Mindfulness increases awareness of subtle emotional shifts and bodily cues, allowing you to intervene early. This practice cultivates a nonjudgmental stance that reduces reactivity and enhances emotional regulation.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Practice a daily 3-minute mindfulness check-in, tuning into your emotions and body sensations without trying to change them. Note any early signs of triggering.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 15</div>
+    <h2>How do cultural or familial messages shape my emotional triggers and my response to them?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Messages about which emotions are acceptable or how to express them influence your comfort with feelings and awareness of triggers. Reflecting on these influences helps you question limiting beliefs and develop a personalized emotional style.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Identify one cultural or family message about emotions you grew up with. Reflect on how it affects your current reactions and consider alternative messages you want to adopt.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 16</div>
+    <h2>How does my level of emotional awareness affect my ability to manage triggers?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Greater emotional awareness means recognizing feelings early and understanding their origin, which facilitates intentional responses rather than automatic reactions. This skill is foundational for emotional mastery.</div>
+    <div class="block exercise"><div class="lab">Try this</div>At the end of each day, identify and label at least two emotions you experienced, noting what triggered them and how you responded.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 17</div>
+    <h2>What internal resources (strengths, skills, beliefs) can I draw on when I feel emotionally triggered?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Reminding yourself of past resilience, coping skills, and core values provides a stable inner foundation during emotional upheaval. These resources empower you to face triggers with confidence and calm.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Write a list of three personal strengths or past successes you can recall when you feel triggered. Keep this list accessible for moments of distress.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 18</div>
+    <h2>How might practicing radical acceptance change my experience of emotional triggers?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Radical acceptance means fully acknowledging your emotions and the situation without resistance. This reduces suffering caused by fighting reality and opens the way for proactive coping.</div>
+    <div class="block exercise"><div class="lab">Try this</div>When triggered, practice silently repeating, “I accept this moment as it is,” and observe any shift in your emotional intensity.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 19</div>
+    <h2>How do avoidance behaviors maintain or worsen my emotional triggers?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Avoiding triggers offers short-term relief but prevents processing and healing, often making triggers more sensitive. Gradual, mindful exposure is healthier and builds emotional tolerance.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Identify one avoidance behavior related to a trigger. Plan a small, safe way to face that trigger gradually, noting your feelings before and after.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 20</div>
+    <h2>How can setting boundaries help me manage emotional triggers related to others?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Clear boundaries protect your emotional space, reduce overwhelm, and communicate your needs effectively. This reduces reactive patterns and fosters healthier relationships.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Choose one relationship where you often feel triggered. Write down one boundary you can set and practice communicating it assertively but kindly.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="saved" id="savedNote"></div>
+  <div class="closing">
+    <h2>Your journey continues</h2>
+    <p>Reflection isn't a one-time exercise. Return to these prompts whenever you need a steady place to think.</p>
+  </div>
+  <div class="actions">
+    <button class="btn btn-primary" onclick="window.print()">Download / Print PDF</button>
+    <a href="../../resource-library.html" class="btn btn-ghost">← Back to library</a>
+  </div>
+</div></main>
+<div class="disclaimer"><div class="wrap">This workbook is for education and self-reflection. It is not a diagnosis or a substitute for therapy. If you are in crisis, call or text 988.</div></div>
+<footer><div class="wrap">© <span id="yr"></span> Campfire Calm™ · Jason M. Leclair, LPC</div></footer>
+<script>
+  document.getElementById('yr').textContent=new Date().getFullYear();
+  (function(){
+    var key="cc-reflect:emotional-triggers:";
+    var areas=document.querySelectorAll('.reflect-input');
+    var note=document.getElementById('savedNote');
+    function save(i,v){try{localStorage.setItem(key+i,v);note.textContent='Saved on this device';clearTimeout(window._t);window._t=setTimeout(function(){note.textContent='';},1500);}catch(e){}}
+    areas.forEach(function(a,i){
+      try{var v=localStorage.getItem(key+i);if(v)a.value=v;}catch(e){}
+      a.addEventListener('input',function(){save(i,a.value);});
+    });
+  })();
+</script>
+</body>
+</html>

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light">
+<title>Control Tendencies — Campfire Calm</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Mulish:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{color-scheme:light;--cream:#f9f2e7;--cream-2:#fef9ef;--paper:#fffdf8;--charcoal:#2a201a;--ember:#e7702f;--ember-deep:#cf551a;--amber:#f0a94f;--sage-deep:#4f7a5d;--ink:#352b23;--ink-soft:#6a5c4e;--line:rgba(60,50,42,.13);--brown:#2e2117;--shadow-sm:0 8px 24px -14px rgba(60,40,25,.3);--r:16px}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Mulish',sans-serif;color:var(--ink);background:linear-gradient(180deg,var(--cream),#fcefdf);line-height:1.7;-webkit-font-smoothing:antialiased}
+  h1,h2,h3{font-family:'Fraunces',serif;font-weight:500;color:var(--charcoal);letter-spacing:-.01em;line-height:1.15}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:760px;margin:0 auto;padding:0 24px}
+  nav{position:sticky;top:0;z-index:50;background:rgba(249,242,231,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px;max-width:760px;margin:0 auto;padding:0 24px}
+  .brand{display:flex;align-items:center;gap:9px;font-family:'Fraunces',serif;font-size:1.18rem;font-weight:600}
+  .flame{width:22px;height:22px}
+  .back{font-weight:700;font-size:.88rem;color:var(--ember-deep)}
+  header{background:var(--brown);color:#fdf7ec;padding:54px 0 48px;position:relative;overflow:hidden}
+  header::after{content:"";position:absolute;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,rgba(240,169,79,.32),transparent 65%);top:-130px;right:-90px}
+  .eyebrow{font-weight:700;text-transform:uppercase;letter-spacing:.18em;font-size:.7rem;color:var(--amber);margin-bottom:12px;position:relative}
+  header h1{color:#fdf7ec;font-size:clamp(2rem,6vw,3rem);margin-bottom:14px;position:relative}
+  header p{color:#e7d8c2;font-size:1.06rem;position:relative;max-width:34em}
+  .meta{display:flex;gap:22px;margin-top:22px;position:relative}
+  .meta div{font-size:.82rem;color:#cbb89f}
+  .meta b{display:block;font-family:'Fraunces',serif;font-size:1.5rem;color:var(--amber);font-weight:600}
+  main{padding:46px 0 20px}
+  .prompt{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:28px 26px;margin-bottom:22px;box-shadow:var(--shadow-sm)}
+  .pnum{font-family:'Fraunces',serif;font-size:.9rem;font-weight:600;color:var(--ember-deep);margin-bottom:8px}
+  .prompt h2{font-size:1.28rem;margin-bottom:18px}
+  .block{margin-bottom:16px}
+  .block .lab{font-weight:700;text-transform:uppercase;letter-spacing:.1em;font-size:.7rem;margin-bottom:6px}
+  .insight .lab{color:var(--sage-deep)}
+  .exercise{background:rgba(240,169,79,.1);border-left:3px solid var(--amber);border-radius:0 10px 10px 0;padding:14px 16px}
+  .exercise .lab{color:var(--ember-deep)}
+  .reflect{margin-top:18px}
+  .reflect .lab{font-weight:700;font-size:.78rem;color:var(--ink-soft);margin-bottom:8px}
+  .reflect-input{display:block;width:100%;min-height:132px;font-family:'Mulish',sans-serif;font-size:1rem;color:var(--ink);
+    line-height:32px;padding:5px 14px 8px;border:1px solid var(--line);border-radius:10px;resize:vertical;
+    background-color:var(--paper);
+    background-image:repeating-linear-gradient(transparent,transparent 31px,var(--line) 31px,var(--line) 32px);
+    background-attachment:local;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .reflect-input:focus{outline:none;border-color:var(--ember);box-shadow:0 0 0 3px rgba(231,112,47,.12)}
+  .reflect-input::placeholder{color:var(--ink-soft);opacity:.7}
+  .closing{text-align:center;background:var(--brown);color:#fdf7ec;border-radius:20px;padding:38px 30px;margin:30px 0}
+  .closing h2{color:#fdf7ec;font-size:1.6rem;margin-bottom:10px}
+  .closing p{color:#e7d8c2;max-width:30em;margin:0 auto}
+  .saved{text-align:center;font-size:.8rem;color:var(--sage-deep);margin:-6px 0 22px;min-height:1em}
+  .actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin:8px 0 40px}
+  .btn{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:.95rem;padding:13px 24px;border-radius:100px;cursor:pointer;border:0}
+  .btn-primary{background:var(--ember-deep);color:#fff}
+  .btn-ghost{background:transparent;border:1.5px solid var(--line);color:var(--charcoal)}
+  .disclaimer{background:var(--cream-2);border-top:1px solid var(--line);padding:26px 0;color:var(--ink-soft);font-size:.88rem;text-align:center;font-style:italic}
+  footer{background:var(--charcoal);color:rgba(255,255,255,.6);padding:30px 0;font-size:.86rem;text-align:center}
+  @media print{nav,.actions,.back,.saved{display:none}body{background:#fff}.prompt{break-inside:avoid;box-shadow:none}.reflect-input{border-color:#ccc}header,.closing,.exercise,.reflect-input{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+  @media(max-width:560px){header{padding:42px 0 36px}.prompt{padding:22px 20px}}
+</style>
+</head>
+<body>
+<nav><div class="nav-inner">
+  <a href="../../resource-library.html" class="brand"><svg class="flame" viewBox="0 0 24 24"><path d="M12 2c1.5 3.5-1 5-1 7.5 0 1.5 1 2.5 2 2.5s2-1 1.8-3c2 1.2 3.2 3.4 3.2 6 0 3.6-3 6.5-6 6.5S6 18.6 6 15c0-4 3-6.5 6-13z" fill="#e7702f"/></svg>Campfire Calm</a>
+  <a href="../../resource-library.html" class="back">← Library</a>
+</div></nav>
+<header><div class="wrap">
+  <div class="eyebrow">Guided Reflection Workbook</div>
+  <h1>Control Tendencies</h1>
+  <p>A guided self-reflection worksheet designed to help you explore your inner landscape through thoughtful prompts and exercises.</p>
+  <div class="meta"><div><b>18</b>Prompts</div><div><b>18</b>Insights</div><div><b>18</b>Exercises</div></div>
+</div></header>
+<main><div class="wrap">
+  <div class="prompt">
+    <div class="pnum">Prompt 01</div>
+    <h2>When you feel overwhelmed, how do you try to regain control, and does this strategy help or hinder you?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Notice if your attempts to control situations actually reduce stress or create more tension. Often, trying to micromanage outcomes can backfire, increasing anxiety rather than easing it. Learning to distinguish between what you can influence and what you can’t is key to healthier control.</div>
+    <div class="block exercise"><div class="lab">Try this</div>List three recent situations where you tried to control the outcome. For each, write down what you could realistically influence and what was beyond your control.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 02</div>
+    <h2>How do you react when someone else makes decisions that affect you without your input?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Feeling powerless in these moments is common, but trying to seize control by resistance or anger can escalate conflict. Instead, focus on communicating your needs calmly and identifying areas where you can collaborate or compromise.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Recall a recent situation like this and write down how you responded. Next, draft a calm, assertive statement you could use to express your perspective next time.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 03</div>
+    <h2>In what areas of your life do you feel a compulsive need to control every detail, and what emotions underlie this need?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Excessive control often masks fears—fear of failure, uncertainty, or vulnerability. Recognizing these emotions can soften the grip of control and open space for acceptance and flexibility.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Reflect on one area where you feel this need. Write down the fears or worries that might be fueling your control and consider how accepting uncertainty could feel.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 04</div>
+    <h2>How does your desire for control affect your relationships with others?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Control tendencies can strain relationships by limiting spontaneity and trust. Practicing letting go in small ways can build mutual respect and deepen connection.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Identify one relationship where control issues arise. Plan a small act of letting go or delegating and observe the outcome.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 05</div>
+    <h2>How do you distinguish between healthy planning and unhealthy control in your daily routines?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Planning supports goals, but control seeks to eliminate all unpredictability. When plans become rigid rules causing distress if broken, control is likely dominating.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Track your daily routines for a week. Note when plans feel flexible and when they cause frustration. Reflect on how to introduce more adaptability.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 06</div>
+    <h2>When faced with unexpected change, what is your first instinct, and how does that influence your behavior?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Immediate resistance or anxiety is natural, but responding with curiosity rather than control can reduce distress and open new possibilities.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Recall a recent unexpected event. Write down your initial reaction and then reimagine responding with curiosity. How might this shift your experience?</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 07</div>
+    <h2>How do you use control as a way to cope with past trauma or unresolved pain?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Control can feel like a protective shield against vulnerability, but it can also trap you in repetitive patterns. Therapy can help you safely explore underlying wounds and loosen the need for control.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Journal about any past experiences where you felt the need to control outcomes to protect yourself. Consider what support might help you feel safer without tight control.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 08</div>
+    <h2>What physical sensations do you notice in your body when you try to exercise control?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Control attempts often trigger muscle tension, shallow breathing, or restlessness. Recognizing these signs can alert you to shift from control to relaxation.</div>
+    <div class="block exercise"><div class="lab">Try this</div>During a stressful moment, pause and scan your body for tension. Practice deep breathing or progressive muscle relaxation to counterbalance control stress.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 09</div>
+    <h2>How does your self-talk support or challenge your need for control?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Inner dialogue that demands perfection or certainty fuels control. Reframing thoughts to accept imperfection reduces the pressure to control every outcome.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Write down common control-driven thoughts you have. Then, rewrite them with kinder, more flexible language.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 10</div>
+    <h2>How do you balance your control tendencies with spontaneity and playfulness?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Allowing moments of unpredictability invites joy and creativity, counteracting control’s rigidity. Start small to build comfort with uncertainty.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Schedule a short, unplanned activity this week. Afterwards, note your feelings before, during, and after the experience.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 11</div>
+    <h2>How do control tendencies influence your decision-making process?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Control can lead to overthinking and paralysis by analysis, delaying decisions out of fear of mistakes. Practicing timely, imperfect decisions builds confidence.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Choose a minor decision you’ve postponed. Set a time limit to decide and act, then reflect on the outcome and feelings.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 12</div>
+    <h2>How do you respond internally when someone else takes control in situations you care about?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Feelings of frustration or helplessness can arise, but recognizing what you can still influence helps reduce stress and promotes cooperation.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Identify a recent incident where this happened. Write down what you could control and what you need to release.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 13</div>
+    <h2>How does your need for control relate to your self-esteem?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Sometimes control masks insecurities; feeling in control can temporarily boost self-worth. Building self-esteem from within reduces reliance on external control.</div>
+    <div class="block exercise"><div class="lab">Try this</div>List qualities and achievements that make you proud, independent of control. Reflect on how this internal validation feels.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 14</div>
+    <h2>What triggers your urge to control—specific people, environments, or emotions?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Triggers often point to underlying fears or past experiences. Identifying triggers is the first step in changing your control responses.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Keep a trigger journal for a week, noting situations that spark control urges and your reactions.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 15</div>
+    <h2>How do you differentiate between influencing a situation and controlling it?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Influence respects others&#x27; autonomy and allows fluid outcomes; control imposes rigid direction. Cultivating influence invites collaboration instead of resistance.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Think of a recent situation you tried to control. Brainstorm ways you could have influenced the outcome instead.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 16</div>
+    <h2>How do control tendencies affect your ability to cope with uncertainty in your career or personal goals?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Excessive control can cause burnout and frustration when outcomes don’t align with plans. Embracing uncertainty as part of growth fosters resilience.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Reflect on a career or goal-related uncertainty. Write affirmations that acknowledge uncertainty as a natural part of progress.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 17</div>
+    <h2>What role does perfectionism play in your control tendencies?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Perfectionism often drives control to avoid mistakes or criticism. Learning to value effort over flawlessness eases the need for control.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Complete a task allowing for imperfection. Note your feelings and what you learned from the experience.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 18</div>
+    <h2>How can mindfulness help balance your control tendencies?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Mindfulness grounds you in the present moment, reducing compulsive control of future outcomes and increasing acceptance.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Practice a daily 5-minute mindfulness meditation focusing on breath and sensations, noticing urges to control and gently letting them go.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="saved" id="savedNote"></div>
+  <div class="closing">
+    <h2>Your journey continues</h2>
+    <p>Reflection isn't a one-time exercise. Return to these prompts whenever you need a steady place to think.</p>
+  </div>
+  <div class="actions">
+    <button class="btn btn-primary" onclick="window.print()">Download / Print PDF</button>
+    <a href="../../resource-library.html" class="btn btn-ghost">← Back to library</a>
+  </div>
+</div></main>
+<div class="disclaimer"><div class="wrap">This workbook is for education and self-reflection. It is not a diagnosis or a substitute for therapy. If you are in crisis, call or text 988.</div></div>
+<footer><div class="wrap">© <span id="yr"></span> Campfire Calm™ · Jason M. Leclair, LPC</div></footer>
+<script>
+  document.getElementById('yr').textContent=new Date().getFullYear();
+  (function(){
+    var key="cc-reflect:control-tendencies:";
+    var areas=document.querySelectorAll('.reflect-input');
+    var note=document.getElementById('savedNote');
+    function save(i,v){try{localStorage.setItem(key+i,v);note.textContent='Saved on this device';clearTimeout(window._t);window._t=setTimeout(function(){note.textContent='';},1500);}catch(e){}}
+    areas.forEach(function(a,i){
+      try{var v=localStorage.getItem(key+i);if(v)a.value=v;}catch(e){}
+      a.addEventListener('input',function(){save(i,a.value);});
+    });
+  })();
+</script>
+</body>
+</html>

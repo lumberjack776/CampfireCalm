@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light">
+<title>Focus Issues — Campfire Calm</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Mulish:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{color-scheme:light;--cream:#f9f2e7;--cream-2:#fef9ef;--paper:#fffdf8;--charcoal:#2a201a;--ember:#e7702f;--ember-deep:#cf551a;--amber:#f0a94f;--sage-deep:#4f7a5d;--ink:#352b23;--ink-soft:#6a5c4e;--line:rgba(60,50,42,.13);--brown:#2e2117;--shadow-sm:0 8px 24px -14px rgba(60,40,25,.3);--r:16px}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Mulish',sans-serif;color:var(--ink);background:linear-gradient(180deg,var(--cream),#fcefdf);line-height:1.7;-webkit-font-smoothing:antialiased}
+  h1,h2,h3{font-family:'Fraunces',serif;font-weight:500;color:var(--charcoal);letter-spacing:-.01em;line-height:1.15}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:760px;margin:0 auto;padding:0 24px}
+  nav{position:sticky;top:0;z-index:50;background:rgba(249,242,231,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px;max-width:760px;margin:0 auto;padding:0 24px}
+  .brand{display:flex;align-items:center;gap:9px;font-family:'Fraunces',serif;font-size:1.18rem;font-weight:600}
+  .flame{width:22px;height:22px}
+  .back{font-weight:700;font-size:.88rem;color:var(--ember-deep)}
+  header{background:var(--brown);color:#fdf7ec;padding:54px 0 48px;position:relative;overflow:hidden}
+  header::after{content:"";position:absolute;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,rgba(240,169,79,.32),transparent 65%);top:-130px;right:-90px}
+  .eyebrow{font-weight:700;text-transform:uppercase;letter-spacing:.18em;font-size:.7rem;color:var(--amber);margin-bottom:12px;position:relative}
+  header h1{color:#fdf7ec;font-size:clamp(2rem,6vw,3rem);margin-bottom:14px;position:relative}
+  header p{color:#e7d8c2;font-size:1.06rem;position:relative;max-width:34em}
+  .meta{display:flex;gap:22px;margin-top:22px;position:relative}
+  .meta div{font-size:.82rem;color:#cbb89f}
+  .meta b{display:block;font-family:'Fraunces',serif;font-size:1.5rem;color:var(--amber);font-weight:600}
+  main{padding:46px 0 20px}
+  .prompt{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:28px 26px;margin-bottom:22px;box-shadow:var(--shadow-sm)}
+  .pnum{font-family:'Fraunces',serif;font-size:.9rem;font-weight:600;color:var(--ember-deep);margin-bottom:8px}
+  .prompt h2{font-size:1.28rem;margin-bottom:18px}
+  .block{margin-bottom:16px}
+  .block .lab{font-weight:700;text-transform:uppercase;letter-spacing:.1em;font-size:.7rem;margin-bottom:6px}
+  .insight .lab{color:var(--sage-deep)}
+  .exercise{background:rgba(240,169,79,.1);border-left:3px solid var(--amber);border-radius:0 10px 10px 0;padding:14px 16px}
+  .exercise .lab{color:var(--ember-deep)}
+  .reflect{margin-top:18px}
+  .reflect .lab{font-weight:700;font-size:.78rem;color:var(--ink-soft);margin-bottom:8px}
+  .reflect-input{display:block;width:100%;min-height:132px;font-family:'Mulish',sans-serif;font-size:1rem;color:var(--ink);
+    line-height:32px;padding:5px 14px 8px;border:1px solid var(--line);border-radius:10px;resize:vertical;
+    background-color:var(--paper);
+    background-image:repeating-linear-gradient(transparent,transparent 31px,var(--line) 31px,var(--line) 32px);
+    background-attachment:local;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .reflect-input:focus{outline:none;border-color:var(--ember);box-shadow:0 0 0 3px rgba(231,112,47,.12)}
+  .reflect-input::placeholder{color:var(--ink-soft);opacity:.7}
+  .closing{text-align:center;background:var(--brown);color:#fdf7ec;border-radius:20px;padding:38px 30px;margin:30px 0}
+  .closing h2{color:#fdf7ec;font-size:1.6rem;margin-bottom:10px}
+  .closing p{color:#e7d8c2;max-width:30em;margin:0 auto}
+  .saved{text-align:center;font-size:.8rem;color:var(--sage-deep);margin:-6px 0 22px;min-height:1em}
+  .actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin:8px 0 40px}
+  .btn{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:.95rem;padding:13px 24px;border-radius:100px;cursor:pointer;border:0}
+  .btn-primary{background:var(--ember-deep);color:#fff}
+  .btn-ghost{background:transparent;border:1.5px solid var(--line);color:var(--charcoal)}
+  .disclaimer{background:var(--cream-2);border-top:1px solid var(--line);padding:26px 0;color:var(--ink-soft);font-size:.88rem;text-align:center;font-style:italic}
+  footer{background:var(--charcoal);color:rgba(255,255,255,.6);padding:30px 0;font-size:.86rem;text-align:center}
+  @media print{nav,.actions,.back,.saved{display:none}body{background:#fff}.prompt{break-inside:avoid;box-shadow:none}.reflect-input{border-color:#ccc}header,.closing,.exercise,.reflect-input{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+  @media(max-width:560px){header{padding:42px 0 36px}.prompt{padding:22px 20px}}
+</style>
+</head>
+<body>
+<nav><div class="nav-inner">
+  <a href="../../resource-library.html" class="brand"><svg class="flame" viewBox="0 0 24 24"><path d="M12 2c1.5 3.5-1 5-1 7.5 0 1.5 1 2.5 2 2.5s2-1 1.8-3c2 1.2 3.2 3.4 3.2 6 0 3.6-3 6.5-6 6.5S6 18.6 6 15c0-4 3-6.5 6-13z" fill="#e7702f"/></svg>Campfire Calm</a>
+  <a href="../../resource-library.html" class="back">← Library</a>
+</div></nav>
+<header><div class="wrap">
+  <div class="eyebrow">Guided Reflection Workbook</div>
+  <h1>Focus Issues</h1>
+  <p>A guided self-reflection worksheet designed to help you explore your inner landscape through thoughtful prompts and exercises.</p>
+  <div class="meta"><div><b>20</b>Prompts</div><div><b>20</b>Insights</div><div><b>20</b>Exercises</div></div>
+</div></header>
+<main><div class="wrap">
+  <div class="prompt">
+    <div class="pnum">Prompt 01</div>
+    <h2>When your mind drifts during important tasks, what specific thoughts or worries tend to pull your attention away?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Identifying the exact nature of distractions helps you confront underlying concerns rather than fighting the symptom. Often, these thoughts reflect unresolved stress or unmet needs. Acknowledge them briefly, then gently redirect your focus without judgment.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Keep a distraction journal for a day, noting each time your mind wanders and what thought triggered it. Review patterns to understand what your brain prioritizes over your task.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 02</div>
+    <h2>How do you typically respond internally when you notice your concentration slipping—do you get frustrated, anxious, or indifferent?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Your emotional reaction to losing focus can either deepen the distraction or help recover it. Frustration tightens mental space, while calm acknowledgment opens room for refocusing. Practice self-compassion to reduce the emotional charge around lapses.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Next time focus fades, pause and label your feeling without judgment. Breathe deeply and remind yourself that slipping attention is natural, then re-engage with kindness.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 03</div>
+    <h2>What environmental factors in your workspace consistently disrupt your ability to focus?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>External stimuli like noise, clutter, or digital notifications can fragment your attention. Designing your environment to minimize interruptions and signal “work mode” strengthens your brain’s ability to sustain focus.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Audit your workspace and remove or modify one element that often pulls your attention away. Observe how this change influences your concentration over the next few days.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 04</div>
+    <h2>How do you structure your work or study sessions to align with your natural energy rhythms?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Working against your body’s peaks and troughs drains focus. By scheduling demanding tasks during your highest alertness and lighter activities during lows, you harness your biological rhythm to support sustained attention.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Track your alertness levels every hour for two days. Use this data to plan your next workday, placing high-focus tasks at your peak times.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 05</div>
+    <h2>What role does multitasking play in your daily routine, and how does it impact your focus quality?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Multitasking fragments cognitive resources, reducing depth of attention and increasing errors. Prioritizing single-tasking helps your brain engage fully, leading to more efficient and satisfying work.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Choose one complex task tomorrow and commit to working on it without switching to anything else until completion or a set time. Note the difference in your focus and outcome.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 06</div>
+    <h2>When overwhelmed by a large project, how do you break it down to maintain focus?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Large tasks can paralyze focus when seen as a whole. Breaking them into clear, manageable steps reduces anxiety and allows your brain to concentrate on one piece at a time, building momentum.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Take a current overwhelming task and divide it into three specific, achievable actions. Focus on completing the first step fully before moving on.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 07</div>
+    <h2>How do your physical states, like hunger or fatigue, influence your ability to sustain attention?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Physical discomfort drains cognitive energy, making focus fragile. Recognizing bodily needs as integral to mental performance encourages habits that support both mind and body.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Notice how your focus shifts when you’re hungry or tired over the next two days. Plan simple interventions like a snack or short rest before engaging in mentally demanding work.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 08</div>
+    <h2>What mental habits do you engage in when distraction strikes—do you try to push through, take breaks, or switch tasks?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>How you respond to distraction affects recovery speed. Sometimes pushing through causes more strain, while strategic breaks or refocusing exercises restore mental clarity more effectively.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Experiment with two methods when distracted: push through vs. short mindful break. Reflect on which improves your focus better and why.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 09</div>
+    <h2>How does your use of digital devices throughout the day affect your attention span?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Frequent digital interruptions condition your brain for rapid switching, reducing ability for sustained focus. Setting intentional boundaries with devices trains your mind to stay grounded longer.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Designate one hour daily as a “digital-free zone” and engage in a single-focus activity. Notice changes in how long you can concentrate.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 10</div>
+    <h2>What beliefs do you hold about your own ability to focus, and how might these beliefs influence your actual attention?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Self-limiting beliefs create a self-fulfilling prophecy, reducing effort and persistence. Cultivating a growth mindset about focus builds confidence and resilience when facing distractions.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Write down any negative thoughts you have about your focus. Challenge each with evidence of past successes and reframe them into empowering statements.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 11</div>
+    <h2>How often do you practice mindfulness or grounding techniques to enhance your present-moment awareness?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Mindfulness trains your brain to notice wandering thoughts without judgment, making it easier to return to task focus. Regular practice builds your attention muscle over time.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Commit to five minutes of mindful breathing daily for a week. Journal any changes in your ability to notice distractions and bring focus back.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 12</div>
+    <h2>When you feel mentally scattered, which calming strategies have you found most effective to regain focus?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Calming strategies like deep breathing, progressive muscle relaxation, or visualization reduce cognitive noise and emotional turbulence, clearing space for attention.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Identify and practice your top calming technique before starting a focused work period. Reflect on how it affects your mental clarity.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 13</div>
+    <h2>How do you incorporate breaks during work sessions to prevent mental fatigue?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Regular breaks prevent cognitive overload, preserving sustained focus. Breaking work into intervals with rest supports consistent productivity rather than burnout.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Use a timer to work for 25 minutes, then take a 5-minute break, repeating this cycle at least three times. Notice how breaks impact your focus and energy.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 14</div>
+    <h2>What role does goal clarity play in your ability to maintain focus during tasks?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Clear, specific goals provide a mental anchor that directs attention and reduces susceptibility to distraction. Vague goals leave your mind searching, making focus harder.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Before starting a task, write down exactly what you want to accomplish in that session. Review it if your attention strays.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 15</div>
+    <h2>How do you handle unexpected interruptions, and what strategies help you return to focus afterward?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Interruptions disrupt cognitive flow, but having a reorientation ritual—like deep breaths or a quick review of your last action—helps reset attention efficiently.</div>
+    <div class="block exercise"><div class="lab">Try this</div>After an interruption, pause and silently summarize what you were doing before resuming. Practice this each time you’re distracted externally.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 16</div>
+    <h2>How does emotional distress affect your ability to concentrate, and what coping mechanisms do you use?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Emotions hijack cognitive resources, making focus difficult. Developing healthy outlets—like journaling or physical activity—can alleviate emotional load and restore mental clarity.</div>
+    <div class="block exercise"><div class="lab">Try this</div>When upset, write for five minutes about your feelings before returning to work. Notice if this separation improves your focus.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 17</div>
+    <h2>What role does physical movement play in your focus management throughout the day?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Movement increases blood flow to the brain, reducing mental fatigue and sharpening attention. Incorporating short walks or stretches can break monotony and elevate focus.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Schedule a brief stretching or walking break every hour and track changes in your ability to concentrate.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 18</div>
+    <h2>How do your sleep patterns influence your daytime attention, and what habits support better cognitive performance?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Sleep consolidates memory and refreshes cognitive function. Poor sleep fragments attention and increases distractibility. Establishing consistent sleep routines strengthens mental endurance.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Track your sleep for a week alongside your daily focus levels. Adjust bedtime routines to improve both quality and quantity of rest.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 19</div>
+    <h2>When faced with repetitive or boring tasks, what techniques do you use to keep your attention engaged?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Reframing the task’s purpose or adding small rewards can boost motivation and focus. Changing your mindset from drudgery to mastery invites deeper mental engagement.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Choose a mundane task, identify one meaningful reason to do it well, and reward yourself afterward. Observe how this affects your focus.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 20</div>
+    <h2>How does your internal dialogue during difficult tasks influence your persistence and focus?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Encouraging self-talk fosters resilience and sustained attention, while critical or defeatist thoughts drain mental resources. Becoming aware of this dialogue allows you to steer it constructively.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Monitor your self-talk during challenging moments. Replace at least one negative statement with a supportive phrase and note the impact on your focus.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="saved" id="savedNote"></div>
+  <div class="closing">
+    <h2>Your journey continues</h2>
+    <p>Reflection isn't a one-time exercise. Return to these prompts whenever you need a steady place to think.</p>
+  </div>
+  <div class="actions">
+    <button class="btn btn-primary" onclick="window.print()">Download / Print PDF</button>
+    <a href="../../resource-library.html" class="btn btn-ghost">← Back to library</a>
+  </div>
+</div></main>
+<div class="disclaimer"><div class="wrap">This workbook is for education and self-reflection. It is not a diagnosis or a substitute for therapy. If you are in crisis, call or text 988.</div></div>
+<footer><div class="wrap">© <span id="yr"></span> Campfire Calm™ · Jason M. Leclair, LPC</div></footer>
+<script>
+  document.getElementById('yr').textContent=new Date().getFullYear();
+  (function(){
+    var key="cc-reflect:focus-issues:";
+    var areas=document.querySelectorAll('.reflect-input');
+    var note=document.getElementById('savedNote');
+    function save(i,v){try{localStorage.setItem(key+i,v);note.textContent='Saved on this device';clearTimeout(window._t);window._t=setTimeout(function(){note.textContent='';},1500);}catch(e){}}
+    areas.forEach(function(a,i){
+      try{var v=localStorage.getItem(key+i);if(v)a.value=v;}catch(e){}
+      a.addEventListener('input',function(){save(i,a.value);});
+    });
+  })();
+</script>
+</body>
+</html>

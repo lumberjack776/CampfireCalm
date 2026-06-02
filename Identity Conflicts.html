@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light">
+<title>Identity Conflicts — Campfire Calm</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Mulish:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{color-scheme:light;--cream:#f9f2e7;--cream-2:#fef9ef;--paper:#fffdf8;--charcoal:#2a201a;--ember:#e7702f;--ember-deep:#cf551a;--amber:#f0a94f;--sage-deep:#4f7a5d;--ink:#352b23;--ink-soft:#6a5c4e;--line:rgba(60,50,42,.13);--brown:#2e2117;--shadow-sm:0 8px 24px -14px rgba(60,40,25,.3);--r:16px}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Mulish',sans-serif;color:var(--ink);background:linear-gradient(180deg,var(--cream),#fcefdf);line-height:1.7;-webkit-font-smoothing:antialiased}
+  h1,h2,h3{font-family:'Fraunces',serif;font-weight:500;color:var(--charcoal);letter-spacing:-.01em;line-height:1.15}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:760px;margin:0 auto;padding:0 24px}
+  nav{position:sticky;top:0;z-index:50;background:rgba(249,242,231,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px;max-width:760px;margin:0 auto;padding:0 24px}
+  .brand{display:flex;align-items:center;gap:9px;font-family:'Fraunces',serif;font-size:1.18rem;font-weight:600}
+  .flame{width:22px;height:22px}
+  .back{font-weight:700;font-size:.88rem;color:var(--ember-deep)}
+  header{background:var(--brown);color:#fdf7ec;padding:54px 0 48px;position:relative;overflow:hidden}
+  header::after{content:"";position:absolute;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,rgba(240,169,79,.32),transparent 65%);top:-130px;right:-90px}
+  .eyebrow{font-weight:700;text-transform:uppercase;letter-spacing:.18em;font-size:.7rem;color:var(--amber);margin-bottom:12px;position:relative}
+  header h1{color:#fdf7ec;font-size:clamp(2rem,6vw,3rem);margin-bottom:14px;position:relative}
+  header p{color:#e7d8c2;font-size:1.06rem;position:relative;max-width:34em}
+  .meta{display:flex;gap:22px;margin-top:22px;position:relative}
+  .meta div{font-size:.82rem;color:#cbb89f}
+  .meta b{display:block;font-family:'Fraunces',serif;font-size:1.5rem;color:var(--amber);font-weight:600}
+  main{padding:46px 0 20px}
+  .prompt{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:28px 26px;margin-bottom:22px;box-shadow:var(--shadow-sm)}
+  .pnum{font-family:'Fraunces',serif;font-size:.9rem;font-weight:600;color:var(--ember-deep);margin-bottom:8px}
+  .prompt h2{font-size:1.28rem;margin-bottom:18px}
+  .block{margin-bottom:16px}
+  .block .lab{font-weight:700;text-transform:uppercase;letter-spacing:.1em;font-size:.7rem;margin-bottom:6px}
+  .insight .lab{color:var(--sage-deep)}
+  .exercise{background:rgba(240,169,79,.1);border-left:3px solid var(--amber);border-radius:0 10px 10px 0;padding:14px 16px}
+  .exercise .lab{color:var(--ember-deep)}
+  .reflect{margin-top:18px}
+  .reflect .lab{font-weight:700;font-size:.78rem;color:var(--ink-soft);margin-bottom:8px}
+  .reflect-input{display:block;width:100%;min-height:132px;font-family:'Mulish',sans-serif;font-size:1rem;color:var(--ink);
+    line-height:32px;padding:5px 14px 8px;border:1px solid var(--line);border-radius:10px;resize:vertical;
+    background-color:var(--paper);
+    background-image:repeating-linear-gradient(transparent,transparent 31px,var(--line) 31px,var(--line) 32px);
+    background-attachment:local;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .reflect-input:focus{outline:none;border-color:var(--ember);box-shadow:0 0 0 3px rgba(231,112,47,.12)}
+  .reflect-input::placeholder{color:var(--ink-soft);opacity:.7}
+  .closing{text-align:center;background:var(--brown);color:#fdf7ec;border-radius:20px;padding:38px 30px;margin:30px 0}
+  .closing h2{color:#fdf7ec;font-size:1.6rem;margin-bottom:10px}
+  .closing p{color:#e7d8c2;max-width:30em;margin:0 auto}
+  .saved{text-align:center;font-size:.8rem;color:var(--sage-deep);margin:-6px 0 22px;min-height:1em}
+  .actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin:8px 0 40px}
+  .btn{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:.95rem;padding:13px 24px;border-radius:100px;cursor:pointer;border:0}
+  .btn-primary{background:var(--ember-deep);color:#fff}
+  .btn-ghost{background:transparent;border:1.5px solid var(--line);color:var(--charcoal)}
+  .disclaimer{background:var(--cream-2);border-top:1px solid var(--line);padding:26px 0;color:var(--ink-soft);font-size:.88rem;text-align:center;font-style:italic}
+  footer{background:var(--charcoal);color:rgba(255,255,255,.6);padding:30px 0;font-size:.86rem;text-align:center}
+  @media print{nav,.actions,.back,.saved{display:none}body{background:#fff}.prompt{break-inside:avoid;box-shadow:none}.reflect-input{border-color:#ccc}header,.closing,.exercise,.reflect-input{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+  @media(max-width:560px){header{padding:42px 0 36px}.prompt{padding:22px 20px}}
+</style>
+</head>
+<body>
+<nav><div class="nav-inner">
+  <a href="../../resource-library.html" class="brand"><svg class="flame" viewBox="0 0 24 24"><path d="M12 2c1.5 3.5-1 5-1 7.5 0 1.5 1 2.5 2 2.5s2-1 1.8-3c2 1.2 3.2 3.4 3.2 6 0 3.6-3 6.5-6 6.5S6 18.6 6 15c0-4 3-6.5 6-13z" fill="#e7702f"/></svg>Campfire Calm</a>
+  <a href="../../resource-library.html" class="back">← Library</a>
+</div></nav>
+<header><div class="wrap">
+  <div class="eyebrow">Guided Reflection Workbook</div>
+  <h1>Identity Conflicts</h1>
+  <p>A guided self-reflection worksheet designed to help you explore your inner landscape through thoughtful prompts and exercises.</p>
+  <div class="meta"><div><b>20</b>Prompts</div><div><b>20</b>Insights</div><div><b>20</b>Exercises</div></div>
+</div></header>
+<main><div class="wrap">
+  <div class="prompt">
+    <div class="pnum">Prompt 01</div>
+    <h2>When you feel torn between who you are and who others expect you to be, what emotions typically arise for you?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Notice that feeling conflicted often stems from a tension between your authentic self and external pressures. This emotional discomfort signals that your core values or desires may be under threat. Rather than dismissing these feelings, see them as a compass pointing toward areas needing clarity or boundaries.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Write down three situations where you felt pressured to act out of alignment with yourself. Identify what values or needs were being challenged in each case.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 02</div>
+    <h2>How do you respond internally when your actions don’t match your self-image?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Internal conflict arises when behavior contradicts your self-concept, often triggering guilt, shame, or confusion. Recognize these feelings as feedback rather than failure. This awareness can help you adjust your choices or redefine your self-image more compassionately.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Recall a recent time when your actions didn’t align with how you see yourself. Journal about what led to that disconnect and what you might do differently next time.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 03</div>
+    <h2>What parts of your identity feel like they belong to you, and which feel borrowed or imposed?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Differentiating authentic traits from imposed ones is crucial for resolving identity conflict. Imposed identities often come with internal resistance or discomfort. Exploring these can reveal areas where you might reclaim autonomy and reshape your narrative.</div>
+    <div class="block exercise"><div class="lab">Try this</div>List three qualities or roles you feel genuinely connected to and three that feel imposed. Reflect on how these imposed roles affect your well-being.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 04</div>
+    <h2>How does fear influence your willingness to express your true self?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Fear often acts as a barrier to authenticity, usually rooted in anticipated judgment, rejection, or failure. Understanding the specific fears at play can help you challenge their validity and gradually build courage to be more genuine.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Identify one fear that stops you from being yourself fully. Write down evidence that challenges this fear and plan a small step toward expressing your true self despite it.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 05</div>
+    <h2>In moments of identity confusion, what internal dialogue do you notice?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Your self-talk during confusion often reveals underlying beliefs about worth, acceptance, or competence. Becoming aware of this dialogue allows you to question negative or rigid thoughts and replace them with more balanced perspectives.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Capture your inner dialogue during a recent identity-conflict moment. Highlight any negative or absolute statements and reframe them into compassionate, flexible thoughts.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 06</div>
+    <h2>How do you balance honoring your heritage and cultural identity with your personal beliefs and desires?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Balancing cultural identity with personal growth requires acknowledging the meaningful parts of your heritage while allowing space for individuality. It’s a dynamic process of respect without self-sacrifice, which strengthens your sense of integrity.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Write about what aspects of your cultural background you cherish and which you struggle with. Explore how you can honor both your roots and your unique path.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 07</div>
+    <h2>What role does comparison to others play in your identity struggles?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Comparing yourself to others can distort your self-image and deepen identity conflict by shifting focus away from your unique qualities. Redirecting attention inward helps reinforce self-acceptance and reduces the pressure to conform.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Notice when you compare yourself to someone else. Pause and list three personal strengths or values that make you unique.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 08</div>
+    <h2>When you feel fragmented or “not whole” inside, what unmet needs might be underlying that sensation?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Feeling fragmented often points to unmet emotional needs such as safety, acceptance, or authenticity. Identifying these needs allows you to address them directly, fostering a sense of internal coherence and peace.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Reflect on times you felt “not whole.” Write down what you were needing emotionally or psychologically at those moments.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 09</div>
+    <h2>How do conflicting identities affect your decision-making?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>When identities clash, decisions can feel paralyzing or lead to choices that satisfy one part but betray another. Practicing integrative thinking—acknowledging multiple parts and values—can lead to decisions that honor your whole self.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Think of a recent tough decision. Map out which identity parts were pulling in different directions and brainstorm how you might integrate these perspectives.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 10</div>
+    <h2>How can embracing your contradictions help resolve identity conflicts?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Accepting that we can hold conflicting traits or desires simultaneously reduces inner tension. It invites curiosity instead of judgment, allowing you to see complexity within yourself as a strength rather than a problem.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Identify two seemingly opposing qualities you possess. Write about how each serves you and how they might coexist.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 11</div>
+    <h2>What stories about yourself do you tell that might limit your identity?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Self-stories shape your identity deeply but can also confine you if they are rigid or negative. By examining and revising these narratives, you open pathways to a more expansive and authentic self-view.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Write down a self-story that feels limiting. Challenge its accuracy and rewrite it with more compassion and possibility.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 12</div>
+    <h2>How do you experience the tension between your past identity and the person you want to become?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>This tension is a natural part of growth but can feel like loss or betrayal. Recognizing that evolution involves both continuity and change helps you integrate your past self with your emerging identity.</div>
+    <div class="block exercise"><div class="lab">Try this</div>List qualities from your past that you want to keep and those you want to let go. Reflect on how you can honor both during your transformation.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 13</div>
+    <h2>How do societal labels impact your sense of self?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Labels can simplify identity but also box you in, creating conflict when they don’t fit your inner experience. Awareness of this allows you to accept or reject labels consciously, reclaiming your self-definition.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Identify one label you feel pressured to accept. Explore how it helps or limits you and consider alternative descriptions that feel more authentic.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 14</div>
+    <h2>What role does perfectionism play in your identity conflicts?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Perfectionism often fuels identity conflict by imposing impossible standards that fracture your sense of self when unmet. Learning to embrace imperfection fosters self-compassion and a more integrated identity.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Recall a time you felt you “failed” your own standards. Write about what you learned and how you might loosen perfectionistic demands.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 15</div>
+    <h2>How do you navigate identity conflicts that arise from multiple social roles (e.g., parent, professional, friend)?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Multiple roles can pull your identity in different directions, causing stress. Prioritizing your core values and setting clear boundaries helps you fulfill roles authentically without losing yourself.</div>
+    <div class="block exercise"><div class="lab">Try this</div>List your main social roles and the demands each places on you. Reflect on which roles align with your values and where you might set limits.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 16</div>
+    <h2>In what ways might avoidance be maintaining your identity conflict?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Avoidance can protect you from discomfort but also freezes unresolved conflicts, blocking growth. Facing conflicting feelings gradually allows for processing and integration, reducing their power over you.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Identify one avoided feeling or situation related to your identity conflict. Plan a gentle, manageable step to confront it.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 17</div>
+    <h2>How does your self-compassion (or lack thereof) influence your experience of identity conflict?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Self-compassion softens the harsh inner critic that intensifies identity struggles. It creates a safe internal environment where conflicting parts can coexist and heal rather than fight or hide.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Practice a self-compassion break when you notice identity conflict: acknowledge your struggle, remind yourself it’s human, and offer kind words to yourself.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 18</div>
+    <h2>What does your ideal, integrated self look like, and how different is it from your current self?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Visualizing your integrated self helps clarify your goals and areas needing attention. While the gap may feel large, small consistent steps toward integration build a cohesive identity over time.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Describe your ideal integrated self in detail. Identify one small action you can take this week to move closer to that vision.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 19</div>
+    <h2>How might rigid thinking contribute to your identity conflicts?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Rigidity traps you in fixed identities and black-and-white thinking, limiting flexibility and growth. Cultivating cognitive flexibility helps you adapt and blend different parts of yourself more effectively.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Notice a rigid thought about your identity. Challenge it by listing exceptions or alternative perspectives.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 20</div>
+    <h2>How do you cope when your identity feels fragmented or shattered?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Fragmentation feels overwhelming but can be a signal to slow down and nurture safety and self-connection. Grounding practices and seeking support can help you reunite fragmented parts gradually.</div>
+    <div class="block exercise"><div class="lab">Try this</div>When feeling fragmented, practice a grounding exercise (e.g., deep breathing or mindfulness). Then, write a letter to your fragmented self offering understanding and patience.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="saved" id="savedNote"></div>
+  <div class="closing">
+    <h2>Your journey continues</h2>
+    <p>Reflection isn't a one-time exercise. Return to these prompts whenever you need a steady place to think.</p>
+  </div>
+  <div class="actions">
+    <button class="btn btn-primary" onclick="window.print()">Download / Print PDF</button>
+    <a href="../../resource-library.html" class="btn btn-ghost">← Back to library</a>
+  </div>
+</div></main>
+<div class="disclaimer"><div class="wrap">This workbook is for education and self-reflection. It is not a diagnosis or a substitute for therapy. If you are in crisis, call or text 988.</div></div>
+<footer><div class="wrap">© <span id="yr"></span> Campfire Calm™ · Jason M. Leclair, LPC</div></footer>
+<script>
+  document.getElementById('yr').textContent=new Date().getFullYear();
+  (function(){
+    var key="cc-reflect:identity-conflicts:";
+    var areas=document.querySelectorAll('.reflect-input');
+    var note=document.getElementById('savedNote');
+    function save(i,v){try{localStorage.setItem(key+i,v);note.textContent='Saved on this device';clearTimeout(window._t);window._t=setTimeout(function(){note.textContent='';},1500);}catch(e){}}
+    areas.forEach(function(a,i){
+      try{var v=localStorage.getItem(key+i);if(v)a.value=v;}catch(e){}
+      a.addEventListener('input',function(){save(i,a.value);});
+    });
+  })();
+</script>
+</body>
+</html>

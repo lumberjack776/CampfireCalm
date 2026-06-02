@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light">
+<title>Thought Observation — Campfire Calm</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Mulish:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{color-scheme:light;--cream:#f9f2e7;--cream-2:#fef9ef;--paper:#fffdf8;--charcoal:#2a201a;--ember:#e7702f;--ember-deep:#cf551a;--amber:#f0a94f;--sage-deep:#4f7a5d;--ink:#352b23;--ink-soft:#6a5c4e;--line:rgba(60,50,42,.13);--brown:#2e2117;--shadow-sm:0 8px 24px -14px rgba(60,40,25,.3);--r:16px}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Mulish',sans-serif;color:var(--ink);background:linear-gradient(180deg,var(--cream),#fcefdf);line-height:1.7;-webkit-font-smoothing:antialiased}
+  h1,h2,h3{font-family:'Fraunces',serif;font-weight:500;color:var(--charcoal);letter-spacing:-.01em;line-height:1.15}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:760px;margin:0 auto;padding:0 24px}
+  nav{position:sticky;top:0;z-index:50;background:rgba(249,242,231,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px;max-width:760px;margin:0 auto;padding:0 24px}
+  .brand{display:flex;align-items:center;gap:9px;font-family:'Fraunces',serif;font-size:1.18rem;font-weight:600}
+  .flame{width:22px;height:22px}
+  .back{font-weight:700;font-size:.88rem;color:var(--ember-deep)}
+  header{background:var(--brown);color:#fdf7ec;padding:54px 0 48px;position:relative;overflow:hidden}
+  header::after{content:"";position:absolute;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,rgba(240,169,79,.32),transparent 65%);top:-130px;right:-90px}
+  .eyebrow{font-weight:700;text-transform:uppercase;letter-spacing:.18em;font-size:.7rem;color:var(--amber);margin-bottom:12px;position:relative}
+  header h1{color:#fdf7ec;font-size:clamp(2rem,6vw,3rem);margin-bottom:14px;position:relative}
+  header p{color:#e7d8c2;font-size:1.06rem;position:relative;max-width:34em}
+  .meta{display:flex;gap:22px;margin-top:22px;position:relative}
+  .meta div{font-size:.82rem;color:#cbb89f}
+  .meta b{display:block;font-family:'Fraunces',serif;font-size:1.5rem;color:var(--amber);font-weight:600}
+  main{padding:46px 0 20px}
+  .prompt{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:28px 26px;margin-bottom:22px;box-shadow:var(--shadow-sm)}
+  .pnum{font-family:'Fraunces',serif;font-size:.9rem;font-weight:600;color:var(--ember-deep);margin-bottom:8px}
+  .prompt h2{font-size:1.28rem;margin-bottom:18px}
+  .block{margin-bottom:16px}
+  .block .lab{font-weight:700;text-transform:uppercase;letter-spacing:.1em;font-size:.7rem;margin-bottom:6px}
+  .insight .lab{color:var(--sage-deep)}
+  .exercise{background:rgba(240,169,79,.1);border-left:3px solid var(--amber);border-radius:0 10px 10px 0;padding:14px 16px}
+  .exercise .lab{color:var(--ember-deep)}
+  .reflect{margin-top:18px}
+  .reflect .lab{font-weight:700;font-size:.78rem;color:var(--ink-soft);margin-bottom:8px}
+  .reflect-input{display:block;width:100%;min-height:132px;font-family:'Mulish',sans-serif;font-size:1rem;color:var(--ink);
+    line-height:32px;padding:5px 14px 8px;border:1px solid var(--line);border-radius:10px;resize:vertical;
+    background-color:var(--paper);
+    background-image:repeating-linear-gradient(transparent,transparent 31px,var(--line) 31px,var(--line) 32px);
+    background-attachment:local;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .reflect-input:focus{outline:none;border-color:var(--ember);box-shadow:0 0 0 3px rgba(231,112,47,.12)}
+  .reflect-input::placeholder{color:var(--ink-soft);opacity:.7}
+  .closing{text-align:center;background:var(--brown);color:#fdf7ec;border-radius:20px;padding:38px 30px;margin:30px 0}
+  .closing h2{color:#fdf7ec;font-size:1.6rem;margin-bottom:10px}
+  .closing p{color:#e7d8c2;max-width:30em;margin:0 auto}
+  .saved{text-align:center;font-size:.8rem;color:var(--sage-deep);margin:-6px 0 22px;min-height:1em}
+  .actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin:8px 0 40px}
+  .btn{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:.95rem;padding:13px 24px;border-radius:100px;cursor:pointer;border:0}
+  .btn-primary{background:var(--ember-deep);color:#fff}
+  .btn-ghost{background:transparent;border:1.5px solid var(--line);color:var(--charcoal)}
+  .disclaimer{background:var(--cream-2);border-top:1px solid var(--line);padding:26px 0;color:var(--ink-soft);font-size:.88rem;text-align:center;font-style:italic}
+  footer{background:var(--charcoal);color:rgba(255,255,255,.6);padding:30px 0;font-size:.86rem;text-align:center}
+  @media print{nav,.actions,.back,.saved{display:none}body{background:#fff}.prompt{break-inside:avoid;box-shadow:none}.reflect-input{border-color:#ccc}header,.closing,.exercise,.reflect-input{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+  @media(max-width:560px){header{padding:42px 0 36px}.prompt{padding:22px 20px}}
+</style>
+</head>
+<body>
+<nav><div class="nav-inner">
+  <a href="../../resource-library.html" class="brand"><svg class="flame" viewBox="0 0 24 24"><path d="M12 2c1.5 3.5-1 5-1 7.5 0 1.5 1 2.5 2 2.5s2-1 1.8-3c2 1.2 3.2 3.4 3.2 6 0 3.6-3 6.5-6 6.5S6 18.6 6 15c0-4 3-6.5 6-13z" fill="#e7702f"/></svg>Campfire Calm</a>
+  <a href="../../resource-library.html" class="back">← Library</a>
+</div></nav>
+<header><div class="wrap">
+  <div class="eyebrow">Guided Reflection Workbook</div>
+  <h1>Thought Observation</h1>
+  <p>A guided self-reflection worksheet designed to help you explore your inner landscape through thoughtful prompts and exercises.</p>
+  <div class="meta"><div><b>20</b>Prompts</div><div><b>20</b>Insights</div><div><b>20</b>Exercises</div></div>
+</div></header>
+<main><div class="wrap">
+  <div class="prompt">
+    <div class="pnum">Prompt 01</div>
+    <h2>When you notice a negative thought, how do you usually respond to it emotionally and behaviorally?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Pay close attention to your immediate reaction—do you accept it, fight it, or try to suppress it? Recognizing this pattern helps you gain control over your emotional responses instead of being driven by automatic reactions.</div>
+    <div class="block exercise"><div class="lab">Try this</div>For one day, each time a negative thought arises, pause and note your first emotional and behavioral impulse without changing it. Later, reflect on these responses and consider alternative ways to respond calmly.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 02</div>
+    <h2>Can you identify a thought that often triggers anxiety or stress in your daily life?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Pinpointing a specific thought that consistently leads to distress reveals patterns that fuel anxiety. Observing it without judgment allows you to detach its emotional charge and evaluate its accuracy.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Write down the recurring anxious thought, then list the evidence that supports and contradicts it. Reflect on whether the thought is helpful or if it exaggerates the situation.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 03</div>
+    <h2>How often do you catch yourself ruminating on past mistakes, and what impact does this have on your mood?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Repetitive focus on past errors locks you in a cycle of regret and self-criticism, which deepens negative feelings. Observing rumination as a passing mental event can weaken its grip over time.</div>
+    <div class="block exercise"><div class="lab">Try this</div>When you notice rumination, gently label it as “just a thought” and redirect your attention to a present task or sensory experience for at least five minutes.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 04</div>
+    <h2>When a critical thought about yourself arises, how do you distinguish it from an objective truth?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Self-critical thoughts often feel convincing but are usually biased or exaggerated. Learning to question the validity of these thoughts helps you separate feelings from facts and reduce self-judgment.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Next time a harsh self-judgment occurs, pause and ask yourself, “Would I say this to a friend? What evidence do I have?” Write down a balanced, kinder perspective.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 05</div>
+    <h2>What physical sensations accompany your stressful thoughts, and how do these sensations influence your reactions?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Stressful thoughts often manifest physically—tight chest, racing heart, or tense muscles—amplifying emotional distress. Becoming aware of these sensations allows you to interrupt the cycle and respond more calmly.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Practice a body scan when stressed, noting where tension arises. Pair this with slow, deep breaths to soothe your nervous system and create space between thought and reaction.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 06</div>
+    <h2>How do you react when you catch yourself engaging in “all-or-nothing” thinking?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Seeing situations in black-and-white terms limits your perspective and fuels unnecessary stress. Observing this thinking style helps you challenge it and embrace more nuanced, realistic views.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Identify a recent “all-or-nothing” thought, then list at least three middle-ground possibilities that reflect complexity and shades of gray.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 07</div>
+    <h2>When faced with a difficult decision, how do your thoughts influence your confidence or doubt?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Thoughts can either empower you to trust your judgment or undermine confidence through second-guessing. Observing these thought patterns helps you recognize when doubt is helpful caution or unproductive fear.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Write down the thoughts that arise when making a tough choice, then evaluate which are based on facts and which stem from worry or assumptions.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 08</div>
+    <h2>Do you notice any recurring thought patterns that lead you to avoid certain activities or people?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Avoidance often stems from anticipatory negative thoughts that exaggerate risks or discomfort. Observing these patterns shines light on how thoughts limit your experiences and offers a chance to test their accuracy.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Pick one avoided situation and track your thoughts before, during, and after. Reflect on whether reality matched your expectations and what you learned.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 09</div>
+    <h2>How do you respond internally when your plans don’t go as expected?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Unexpected changes often trigger automatic thoughts that can spiral into frustration or self-blame. Observing these responses can help you practice flexibility and reduce emotional upheaval.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Next time plans shift, notice your immediate thoughts and rate how helpful they are. Practice replacing unhelpful thoughts with adaptive ones like “I can adjust” or “This is temporary.”</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 10</div>
+    <h2>What role do future-oriented thoughts play in your daily decision-making and mood?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Thoughts about the future can motivate or paralyze you depending on their tone. Observing whether your future thoughts are hopeful or catastrophic can guide you to cultivate a balanced outlook.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Spend five minutes journaling about your future expectations. Identify any patterns of worry or optimism and consider how they influence your present actions.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 11</div>
+    <h2>When you experience a sudden emotional shift, can you trace it back to a specific thought?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Emotions often follow thoughts closely. Learning to spot the triggering thought behind an emotional change increases your ability to intervene before feelings escalate.</div>
+    <div class="block exercise"><div class="lab">Try this</div>During an emotional shift, pause and ask yourself, “What thought just passed through my mind?” Write it down and assess whether it’s accurate or distorted.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 12</div>
+    <h2>How do you differentiate between helpful problem-solving thoughts and unproductive worry?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Helpful problem-solving focuses on actionable steps, while worry tends to be repetitive and circular without resolution. Observing this distinction can improve your emotional regulation and productivity.</div>
+    <div class="block exercise"><div class="lab">Try this</div>When caught worrying, write down your thoughts. Separate those that suggest concrete solutions from those that only express fears without direction.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 13</div>
+    <h2>Do you notice any patterns where your thoughts jump to worst-case scenarios?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Catastrophizing inflates threats and can immobilize you. Observing this tendency allows you to challenge exaggerated outcomes and focus on realistic possibilities.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Identify a recent catastrophic thought and write down the most likely actual outcome. Reflect on how this shifts your emotional response.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 14</div>
+    <h2>When you receive feedback, how do your internal thoughts shape your interpretation?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Your internal narrative can turn neutral or constructive feedback into personal criticism or validation. Observing these thought filters helps you respond more openly and less defensively.</div>
+    <div class="block exercise"><div class="lab">Try this</div>After receiving feedback, note your immediate thoughts. Then reframe them by considering the feedback’s intention and separating it from self-worth.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 15</div>
+    <h2>How do your thoughts influence your ability to forgive yourself or others?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Holding on to blame often involves repetitive negative thoughts that keep wounds fresh. Observing these thoughts can help you identify when forgiveness is a conscious choice to let go rather than a feeling.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Reflect on a situation where forgiveness feels hard. Write down the thoughts that keep you stuck and challenge their necessity. Imagine a compassionate thought you could adopt.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 16</div>
+    <h2>How aware are you of the “inner critic” voice in your mind, and how does it affect your daily decisions?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>The inner critic often speaks harshly and undermines confidence. Observing this voice as just one perspective among many lessens its power and opens space for self-compassion.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Personify your inner critic and write a dialogue where you respond with kindness and reason, setting boundaries for its influence.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 17</div>
+    <h2>What role does your self-talk play when you are learning a new skill or facing challenges?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Supportive self-talk can enhance persistence, while negative self-talk may increase frustration and give up. Observing your internal dialogue reveals how to nurture resilience through mindful language.</div>
+    <div class="block exercise"><div class="lab">Try this</div>During a learning process, note your self-talk. Consciously replace any discouraging phrases with encouraging ones and reflect on the impact.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 18</div>
+    <h2>How do you notice your thoughts shifting when you move from a calm state to feeling overwhelmed?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Overwhelm often triggers rapid, fragmented thoughts that escalate distress. Observing these shifts helps you recognize early signs and apply calming strategies sooner.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Map your thought changes during moments of overwhelm. Practice grounding techniques to interrupt the spiral and return to centered thinking.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 19</div>
+    <h2>Can you identify a thought that you tend to avoid acknowledging, and what prevents you from facing it?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Avoided thoughts often carry uncomfortable truths or fears. Observing what you resist reveals areas for growth and healing once approached with safety and compassion.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Gently bring the avoided thought to mind in a safe space, noting any sensations or feelings without judgment. Write about what made it difficult to face and what might help.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 20</div>
+    <h2>When feeling joy or contentment, how conscious are you of the thoughts that support these emotions?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Positive emotions are often accompanied by affirming, present-focused thoughts. Observing these moments strengthens your ability to cultivate gratitude and savor happiness intentionally.</div>
+    <div class="block exercise"><div class="lab">Try this</div>During a joyful moment, pause and note the thoughts accompanying it. Journal about how you can invite more of these thoughts into daily life.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="saved" id="savedNote"></div>
+  <div class="closing">
+    <h2>Your journey continues</h2>
+    <p>Reflection isn't a one-time exercise. Return to these prompts whenever you need a steady place to think.</p>
+  </div>
+  <div class="actions">
+    <button class="btn btn-primary" onclick="window.print()">Download / Print PDF</button>
+    <a href="../../resource-library.html" class="btn btn-ghost">← Back to library</a>
+  </div>
+</div></main>
+<div class="disclaimer"><div class="wrap">This workbook is for education and self-reflection. It is not a diagnosis or a substitute for therapy. If you are in crisis, call or text 988.</div></div>
+<footer><div class="wrap">© <span id="yr"></span> Campfire Calm™ · Jason M. Leclair, LPC</div></footer>
+<script>
+  document.getElementById('yr').textContent=new Date().getFullYear();
+  (function(){
+    var key="cc-reflect:thought-observation:";
+    var areas=document.querySelectorAll('.reflect-input');
+    var note=document.getElementById('savedNote');
+    function save(i,v){try{localStorage.setItem(key+i,v);note.textContent='Saved on this device';clearTimeout(window._t);window._t=setTimeout(function(){note.textContent='';},1500);}catch(e){}}
+    areas.forEach(function(a,i){
+      try{var v=localStorage.getItem(key+i);if(v)a.value=v;}catch(e){}
+      a.addEventListener('input',function(){save(i,a.value);});
+    });
+  })();
+</script>
+</body>
+</html>

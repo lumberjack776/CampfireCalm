@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light">
+<title>Joy Patterns — Campfire Calm</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Mulish:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{color-scheme:light;--cream:#f9f2e7;--cream-2:#fef9ef;--paper:#fffdf8;--charcoal:#2a201a;--ember:#e7702f;--ember-deep:#cf551a;--amber:#f0a94f;--sage-deep:#4f7a5d;--ink:#352b23;--ink-soft:#6a5c4e;--line:rgba(60,50,42,.13);--brown:#2e2117;--shadow-sm:0 8px 24px -14px rgba(60,40,25,.3);--r:16px}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Mulish',sans-serif;color:var(--ink);background:linear-gradient(180deg,var(--cream),#fcefdf);line-height:1.7;-webkit-font-smoothing:antialiased}
+  h1,h2,h3{font-family:'Fraunces',serif;font-weight:500;color:var(--charcoal);letter-spacing:-.01em;line-height:1.15}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:760px;margin:0 auto;padding:0 24px}
+  nav{position:sticky;top:0;z-index:50;background:rgba(249,242,231,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px;max-width:760px;margin:0 auto;padding:0 24px}
+  .brand{display:flex;align-items:center;gap:9px;font-family:'Fraunces',serif;font-size:1.18rem;font-weight:600}
+  .flame{width:22px;height:22px}
+  .back{font-weight:700;font-size:.88rem;color:var(--ember-deep)}
+  header{background:var(--brown);color:#fdf7ec;padding:54px 0 48px;position:relative;overflow:hidden}
+  header::after{content:"";position:absolute;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,rgba(240,169,79,.32),transparent 65%);top:-130px;right:-90px}
+  .eyebrow{font-weight:700;text-transform:uppercase;letter-spacing:.18em;font-size:.7rem;color:var(--amber);margin-bottom:12px;position:relative}
+  header h1{color:#fdf7ec;font-size:clamp(2rem,6vw,3rem);margin-bottom:14px;position:relative}
+  header p{color:#e7d8c2;font-size:1.06rem;position:relative;max-width:34em}
+  .meta{display:flex;gap:22px;margin-top:22px;position:relative}
+  .meta div{font-size:.82rem;color:#cbb89f}
+  .meta b{display:block;font-family:'Fraunces',serif;font-size:1.5rem;color:var(--amber);font-weight:600}
+  main{padding:46px 0 20px}
+  .prompt{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:28px 26px;margin-bottom:22px;box-shadow:var(--shadow-sm)}
+  .pnum{font-family:'Fraunces',serif;font-size:.9rem;font-weight:600;color:var(--ember-deep);margin-bottom:8px}
+  .prompt h2{font-size:1.28rem;margin-bottom:18px}
+  .block{margin-bottom:16px}
+  .block .lab{font-weight:700;text-transform:uppercase;letter-spacing:.1em;font-size:.7rem;margin-bottom:6px}
+  .insight .lab{color:var(--sage-deep)}
+  .exercise{background:rgba(240,169,79,.1);border-left:3px solid var(--amber);border-radius:0 10px 10px 0;padding:14px 16px}
+  .exercise .lab{color:var(--ember-deep)}
+  .reflect{margin-top:18px}
+  .reflect .lab{font-weight:700;font-size:.78rem;color:var(--ink-soft);margin-bottom:8px}
+  .reflect-input{display:block;width:100%;min-height:132px;font-family:'Mulish',sans-serif;font-size:1rem;color:var(--ink);
+    line-height:32px;padding:5px 14px 8px;border:1px solid var(--line);border-radius:10px;resize:vertical;
+    background-color:var(--paper);
+    background-image:repeating-linear-gradient(transparent,transparent 31px,var(--line) 31px,var(--line) 32px);
+    background-attachment:local;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .reflect-input:focus{outline:none;border-color:var(--ember);box-shadow:0 0 0 3px rgba(231,112,47,.12)}
+  .reflect-input::placeholder{color:var(--ink-soft);opacity:.7}
+  .closing{text-align:center;background:var(--brown);color:#fdf7ec;border-radius:20px;padding:38px 30px;margin:30px 0}
+  .closing h2{color:#fdf7ec;font-size:1.6rem;margin-bottom:10px}
+  .closing p{color:#e7d8c2;max-width:30em;margin:0 auto}
+  .saved{text-align:center;font-size:.8rem;color:var(--sage-deep);margin:-6px 0 22px;min-height:1em}
+  .actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin:8px 0 40px}
+  .btn{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:.95rem;padding:13px 24px;border-radius:100px;cursor:pointer;border:0}
+  .btn-primary{background:var(--ember-deep);color:#fff}
+  .btn-ghost{background:transparent;border:1.5px solid var(--line);color:var(--charcoal)}
+  .disclaimer{background:var(--cream-2);border-top:1px solid var(--line);padding:26px 0;color:var(--ink-soft);font-size:.88rem;text-align:center;font-style:italic}
+  footer{background:var(--charcoal);color:rgba(255,255,255,.6);padding:30px 0;font-size:.86rem;text-align:center}
+  @media print{nav,.actions,.back,.saved{display:none}body{background:#fff}.prompt{break-inside:avoid;box-shadow:none}.reflect-input{border-color:#ccc}header,.closing,.exercise,.reflect-input{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+  @media(max-width:560px){header{padding:42px 0 36px}.prompt{padding:22px 20px}}
+</style>
+</head>
+<body>
+<nav><div class="nav-inner">
+  <a href="../../resource-library.html" class="brand"><svg class="flame" viewBox="0 0 24 24"><path d="M12 2c1.5 3.5-1 5-1 7.5 0 1.5 1 2.5 2 2.5s2-1 1.8-3c2 1.2 3.2 3.4 3.2 6 0 3.6-3 6.5-6 6.5S6 18.6 6 15c0-4 3-6.5 6-13z" fill="#e7702f"/></svg>Campfire Calm</a>
+  <a href="../../resource-library.html" class="back">← Library</a>
+</div></nav>
+<header><div class="wrap">
+  <div class="eyebrow">Guided Reflection Workbook</div>
+  <h1>Joy Patterns</h1>
+  <p>A guided self-reflection worksheet designed to help you explore your inner landscape through thoughtful prompts and exercises.</p>
+  <div class="meta"><div><b>18</b>Prompts</div><div><b>18</b>Insights</div><div><b>18</b>Exercises</div></div>
+</div></header>
+<main><div class="wrap">
+  <div class="prompt">
+    <div class="pnum">Prompt 01</div>
+    <h2>When do you find yourself naturally smiling or feeling lighthearted during your day?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>These moments often reveal what truly resonates with your inner self. Notice the activities or interactions that bring spontaneous joy—they are clues to what nurtures your emotional well-being. Recognizing these patterns helps you intentionally invite more joy into your life.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Track your day in 15-minute intervals. Write down when you smile or feel uplifted, noting what you were doing or who you were with. Identify any common themes or triggers.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 02</div>
+    <h2>How do your thoughts about past joyful experiences influence your current mood?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Recalling positive memories can boost your mood, but sometimes we gloss over details or idealize the past. Reflecting with curiosity rather than nostalgia lets you re-experience joy while staying grounded in the present, helping you cultivate a mindset open to new happiness.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Choose a joyful memory and write it down with as much sensory detail as possible. Then note what feelings arise now. Observe if your current joy connects to this memory or is separate.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 03</div>
+    <h2>What small, everyday actions consistently lift your spirit, even on tough days?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Joy often hides in the mundane and overlooked. Identifying simple activities—like brewing tea or stepping outside—can provide reliable emotional anchors. Focusing on these helps you build resilience and access calm, positive feelings amid stress.</div>
+    <div class="block exercise"><div class="lab">Try this</div>List five small actions that reliably bring you peace or pleasure. Commit to integrating at least two into your daily routine this week.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 04</div>
+    <h2>How does your environment affect your ability to experience joy?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Our surroundings profoundly shape our emotions. Cluttered or chaotic spaces can dampen joy, while organized, sensory-rich environments can enhance it. Being intentional about your physical space supports your psychological well-being.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Spend 10 minutes decluttering or rearranging a personal space. Notice how these changes influence your mood immediately and over time.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 05</div>
+    <h2>When was the last time you felt joy despite a challenging situation? What helped you access it?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Finding joy in adversity shows emotional flexibility and strength. It often arises from acceptance, reframing, or connecting with values deeper than immediate difficulties. Recognizing how you do this equips you to navigate future hardships with grace.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Reflect on a recent tough moment where you felt a spark of joy. Write down what you focused on or told yourself that made that possible.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 06</div>
+    <h2>How do your relationships contribute to or detract from your experience of joy?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Relationships are powerful joy amplifiers or blockers. Pay attention to which connections energize you versus which drain you. Setting clear boundaries and nurturing positive ties promotes sustained emotional vitality.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Map your close relationships, rating each on a scale of joy contribution. Identify one relationship to strengthen and one boundary to clarify.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 07</div>
+    <h2>What role does gratitude play in your daily experience of joy?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Gratitude shifts attention from lack to abundance, naturally increasing joy. But it’s most effective when specific and authentic, not forced or superficial. Cultivating genuine appreciation rewires your brain to notice life’s positives.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Each evening, write down three specific things you are grateful for that happened that day and why they matter to you.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 08</div>
+    <h2>How does your self-talk influence moments of joy or the lack thereof?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Inner dialogue can either open the door to joy or slam it shut. Negative self-talk often clouds or dismisses positive experiences. Learning to recognize and gently challenge these thoughts cultivates a mindset ready to embrace happiness.</div>
+    <div class="block exercise"><div class="lab">Try this</div>When you notice negative self-talk during a joyful moment, pause and reframe the thought into a supportive, realistic statement.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 09</div>
+    <h2>Can you identify a habitual behavior that unknowingly blocks your joy?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Sometimes, we cling to familiar patterns—like overworking or avoiding vulnerability—that limit our emotional range. Awareness of these habits is the first step toward change, allowing space for more joy to enter your life.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Reflect on a recurring behavior that tends to reduce your joy. Brainstorm one small change you can make this week to interrupt it.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 10</div>
+    <h2>How do your expectations about happiness influence your ability to experience joy?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>High or rigid expectations can create pressure, making joy elusive when reality doesn’t match. Learning to embrace imperfect, subtle pleasures frees you to experience joy in its many forms, expanding your emotional richness.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Write down one expectation about happiness you hold. Then explore how realistic or flexible it is and how adjusting it might open space for joy.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 11</div>
+    <h2>In what ways does physical movement affect your mood and moments of joy?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Movement releases chemicals like endorphins that naturally elevate mood and increase energy. Even gentle activities can reset your emotional state, making joy more accessible. Regular movement integrates mind and body for holistic well-being.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Experiment with a 10-minute movement practice—walking, stretching, dancing. Note changes in your mood before and after.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 12</div>
+    <h2>How do you respond internally when joy fades or feels fleeting?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Joy’s impermanence can trigger fear or dissatisfaction. Cultivating acceptance of emotional ebb and flow reduces resistance and deepens appreciation for joyful moments without clinging or judgment.</div>
+    <div class="block exercise"><div class="lab">Try this</div>The next time joy fades quickly, pause and observe your reaction without trying to hold on or push away. Journal about what you notice.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 13</div>
+    <h2>How does your sleep quality impact your ability to feel joyful throughout the day?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Poor sleep can dull emotional sensitivity and increase irritability, blocking joy’s emergence. Prioritizing restful sleep restores emotional balance and creates a fertile ground for positive experiences.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Track your sleep for a few nights and note correlations between sleep quality and moments of joy or mood shifts.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 14</div>
+    <h2>What role does creativity play in your experience of joy?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Creative expression allows you to connect deeply with yourself and the present moment, often sparking profound joy. Engaging in creative acts can bypass overthinking and tap into a spontaneous, fulfilling state.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Choose a simple creative activity—drawing, writing, improvising music—and dedicate 15 minutes to it. Reflect on how it impacts your mood.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 15</div>
+    <h2>How do cultural or familial messages shape your beliefs about who deserves joy?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Early messages can create unconscious barriers, like guilt or unworthiness, around joy. Identifying and challenging these beliefs is essential to claim your right to happiness fully and authentically.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Write down any messages you recall about joy or happiness from childhood. Reflect on which you accept and which you want to question or release.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 16</div>
+    <h2>How do you balance striving for goals with appreciating joyful moments in the present?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Constant striving can overshadow present joy, but balancing ambition with mindfulness nurtures sustained fulfillment. Learning to savor progress and small wins prevents burnout and enriches your journey.</div>
+    <div class="block exercise"><div class="lab">Try this</div>At the end of each day, write one small achievement you’re proud of and one joyful moment you noticed, no matter how tiny.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 17</div>
+    <h2>How does nature impact your ability to experience joy, and how often do you engage with it?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Nature calms the nervous system and reconnects you with rhythms beyond daily stress, enhancing joy. Even brief exposure to natural settings can reset mood and foster awe, wonder, and peace.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Spend 10 minutes outside in a natural setting, fully engaging your senses. Afterward, journal about any shifts in your mood or perspective.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 18</div>
+    <h2>What internal or external signals alert you that you need to intentionally create space for joy?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Feeling drained, irritable, or disconnected often signals a need to replenish joy. Listening to these cues and responding with deliberate self-care prevents emotional depletion and supports resilience.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Create a personal “joy checklist” of signs that you need a joyful break and a list of go-to activities to restore your spirit. Use it proactively.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="saved" id="savedNote"></div>
+  <div class="closing">
+    <h2>Your journey continues</h2>
+    <p>Reflection isn't a one-time exercise. Return to these prompts whenever you need a steady place to think.</p>
+  </div>
+  <div class="actions">
+    <button class="btn btn-primary" onclick="window.print()">Download / Print PDF</button>
+    <a href="../../resource-library.html" class="btn btn-ghost">← Back to library</a>
+  </div>
+</div></main>
+<div class="disclaimer"><div class="wrap">This workbook is for education and self-reflection. It is not a diagnosis or a substitute for therapy. If you are in crisis, call or text 988.</div></div>
+<footer><div class="wrap">© <span id="yr"></span> Campfire Calm™ · Jason M. Leclair, LPC</div></footer>
+<script>
+  document.getElementById('yr').textContent=new Date().getFullYear();
+  (function(){
+    var key="cc-reflect:joy-patterns:";
+    var areas=document.querySelectorAll('.reflect-input');
+    var note=document.getElementById('savedNote');
+    function save(i,v){try{localStorage.setItem(key+i,v);note.textContent='Saved on this device';clearTimeout(window._t);window._t=setTimeout(function(){note.textContent='';},1500);}catch(e){}}
+    areas.forEach(function(a,i){
+      try{var v=localStorage.getItem(key+i);if(v)a.value=v;}catch(e){}
+      a.addEventListener('input',function(){save(i,a.value);});
+    });
+  })();
+</script>
+</body>
+</html>

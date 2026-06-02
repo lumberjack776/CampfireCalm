@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light">
+<title>Confidence Building — Campfire Calm</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Mulish:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{color-scheme:light;--cream:#f9f2e7;--cream-2:#fef9ef;--paper:#fffdf8;--charcoal:#2a201a;--ember:#e7702f;--ember-deep:#cf551a;--amber:#f0a94f;--sage-deep:#4f7a5d;--ink:#352b23;--ink-soft:#6a5c4e;--line:rgba(60,50,42,.13);--brown:#2e2117;--shadow-sm:0 8px 24px -14px rgba(60,40,25,.3);--r:16px}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Mulish',sans-serif;color:var(--ink);background:linear-gradient(180deg,var(--cream),#fcefdf);line-height:1.7;-webkit-font-smoothing:antialiased}
+  h1,h2,h3{font-family:'Fraunces',serif;font-weight:500;color:var(--charcoal);letter-spacing:-.01em;line-height:1.15}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:760px;margin:0 auto;padding:0 24px}
+  nav{position:sticky;top:0;z-index:50;background:rgba(249,242,231,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px;max-width:760px;margin:0 auto;padding:0 24px}
+  .brand{display:flex;align-items:center;gap:9px;font-family:'Fraunces',serif;font-size:1.18rem;font-weight:600}
+  .flame{width:22px;height:22px}
+  .back{font-weight:700;font-size:.88rem;color:var(--ember-deep)}
+  header{background:var(--brown);color:#fdf7ec;padding:54px 0 48px;position:relative;overflow:hidden}
+  header::after{content:"";position:absolute;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,rgba(240,169,79,.32),transparent 65%);top:-130px;right:-90px}
+  .eyebrow{font-weight:700;text-transform:uppercase;letter-spacing:.18em;font-size:.7rem;color:var(--amber);margin-bottom:12px;position:relative}
+  header h1{color:#fdf7ec;font-size:clamp(2rem,6vw,3rem);margin-bottom:14px;position:relative}
+  header p{color:#e7d8c2;font-size:1.06rem;position:relative;max-width:34em}
+  .meta{display:flex;gap:22px;margin-top:22px;position:relative}
+  .meta div{font-size:.82rem;color:#cbb89f}
+  .meta b{display:block;font-family:'Fraunces',serif;font-size:1.5rem;color:var(--amber);font-weight:600}
+  main{padding:46px 0 20px}
+  .prompt{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:28px 26px;margin-bottom:22px;box-shadow:var(--shadow-sm)}
+  .pnum{font-family:'Fraunces',serif;font-size:.9rem;font-weight:600;color:var(--ember-deep);margin-bottom:8px}
+  .prompt h2{font-size:1.28rem;margin-bottom:18px}
+  .block{margin-bottom:16px}
+  .block .lab{font-weight:700;text-transform:uppercase;letter-spacing:.1em;font-size:.7rem;margin-bottom:6px}
+  .insight .lab{color:var(--sage-deep)}
+  .exercise{background:rgba(240,169,79,.1);border-left:3px solid var(--amber);border-radius:0 10px 10px 0;padding:14px 16px}
+  .exercise .lab{color:var(--ember-deep)}
+  .reflect{margin-top:18px}
+  .reflect .lab{font-weight:700;font-size:.78rem;color:var(--ink-soft);margin-bottom:8px}
+  .reflect-input{display:block;width:100%;min-height:132px;font-family:'Mulish',sans-serif;font-size:1rem;color:var(--ink);
+    line-height:32px;padding:5px 14px 8px;border:1px solid var(--line);border-radius:10px;resize:vertical;
+    background-color:var(--paper);
+    background-image:repeating-linear-gradient(transparent,transparent 31px,var(--line) 31px,var(--line) 32px);
+    background-attachment:local;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .reflect-input:focus{outline:none;border-color:var(--ember);box-shadow:0 0 0 3px rgba(231,112,47,.12)}
+  .reflect-input::placeholder{color:var(--ink-soft);opacity:.7}
+  .closing{text-align:center;background:var(--brown);color:#fdf7ec;border-radius:20px;padding:38px 30px;margin:30px 0}
+  .closing h2{color:#fdf7ec;font-size:1.6rem;margin-bottom:10px}
+  .closing p{color:#e7d8c2;max-width:30em;margin:0 auto}
+  .saved{text-align:center;font-size:.8rem;color:var(--sage-deep);margin:-6px 0 22px;min-height:1em}
+  .actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin:8px 0 40px}
+  .btn{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:.95rem;padding:13px 24px;border-radius:100px;cursor:pointer;border:0}
+  .btn-primary{background:var(--ember-deep);color:#fff}
+  .btn-ghost{background:transparent;border:1.5px solid var(--line);color:var(--charcoal)}
+  .disclaimer{background:var(--cream-2);border-top:1px solid var(--line);padding:26px 0;color:var(--ink-soft);font-size:.88rem;text-align:center;font-style:italic}
+  footer{background:var(--charcoal);color:rgba(255,255,255,.6);padding:30px 0;font-size:.86rem;text-align:center}
+  @media print{nav,.actions,.back,.saved{display:none}body{background:#fff}.prompt{break-inside:avoid;box-shadow:none}.reflect-input{border-color:#ccc}header,.closing,.exercise,.reflect-input{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+  @media(max-width:560px){header{padding:42px 0 36px}.prompt{padding:22px 20px}}
+</style>
+</head>
+<body>
+<nav><div class="nav-inner">
+  <a href="../../resource-library.html" class="brand"><svg class="flame" viewBox="0 0 24 24"><path d="M12 2c1.5 3.5-1 5-1 7.5 0 1.5 1 2.5 2 2.5s2-1 1.8-3c2 1.2 3.2 3.4 3.2 6 0 3.6-3 6.5-6 6.5S6 18.6 6 15c0-4 3-6.5 6-13z" fill="#e7702f"/></svg>Campfire Calm</a>
+  <a href="../../resource-library.html" class="back">← Library</a>
+</div></nav>
+<header><div class="wrap">
+  <div class="eyebrow">Guided Reflection Workbook</div>
+  <h1>Confidence Building</h1>
+  <p>A guided self-reflection worksheet designed to help you explore your inner landscape through thoughtful prompts and exercises.</p>
+  <div class="meta"><div><b>26</b>Prompts</div><div><b>26</b>Insights</div><div><b>26</b>Exercises</div></div>
+</div></header>
+<main><div class="wrap">
+  <div class="prompt">
+    <div class="pnum">Prompt 01</div>
+    <h2>When you notice self-doubt creeping in, what specific thought or image usually triggers it?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Identifying the exact thought or mental picture that sparks your self-doubt helps you catch it early. Once you know your trigger, you can challenge its validity and replace it with a more balanced perspective grounded in reality.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Write down the last three moments you felt self-doubt. What thought or image appeared first? How might you reframe that trigger into a supportive statement?</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 02</div>
+    <h2>How do you typically respond internally when you make a mistake in front of others?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Many people react with harsh self-criticism or embarrassment, which reinforces low confidence. Instead, try noticing your internal dialogue and gently shift it to curiosity—what can this mistake teach you? This change softens your reaction and builds resilience.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Recall a recent mistake. Journal your immediate thoughts, then rewrite them as if you were advising a close friend facing the same situation.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 03</div>
+    <h2>What small success from your past do you rarely acknowledge but could draw strength from?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Often, we overlook minor wins that actually demonstrate our capability and growth. Bringing these into conscious awareness fuels confidence by reminding you of your proven skills and persistence.</div>
+    <div class="block exercise"><div class="lab">Try this</div>List five small achievements you usually dismiss. Reflect on what each reveals about your strengths and how that can support you now.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 04</div>
+    <h2>In what situations do you feel most authentic and confident? What elements make those moments different?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Feeling authentic often aligns with confidence because you’re connected to your true values and abilities. Identifying these conditions helps you seek or recreate them, strengthening your self-trust.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Describe a time you felt genuinely confident. What were you doing, who were you with, and what mindset did you have? How can you bring more of this into your daily life?</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 05</div>
+    <h2>How does your body language shift when you feel unsure, and how might changing it alter your internal state?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Physical posture and expressions influence brain chemistry and emotions. Standing tall with open gestures can send a signal of confidence to your mind, which in turn calms anxiety and boosts self-belief.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Practice standing or sitting with an upright posture, relaxed shoulders, and a gentle smile for two minutes daily. Notice any changes in your mood or self-perception.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 06</div>
+    <h2>What limiting belief about yourself keeps you from pursuing opportunities that could build your confidence?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Limiting beliefs act like invisible barriers. By identifying and questioning their truth, you weaken their power and open space for new, empowering beliefs that encourage action and growth.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Write down one limiting belief you hold. Then list three pieces of evidence that contradict this belief, focusing on real experiences and feedback.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 07</div>
+    <h2>How do you handle compliments or positive feedback from others? Do you accept or dismiss them, and why?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Rejecting positive feedback can deepen low self-esteem. Learning to accept compliments with a simple &quot;thank you&quot; helps integrate a more positive self-image and reinforces your value.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Over the next week, consciously receive compliments without deflecting. After each, jot down how it felt and what positive qualities the compliment highlights.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 08</div>
+    <h2>When faced with a challenging task, how do your thoughts influence whether you try or avoid it?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Your internal narrative often shapes your willingness to engage. Shifting from &quot;I can’t handle this&quot; to &quot;I’ll give it my best shot&quot; encourages approach behaviors that build mastery and confidence over time.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Identify a task you’ve been avoiding. Write down your current thoughts about it, then rewrite them to emphasize effort and learning rather than outcome.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 09</div>
+    <h2>What role does comparison to others play in your confidence levels, and how can you redirect this tendency?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Comparing yourself to others often triggers insecurity because it focuses on perceived deficits rather than your growth. Redirecting attention to your personal progress fosters self-acceptance and motivation.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Track moments you compare yourself to someone else. Pause, then list one thing you’ve improved on recently that is uniquely yours.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 10</div>
+    <h2>How do you prepare mentally before entering situations where you want to feel confident?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Intentional mental preparation, like visualization or affirmations, primes your brain for success and calms nerves. This process reduces uncertainty and helps you access your inner resources when needed.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Before your next challenging event, spend five minutes imagining yourself navigating it with calm confidence. Note specific positive details and feelings in your visualization.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 11</div>
+    <h2>How does your inner critic sound, and what would happen if you responded to it with compassion instead of judgment?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Your inner critic may use harsh or fearful language, lowering your confidence. Responding with kindness and understanding shifts this dialogue to one that supports learning and resilience.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Write down a recent critical thought. Then rewrite it as a compassionate response, acknowledging your effort and humanity.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 12</div>
+    <h2>What habits or routines consistently help you feel more grounded and confident?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Regular habits build a foundation of stability and predictability that supports confidence. Identifying and reinforcing these routines increases your sense of control and self-efficacy.</div>
+    <div class="block exercise"><div class="lab">Try this</div>List your top three confidence-boosting habits. Plan how to incorporate them intentionally into your daily schedule over the next week.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 13</div>
+    <h2>How comfortable are you with uncertainty, and how does this affect your confidence in decision-making?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Avoiding uncertainty can limit growth and confidence. Learning to tolerate ambiguity as a normal part of life helps you make decisions without needing perfect certainty.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Reflect on a recent decision made with incomplete information. What did you learn about your ability to cope with uncertainty?</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 14</div>
+    <h2>When you achieve something meaningful, how do you celebrate or acknowledge your success?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Celebrating achievements reinforces positive behavior and strengthens your confidence. If you rarely celebrate, you may miss opportunities to internalize your progress.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Develop a simple ritual to honor your next success, no matter how small. Write about how this acknowledgment influences your motivation and self-esteem.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 15</div>
+    <h2>What fears about judgment or failure hold you back from expressing your true self?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Fear of judgment often silences authentic expression and erodes confidence. Naming these fears and gently testing them in small steps helps you reclaim your voice.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Identify one fear related to judgment or failure. Plan a small, manageable action to express yourself despite this fear and reflect on the outcome.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 16</div>
+    <h2>How do you differentiate between constructive self-improvement and negative self-criticism?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Constructive self-improvement focuses on growth with kindness, while negative self-criticism attacks your worth. Learning to recognize this difference guides healthier self-talk and confidence.</div>
+    <div class="block exercise"><div class="lab">Try this</div>When you notice self-critical thoughts, pause and ask: “Is this thought helping me grow or tearing me down?” Practice redirecting unhelpful critiques into supportive feedback.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 17</div>
+    <h2>What role does your social support system play in your confidence, and how might you nurture these relationships?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Supportive relationships provide encouragement and honest feedback that bolster confidence. Investing time and openness with trusted people creates a safety net for growth.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Identify one person who makes you feel valued. Reach out with appreciation or share a confidence-building goal to deepen your connection.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 18</div>
+    <h2>How often do you set realistic, achievable goals to build your confidence progressively?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Setting small, clear goals creates a track record of success that builds momentum. Without this structure, confidence can feel abstract or fragile.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Write down one confidence-related goal you can achieve within a week. Break it into steps and commit to completing them with self-kindness.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 19</div>
+    <h2>When you imagine your most confident self, what qualities or behaviors stand out?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Visualizing your ideal confident self clarifies what you want to embody and highlights practical steps to get there. It serves as a motivational blueprint.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Create a detailed description of your confident self in action. Review it daily and notice how it influences your choices and feelings.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 20</div>
+    <h2>How do you respond to setbacks, and what strategies help you bounce back without losing confidence?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Resilience after setbacks depends on mindset and coping skills. Accepting setbacks as part of learning and using problem-solving techniques preserves confidence and encourages persistence.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Reflect on a recent setback. Write down how you responded and brainstorm three coping strategies you can use next time to maintain confidence.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 21</div>
+    <h2>What internal strengths do you rely on when facing new challenges, and how can you cultivate them further?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Recognizing your internal resources—like patience, curiosity, or determination—empowers you to tackle challenges confidently. Cultivating these strengthens your overall resilience.</div>
+    <div class="block exercise"><div class="lab">Try this</div>List three personal strengths you’ve used recently. Plan one daily activity to practice each strength deliberately.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 22</div>
+    <h2>How does practicing self-compassion influence your confidence compared to self-criticism?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Self-compassion creates a supportive inner environment that fosters growth and reduces fear of failure, which is essential for genuine confidence.</div>
+    <div class="block exercise"><div class="lab">Try this</div>When you notice self-critical thoughts, pause and respond with a compassionate phrase, such as “It’s okay to struggle; I’m doing my best.”</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 23</div>
+    <h2>How do you handle uncertainty about your abilities when trying something new?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Feeling uncertain is natural when learning. Shifting focus from needing immediate mastery to valuing effort and progress nurtures confidence through growth mindset.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Pick a new skill or activity and set a mini-goal focused on practice rather than perfection. Reflect weekly on your progress and feelings.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 24</div>
+    <h2>What role does your internal dialogue play in sustaining your confidence during stressful moments?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Your internal dialogue acts like a coach—supportive language sustains confidence, while negative talk undermines it. Cultivating awareness and intentional language shifts your emotional state.</div>
+    <div class="block exercise"><div class="lab">Try this</div>In a stressful moment, write down your inner dialogue. Identify negative phrases and transform them into encouraging, realistic statements.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 25</div>
+    <h2>How do you balance humility with confidence to maintain authentic relationships?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Confidence paired with humility allows you to acknowledge strengths while remaining open and relatable. This balance fosters trust and deeper connections.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Think of a recent interaction where you felt confident. How did you express humility? Practice combining both in your next conversation.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 26</div>
+    <h2>What daily affirmations or mantras truly resonate with you and reinforce your confidence?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Personalized affirmations that reflect your values and experiences feel authentic and are more effective than generic phrases. They create a positive mental anchor.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Create three affirmations that feel meaningful and specific to your journey. Repeat them each morning and note any shifts in your confidence throughout the day.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="saved" id="savedNote"></div>
+  <div class="closing">
+    <h2>Your journey continues</h2>
+    <p>Reflection isn't a one-time exercise. Return to these prompts whenever you need a steady place to think.</p>
+  </div>
+  <div class="actions">
+    <button class="btn btn-primary" onclick="window.print()">Download / Print PDF</button>
+    <a href="../../resource-library.html" class="btn btn-ghost">← Back to library</a>
+  </div>
+</div></main>
+<div class="disclaimer"><div class="wrap">This workbook is for education and self-reflection. It is not a diagnosis or a substitute for therapy. If you are in crisis, call or text 988.</div></div>
+<footer><div class="wrap">© <span id="yr"></span> Campfire Calm™ · Jason M. Leclair, LPC</div></footer>
+<script>
+  document.getElementById('yr').textContent=new Date().getFullYear();
+  (function(){
+    var key="cc-reflect:confidence-building:";
+    var areas=document.querySelectorAll('.reflect-input');
+    var note=document.getElementById('savedNote');
+    function save(i,v){try{localStorage.setItem(key+i,v);note.textContent='Saved on this device';clearTimeout(window._t);window._t=setTimeout(function(){note.textContent='';},1500);}catch(e){}}
+    areas.forEach(function(a,i){
+      try{var v=localStorage.getItem(key+i);if(v)a.value=v;}catch(e){}
+      a.addEventListener('input',function(){save(i,a.value);});
+    });
+  })();
+</script>
+</body>
+</html>
