@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light">
+<title>Stress Coping — Campfire Calm</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Mulish:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{color-scheme:light;--cream:#f9f2e7;--cream-2:#fef9ef;--paper:#fffdf8;--charcoal:#2a201a;--ember:#e7702f;--ember-deep:#cf551a;--amber:#f0a94f;--sage-deep:#4f7a5d;--ink:#352b23;--ink-soft:#6a5c4e;--line:rgba(60,50,42,.13);--brown:#2e2117;--shadow-sm:0 8px 24px -14px rgba(60,40,25,.3);--r:16px}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Mulish',sans-serif;color:var(--ink);background:linear-gradient(180deg,var(--cream),#fcefdf);line-height:1.7;-webkit-font-smoothing:antialiased}
+  h1,h2,h3{font-family:'Fraunces',serif;font-weight:500;color:var(--charcoal);letter-spacing:-.01em;line-height:1.15}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:760px;margin:0 auto;padding:0 24px}
+  nav{position:sticky;top:0;z-index:50;background:rgba(249,242,231,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px;max-width:760px;margin:0 auto;padding:0 24px}
+  .brand{display:flex;align-items:center;gap:9px;font-family:'Fraunces',serif;font-size:1.18rem;font-weight:600}
+  .flame{width:22px;height:22px}
+  .back{font-weight:700;font-size:.88rem;color:var(--ember-deep)}
+  header{background:var(--brown);color:#fdf7ec;padding:54px 0 48px;position:relative;overflow:hidden}
+  header::after{content:"";position:absolute;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,rgba(240,169,79,.32),transparent 65%);top:-130px;right:-90px}
+  .eyebrow{font-weight:700;text-transform:uppercase;letter-spacing:.18em;font-size:.7rem;color:var(--amber);margin-bottom:12px;position:relative}
+  header h1{color:#fdf7ec;font-size:clamp(2rem,6vw,3rem);margin-bottom:14px;position:relative}
+  header p{color:#e7d8c2;font-size:1.06rem;position:relative;max-width:34em}
+  .meta{display:flex;gap:22px;margin-top:22px;position:relative}
+  .meta div{font-size:.82rem;color:#cbb89f}
+  .meta b{display:block;font-family:'Fraunces',serif;font-size:1.5rem;color:var(--amber);font-weight:600}
+  main{padding:46px 0 20px}
+  .prompt{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:28px 26px;margin-bottom:22px;box-shadow:var(--shadow-sm)}
+  .pnum{font-family:'Fraunces',serif;font-size:.9rem;font-weight:600;color:var(--ember-deep);margin-bottom:8px}
+  .prompt h2{font-size:1.28rem;margin-bottom:18px}
+  .block{margin-bottom:16px}
+  .block .lab{font-weight:700;text-transform:uppercase;letter-spacing:.1em;font-size:.7rem;margin-bottom:6px}
+  .insight .lab{color:var(--sage-deep)}
+  .exercise{background:rgba(240,169,79,.1);border-left:3px solid var(--amber);border-radius:0 10px 10px 0;padding:14px 16px}
+  .exercise .lab{color:var(--ember-deep)}
+  .reflect{margin-top:18px}
+  .reflect .lab{font-weight:700;font-size:.78rem;color:var(--ink-soft);margin-bottom:8px}
+  .reflect-input{display:block;width:100%;min-height:132px;font-family:'Mulish',sans-serif;font-size:1rem;color:var(--ink);
+    line-height:32px;padding:5px 14px 8px;border:1px solid var(--line);border-radius:10px;resize:vertical;
+    background-color:var(--paper);
+    background-image:repeating-linear-gradient(transparent,transparent 31px,var(--line) 31px,var(--line) 32px);
+    background-attachment:local;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .reflect-input:focus{outline:none;border-color:var(--ember);box-shadow:0 0 0 3px rgba(231,112,47,.12)}
+  .reflect-input::placeholder{color:var(--ink-soft);opacity:.7}
+  .closing{text-align:center;background:var(--brown);color:#fdf7ec;border-radius:20px;padding:38px 30px;margin:30px 0}
+  .closing h2{color:#fdf7ec;font-size:1.6rem;margin-bottom:10px}
+  .closing p{color:#e7d8c2;max-width:30em;margin:0 auto}
+  .saved{text-align:center;font-size:.8rem;color:var(--sage-deep);margin:-6px 0 22px;min-height:1em}
+  .actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin:8px 0 40px}
+  .btn{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:.95rem;padding:13px 24px;border-radius:100px;cursor:pointer;border:0}
+  .btn-primary{background:var(--ember-deep);color:#fff}
+  .btn-ghost{background:transparent;border:1.5px solid var(--line);color:var(--charcoal)}
+  .disclaimer{background:var(--cream-2);border-top:1px solid var(--line);padding:26px 0;color:var(--ink-soft);font-size:.88rem;text-align:center;font-style:italic}
+  footer{background:var(--charcoal);color:rgba(255,255,255,.6);padding:30px 0;font-size:.86rem;text-align:center}
+  @media print{nav,.actions,.back,.saved{display:none}body{background:#fff}.prompt{break-inside:avoid;box-shadow:none}.reflect-input{border-color:#ccc}header,.closing,.exercise,.reflect-input{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+  @media(max-width:560px){header{padding:42px 0 36px}.prompt{padding:22px 20px}}
+</style>
+</head>
+<body>
+<nav><div class="nav-inner">
+  <a href="../../resource-library.html" class="brand"><svg class="flame" viewBox="0 0 24 24"><path d="M12 2c1.5 3.5-1 5-1 7.5 0 1.5 1 2.5 2 2.5s2-1 1.8-3c2 1.2 3.2 3.4 3.2 6 0 3.6-3 6.5-6 6.5S6 18.6 6 15c0-4 3-6.5 6-13z" fill="#e7702f"/></svg>Campfire Calm</a>
+  <a href="../../resource-library.html" class="back">← Library</a>
+</div></nav>
+<header><div class="wrap">
+  <div class="eyebrow">Guided Reflection Workbook</div>
+  <h1>Stress Coping</h1>
+  <p>A guided self-reflection worksheet designed to help you explore your inner landscape through thoughtful prompts and exercises.</p>
+  <div class="meta"><div><b>20</b>Prompts</div><div><b>20</b>Insights</div><div><b>20</b>Exercises</div></div>
+</div></header>
+<main><div class="wrap">
+  <div class="prompt">
+    <div class="pnum">Prompt 01</div>
+    <h2>When you notice stress building, what specific thoughts tend to escalate it rather than calm you down?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Stress often feeds on unhelpful thinking patterns like catastrophizing or “what if” scenarios. Recognizing these thoughts as just mental events—not facts—can help you pause and shift your focus to what you can control. This small mental shift reduces the intensity of stress by breaking the automatic cycle.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Keep a stress diary for a day. Each time you feel stressed, write down the thought that triggered it. Then, ask yourself: “Is this thought 100% true? What evidence do I have?” Practice reframing it into a more balanced thought.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 02</div>
+    <h2>How do your body sensations signal that stress is mounting before your mind fully registers it?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Stress often shows up first as physical signs—tight shoulders, shallow breathing, or a racing heart. Becoming aware of these early cues allows you to intervene sooner. Mindful breathing or progressive muscle relaxation at this point can prevent stress from spiraling into overwhelm.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Set reminders to do a 3-minute body scan twice a day. Note any tension or discomfort without judgment. Practice taking slow, deep breaths to release tightness and calm your nervous system.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 03</div>
+    <h2>What is one small activity you can do immediately to interrupt a stress spiral in a real-life situation?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Interrupting stress quickly often means engaging your body or senses—like stepping outside for fresh air, squeezing a stress ball, or listening to a favorite song. These simple actions shift your brain’s focus away from stress triggers and help you regain control.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Identify three quick “reset” activities you can do anywhere. Practice using one the next time you feel stressed and note how it changes your mood.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 04</div>
+    <h2>How does your tendency to avoid uncomfortable feelings contribute to your overall stress levels?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Avoiding stress-related feelings may bring short-term relief but often increases stress in the long run because unresolved emotions build up. Facing these feelings with curiosity rather than judgment reduces their power and helps you move through stress more effectively.</div>
+    <div class="block exercise"><div class="lab">Try this</div>When you feel stressed, pause and ask yourself, “What am I feeling right now?” Describe the emotion without trying to fix it. Practice sitting with that feeling for one minute, noticing that it can pass.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 05</div>
+    <h2>What role do your expectations of yourself and others play in creating or amplifying your stress?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Unrealistic or rigid expectations set you up for disappointment and stress. Learning to notice and adjust these expectations to be more flexible and compassionate reduces internal pressure and improves your ability to cope.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Write down one expectation you have that causes you stress. Ask yourself: “Is this expectation realistic? How might I adjust it to reduce pressure?”</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 06</div>
+    <h2>When you reflect on past stressful episodes, what coping strategies actually helped you feel more grounded?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Looking back on what worked helps you build a personalized toolkit for future stress. Effective coping often includes grounding techniques, seeking social support, or problem-solving. This reflection strengthens your confidence in managing stress.</div>
+    <div class="block exercise"><div class="lab">Try this</div>List three past stress moments and the coping strategies you used. Identify which ones helped the most and plan to use them again.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 07</div>
+    <h2>How does your inner dialogue change when you move from feeling overwhelmed to feeling capable in a stressful moment?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Shifting from self-critical or fearful thoughts to encouraging, problem-focused language can transform your stress experience. This shift supports calm decision-making and resilience, showing you that stress doesn’t have to lead to defeat.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Write down a common stressful thought you have. Then rewrite it as a supportive statement you can tell yourself during hard moments.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 08</div>
+    <h2>What are the subtle ways in which chronic stress shows up in your daily habits or mood without you fully realizing it?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Chronic stress may feel like persistent tiredness, irritability, or small behaviors like nail-biting or procrastination. Becoming aware of these subtle signs helps you catch stress early and choose healthier responses.</div>
+    <div class="block exercise"><div class="lab">Try this</div>For one week, track any small habits or mood shifts that seem linked to stress. Reflect on what they might be signaling about your current stress level.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 09</div>
+    <h2>How do you differentiate between stress that motivates you and stress that drains you?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Motivating stress feels like a focused challenge with energy behind it, while draining stress feels overwhelming and paralyzing. Recognizing this difference helps you channel your energy productively and avoid burnout.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Think of a recent stressful event. Was it motivating or draining? What signs helped you tell the difference?</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 10</div>
+    <h2>How can setting boundaries in relationships reduce your stress without causing guilt?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Clear boundaries protect your energy and prevent stress from overcommitment or emotional exhaustion. Remember, saying “no” is an act of self-care, not selfishness, and it models respect for your needs.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Identify one situation where you feel overwhelmed by others’ demands. Practice stating a boundary clearly and kindly, either in writing or out loud.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 11</div>
+    <h2>How does your use of problem-solving versus rumination affect your stress management?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Problem-solving directs your energy toward actionable steps, which reduces stress. Rumination traps you in repetitive negative thinking, increasing stress without offering solutions. Cultivating problem-solving skills breaks this cycle.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Next time you feel stuck in stressful thoughts, write down one small action you can take to address the issue. Focus on that step rather than the problem alone.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 12</div>
+    <h2>What role does self-compassion play in how you cope with stress after setbacks or mistakes?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Self-compassion softens your response to setbacks, reducing shame and harsh self-criticism. This kindness fosters resilience by encouraging learning and growth instead of avoidance or despair.</div>
+    <div class="block exercise"><div class="lab">Try this</div>After a stressful event or mistake, write a compassionate letter to yourself as if you were your own best friend.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 13</div>
+    <h2>How can focusing on what you can control help reduce feelings of helplessness during stressful times?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Stress often comes from trying to control the uncontrollable. Redirecting attention to small, manageable actions empowers you and reduces anxiety, creating a sense of agency even when bigger things feel uncertain.</div>
+    <div class="block exercise"><div class="lab">Try this</div>List three things related to your current stress that are outside your control, and three things you can control. Commit to acting on one controllable item today.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 14</div>
+    <h2>How does your sleep quality impact your ability to cope with daily stressors?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Poor sleep weakens your brain’s regulation of emotions and problem-solving, making stress feel worse. Prioritizing rest strengthens your resilience and clarity, making stress easier to handle.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Track your sleep for a week alongside your stress levels. Experiment with one new bedtime habit to improve sleep and notice any changes in stress.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 15</div>
+    <h2>How do your beliefs about vulnerability influence your willingness to seek support during stressful times?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Viewing vulnerability as weakness often prevents you from reaching out, increasing isolation and stress. Embracing vulnerability as a strength opens doors to connection and shared coping resources.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Reflect on a time you avoided asking for help. Write down how you might reframe vulnerability to make seeking support easier next time.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 16</div>
+    <h2>How does practicing gratitude shift your perspective when stress narrows your focus on problems?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Gratitude expands your view beyond immediate stressors, reminding you of positive aspects of life and past strengths. This shift balances your emotional experience and reduces the intensity of stress.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Each evening, write down three specific things you are grateful for that day, focusing on small or overlooked details.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 17</div>
+    <h2>How does engaging in physical movement influence your mental state when stress feels overwhelming?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Physical activity releases tension and neurochemicals that improve mood and clarity. Even brief movement breaks interrupt stress cycles by reconnecting you with your body and the present moment.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Schedule a 10-minute walk or stretch session during your most stressful part of the day. Notice how it affects your mood and thoughts.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 18</div>
+    <h2>How can breaking overwhelming tasks into smaller steps reduce stress and increase your sense of accomplishment?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Large tasks can trigger stress by feeling unmanageable. Dividing them into concrete, achievable steps creates momentum and success experiences, which build confidence and reduce avoidance.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Choose a stressful task and break it into three small, specific actions. Complete the first step today and celebrate the progress.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 19</div>
+    <h2>How does your use of humor or playfulness help you reframe stress in daily life?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Humor provides emotional distance from stressors, helping you see situations from a lighter perspective. Playfulness activates positive emotions, which counterbalance stress and improve problem-solving.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Think of a stressful situation and find one humorous or absurd angle about it. Share it with a friend or jot it down to lighten your mood.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 20</div>
+    <h2>How does mindful acceptance of stress differ from resignation, and how can it improve your coping?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Mindful acceptance means noticing stress without fighting or judging it, allowing you to respond more clearly. Resignation is giving up control. Acceptance creates space for calm action rather than reactive struggle.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Practice a 5-minute mindfulness exercise focused on observing your current stress sensations without trying to change them. Notice what shifts in your experience.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="saved" id="savedNote"></div>
+  <div class="closing">
+    <h2>Your journey continues</h2>
+    <p>Reflection isn't a one-time exercise. Return to these prompts whenever you need a steady place to think.</p>
+  </div>
+  <div class="actions">
+    <button class="btn btn-primary" onclick="window.print()">Download / Print PDF</button>
+    <a href="../../resource-library.html" class="btn btn-ghost">← Back to library</a>
+  </div>
+</div></main>
+<div class="disclaimer"><div class="wrap">This workbook is for education and self-reflection. It is not a diagnosis or a substitute for therapy. If you are in crisis, call or text 988.</div></div>
+<footer><div class="wrap">© <span id="yr"></span> Campfire Calm™ · Jason M. Leclair, LPC</div></footer>
+<script>
+  document.getElementById('yr').textContent=new Date().getFullYear();
+  (function(){
+    var key="cc-reflect:stress-coping:";
+    var areas=document.querySelectorAll('.reflect-input');
+    var note=document.getElementById('savedNote');
+    function save(i,v){try{localStorage.setItem(key+i,v);note.textContent='Saved on this device';clearTimeout(window._t);window._t=setTimeout(function(){note.textContent='';},1500);}catch(e){}}
+    areas.forEach(function(a,i){
+      try{var v=localStorage.getItem(key+i);if(v)a.value=v;}catch(e){}
+      a.addEventListener('input',function(){save(i,a.value);});
+    });
+  })();
+</script>
+</body>
+</html>

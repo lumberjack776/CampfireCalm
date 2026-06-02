@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light">
+<title>Fear of Judgment — Campfire Calm</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Mulish:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{color-scheme:light;--cream:#f9f2e7;--cream-2:#fef9ef;--paper:#fffdf8;--charcoal:#2a201a;--ember:#e7702f;--ember-deep:#cf551a;--amber:#f0a94f;--sage-deep:#4f7a5d;--ink:#352b23;--ink-soft:#6a5c4e;--line:rgba(60,50,42,.13);--brown:#2e2117;--shadow-sm:0 8px 24px -14px rgba(60,40,25,.3);--r:16px}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Mulish',sans-serif;color:var(--ink);background:linear-gradient(180deg,var(--cream),#fcefdf);line-height:1.7;-webkit-font-smoothing:antialiased}
+  h1,h2,h3{font-family:'Fraunces',serif;font-weight:500;color:var(--charcoal);letter-spacing:-.01em;line-height:1.15}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:760px;margin:0 auto;padding:0 24px}
+  nav{position:sticky;top:0;z-index:50;background:rgba(249,242,231,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px;max-width:760px;margin:0 auto;padding:0 24px}
+  .brand{display:flex;align-items:center;gap:9px;font-family:'Fraunces',serif;font-size:1.18rem;font-weight:600}
+  .flame{width:22px;height:22px}
+  .back{font-weight:700;font-size:.88rem;color:var(--ember-deep)}
+  header{background:var(--brown);color:#fdf7ec;padding:54px 0 48px;position:relative;overflow:hidden}
+  header::after{content:"";position:absolute;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,rgba(240,169,79,.32),transparent 65%);top:-130px;right:-90px}
+  .eyebrow{font-weight:700;text-transform:uppercase;letter-spacing:.18em;font-size:.7rem;color:var(--amber);margin-bottom:12px;position:relative}
+  header h1{color:#fdf7ec;font-size:clamp(2rem,6vw,3rem);margin-bottom:14px;position:relative}
+  header p{color:#e7d8c2;font-size:1.06rem;position:relative;max-width:34em}
+  .meta{display:flex;gap:22px;margin-top:22px;position:relative}
+  .meta div{font-size:.82rem;color:#cbb89f}
+  .meta b{display:block;font-family:'Fraunces',serif;font-size:1.5rem;color:var(--amber);font-weight:600}
+  main{padding:46px 0 20px}
+  .prompt{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:28px 26px;margin-bottom:22px;box-shadow:var(--shadow-sm)}
+  .pnum{font-family:'Fraunces',serif;font-size:.9rem;font-weight:600;color:var(--ember-deep);margin-bottom:8px}
+  .prompt h2{font-size:1.28rem;margin-bottom:18px}
+  .block{margin-bottom:16px}
+  .block .lab{font-weight:700;text-transform:uppercase;letter-spacing:.1em;font-size:.7rem;margin-bottom:6px}
+  .insight .lab{color:var(--sage-deep)}
+  .exercise{background:rgba(240,169,79,.1);border-left:3px solid var(--amber);border-radius:0 10px 10px 0;padding:14px 16px}
+  .exercise .lab{color:var(--ember-deep)}
+  .reflect{margin-top:18px}
+  .reflect .lab{font-weight:700;font-size:.78rem;color:var(--ink-soft);margin-bottom:8px}
+  .reflect-input{display:block;width:100%;min-height:132px;font-family:'Mulish',sans-serif;font-size:1rem;color:var(--ink);
+    line-height:32px;padding:5px 14px 8px;border:1px solid var(--line);border-radius:10px;resize:vertical;
+    background-color:var(--paper);
+    background-image:repeating-linear-gradient(transparent,transparent 31px,var(--line) 31px,var(--line) 32px);
+    background-attachment:local;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .reflect-input:focus{outline:none;border-color:var(--ember);box-shadow:0 0 0 3px rgba(231,112,47,.12)}
+  .reflect-input::placeholder{color:var(--ink-soft);opacity:.7}
+  .closing{text-align:center;background:var(--brown);color:#fdf7ec;border-radius:20px;padding:38px 30px;margin:30px 0}
+  .closing h2{color:#fdf7ec;font-size:1.6rem;margin-bottom:10px}
+  .closing p{color:#e7d8c2;max-width:30em;margin:0 auto}
+  .saved{text-align:center;font-size:.8rem;color:var(--sage-deep);margin:-6px 0 22px;min-height:1em}
+  .actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin:8px 0 40px}
+  .btn{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:.95rem;padding:13px 24px;border-radius:100px;cursor:pointer;border:0}
+  .btn-primary{background:var(--ember-deep);color:#fff}
+  .btn-ghost{background:transparent;border:1.5px solid var(--line);color:var(--charcoal)}
+  .disclaimer{background:var(--cream-2);border-top:1px solid var(--line);padding:26px 0;color:var(--ink-soft);font-size:.88rem;text-align:center;font-style:italic}
+  footer{background:var(--charcoal);color:rgba(255,255,255,.6);padding:30px 0;font-size:.86rem;text-align:center}
+  @media print{nav,.actions,.back,.saved{display:none}body{background:#fff}.prompt{break-inside:avoid;box-shadow:none}.reflect-input{border-color:#ccc}header,.closing,.exercise,.reflect-input{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+  @media(max-width:560px){header{padding:42px 0 36px}.prompt{padding:22px 20px}}
+</style>
+</head>
+<body>
+<nav><div class="nav-inner">
+  <a href="../../resource-library.html" class="brand"><svg class="flame" viewBox="0 0 24 24"><path d="M12 2c1.5 3.5-1 5-1 7.5 0 1.5 1 2.5 2 2.5s2-1 1.8-3c2 1.2 3.2 3.4 3.2 6 0 3.6-3 6.5-6 6.5S6 18.6 6 15c0-4 3-6.5 6-13z" fill="#e7702f"/></svg>Campfire Calm</a>
+  <a href="../../resource-library.html" class="back">← Library</a>
+</div></nav>
+<header><div class="wrap">
+  <div class="eyebrow">Guided Reflection Workbook</div>
+  <h1>Fear of Judgment</h1>
+  <p>A guided self-reflection worksheet designed to help you explore your inner landscape through thoughtful prompts and exercises.</p>
+  <div class="meta"><div><b>18</b>Prompts</div><div><b>18</b>Insights</div><div><b>18</b>Exercises</div></div>
+</div></header>
+<main><div class="wrap">
+  <div class="prompt">
+    <div class="pnum">Prompt 01</div>
+    <h2>When you catch yourself worrying about what others think, what specific thought are you telling yourself about your worth or abilities?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Often, fear of judgment stems from an internal story that equates others’ opinions with our value. Notice the exact thought—like &quot;I&#x27;m not good enough&quot;—and gently challenge it by recalling instances where you succeeded despite doubts.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Write down the last three times you feared being judged, then list evidence that contradicts those fears to gradually weaken their hold on you.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 02</div>
+    <h2>How does your fear of judgment influence the decisions you make daily, and what might you miss out on because of it?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Fear can narrow your choices, pushing you toward safety rather than growth. Recognize that avoiding judgment often means sacrificing opportunities to learn and express your true self.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Identify one small decision you avoided recently due to fear of judgment and imagine the best and worst outcomes if you had acted differently.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 03</div>
+    <h2>In social situations, what physical sensations arise when you anticipate being judged, and how do you usually respond to them?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Fear often manifests physically—tight chest, shallow breath, or racing heart. Instead of avoiding these sensations, try observing them calmly as signals, not threats, which can reduce their intensity.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Next time you feel judged, pause and name the physical sensations. Practice slow, deep breathing to create space between sensation and reaction.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 04</div>
+    <h2>What past experiences might have contributed to your current fear of judgment, and how do they shape your present behavior?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Often, early encounters with criticism or rejection create lasting emotional patterns. Understanding these roots allows you to separate old wounds from current realities.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Reflect on a childhood memory where you felt judged. Write about how that event influences your feelings today, then consider what you would say to your younger self.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 05</div>
+    <h2>How do you differentiate between constructive feedback and fear-driven negative judgments from others?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Constructive feedback focuses on behaviors and growth, while fear-driven judgments feel personal and absolute. Learning this distinction helps you respond with openness rather than defensiveness.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Recall recent feedback you received. Categorize it as constructive or fear-driven, and practice reframing any negative judgments into actionable insights.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 06</div>
+    <h2>When you imagine expressing your true opinions or feelings, what fears arise about judgment, and how realistic are they?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>We often overestimate how harshly others judge us. Question the likelihood of worst-case scenarios and balance them against the value of authentic expression.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Write down your feared judgments about speaking up, then rate how likely each is to happen on a scale from 0 to 10, challenging exaggerated fears.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 07</div>
+    <h2>How might your fear of judgment be protecting you, and what might you gain by facing it instead?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Fear can feel like a shield to avoid rejection or embarrassment, but it can also imprison you. Recognizing this allows you to weigh safety against freedom and growth.</div>
+    <div class="block exercise"><div class="lab">Try this</div>List benefits your fear of judgment provides and costs it imposes. Consider one small step you can take today to trade fear for authentic connection.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 08</div>
+    <h2>What role does self-compassion play in reducing your fear of judgment, and how can you cultivate it?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Self-compassion softens self-criticism and builds resilience to external opinions. When you treat yourself kindly, others’ judgments lose power.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Practice writing a compassionate letter to yourself about your fear of judgment, offering understanding rather than blame.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 09</div>
+    <h2>How does comparing yourself to others fuel your fear of judgment, and what alternative mindset could you adopt?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Comparison often magnifies insecurities and distorts reality. Shifting focus to your personal values and progress creates a healthier, self-affirming perspective.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Identify a recent moment of comparison and reframe it by listing three unique strengths or qualities you have that others don’t.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 10</div>
+    <h2>In what ways do you self-silence to avoid judgment, and what might your voice add to the conversation or relationship?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Silence can feel safe but may limit your authenticity and connection. Your perspective enriches interactions and fosters genuine relationships.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Choose a safe space to share a small, honest opinion you usually hold back. Notice how it feels and the reaction you receive without judgment.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 11</div>
+    <h2>How do you respond internally when you catch yourself assuming negative judgment from others?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Automatic negative assumptions often distort reality. Pausing to question their accuracy can reduce anxiety and open space for more balanced thinking.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Practice a thought record by writing down the judgmental thought, evidence for and against it, and a balanced alternative.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 12</div>
+    <h2>What is one action you have avoided due to fear of judgment, and what would happen if you tried it anyway?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Avoidance strengthens fear by reinforcing avoidance cycles. Taking even a small step toward the feared action builds courage and weakens fear’s grip.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Pick one avoided action, plan a tiny, manageable first step, and notice your feelings before, during, and after attempting it.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 13</div>
+    <h2>How might your fear of judgment be linked to a need for control, and how can embracing uncertainty help?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Trying to control others’ perceptions is impossible and exhausting. Accepting uncertainty allows you to focus on what you can control—your actions and reactions.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Reflect on a situation where you tried to control others’ opinions. Imagine releasing that control and observe what feelings arise.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 14</div>
+    <h2>When you receive judgment, how do you typically explain it to yourself, and how might reframing those explanations change your emotional response?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>We often personalize or catastrophize judgment, increasing distress. Viewing judgment as subjective and not a fixed truth can lessen its emotional impact.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Recall a recent experience of judgment. Write three alternative, less personal explanations for why someone might have judged you.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 15</div>
+    <h2>How does the fear of judgment affect your ability to set boundaries, and what is one boundary you want to practice asserting?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Fear can make boundaries feel risky, but they are essential for self-respect and mental health. Practicing boundaries strengthens your sense of safety and autonomy.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Identify a boundary you struggle to set. Role-play asserting it using “I” statements, focusing on your needs rather than others’ reactions.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 16</div>
+    <h2>What role does your inner critic play in amplifying your fear of judgment, and how can you work to quiet or reframe it?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>The inner critic often mimics feared external judgment. Recognizing it as a voice, not a fact, and responding with kindness reduces its power.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Personify your inner critic in writing. Then write a compassionate reply from your wiser, kinder self.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 17</div>
+    <h2>How might practicing mindfulness help you stay present instead of spiraling into fears about judgment?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Mindfulness anchors you in the current moment, reducing rumination over imagined judgments. It fosters acceptance and emotional balance.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Spend five minutes observing your breath and sensations when fear of judgment arises, gently bringing attention back when your mind wanders.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 18</div>
+    <h2>What values could you focus on to override your fear of judgment and guide your behavior more authentically?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Clarifying what truly matters to you—like honesty, kindness, or growth—can empower choices that align with your identity rather than others&#x27; expectations.</div>
+    <div class="block exercise"><div class="lab">Try this</div>List your top three personal values and write how acting according to each can help you face feared judgments with integrity.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="saved" id="savedNote"></div>
+  <div class="closing">
+    <h2>Your journey continues</h2>
+    <p>Reflection isn't a one-time exercise. Return to these prompts whenever you need a steady place to think.</p>
+  </div>
+  <div class="actions">
+    <button class="btn btn-primary" onclick="window.print()">Download / Print PDF</button>
+    <a href="../../resource-library.html" class="btn btn-ghost">← Back to library</a>
+  </div>
+</div></main>
+<div class="disclaimer"><div class="wrap">This workbook is for education and self-reflection. It is not a diagnosis or a substitute for therapy. If you are in crisis, call or text 988.</div></div>
+<footer><div class="wrap">© <span id="yr"></span> Campfire Calm™ · Jason M. Leclair, LPC</div></footer>
+<script>
+  document.getElementById('yr').textContent=new Date().getFullYear();
+  (function(){
+    var key="cc-reflect:fear-of-judgment:";
+    var areas=document.querySelectorAll('.reflect-input');
+    var note=document.getElementById('savedNote');
+    function save(i,v){try{localStorage.setItem(key+i,v);note.textContent='Saved on this device';clearTimeout(window._t);window._t=setTimeout(function(){note.textContent='';},1500);}catch(e){}}
+    areas.forEach(function(a,i){
+      try{var v=localStorage.getItem(key+i);if(v)a.value=v;}catch(e){}
+      a.addEventListener('input',function(){save(i,a.value);});
+    });
+  })();
+</script>
+</body>
+</html>

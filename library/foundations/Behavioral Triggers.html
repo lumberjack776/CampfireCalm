@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light">
+<title>Behavioral Triggers — Campfire Calm</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Mulish:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{color-scheme:light;--cream:#f9f2e7;--cream-2:#fef9ef;--paper:#fffdf8;--charcoal:#2a201a;--ember:#e7702f;--ember-deep:#cf551a;--amber:#f0a94f;--sage-deep:#4f7a5d;--ink:#352b23;--ink-soft:#6a5c4e;--line:rgba(60,50,42,.13);--brown:#2e2117;--shadow-sm:0 8px 24px -14px rgba(60,40,25,.3);--r:16px}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Mulish',sans-serif;color:var(--ink);background:linear-gradient(180deg,var(--cream),#fcefdf);line-height:1.7;-webkit-font-smoothing:antialiased}
+  h1,h2,h3{font-family:'Fraunces',serif;font-weight:500;color:var(--charcoal);letter-spacing:-.01em;line-height:1.15}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:760px;margin:0 auto;padding:0 24px}
+  nav{position:sticky;top:0;z-index:50;background:rgba(249,242,231,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px;max-width:760px;margin:0 auto;padding:0 24px}
+  .brand{display:flex;align-items:center;gap:9px;font-family:'Fraunces',serif;font-size:1.18rem;font-weight:600}
+  .flame{width:22px;height:22px}
+  .back{font-weight:700;font-size:.88rem;color:var(--ember-deep)}
+  header{background:var(--brown);color:#fdf7ec;padding:54px 0 48px;position:relative;overflow:hidden}
+  header::after{content:"";position:absolute;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,rgba(240,169,79,.32),transparent 65%);top:-130px;right:-90px}
+  .eyebrow{font-weight:700;text-transform:uppercase;letter-spacing:.18em;font-size:.7rem;color:var(--amber);margin-bottom:12px;position:relative}
+  header h1{color:#fdf7ec;font-size:clamp(2rem,6vw,3rem);margin-bottom:14px;position:relative}
+  header p{color:#e7d8c2;font-size:1.06rem;position:relative;max-width:34em}
+  .meta{display:flex;gap:22px;margin-top:22px;position:relative}
+  .meta div{font-size:.82rem;color:#cbb89f}
+  .meta b{display:block;font-family:'Fraunces',serif;font-size:1.5rem;color:var(--amber);font-weight:600}
+  main{padding:46px 0 20px}
+  .prompt{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:28px 26px;margin-bottom:22px;box-shadow:var(--shadow-sm)}
+  .pnum{font-family:'Fraunces',serif;font-size:.9rem;font-weight:600;color:var(--ember-deep);margin-bottom:8px}
+  .prompt h2{font-size:1.28rem;margin-bottom:18px}
+  .block{margin-bottom:16px}
+  .block .lab{font-weight:700;text-transform:uppercase;letter-spacing:.1em;font-size:.7rem;margin-bottom:6px}
+  .insight .lab{color:var(--sage-deep)}
+  .exercise{background:rgba(240,169,79,.1);border-left:3px solid var(--amber);border-radius:0 10px 10px 0;padding:14px 16px}
+  .exercise .lab{color:var(--ember-deep)}
+  .reflect{margin-top:18px}
+  .reflect .lab{font-weight:700;font-size:.78rem;color:var(--ink-soft);margin-bottom:8px}
+  .reflect-input{display:block;width:100%;min-height:132px;font-family:'Mulish',sans-serif;font-size:1rem;color:var(--ink);
+    line-height:32px;padding:5px 14px 8px;border:1px solid var(--line);border-radius:10px;resize:vertical;
+    background-color:var(--paper);
+    background-image:repeating-linear-gradient(transparent,transparent 31px,var(--line) 31px,var(--line) 32px);
+    background-attachment:local;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .reflect-input:focus{outline:none;border-color:var(--ember);box-shadow:0 0 0 3px rgba(231,112,47,.12)}
+  .reflect-input::placeholder{color:var(--ink-soft);opacity:.7}
+  .closing{text-align:center;background:var(--brown);color:#fdf7ec;border-radius:20px;padding:38px 30px;margin:30px 0}
+  .closing h2{color:#fdf7ec;font-size:1.6rem;margin-bottom:10px}
+  .closing p{color:#e7d8c2;max-width:30em;margin:0 auto}
+  .saved{text-align:center;font-size:.8rem;color:var(--sage-deep);margin:-6px 0 22px;min-height:1em}
+  .actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin:8px 0 40px}
+  .btn{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:.95rem;padding:13px 24px;border-radius:100px;cursor:pointer;border:0}
+  .btn-primary{background:var(--ember-deep);color:#fff}
+  .btn-ghost{background:transparent;border:1.5px solid var(--line);color:var(--charcoal)}
+  .disclaimer{background:var(--cream-2);border-top:1px solid var(--line);padding:26px 0;color:var(--ink-soft);font-size:.88rem;text-align:center;font-style:italic}
+  footer{background:var(--charcoal);color:rgba(255,255,255,.6);padding:30px 0;font-size:.86rem;text-align:center}
+  @media print{nav,.actions,.back,.saved{display:none}body{background:#fff}.prompt{break-inside:avoid;box-shadow:none}.reflect-input{border-color:#ccc}header,.closing,.exercise,.reflect-input{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+  @media(max-width:560px){header{padding:42px 0 36px}.prompt{padding:22px 20px}}
+</style>
+</head>
+<body>
+<nav><div class="nav-inner">
+  <a href="../../resource-library.html" class="brand"><svg class="flame" viewBox="0 0 24 24"><path d="M12 2c1.5 3.5-1 5-1 7.5 0 1.5 1 2.5 2 2.5s2-1 1.8-3c2 1.2 3.2 3.4 3.2 6 0 3.6-3 6.5-6 6.5S6 18.6 6 15c0-4 3-6.5 6-13z" fill="#e7702f"/></svg>Campfire Calm</a>
+  <a href="../../resource-library.html" class="back">← Library</a>
+</div></nav>
+<header><div class="wrap">
+  <div class="eyebrow">Guided Reflection Workbook</div>
+  <h1>Behavioral Triggers</h1>
+  <p>A guided self-reflection worksheet designed to help you explore your inner landscape through thoughtful prompts and exercises.</p>
+  <div class="meta"><div><b>21</b>Prompts</div><div><b>21</b>Insights</div><div><b>21</b>Exercises</div></div>
+</div></header>
+<main><div class="wrap">
+  <div class="prompt">
+    <div class="pnum">Prompt 01</div>
+    <h2>What specific situations tend to trigger my impulsive reactions, and how can I recognize the early signs before I act?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Impulsive reactions often come from unmet needs or sudden emotional surges. Pay attention to physical cues like tension or a racing heart as early warning signs. Recognizing these moments helps you pause and choose a more deliberate response.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Keep a daily journal noting situations that sparked impulsive behavior. Write down your physical sensations and thoughts just before the reaction to identify patterns.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 02</div>
+    <h2>How does my environment influence my habits, and what small changes can reduce negative behavioral triggers?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Your environment subtly cues your behavior through sights, sounds, and routines. By rearranging your space or removing certain stimuli, you can weaken triggers that lead to unwanted habits and encourage healthier alternatives.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Identify one area in your living or work space linked to an unwanted habit. Make one intentional change—such as removing a snack jar or changing the layout—and observe the effect on your behavior over a week.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 03</div>
+    <h2>When I feel stressed, what specific thoughts or external events tend to trigger my anxiety most strongly?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Stress-related triggers often involve catastrophic thinking or perceived threats. Pinpointing these triggers allows you to challenge automatic thoughts and break the cycle before anxiety escalates.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Write down your top three stress triggers this week. For each, note the automatic thought that followed and practice reframing it with a more balanced perspective.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 04</div>
+    <h2>In what ways do social interactions serve as triggers for my self-critical thoughts?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Social situations can activate internalized standards and fears of judgment, leading to self-criticism. Awareness of these triggers helps you practice self-compassion and question harsh assumptions.</div>
+    <div class="block exercise"><div class="lab">Try this</div>After a social event, jot down any self-critical thoughts that arose. Reflect on whether these thoughts are facts or interpretations, and write a kinder, more realistic alternative.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 05</div>
+    <h2>How do fatigue and physical discomfort act as behavioral triggers for irritability or withdrawal?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Physical states like tiredness lower emotional resilience, making you more prone to negative reactions. Recognizing this link encourages proactive self-care to prevent reactive behaviors.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Track your mood and energy levels daily. Note times when fatigue coincides with irritability, and experiment with short rest or relaxation techniques to interrupt this pattern.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 06</div>
+    <h2>What role does unmet expectation play as a trigger in my emotional responses, and how can I manage this more effectively?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Unmet expectations often lead to disappointment or frustration. By identifying and adjusting unrealistic expectations, you reduce emotional triggers and increase acceptance.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Recall a recent disappointment. Write down the expectation versus reality. Challenge whether the expectation was realistic and brainstorm how to set more flexible goals in the future.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 07</div>
+    <h2>How do certain memories or past experiences trigger current feelings of shame or guilt?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Past experiences can activate old emotional wounds, causing shame or guilt in present situations. Understanding this connection allows you to separate past from present and respond with self-forgiveness.</div>
+    <div class="block exercise"><div class="lab">Try this</div>When feeling shame or guilt, pause and ask: “Is this feeling rooted in today’s event or past experience?” Write a compassionate letter to yourself addressing the past wound.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 08</div>
+    <h2>What habitual thought patterns act as triggers for my procrastination, and how can I interrupt them?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Negative self-talk and fear of failure often trigger procrastination. Recognizing these thoughts as habits rather than facts empowers you to replace them with motivating, realistic affirmations.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Next time you delay a task, write down the thoughts running through your mind. Challenge one negative thought and replace it with a constructive statement before starting.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 09</div>
+    <h2>How do feelings of loneliness serve as triggers for seeking unhealthy coping mechanisms?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Loneliness can prompt a search for immediate relief, often leading to unhealthy habits. Building awareness of this trigger helps you choose supportive social connections or healthier activities.</div>
+    <div class="block exercise"><div class="lab">Try this</div>When feeling lonely, list three alternative actions you can take that nurture connection or self-care rather than unhealthy coping.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 10</div>
+    <h2>How do certain phrases or tones in conversations act as behavioral triggers for defensiveness in me?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Specific words or voices may unconsciously activate past experiences of criticism, causing defensiveness. Recognizing this can help you pause, check facts, and respond calmly instead of reacting automatically.</div>
+    <div class="block exercise"><div class="lab">Try this</div>After a difficult conversation, note any moments you felt defensive. Identify the trigger phrase or tone and practice reframing the meaning behind it before responding next time.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 11</div>
+    <h2>How does my use of technology trigger distraction or avoidance behaviors, and how can I set boundaries?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Technology often provides instant gratification, triggering avoidance of challenging tasks. Setting intentional boundaries interrupts this cycle and increases focus.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Track your technology use during work or important activities. Set a timer limiting usage and reflect on how this affects your productivity and mood.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 12</div>
+    <h2>What role do perfectionistic standards play as triggers for my self-doubt and avoidance?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Perfectionism creates unrealistic triggers that erode confidence and promote avoidance. Learning to accept “good enough” reduces these triggers and encourages progress.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Choose a task you tend to avoid for fear of imperfection. Set a timer for just five minutes to work on it and observe how lowering the stakes reduces self-doubt.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 13</div>
+    <h2>How do feelings of rejection or exclusion trigger defensive or aggressive behaviors in me?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Rejection activates deep emotional pain, often triggering defense mechanisms like aggression. Awareness helps you step back, soothe yourself, and respond more thoughtfully.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Reflect on a recent incident where you felt rejected. Write down your immediate reaction and then list three calming strategies you could try next time.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 14</div>
+    <h2>How do my morning routines or lack thereof trigger mood and energy fluctuations throughout the day?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Morning habits set the tone for emotional regulation. Establishing consistent, nurturing routines reduces negative mood triggers and stabilizes energy.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Design a simple morning routine including at least one activity that promotes calm or positivity. Follow it for a week and journal any changes in mood or focus.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 15</div>
+    <h2>How do financial worries act as behavioral triggers for avoidance or impulsive spending?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Anxiety about money can trigger avoidance of budgeting or impulsive purchases as temporary relief. Recognizing this cycle empowers you to face finances with structured plans and self-compassion.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Track your spending impulses for one week. When you feel the urge to spend, pause and write down the emotion behind it before deciding.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 16</div>
+    <h2>How do certain smells, sounds, or sensory inputs trigger emotional memories or states in me?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Sensory triggers tap into deep emotional memories, sometimes without conscious awareness. Identifying these allows you to prepare and use grounding techniques to stay present.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Notice any sensory experiences that evoke strong emotions during your day. Practice grounding yourself by focusing on five things you can see, hear, and touch when triggered.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 17</div>
+    <h2>How do my own expectations of others trigger frustration or resentment in relationships?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Holding rigid expectations creates triggers for disappointment. Becoming aware of these allows you to communicate needs clearly and practice acceptance.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Identify one expectation you have of someone close to you. Reflect on whether it’s realistic and write a message expressing your need in a non-demanding way.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 18</div>
+    <h2>How do changes in routine or unpredictability act as triggers for anxiety or resistance in me?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Uncertainty threatens a sense of control, triggering anxiety. Building flexibility and practicing mindfulness helps reduce resistance and increase resilience.</div>
+    <div class="block exercise"><div class="lab">Try this</div>When faced with an unexpected change, pause and note your immediate thoughts. Practice deep breathing and remind yourself that discomfort is temporary.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 19</div>
+    <h2>How do feelings of inadequacy trigger avoidance of challenges or social situations?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Inadequacy fuels fear of judgment, leading to withdrawal. Recognizing this allows you to test assumptions and build confidence through small, manageable steps.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Write down one challenge you’re avoiding due to feeling inadequate. Break it into smaller steps and commit to completing just the first one this week.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 20</div>
+    <h2>How do my sleep patterns trigger mood fluctuations and cognitive distortions during the day?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Poor sleep disrupts emotional regulation and clarity, making negative thinking more likely. Prioritizing sleep hygiene reduces these triggers and improves overall mental health.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Track your bedtime and wake time for one week. Note any links between sleep quality and your mood or thought patterns the next day.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 21</div>
+    <h2>How do feelings of guilt function as triggers for self-punishing behaviors, and how can I interrupt this cycle?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Guilt can lead to harsh self-judgment and behaviors that reinforce negative feelings. Practicing self-forgiveness and reframing mistakes as learning opportunities breaks this pattern.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Recall a recent guilt-inducing event. Write a compassionate letter to yourself focusing on what you learned rather than what you regret.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="saved" id="savedNote"></div>
+  <div class="closing">
+    <h2>Your journey continues</h2>
+    <p>Reflection isn't a one-time exercise. Return to these prompts whenever you need a steady place to think.</p>
+  </div>
+  <div class="actions">
+    <button class="btn btn-primary" onclick="window.print()">Download / Print PDF</button>
+    <a href="../../resource-library.html" class="btn btn-ghost">← Back to library</a>
+  </div>
+</div></main>
+<div class="disclaimer"><div class="wrap">This workbook is for education and self-reflection. It is not a diagnosis or a substitute for therapy. If you are in crisis, call or text 988.</div></div>
+<footer><div class="wrap">© <span id="yr"></span> Campfire Calm™ · Jason M. Leclair, LPC</div></footer>
+<script>
+  document.getElementById('yr').textContent=new Date().getFullYear();
+  (function(){
+    var key="cc-reflect:behavioral-triggers:";
+    var areas=document.querySelectorAll('.reflect-input');
+    var note=document.getElementById('savedNote');
+    function save(i,v){try{localStorage.setItem(key+i,v);note.textContent='Saved on this device';clearTimeout(window._t);window._t=setTimeout(function(){note.textContent='';},1500);}catch(e){}}
+    areas.forEach(function(a,i){
+      try{var v=localStorage.getItem(key+i);if(v)a.value=v;}catch(e){}
+      a.addEventListener('input',function(){save(i,a.value);});
+    });
+  })();
+</script>
+</body>
+</html>

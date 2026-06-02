@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light">
+<title>Self-Worth — Campfire Calm</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Mulish:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{color-scheme:light;--cream:#f9f2e7;--cream-2:#fef9ef;--paper:#fffdf8;--charcoal:#2a201a;--ember:#e7702f;--ember-deep:#cf551a;--amber:#f0a94f;--sage-deep:#4f7a5d;--ink:#352b23;--ink-soft:#6a5c4e;--line:rgba(60,50,42,.13);--brown:#2e2117;--shadow-sm:0 8px 24px -14px rgba(60,40,25,.3);--r:16px}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Mulish',sans-serif;color:var(--ink);background:linear-gradient(180deg,var(--cream),#fcefdf);line-height:1.7;-webkit-font-smoothing:antialiased}
+  h1,h2,h3{font-family:'Fraunces',serif;font-weight:500;color:var(--charcoal);letter-spacing:-.01em;line-height:1.15}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:760px;margin:0 auto;padding:0 24px}
+  nav{position:sticky;top:0;z-index:50;background:rgba(249,242,231,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px;max-width:760px;margin:0 auto;padding:0 24px}
+  .brand{display:flex;align-items:center;gap:9px;font-family:'Fraunces',serif;font-size:1.18rem;font-weight:600}
+  .flame{width:22px;height:22px}
+  .back{font-weight:700;font-size:.88rem;color:var(--ember-deep)}
+  header{background:var(--brown);color:#fdf7ec;padding:54px 0 48px;position:relative;overflow:hidden}
+  header::after{content:"";position:absolute;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,rgba(240,169,79,.32),transparent 65%);top:-130px;right:-90px}
+  .eyebrow{font-weight:700;text-transform:uppercase;letter-spacing:.18em;font-size:.7rem;color:var(--amber);margin-bottom:12px;position:relative}
+  header h1{color:#fdf7ec;font-size:clamp(2rem,6vw,3rem);margin-bottom:14px;position:relative}
+  header p{color:#e7d8c2;font-size:1.06rem;position:relative;max-width:34em}
+  .meta{display:flex;gap:22px;margin-top:22px;position:relative}
+  .meta div{font-size:.82rem;color:#cbb89f}
+  .meta b{display:block;font-family:'Fraunces',serif;font-size:1.5rem;color:var(--amber);font-weight:600}
+  main{padding:46px 0 20px}
+  .prompt{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:28px 26px;margin-bottom:22px;box-shadow:var(--shadow-sm)}
+  .pnum{font-family:'Fraunces',serif;font-size:.9rem;font-weight:600;color:var(--ember-deep);margin-bottom:8px}
+  .prompt h2{font-size:1.28rem;margin-bottom:18px}
+  .block{margin-bottom:16px}
+  .block .lab{font-weight:700;text-transform:uppercase;letter-spacing:.1em;font-size:.7rem;margin-bottom:6px}
+  .insight .lab{color:var(--sage-deep)}
+  .exercise{background:rgba(240,169,79,.1);border-left:3px solid var(--amber);border-radius:0 10px 10px 0;padding:14px 16px}
+  .exercise .lab{color:var(--ember-deep)}
+  .reflect{margin-top:18px}
+  .reflect .lab{font-weight:700;font-size:.78rem;color:var(--ink-soft);margin-bottom:8px}
+  .reflect-input{display:block;width:100%;min-height:132px;font-family:'Mulish',sans-serif;font-size:1rem;color:var(--ink);
+    line-height:32px;padding:5px 14px 8px;border:1px solid var(--line);border-radius:10px;resize:vertical;
+    background-color:var(--paper);
+    background-image:repeating-linear-gradient(transparent,transparent 31px,var(--line) 31px,var(--line) 32px);
+    background-attachment:local;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .reflect-input:focus{outline:none;border-color:var(--ember);box-shadow:0 0 0 3px rgba(231,112,47,.12)}
+  .reflect-input::placeholder{color:var(--ink-soft);opacity:.7}
+  .closing{text-align:center;background:var(--brown);color:#fdf7ec;border-radius:20px;padding:38px 30px;margin:30px 0}
+  .closing h2{color:#fdf7ec;font-size:1.6rem;margin-bottom:10px}
+  .closing p{color:#e7d8c2;max-width:30em;margin:0 auto}
+  .saved{text-align:center;font-size:.8rem;color:var(--sage-deep);margin:-6px 0 22px;min-height:1em}
+  .actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin:8px 0 40px}
+  .btn{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:.95rem;padding:13px 24px;border-radius:100px;cursor:pointer;border:0}
+  .btn-primary{background:var(--ember-deep);color:#fff}
+  .btn-ghost{background:transparent;border:1.5px solid var(--line);color:var(--charcoal)}
+  .disclaimer{background:var(--cream-2);border-top:1px solid var(--line);padding:26px 0;color:var(--ink-soft);font-size:.88rem;text-align:center;font-style:italic}
+  footer{background:var(--charcoal);color:rgba(255,255,255,.6);padding:30px 0;font-size:.86rem;text-align:center}
+  @media print{nav,.actions,.back,.saved{display:none}body{background:#fff}.prompt{break-inside:avoid;box-shadow:none}.reflect-input{border-color:#ccc}header,.closing,.exercise,.reflect-input{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+  @media(max-width:560px){header{padding:42px 0 36px}.prompt{padding:22px 20px}}
+</style>
+</head>
+<body>
+<nav><div class="nav-inner">
+  <a href="../../resource-library.html" class="brand"><svg class="flame" viewBox="0 0 24 24"><path d="M12 2c1.5 3.5-1 5-1 7.5 0 1.5 1 2.5 2 2.5s2-1 1.8-3c2 1.2 3.2 3.4 3.2 6 0 3.6-3 6.5-6 6.5S6 18.6 6 15c0-4 3-6.5 6-13z" fill="#e7702f"/></svg>Campfire Calm</a>
+  <a href="../../resource-library.html" class="back">← Library</a>
+</div></nav>
+<header><div class="wrap">
+  <div class="eyebrow">Guided Reflection Workbook</div>
+  <h1>Self-Worth</h1>
+  <p>A guided self-reflection worksheet designed to help you explore your inner landscape through thoughtful prompts and exercises.</p>
+  <div class="meta"><div><b>20</b>Prompts</div><div><b>20</b>Insights</div><div><b>20</b>Exercises</div></div>
+</div></header>
+<main><div class="wrap">
+  <div class="prompt">
+    <div class="pnum">Prompt 01</div>
+    <h2>When you make a mistake, how do you talk to yourself about it?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Notice if your inner voice is harsh or forgiving. Treat yourself like a friend who slipped up—acknowledge the error without defining your whole value by it. This shift softens self-criticism and opens space for growth.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Write a compassionate letter to yourself about a recent mistake, focusing on understanding rather than judgment.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 02</div>
+    <h2>What achievements do you often overlook when evaluating your worth?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Many of us discount small wins, but these are bricks building your confidence. Recognizing everyday efforts helps balance your self-view beyond grand accomplishments.</div>
+    <div class="block exercise"><div class="lab">Try this</div>List three daily actions or qualities you successfully displayed this week that you usually dismiss.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 03</div>
+    <h2>How do comparisons with others affect your sense of self-worth?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Comparing is a trap that highlights what you “lack” rather than what you have. Reframe comparisons by identifying what you admire in others and how you can cultivate your unique strengths instead.</div>
+    <div class="block exercise"><div class="lab">Try this</div>When you catch yourself comparing, pause and write down one positive trait you appreciate in yourself that’s unrelated to the comparison.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 04</div>
+    <h2>In what ways do you seek external validation, and how does it shape your self-esteem?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Relying on others’ approval can make your worth feel fragile. Building internal validation means recognizing your values and actions as enough, independent of outside opinions.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Recall a time you felt proud without anyone praising you—what did you do or feel that made you proud?</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 05</div>
+    <h2>How comfortable are you with saying “no” to requests that don’t serve your well-being?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Setting boundaries is a powerful form of self-respect. Difficulty saying “no” might signal that you tie your worth to pleasing others, but honoring your limits strengthens your inner value.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Practice saying “no” in low-stakes situations this week and note how it affects your self-respect.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 06</div>
+    <h2>What internal messages do you repeat when you’re feeling unworthy?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Negative self-talk reinforces feelings of inadequacy. Catch these messages and challenge their truth by asking for evidence and offering balanced, kinder alternatives.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Write down a common negative thought and then write a realistic, compassionate response to it.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 07</div>
+    <h2>How do your past experiences influence your current beliefs about your worth?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Childhood and past relationships often plant seeds of unworthiness. Recognize these origins to separate old narratives from your present self, allowing you to rewrite your story with more truth and kindness.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Reflect on a message about yourself you learned early on and explore whether it still serves your well-being today.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 08</div>
+    <h2>When you receive compliments, how do you typically respond internally?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>If you dismiss or deflect praise, it might indicate discomfort with accepting positive feedback. Practicing acceptance helps integrate affirmations into your self-view realistically.</div>
+    <div class="block exercise"><div class="lab">Try this</div>The next time you receive a compliment, pause, breathe, and say “thank you” internally—and notice how it feels.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 09</div>
+    <h2>How do you differentiate between humility and self-devaluation?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Humility acknowledges strengths and weaknesses without exaggerating flaws. Self-devaluation minimizes your worth and can lead to avoidance or shame. Being mindful helps maintain a balanced, honest self-view.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Identify a recent moment when you downplayed your abilities and consider how you could reframe it with balanced humility.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 10</div>
+    <h2>What role does perfectionism play in your sense of self-worth?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Perfectionism often ties worth to flawlessness, making any mistake feel like failure. Shifting focus from perfect outcomes to effort and learning fosters resilience and self-acceptance.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Choose one task this week to do “well enough” rather than perfectly and observe your feelings afterward.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 11</div>
+    <h2>How do you nurture your identity separate from your roles or achievements?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Your worth isn’t only in what you do but who you are. Cultivating interests, values, and relationships that define you beyond accomplishments supports a stable sense of self.</div>
+    <div class="block exercise"><div class="lab">Try this</div>List three qualities or interests you have that are independent of your work or social roles.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 12</div>
+    <h2>When faced with criticism, how do you protect your self-worth?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Criticism can feel like a personal attack, but it’s often about behavior, not your value as a person. Separate the feedback from your identity and use what’s constructive without taking on blame.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Reflect on recent criticism and write down what part you can learn from and what you choose not to internalize.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 13</div>
+    <h2>How does your body image influence your overall self-esteem?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Body image is deeply tied to self-worth for many. Practicing body neutrality—focusing on what your body can do rather than appearance—can reduce harsh judgments and foster appreciation.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Each day this week, note one function your body performed that you are grateful for.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 14</div>
+    <h2>How do you respond internally when you achieve something significant?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Celebrate your success with genuine acknowledgment rather than brushing it off. This reinforces your competence and worthiness to yourself.</div>
+    <div class="block exercise"><div class="lab">Try this</div>After completing a task or goal, write down three things you did well and how it reflects your strengths.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 15</div>
+    <h2>What fears arise when you consider fully accepting your worth?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Sometimes, accepting self-worth feels vulnerable, as if it invites judgment or failure. Recognize these fears as natural but challenge their control by focusing on self-compassion and growth.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Journal about what scares you most about believing you are enough as you are.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 16</div>
+    <h2>How do you practice self-care in a way that supports your self-worth?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Self-care is not indulgence but a statement that you deserve kindness and attention. Prioritize activities that nourish your mind, body, and soul without guilt or negotiation.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Plan one self-care activity this week that feels nourishing, and reflect afterward on how it affected your self-view.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 17</div>
+    <h2>How do you handle situations where you feel rejected or excluded?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Rejection can trigger deep wounds related to worthiness. Instead of internalizing it, remind yourself that it reflects circumstances or others’ choices, not your inherent value.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Write about a recent rejection and list qualities you possess that remain unchanged by that experience.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 18</div>
+    <h2>What inner strengths have helped you overcome past challenges, and how do they affirm your worth?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Recognizing your resilience and coping skills highlights your inherent value beyond successes or failures. Your ability to endure and adapt is a core part of your worth.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Recall a difficult time and write about the strengths you used to get through it.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 19</div>
+    <h2>How do you integrate your imperfections into your self-identity?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Embracing imperfections as part of being human reduces shame and fosters authenticity. This acceptance strengthens self-worth by allowing you to be whole, not just ideal.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Choose one imperfection you struggle with and write about how it has shaped your growth or character.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 20</div>
+    <h2>How do your daily habits reflect how much you value yourself?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Habits are expressions of what we consider important. Notice if your routines support your well-being or undermine it, and adjust them as acts of self-respect.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Track one habit for three days and evaluate whether it honors your needs or diminishes your self-care. Plan one small change to better support your worth.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="saved" id="savedNote"></div>
+  <div class="closing">
+    <h2>Your journey continues</h2>
+    <p>Reflection isn't a one-time exercise. Return to these prompts whenever you need a steady place to think.</p>
+  </div>
+  <div class="actions">
+    <button class="btn btn-primary" onclick="window.print()">Download / Print PDF</button>
+    <a href="../../resource-library.html" class="btn btn-ghost">← Back to library</a>
+  </div>
+</div></main>
+<div class="disclaimer"><div class="wrap">This workbook is for education and self-reflection. It is not a diagnosis or a substitute for therapy. If you are in crisis, call or text 988.</div></div>
+<footer><div class="wrap">© <span id="yr"></span> Campfire Calm™ · Jason M. Leclair, LPC</div></footer>
+<script>
+  document.getElementById('yr').textContent=new Date().getFullYear();
+  (function(){
+    var key="cc-reflect:self-worth:";
+    var areas=document.querySelectorAll('.reflect-input');
+    var note=document.getElementById('savedNote');
+    function save(i,v){try{localStorage.setItem(key+i,v);note.textContent='Saved on this device';clearTimeout(window._t);window._t=setTimeout(function(){note.textContent='';},1500);}catch(e){}}
+    areas.forEach(function(a,i){
+      try{var v=localStorage.getItem(key+i);if(v)a.value=v;}catch(e){}
+      a.addEventListener('input',function(){save(i,a.value);});
+    });
+  })();
+</script>
+</body>
+</html>

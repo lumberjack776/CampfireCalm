@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light">
+<title>Distraction Patterns — Campfire Calm</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Mulish:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{color-scheme:light;--cream:#f9f2e7;--cream-2:#fef9ef;--paper:#fffdf8;--charcoal:#2a201a;--ember:#e7702f;--ember-deep:#cf551a;--amber:#f0a94f;--sage-deep:#4f7a5d;--ink:#352b23;--ink-soft:#6a5c4e;--line:rgba(60,50,42,.13);--brown:#2e2117;--shadow-sm:0 8px 24px -14px rgba(60,40,25,.3);--r:16px}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Mulish',sans-serif;color:var(--ink);background:linear-gradient(180deg,var(--cream),#fcefdf);line-height:1.7;-webkit-font-smoothing:antialiased}
+  h1,h2,h3{font-family:'Fraunces',serif;font-weight:500;color:var(--charcoal);letter-spacing:-.01em;line-height:1.15}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:760px;margin:0 auto;padding:0 24px}
+  nav{position:sticky;top:0;z-index:50;background:rgba(249,242,231,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px;max-width:760px;margin:0 auto;padding:0 24px}
+  .brand{display:flex;align-items:center;gap:9px;font-family:'Fraunces',serif;font-size:1.18rem;font-weight:600}
+  .flame{width:22px;height:22px}
+  .back{font-weight:700;font-size:.88rem;color:var(--ember-deep)}
+  header{background:var(--brown);color:#fdf7ec;padding:54px 0 48px;position:relative;overflow:hidden}
+  header::after{content:"";position:absolute;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,rgba(240,169,79,.32),transparent 65%);top:-130px;right:-90px}
+  .eyebrow{font-weight:700;text-transform:uppercase;letter-spacing:.18em;font-size:.7rem;color:var(--amber);margin-bottom:12px;position:relative}
+  header h1{color:#fdf7ec;font-size:clamp(2rem,6vw,3rem);margin-bottom:14px;position:relative}
+  header p{color:#e7d8c2;font-size:1.06rem;position:relative;max-width:34em}
+  .meta{display:flex;gap:22px;margin-top:22px;position:relative}
+  .meta div{font-size:.82rem;color:#cbb89f}
+  .meta b{display:block;font-family:'Fraunces',serif;font-size:1.5rem;color:var(--amber);font-weight:600}
+  main{padding:46px 0 20px}
+  .prompt{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:28px 26px;margin-bottom:22px;box-shadow:var(--shadow-sm)}
+  .pnum{font-family:'Fraunces',serif;font-size:.9rem;font-weight:600;color:var(--ember-deep);margin-bottom:8px}
+  .prompt h2{font-size:1.28rem;margin-bottom:18px}
+  .block{margin-bottom:16px}
+  .block .lab{font-weight:700;text-transform:uppercase;letter-spacing:.1em;font-size:.7rem;margin-bottom:6px}
+  .insight .lab{color:var(--sage-deep)}
+  .exercise{background:rgba(240,169,79,.1);border-left:3px solid var(--amber);border-radius:0 10px 10px 0;padding:14px 16px}
+  .exercise .lab{color:var(--ember-deep)}
+  .reflect{margin-top:18px}
+  .reflect .lab{font-weight:700;font-size:.78rem;color:var(--ink-soft);margin-bottom:8px}
+  .reflect-input{display:block;width:100%;min-height:132px;font-family:'Mulish',sans-serif;font-size:1rem;color:var(--ink);
+    line-height:32px;padding:5px 14px 8px;border:1px solid var(--line);border-radius:10px;resize:vertical;
+    background-color:var(--paper);
+    background-image:repeating-linear-gradient(transparent,transparent 31px,var(--line) 31px,var(--line) 32px);
+    background-attachment:local;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .reflect-input:focus{outline:none;border-color:var(--ember);box-shadow:0 0 0 3px rgba(231,112,47,.12)}
+  .reflect-input::placeholder{color:var(--ink-soft);opacity:.7}
+  .closing{text-align:center;background:var(--brown);color:#fdf7ec;border-radius:20px;padding:38px 30px;margin:30px 0}
+  .closing h2{color:#fdf7ec;font-size:1.6rem;margin-bottom:10px}
+  .closing p{color:#e7d8c2;max-width:30em;margin:0 auto}
+  .saved{text-align:center;font-size:.8rem;color:var(--sage-deep);margin:-6px 0 22px;min-height:1em}
+  .actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin:8px 0 40px}
+  .btn{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:.95rem;padding:13px 24px;border-radius:100px;cursor:pointer;border:0}
+  .btn-primary{background:var(--ember-deep);color:#fff}
+  .btn-ghost{background:transparent;border:1.5px solid var(--line);color:var(--charcoal)}
+  .disclaimer{background:var(--cream-2);border-top:1px solid var(--line);padding:26px 0;color:var(--ink-soft);font-size:.88rem;text-align:center;font-style:italic}
+  footer{background:var(--charcoal);color:rgba(255,255,255,.6);padding:30px 0;font-size:.86rem;text-align:center}
+  @media print{nav,.actions,.back,.saved{display:none}body{background:#fff}.prompt{break-inside:avoid;box-shadow:none}.reflect-input{border-color:#ccc}header,.closing,.exercise,.reflect-input{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+  @media(max-width:560px){header{padding:42px 0 36px}.prompt{padding:22px 20px}}
+</style>
+</head>
+<body>
+<nav><div class="nav-inner">
+  <a href="../../resource-library.html" class="brand"><svg class="flame" viewBox="0 0 24 24"><path d="M12 2c1.5 3.5-1 5-1 7.5 0 1.5 1 2.5 2 2.5s2-1 1.8-3c2 1.2 3.2 3.4 3.2 6 0 3.6-3 6.5-6 6.5S6 18.6 6 15c0-4 3-6.5 6-13z" fill="#e7702f"/></svg>Campfire Calm</a>
+  <a href="../../resource-library.html" class="back">← Library</a>
+</div></nav>
+<header><div class="wrap">
+  <div class="eyebrow">Guided Reflection Workbook</div>
+  <h1>Distraction Patterns</h1>
+  <p>A guided self-reflection worksheet designed to help you explore your inner landscape through thoughtful prompts and exercises.</p>
+  <div class="meta"><div><b>20</b>Prompts</div><div><b>20</b>Insights</div><div><b>20</b>Exercises</div></div>
+</div></header>
+<main><div class="wrap">
+  <div class="prompt">
+    <div class="pnum">Prompt 01</div>
+    <h2>When you feel overwhelmed, what activities do you turn to first, and how do they affect your emotions afterward?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Notice if these activities provide genuine relief or just momentary escape. Sometimes distractions temporarily numb emotions but leave the underlying stress unaddressed. Recognizing this helps you decide if your coping serves you or avoids growth</div>
+    <div class="block exercise"><div class="lab">Try this</div>Track your go-to distractions over a week, noting your mood before and after. Reflect on whether they soothe or sideline your feelings.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 02</div>
+    <h2>How often do you use technology, like social media or gaming, to avoid uncomfortable thoughts or decisions?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Technology can be a double-edged sword—helpful for breaks but harmful when used to dodge reality. Awareness of this pattern empowers you to set intentional limits and face discomfort with courage</div>
+    <div class="block exercise"><div class="lab">Try this</div>For two days, log your tech use during stressful moments. Ask yourself what you’re avoiding and consider one small action to face that discomfort instead.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 03</div>
+    <h2>Do you find yourself busying your schedule to prevent thinking about certain problems?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Over-scheduling can mask avoidance, creating a false sense of control. Slowing down can reveal what you’ve been pushing aside, allowing you to confront issues with clarity</div>
+    <div class="block exercise"><div class="lab">Try this</div>Choose one day this week to schedule a 30-minute quiet moment. Use it to sit with your thoughts without distractions and journal what surfaces.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 04</div>
+    <h2>What emotions tend to trigger your urge to distract yourself, and how do you typically respond?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Identifying specific emotions linked to distraction helps you build targeted strategies. Instead of automatic escape, you can practice tolerating feelings and responding with self-compassion</div>
+    <div class="block exercise"><div class="lab">Try this</div>When you notice the impulse to distract, pause and name the exact emotion. Rate its intensity from 1 to 10 before deciding how to respond.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 05</div>
+    <h2>In what ways do distractions help you avoid making difficult decisions, and what are the consequences?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Distraction can delay important choices, increasing anxiety and regret. Recognizing this pattern invites you to break the cycle by facing decisions in manageable steps</div>
+    <div class="block exercise"><div class="lab">Try this</div>List one decision you’ve been avoiding. Break it down into three small actions you can take this week to move forward.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 06</div>
+    <h2>How do you differentiate between a healthy break and an avoidance pattern when you seek distraction?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Healthy breaks refresh your mind and return you to your challenges with energy. Avoidance feels like a cycle that deepens stress. Mindful check-ins help you maintain balance</div>
+    <div class="block exercise"><div class="lab">Try this</div>After your next break, ask yourself if you feel restored or more anxious. Adjust your future breaks based on this awareness.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 07</div>
+    <h2>What physical sensations do you notice when you’re about to distract yourself from discomfort?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Physical cues, like restlessness or tension, often precede distraction urges. Recognizing these early signs allows you to intervene before automatic avoidance kicks in</div>
+    <div class="block exercise"><div class="lab">Try this</div>Practice a 3-minute body scan when you feel the urge to distract. Observe sensations without judgment and breathe into the discomfort.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 08</div>
+    <h2>How might your distraction habits impact your relationships?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Avoiding emotional presence through distraction can create distance and misunderstandings. Being aware of this helps you choose moments to engage authentically, strengthening connections</div>
+    <div class="block exercise"><div class="lab">Try this</div>Reflect on a recent interaction where you felt distracted. Identify one way to be more present next time.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 09</div>
+    <h2>When distractions fail to work, what thoughts or feelings arise, and how do you handle them?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Recognizing the frustration or hopelessness after distraction fails can open pathways to self-kindness and problem-solving rather than self-criticism</div>
+    <div class="block exercise"><div class="lab">Try this</div>After a distraction episode, journal what feelings emerge when the distraction ends. Practice a compassionate response to those feelings.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 10</div>
+    <h2>Do you notice any patterns in the times of day or situations when you’re most prone to distraction?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Patterns reveal triggers and windows for proactive coping. Structuring your day around these insights can reduce reliance on unhelpful distractions</div>
+    <div class="block exercise"><div class="lab">Try this</div>Keep a distraction diary noting time, place, and trigger. Use this to plan alternative coping strategies for vulnerable moments.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 11</div>
+    <h2>How do you feel about sitting quietly with your thoughts for even a few minutes?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Discomfort with silence often signals avoidance habits. Gradually increasing your tolerance for quiet can deepen self-awareness and reduce the need for distraction</div>
+    <div class="block exercise"><div class="lab">Try this</div>Set a timer for 2 minutes of silent reflection daily, focusing on your breath and thoughts without judgment.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 12</div>
+    <h2>What role does perfectionism play in your use of distraction?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Perfectionism can drive avoidance by making imperfection intolerable, leading to distraction as an escape. Challenging perfectionist beliefs helps you face discomfort more directly</div>
+    <div class="block exercise"><div class="lab">Try this</div>Identify one perfectionist thought that triggers distraction. Write a balanced counter-statement to practice when this thought arises.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 13</div>
+    <h2>How do you respond when distractions interfere with your responsibilities or goals?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Awareness of the cost of distraction on your goals fosters accountability and motivation to develop healthier coping strategies</div>
+    <div class="block exercise"><div class="lab">Try this</div>Choose one goal affected by distraction. Outline three practical steps to protect your focus and minimize avoidance.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 14</div>
+    <h2>Are there specific people or environments that encourage your distraction habits?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Social and environmental cues can reinforce distraction patterns. Identifying these helps you create boundaries or seek supportive alternatives</div>
+    <div class="block exercise"><div class="lab">Try this</div>List situations or people linked to your distraction. Plan one change to reduce their influence or increase your mindful engagement.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 15</div>
+    <h2>How does your inner dialogue sound when you decide to distract yourself?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Inner dialogue often drives behavior. Noticing self-critical or fearful thoughts can help you shift toward more supportive and realistic self-talk</div>
+    <div class="block exercise"><div class="lab">Try this</div>Record your thoughts before a distraction episode. Rewrite them with kindness and encouragement.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 16</div>
+    <h2>What small, manageable activities could you replace distractions with that still provide relief?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Healthy substitutes balance comfort and presence, allowing you to cope without avoidance. Experimenting with these builds resilience over time</div>
+    <div class="block exercise"><div class="lab">Try this</div>Create a list of 5 non-avoidant activities you enjoy. Commit to trying one the next time you feel the urge to distract.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 17</div>
+    <h2>How do you feel about uncertainty, and does this influence your distraction habits?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Fear of uncertainty often drives distraction to control or numb discomfort. Building tolerance for uncertainty reduces reliance on avoidance</div>
+    <div class="block exercise"><div class="lab">Try this</div>Reflect on a recent uncertain situation. Write about how distraction helped or hindered your experience and what you might do differently.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 18</div>
+    <h2>What boundaries can you set to protect yourself from excessive distraction?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Boundaries create structure and safety, preventing distraction from taking over. Thoughtful limits empower you to engage with life intentionally</div>
+    <div class="block exercise"><div class="lab">Try this</div>Identify one distraction you want to limit. Design a clear boundary or rule around it and test it for a week.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 19</div>
+    <h2>How do you process emotions after a distraction episode ends?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Post-distraction emotions can be intense or confusing. Developing a routine to acknowledge and work through these feelings promotes healing and insight</div>
+    <div class="block exercise"><div class="lab">Try this</div>After distraction, spend 5 minutes journaling your feelings and one small action to address them.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 20</div>
+    <h2>How can mindfulness practice alter your relationship with distraction?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Mindfulness shifts you from reactive avoidance to conscious choice, increasing your ability to sit with discomfort and reduce impulsive distraction</div>
+    <div class="block exercise"><div class="lab">Try this</div>Commit to a daily 5-minute mindfulness practice focused on observing urges without acting on them. Note changes over time.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="saved" id="savedNote"></div>
+  <div class="closing">
+    <h2>Your journey continues</h2>
+    <p>Reflection isn't a one-time exercise. Return to these prompts whenever you need a steady place to think.</p>
+  </div>
+  <div class="actions">
+    <button class="btn btn-primary" onclick="window.print()">Download / Print PDF</button>
+    <a href="../../resource-library.html" class="btn btn-ghost">← Back to library</a>
+  </div>
+</div></main>
+<div class="disclaimer"><div class="wrap">This workbook is for education and self-reflection. It is not a diagnosis or a substitute for therapy. If you are in crisis, call or text 988.</div></div>
+<footer><div class="wrap">© <span id="yr"></span> Campfire Calm™ · Jason M. Leclair, LPC</div></footer>
+<script>
+  document.getElementById('yr').textContent=new Date().getFullYear();
+  (function(){
+    var key="cc-reflect:distraction-patterns:";
+    var areas=document.querySelectorAll('.reflect-input');
+    var note=document.getElementById('savedNote');
+    function save(i,v){try{localStorage.setItem(key+i,v);note.textContent='Saved on this device';clearTimeout(window._t);window._t=setTimeout(function(){note.textContent='';},1500);}catch(e){}}
+    areas.forEach(function(a,i){
+      try{var v=localStorage.getItem(key+i);if(v)a.value=v;}catch(e){}
+      a.addEventListener('input',function(){save(i,a.value);});
+    });
+  })();
+</script>
+</body>
+</html>

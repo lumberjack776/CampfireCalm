@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light">
+<title>Anticipatory Anxiety — Campfire Calm</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Mulish:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{color-scheme:light;--cream:#f9f2e7;--cream-2:#fef9ef;--paper:#fffdf8;--charcoal:#2a201a;--ember:#e7702f;--ember-deep:#cf551a;--amber:#f0a94f;--sage-deep:#4f7a5d;--ink:#352b23;--ink-soft:#6a5c4e;--line:rgba(60,50,42,.13);--brown:#2e2117;--shadow-sm:0 8px 24px -14px rgba(60,40,25,.3);--r:16px}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Mulish',sans-serif;color:var(--ink);background:linear-gradient(180deg,var(--cream),#fcefdf);line-height:1.7;-webkit-font-smoothing:antialiased}
+  h1,h2,h3{font-family:'Fraunces',serif;font-weight:500;color:var(--charcoal);letter-spacing:-.01em;line-height:1.15}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:760px;margin:0 auto;padding:0 24px}
+  nav{position:sticky;top:0;z-index:50;background:rgba(249,242,231,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px;max-width:760px;margin:0 auto;padding:0 24px}
+  .brand{display:flex;align-items:center;gap:9px;font-family:'Fraunces',serif;font-size:1.18rem;font-weight:600}
+  .flame{width:22px;height:22px}
+  .back{font-weight:700;font-size:.88rem;color:var(--ember-deep)}
+  header{background:var(--brown);color:#fdf7ec;padding:54px 0 48px;position:relative;overflow:hidden}
+  header::after{content:"";position:absolute;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,rgba(240,169,79,.32),transparent 65%);top:-130px;right:-90px}
+  .eyebrow{font-weight:700;text-transform:uppercase;letter-spacing:.18em;font-size:.7rem;color:var(--amber);margin-bottom:12px;position:relative}
+  header h1{color:#fdf7ec;font-size:clamp(2rem,6vw,3rem);margin-bottom:14px;position:relative}
+  header p{color:#e7d8c2;font-size:1.06rem;position:relative;max-width:34em}
+  .meta{display:flex;gap:22px;margin-top:22px;position:relative}
+  .meta div{font-size:.82rem;color:#cbb89f}
+  .meta b{display:block;font-family:'Fraunces',serif;font-size:1.5rem;color:var(--amber);font-weight:600}
+  main{padding:46px 0 20px}
+  .prompt{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:28px 26px;margin-bottom:22px;box-shadow:var(--shadow-sm)}
+  .pnum{font-family:'Fraunces',serif;font-size:.9rem;font-weight:600;color:var(--ember-deep);margin-bottom:8px}
+  .prompt h2{font-size:1.28rem;margin-bottom:18px}
+  .block{margin-bottom:16px}
+  .block .lab{font-weight:700;text-transform:uppercase;letter-spacing:.1em;font-size:.7rem;margin-bottom:6px}
+  .insight .lab{color:var(--sage-deep)}
+  .exercise{background:rgba(240,169,79,.1);border-left:3px solid var(--amber);border-radius:0 10px 10px 0;padding:14px 16px}
+  .exercise .lab{color:var(--ember-deep)}
+  .reflect{margin-top:18px}
+  .reflect .lab{font-weight:700;font-size:.78rem;color:var(--ink-soft);margin-bottom:8px}
+  .reflect-input{display:block;width:100%;min-height:132px;font-family:'Mulish',sans-serif;font-size:1rem;color:var(--ink);
+    line-height:32px;padding:5px 14px 8px;border:1px solid var(--line);border-radius:10px;resize:vertical;
+    background-color:var(--paper);
+    background-image:repeating-linear-gradient(transparent,transparent 31px,var(--line) 31px,var(--line) 32px);
+    background-attachment:local;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .reflect-input:focus{outline:none;border-color:var(--ember);box-shadow:0 0 0 3px rgba(231,112,47,.12)}
+  .reflect-input::placeholder{color:var(--ink-soft);opacity:.7}
+  .closing{text-align:center;background:var(--brown);color:#fdf7ec;border-radius:20px;padding:38px 30px;margin:30px 0}
+  .closing h2{color:#fdf7ec;font-size:1.6rem;margin-bottom:10px}
+  .closing p{color:#e7d8c2;max-width:30em;margin:0 auto}
+  .saved{text-align:center;font-size:.8rem;color:var(--sage-deep);margin:-6px 0 22px;min-height:1em}
+  .actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin:8px 0 40px}
+  .btn{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:.95rem;padding:13px 24px;border-radius:100px;cursor:pointer;border:0}
+  .btn-primary{background:var(--ember-deep);color:#fff}
+  .btn-ghost{background:transparent;border:1.5px solid var(--line);color:var(--charcoal)}
+  .disclaimer{background:var(--cream-2);border-top:1px solid var(--line);padding:26px 0;color:var(--ink-soft);font-size:.88rem;text-align:center;font-style:italic}
+  footer{background:var(--charcoal);color:rgba(255,255,255,.6);padding:30px 0;font-size:.86rem;text-align:center}
+  @media print{nav,.actions,.back,.saved{display:none}body{background:#fff}.prompt{break-inside:avoid;box-shadow:none}.reflect-input{border-color:#ccc}header,.closing,.exercise,.reflect-input{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+  @media(max-width:560px){header{padding:42px 0 36px}.prompt{padding:22px 20px}}
+</style>
+</head>
+<body>
+<nav><div class="nav-inner">
+  <a href="../../resource-library.html" class="brand"><svg class="flame" viewBox="0 0 24 24"><path d="M12 2c1.5 3.5-1 5-1 7.5 0 1.5 1 2.5 2 2.5s2-1 1.8-3c2 1.2 3.2 3.4 3.2 6 0 3.6-3 6.5-6 6.5S6 18.6 6 15c0-4 3-6.5 6-13z" fill="#e7702f"/></svg>Campfire Calm</a>
+  <a href="../../resource-library.html" class="back">← Library</a>
+</div></nav>
+<header><div class="wrap">
+  <div class="eyebrow">Guided Reflection Workbook</div>
+  <h1>Anticipatory Anxiety</h1>
+  <p>A guided self-reflection worksheet designed to help you explore your inner landscape through thoughtful prompts and exercises.</p>
+  <div class="meta"><div><b>20</b>Prompts</div><div><b>20</b>Insights</div><div><b>20</b>Exercises</div></div>
+</div></header>
+<main><div class="wrap">
+  <div class="prompt">
+    <div class="pnum">Prompt 01</div>
+    <h2>When you notice your mind racing about a future event, what specific thoughts are fueling your anxiety?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Pinpointing the exact worries helps you separate facts from fears. Often, anticipatory anxiety is driven by “what if” scenarios that haven’t happened and may never happen. By identifying these thoughts, you can challenge their reality and reduce their power over you.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Write down your anxious predictions about the upcoming event. Next to each, ask yourself: “How likely is this to actually occur?” and “What evidence do I have?” Reframe any exaggerated fears with balanced perspectives.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 02</div>
+    <h2>How does your body physically respond when you anticipate a stressful situation, and what does that signal about your current state?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Physical symptoms like a racing heart or tight chest are your body’s alarm system, signaling heightened alertness. Recognizing these sensations as temporary and linked to anxiety—not danger—can help ground you and reduce panic.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Practice a body scan meditation, observing sensations without judgment. When you feel anxiety creeping in, pause and name the physical feelings to remind yourself they are part of anxiety, not an emergency.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 03</div>
+    <h2>In what ways do you try to avoid thinking about or preparing for upcoming challenges, and how does this avoidance impact your anxiety?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Avoidance might feel like relief short-term, but it often increases anxiety by making the unknown bigger and scarier. Facing the issue, even in small steps, builds confidence and reduces the fear of uncertainty.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Identify one small action related to your feared event that you’ve been avoiding. Commit to doing just that one thing today, no matter how small, to begin breaking the cycle of avoidance.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 04</div>
+    <h2>How do you tell yourself stories about the worst possible outcome, and what alternative, more balanced narratives could you create?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Catastrophizing creates a mental script where everything goes wrong, feeding anxiety. By consciously rewriting this narrative with more realistic outcomes, you empower yourself to face the future more calmly.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Write down your worst-case scenario about your upcoming event. Then, write a “best-case” and a “most likely” scenario. Compare these to see how your mind may be skewing toward extremes.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 05</div>
+    <h2>How often do you focus on “what if” questions, and how might shifting your focus to “what is” change your experience of anxiety?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>“What if” thinking traps you in uncertainty and helplessness. Bringing attention back to the present moment and what you can control reduces anxiety and fosters a sense of agency.</div>
+    <div class="block exercise"><div class="lab">Try this</div>When you catch yourself in “what if” thoughts, pause and write down three things you can do right now to prepare or cope. Shift your attention from hypotheticals to actionable steps.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 06</div>
+    <h2>How does your inner dialogue sound when you anticipate difficulty, and can you practice self-compassion to soften that voice?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>An anxious mind often uses harsh, critical language that amplifies fear. Introducing a compassionate, understanding tone can ease distress and create a supportive internal environment.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Write down the critical things you say to yourself about the upcoming event. Then rewrite those statements as if you were speaking kindly to a close friend facing the same challenge.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 07</div>
+    <h2>What past experiences do you draw on when you feel anxious about the future, and how can you reframe those memories to build resilience instead of fear?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Past difficulties can either haunt us or teach us. By focusing on how you’ve coped or grown from previous challenges, you can turn anxiety into a source of strength and preparation.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Recall a time you faced uncertainty and managed it well. Write down what you did, how you felt afterward, and how those lessons can apply to your current situation.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 08</div>
+    <h2>How do your expectations for control over future events influence your anxiety levels?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Expecting complete control sets you up for frustration and fear. Accepting uncertainty as part of life allows you to focus on what you can influence, reducing anticipatory anxiety.</div>
+    <div class="block exercise"><div class="lab">Try this</div>List aspects of your upcoming situation that you cannot control and those you can. Practice letting go of the uncontrollable with a simple mantra: “I focus on what I can change.”</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 09</div>
+    <h2>When anxiety tells you that you won’t be able to handle what’s coming, how can you challenge that belief?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Anxiety often underestimates your coping ability. Reminding yourself of past successes and your resourcefulness can weaken these self-doubts and build confidence.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Write down three examples of times when you felt overwhelmed but managed to get through. Reflect on the strengths you used and how you can tap into them now.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 10</div>
+    <h2>How might setting realistic expectations about the upcoming event reduce your anticipatory anxiety?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Overly high or vague expectations create pressure and fear of failure. Clarifying what’s realistic helps you prepare more effectively and reduces the fear of the unknown.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Define one or two clear, achievable goals related to the event. Focus your preparation on these goals rather than on perfection or all possible outcomes.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 11</div>
+    <h2>What role does your imagination play in escalating your anxiety about future events?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Imagination can magnify fears by creating vivid scenarios of disaster. Learning to notice when your mind is spinning stories and gently redirecting it helps contain anxiety.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Keep a journal of anxious images your mind creates. When a particularly vivid or distressing one arises, practice grounding yourself by describing your current, safe environment in detail.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 12</div>
+    <h2>How do you balance preparing for a future event with not over-preparing out of fear?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Preparation is empowering, but over-preparation can become avoidance or perfectionism that fuels anxiety. Setting limits on preparation time helps maintain balance.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Schedule a specific, limited time block for preparation tasks. When time’s up, shift your focus to a relaxing or enjoyable activity to break the cycle of rumination.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 13</div>
+    <h2>How does your relationship with uncertainty affect your anticipatory anxiety?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Discomfort with uncertainty is a common anxiety driver. Learning to tolerate and even accept uncertainty can reduce the emotional charge it carries.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Practice sitting quietly and observing uncertainty without trying to fix it. Notice your emotional responses and gently remind yourself that uncertainty is a natural part of life.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 14</div>
+    <h2>How might grounding techniques help you manage the physical sensations that accompany anticipatory anxiety?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Grounding reconnects you to the present moment and your body, interrupting anxious spirals. Simple techniques like deep breathing or focusing on sensory details can calm your nervous system.</div>
+    <div class="block exercise"><div class="lab">Try this</div>When you feel anxiety rising, try the 5-4-3-2-1 grounding exercise: name 5 things you see, 4 you feel, 3 you hear, 2 you smell, and 1 you taste.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 15</div>
+    <h2>How does your tendency to seek reassurance influence your anxiety about upcoming events?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Reassurance can provide temporary relief but may deepen anxiety by reinforcing dependence on others. Building self-trust reduces the need for constant external validation.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Notice when you seek reassurance. Instead of immediately asking others, write down your anxious thought and then respond to it yourself with evidence and encouragement.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 16</div>
+    <h2>What small, controllable actions can you take now to reduce your anticipatory anxiety?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Focusing on small, manageable actions shifts your attention from helplessness to empowerment. These steps build momentum and confidence for facing the bigger challenge.</div>
+    <div class="block exercise"><div class="lab">Try this</div>List three concrete, achievable actions related to your upcoming event. Commit to doing one of them today and notice how it affects your anxiety.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 17</div>
+    <h2>How do you react when your anticipatory anxiety disrupts your sleep, and what strategies can help you reclaim restful rest?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Anxiety before sleep often leads to a feedback loop of worry and insomnia. Creating a calming bedtime routine and challenging nighttime worries can improve sleep quality.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Before bed, write down any anxious thoughts to “park” them outside your mind. Practice progressive muscle relaxation or deep breathing to ease into sleep.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 18</div>
+    <h2>How might labeling your anxiety as “anticipatory” rather than “panic” change your experience of it?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Naming anxiety as anticipatory helps you recognize it as a future-oriented, understandable response, which can reduce fear and increase acceptance.</div>
+    <div class="block exercise"><div class="lab">Try this</div>When anxiety arises, silently say to yourself: “This is anticipatory anxiety.” Notice how this labeling affects your feelings and whether it helps you respond more calmly.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 19</div>
+    <h2>How can developing a plan for coping with anxiety during the anticipated event reduce your pre-event stress?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Having a coping plan provides a sense of control and readiness, making the unknown less intimidating and reducing anticipatory anxiety.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Create a simple coping plan listing strategies to use if anxiety arises during the event (e.g., breathing exercises, taking breaks, positive self-talk). Review it regularly.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 20</div>
+    <h2>How does your need for certainty contribute to your anticipatory anxiety, and how can you practice tolerating ambiguity?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Craving certainty is natural but unattainable; resisting uncertainty often increases anxiety. Practicing acceptance of ambiguity can lessen the grip of anticipatory anxiety.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Choose a minor uncertainty today (e.g., not knowing the exact time of a meeting) and practice sitting with it without trying to resolve it immediately. Reflect on your experience afterward.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="saved" id="savedNote"></div>
+  <div class="closing">
+    <h2>Your journey continues</h2>
+    <p>Reflection isn't a one-time exercise. Return to these prompts whenever you need a steady place to think.</p>
+  </div>
+  <div class="actions">
+    <button class="btn btn-primary" onclick="window.print()">Download / Print PDF</button>
+    <a href="../../resource-library.html" class="btn btn-ghost">← Back to library</a>
+  </div>
+</div></main>
+<div class="disclaimer"><div class="wrap">This workbook is for education and self-reflection. It is not a diagnosis or a substitute for therapy. If you are in crisis, call or text 988.</div></div>
+<footer><div class="wrap">© <span id="yr"></span> Campfire Calm™ · Jason M. Leclair, LPC</div></footer>
+<script>
+  document.getElementById('yr').textContent=new Date().getFullYear();
+  (function(){
+    var key="cc-reflect:anticipatory-anxiety:";
+    var areas=document.querySelectorAll('.reflect-input');
+    var note=document.getElementById('savedNote');
+    function save(i,v){try{localStorage.setItem(key+i,v);note.textContent='Saved on this device';clearTimeout(window._t);window._t=setTimeout(function(){note.textContent='';},1500);}catch(e){}}
+    areas.forEach(function(a,i){
+      try{var v=localStorage.getItem(key+i);if(v)a.value=v;}catch(e){}
+      a.addEventListener('input',function(){save(i,a.value);});
+    });
+  })();
+</script>
+</body>
+</html>

@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light">
+<title>Lack of Motivation — Campfire Calm</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Mulish:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{color-scheme:light;--cream:#f9f2e7;--cream-2:#fef9ef;--paper:#fffdf8;--charcoal:#2a201a;--ember:#e7702f;--ember-deep:#cf551a;--amber:#f0a94f;--sage-deep:#4f7a5d;--ink:#352b23;--ink-soft:#6a5c4e;--line:rgba(60,50,42,.13);--brown:#2e2117;--shadow-sm:0 8px 24px -14px rgba(60,40,25,.3);--r:16px}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Mulish',sans-serif;color:var(--ink);background:linear-gradient(180deg,var(--cream),#fcefdf);line-height:1.7;-webkit-font-smoothing:antialiased}
+  h1,h2,h3{font-family:'Fraunces',serif;font-weight:500;color:var(--charcoal);letter-spacing:-.01em;line-height:1.15}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:760px;margin:0 auto;padding:0 24px}
+  nav{position:sticky;top:0;z-index:50;background:rgba(249,242,231,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px;max-width:760px;margin:0 auto;padding:0 24px}
+  .brand{display:flex;align-items:center;gap:9px;font-family:'Fraunces',serif;font-size:1.18rem;font-weight:600}
+  .flame{width:22px;height:22px}
+  .back{font-weight:700;font-size:.88rem;color:var(--ember-deep)}
+  header{background:var(--brown);color:#fdf7ec;padding:54px 0 48px;position:relative;overflow:hidden}
+  header::after{content:"";position:absolute;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,rgba(240,169,79,.32),transparent 65%);top:-130px;right:-90px}
+  .eyebrow{font-weight:700;text-transform:uppercase;letter-spacing:.18em;font-size:.7rem;color:var(--amber);margin-bottom:12px;position:relative}
+  header h1{color:#fdf7ec;font-size:clamp(2rem,6vw,3rem);margin-bottom:14px;position:relative}
+  header p{color:#e7d8c2;font-size:1.06rem;position:relative;max-width:34em}
+  .meta{display:flex;gap:22px;margin-top:22px;position:relative}
+  .meta div{font-size:.82rem;color:#cbb89f}
+  .meta b{display:block;font-family:'Fraunces',serif;font-size:1.5rem;color:var(--amber);font-weight:600}
+  main{padding:46px 0 20px}
+  .prompt{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:28px 26px;margin-bottom:22px;box-shadow:var(--shadow-sm)}
+  .pnum{font-family:'Fraunces',serif;font-size:.9rem;font-weight:600;color:var(--ember-deep);margin-bottom:8px}
+  .prompt h2{font-size:1.28rem;margin-bottom:18px}
+  .block{margin-bottom:16px}
+  .block .lab{font-weight:700;text-transform:uppercase;letter-spacing:.1em;font-size:.7rem;margin-bottom:6px}
+  .insight .lab{color:var(--sage-deep)}
+  .exercise{background:rgba(240,169,79,.1);border-left:3px solid var(--amber);border-radius:0 10px 10px 0;padding:14px 16px}
+  .exercise .lab{color:var(--ember-deep)}
+  .reflect{margin-top:18px}
+  .reflect .lab{font-weight:700;font-size:.78rem;color:var(--ink-soft);margin-bottom:8px}
+  .reflect-input{display:block;width:100%;min-height:132px;font-family:'Mulish',sans-serif;font-size:1rem;color:var(--ink);
+    line-height:32px;padding:5px 14px 8px;border:1px solid var(--line);border-radius:10px;resize:vertical;
+    background-color:var(--paper);
+    background-image:repeating-linear-gradient(transparent,transparent 31px,var(--line) 31px,var(--line) 32px);
+    background-attachment:local;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .reflect-input:focus{outline:none;border-color:var(--ember);box-shadow:0 0 0 3px rgba(231,112,47,.12)}
+  .reflect-input::placeholder{color:var(--ink-soft);opacity:.7}
+  .closing{text-align:center;background:var(--brown);color:#fdf7ec;border-radius:20px;padding:38px 30px;margin:30px 0}
+  .closing h2{color:#fdf7ec;font-size:1.6rem;margin-bottom:10px}
+  .closing p{color:#e7d8c2;max-width:30em;margin:0 auto}
+  .saved{text-align:center;font-size:.8rem;color:var(--sage-deep);margin:-6px 0 22px;min-height:1em}
+  .actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin:8px 0 40px}
+  .btn{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:.95rem;padding:13px 24px;border-radius:100px;cursor:pointer;border:0}
+  .btn-primary{background:var(--ember-deep);color:#fff}
+  .btn-ghost{background:transparent;border:1.5px solid var(--line);color:var(--charcoal)}
+  .disclaimer{background:var(--cream-2);border-top:1px solid var(--line);padding:26px 0;color:var(--ink-soft);font-size:.88rem;text-align:center;font-style:italic}
+  footer{background:var(--charcoal);color:rgba(255,255,255,.6);padding:30px 0;font-size:.86rem;text-align:center}
+  @media print{nav,.actions,.back,.saved{display:none}body{background:#fff}.prompt{break-inside:avoid;box-shadow:none}.reflect-input{border-color:#ccc}header,.closing,.exercise,.reflect-input{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+  @media(max-width:560px){header{padding:42px 0 36px}.prompt{padding:22px 20px}}
+</style>
+</head>
+<body>
+<nav><div class="nav-inner">
+  <a href="../../resource-library.html" class="brand"><svg class="flame" viewBox="0 0 24 24"><path d="M12 2c1.5 3.5-1 5-1 7.5 0 1.5 1 2.5 2 2.5s2-1 1.8-3c2 1.2 3.2 3.4 3.2 6 0 3.6-3 6.5-6 6.5S6 18.6 6 15c0-4 3-6.5 6-13z" fill="#e7702f"/></svg>Campfire Calm</a>
+  <a href="../../resource-library.html" class="back">← Library</a>
+</div></nav>
+<header><div class="wrap">
+  <div class="eyebrow">Guided Reflection Workbook</div>
+  <h1>Lack of Motivation</h1>
+  <p>A guided self-reflection worksheet designed to help you explore your inner landscape through thoughtful prompts and exercises.</p>
+  <div class="meta"><div><b>22</b>Prompts</div><div><b>22</b>Insights</div><div><b>22</b>Exercises</div></div>
+</div></header>
+<main><div class="wrap">
+  <div class="prompt">
+    <div class="pnum">Prompt 01</div>
+    <h2>What specific thoughts or beliefs come up when you notice your motivation slipping?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Often, motivation dips because of negative self-talk or limiting beliefs that tell you &quot;I&#x27;m not good enough&quot; or &quot;This will be too hard.&quot; Identifying these internal messages helps you challenge and reframe them, turning obstacles into manageable challenges rather than insurmountable barriers.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Write down the last three times you felt unmotivated. Note the thoughts running through your mind each time. Then, write a more compassionate, realistic alternative to each thought.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 02</div>
+    <h2>How do you physically feel in your body when motivation is low, and what can that signal about your needs?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Low motivation often shows up as fatigue, tension, or restlessness. These sensations can signal unmet needs like rest, nutrition, or emotional support. Listening to your body’s signals can guide you to address these needs first, which often jumpstarts motivation.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Next time you feel unmotivated, pause and scan your body from head to toe. Note any discomfort or tension. Ask yourself what this might mean and what one small action you could take to care for that part of your body.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 03</div>
+    <h2>What small, concrete step can you take right now that feels doable despite your low motivation?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Breaking tasks into tiny, manageable steps bypasses the overwhelm that kills motivation. Even a 2-minute action can create momentum and a sense of accomplishment, which fuels continued motivation.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Choose one task you’ve been avoiding. Break it down into the smallest step possible and commit to doing just that step today. Reflect on how it feels before and after.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 04</div>
+    <h2>How does your environment support or hinder your motivation?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Your surroundings profoundly impact motivation. Clutter, distractions, or negative social influences can sap energy, while organized spaces and encouraging people can inspire action. Modifying your environment can be a powerful, often overlooked way to boost motivation.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Take a 5-minute walk around your workspace or home. Identify one change that could make it feel more inviting or supportive to your goals. Implement it and notice any shift in your motivation.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 05</div>
+    <h2>What past successes can you recall that remind you of your capability and drive?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Reflecting on past achievements rewires your brain to recognize your strengths and resilience. This boosts confidence and counters feelings of helplessness that often accompany low motivation.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Write down three moments when you overcame a challenge or completed something meaningful. Revisit this list whenever motivation wanes to remind yourself of your inner resources.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 06</div>
+    <h2>How might perfectionism be interfering with your motivation to start or continue tasks?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Perfectionism creates unrealistic standards that make starting feel risky or starting to feel like failure. Understanding that “good enough” progress often beats no progress can release the pressure and ignite motivation.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Identify one area where you’re holding back because things aren’t perfect. Write a compassionate note to yourself about why progress matters more than perfection in this case.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 07</div>
+    <h2>What role does your sense of purpose or meaning play in your motivation levels?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Motivation is deeply tied to feeling that what you do matters. When your actions align with your values or long-term goals, motivation flows naturally. Clarifying this connection can transform mundane tasks into meaningful steps.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Reflect on one current goal or task. Ask yourself why it matters to you on a deeper level. Write a brief statement connecting this task to your broader purpose.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 08</div>
+    <h2>How do you typically respond to setbacks, and how does that affect your motivation?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Responses to setbacks shape motivation trajectories. If you ruminate or self-criticize, motivation often plummets. Learning to treat setbacks as information rather than judgment helps maintain forward momentum.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Recall a recent setback and write down your immediate thoughts and feelings. Then, rewrite your response as if you were a supportive friend offering encouragement.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 09</div>
+    <h2>When motivation is low, how effective are your current coping strategies?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Some coping methods temporarily numb feelings but don’t address underlying causes, leading to cycles of low motivation. Evaluating and adjusting strategies toward active problem-solving and self-care can break this pattern.</div>
+    <div class="block exercise"><div class="lab">Try this</div>List your go-to coping strategies when unmotivated. For each, rate how helpful it truly is on a scale of 1-10. Identify one strategy you could replace with a more constructive action.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 10</div>
+    <h2>What role does self-compassion play in your ability to regain motivation after a slump?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Self-compassion fosters a non-judgmental mindset that reduces shame and fear of failure, both common barriers to motivation. Treating yourself kindly creates a safe internal environment where motivation can grow organically.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Practice a short self-compassion meditation: Acknowledge your struggle, recognize it as part of the human experience, and offer yourself gentle encouragement.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 11</div>
+    <h2>How might your daily routine be adjusted to better support consistent motivation?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Rigid or overly ambitious routines can backfire, while flexible, enjoyable habits encourage sustained motivation. Experimenting with timing, breaks, and rewards helps you discover what fuels your drive.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Track your energy and motivation levels throughout one day. Note when you feel most and least motivated. Adjust your routine to align tasks with your natural energy peaks.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 12</div>
+    <h2>How do you balance intrinsic versus extrinsic motivation in your goals?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Intrinsic motivation—doing something because it’s personally rewarding—tends to be more sustainable than extrinsic rewards like praise or money. Reflecting on what internally drives you can deepen engagement and persistence.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Identify one goal and write down why it matters to you personally (intrinsic) versus external reasons (extrinsic). Consider how you might increase the intrinsic value of this goal.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 13</div>
+    <h2>What impact does your self-talk have on your willingness to take action?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Self-talk can either energize or drain motivation. Negative or catastrophic thinking often paralyzes action, while encouraging, realistic self-talk opens pathways to progress.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Catch yourself in a moment of negative self-talk about motivation. Pause and rewrite the thought into a balanced, encouraging statement. Repeat this practice daily.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 14</div>
+    <h2>How does your sleep quality influence your motivation, and what can you do to improve it?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Poor sleep impairs concentration, mood, and energy, all critical for motivation. Prioritizing restful sleep through consistent routines and reducing stimulants can restore your motivational capacity.</div>
+    <div class="block exercise"><div class="lab">Try this</div>For one week, track your sleep patterns and note daily motivation levels. Identify any correlations and implement one change to improve sleep hygiene.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 15</div>
+    <h2>How do feelings of overwhelm affect your motivation, and what strategies can reduce overwhelm?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Overwhelm triggers avoidance, shutting down motivation. Breaking tasks down, prioritizing, and setting boundaries can reduce this paralysis and create clearer pathways to action.</div>
+    <div class="block exercise"><div class="lab">Try this</div>List all tasks you feel pressured by. Categorize them into “urgent,” “important,” and “can wait.” Focus on completing one urgent or important task first to reduce overwhelm.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 16</div>
+    <h2>What social influences impact your motivation, both positively and negatively?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Supportive relationships can inspire motivation through accountability and encouragement, while toxic or unsupportive connections drain it. Mindfully choosing your social circle shapes your motivational climate.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Reflect on your closest relationships. Identify one person who boosts your motivation and one who diminishes it. Consider ways to increase positive influence and set boundaries with negative ones.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 17</div>
+    <h2>How do you define success, and can this definition be limiting your motivation?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Narrow or rigid definitions of success can create pressure and fear of failure, undermining motivation. Broadening your definition to include effort, learning, and growth invites a more sustainable and compassionate drive.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Write your current definition of success. Then, rewrite it to include progress, effort, and learning as valid forms of success. Reflect on how this new definition affects your motivation.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 18</div>
+    <h2>How can visualization or mental rehearsal enhance your motivation to pursue goals?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Visualizing successful completion of tasks activates motivation by making goals feel tangible and attainable, which increases confidence and readiness to act.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Spend five minutes visualizing yourself completing a challenging task. Notice the feelings and thoughts that arise. Use this visualization before starting similar tasks.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 19</div>
+    <h2>What role does accountability play in your motivation, and how can you use it effectively?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Accountability increases motivation by creating external commitments that reinforce internal goals. Choosing the right accountability partner or system can provide gentle pressure and encouragement without judgment.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Identify one goal to share with a trusted person. Set up a check-in schedule to report progress and discuss obstacles.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 20</div>
+    <h2>How does procrastination serve you, and what healthier alternatives can support motivation?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Procrastination often masks fear or perfectionism and temporarily reduces discomfort but ultimately undermines motivation. Recognizing its function allows you to replace it with mindful breaks or structured work intervals.</div>
+    <div class="block exercise"><div class="lab">Try this</div>The next time you catch yourself procrastinating, pause and ask what you’re avoiding. Choose a small, concrete action to move forward or schedule a brief, purposeful break instead.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 21</div>
+    <h2>How can celebrating small wins improve your motivation during challenging projects?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Celebrating progress, no matter how small, reinforces motivation by providing positive feedback loops that build confidence and pleasure in achievement.</div>
+    <div class="block exercise"><div class="lab">Try this</div>After completing any task today, take a moment to acknowledge your effort. Write down one positive feeling or achievement related to that task.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 22</div>
+    <h2>How do your core values align with your current goals, and how might misalignment affect your motivation?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>When goals conflict with your core values, motivation wanes because the effort feels inauthentic or draining. Recalibrating goals to reflect your true values cultivates deeper, more sustainable motivation.</div>
+    <div class="block exercise"><div class="lab">Try this</div>List your top three core values. Compare them to your current goals. Adjust one goal to better reflect a core value and notice how this changes your motivation.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="saved" id="savedNote"></div>
+  <div class="closing">
+    <h2>Your journey continues</h2>
+    <p>Reflection isn't a one-time exercise. Return to these prompts whenever you need a steady place to think.</p>
+  </div>
+  <div class="actions">
+    <button class="btn btn-primary" onclick="window.print()">Download / Print PDF</button>
+    <a href="../../resource-library.html" class="btn btn-ghost">← Back to library</a>
+  </div>
+</div></main>
+<div class="disclaimer"><div class="wrap">This workbook is for education and self-reflection. It is not a diagnosis or a substitute for therapy. If you are in crisis, call or text 988.</div></div>
+<footer><div class="wrap">© <span id="yr"></span> Campfire Calm™ · Jason M. Leclair, LPC</div></footer>
+<script>
+  document.getElementById('yr').textContent=new Date().getFullYear();
+  (function(){
+    var key="cc-reflect:lack-of-motivation:";
+    var areas=document.querySelectorAll('.reflect-input');
+    var note=document.getElementById('savedNote');
+    function save(i,v){try{localStorage.setItem(key+i,v);note.textContent='Saved on this device';clearTimeout(window._t);window._t=setTimeout(function(){note.textContent='';},1500);}catch(e){}}
+    areas.forEach(function(a,i){
+      try{var v=localStorage.getItem(key+i);if(v)a.value=v;}catch(e){}
+      a.addEventListener('input',function(){save(i,a.value);});
+    });
+  })();
+</script>
+</body>
+</html>

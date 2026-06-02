@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light">
+<title>Mindfulness Practice — Campfire Calm</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Mulish:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{color-scheme:light;--cream:#f9f2e7;--cream-2:#fef9ef;--paper:#fffdf8;--charcoal:#2a201a;--ember:#e7702f;--ember-deep:#cf551a;--amber:#f0a94f;--sage-deep:#4f7a5d;--ink:#352b23;--ink-soft:#6a5c4e;--line:rgba(60,50,42,.13);--brown:#2e2117;--shadow-sm:0 8px 24px -14px rgba(60,40,25,.3);--r:16px}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Mulish',sans-serif;color:var(--ink);background:linear-gradient(180deg,var(--cream),#fcefdf);line-height:1.7;-webkit-font-smoothing:antialiased}
+  h1,h2,h3{font-family:'Fraunces',serif;font-weight:500;color:var(--charcoal);letter-spacing:-.01em;line-height:1.15}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:760px;margin:0 auto;padding:0 24px}
+  nav{position:sticky;top:0;z-index:50;background:rgba(249,242,231,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px;max-width:760px;margin:0 auto;padding:0 24px}
+  .brand{display:flex;align-items:center;gap:9px;font-family:'Fraunces',serif;font-size:1.18rem;font-weight:600}
+  .flame{width:22px;height:22px}
+  .back{font-weight:700;font-size:.88rem;color:var(--ember-deep)}
+  header{background:var(--brown);color:#fdf7ec;padding:54px 0 48px;position:relative;overflow:hidden}
+  header::after{content:"";position:absolute;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,rgba(240,169,79,.32),transparent 65%);top:-130px;right:-90px}
+  .eyebrow{font-weight:700;text-transform:uppercase;letter-spacing:.18em;font-size:.7rem;color:var(--amber);margin-bottom:12px;position:relative}
+  header h1{color:#fdf7ec;font-size:clamp(2rem,6vw,3rem);margin-bottom:14px;position:relative}
+  header p{color:#e7d8c2;font-size:1.06rem;position:relative;max-width:34em}
+  .meta{display:flex;gap:22px;margin-top:22px;position:relative}
+  .meta div{font-size:.82rem;color:#cbb89f}
+  .meta b{display:block;font-family:'Fraunces',serif;font-size:1.5rem;color:var(--amber);font-weight:600}
+  main{padding:46px 0 20px}
+  .prompt{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:28px 26px;margin-bottom:22px;box-shadow:var(--shadow-sm)}
+  .pnum{font-family:'Fraunces',serif;font-size:.9rem;font-weight:600;color:var(--ember-deep);margin-bottom:8px}
+  .prompt h2{font-size:1.28rem;margin-bottom:18px}
+  .block{margin-bottom:16px}
+  .block .lab{font-weight:700;text-transform:uppercase;letter-spacing:.1em;font-size:.7rem;margin-bottom:6px}
+  .insight .lab{color:var(--sage-deep)}
+  .exercise{background:rgba(240,169,79,.1);border-left:3px solid var(--amber);border-radius:0 10px 10px 0;padding:14px 16px}
+  .exercise .lab{color:var(--ember-deep)}
+  .reflect{margin-top:18px}
+  .reflect .lab{font-weight:700;font-size:.78rem;color:var(--ink-soft);margin-bottom:8px}
+  .reflect-input{display:block;width:100%;min-height:132px;font-family:'Mulish',sans-serif;font-size:1rem;color:var(--ink);
+    line-height:32px;padding:5px 14px 8px;border:1px solid var(--line);border-radius:10px;resize:vertical;
+    background-color:var(--paper);
+    background-image:repeating-linear-gradient(transparent,transparent 31px,var(--line) 31px,var(--line) 32px);
+    background-attachment:local;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .reflect-input:focus{outline:none;border-color:var(--ember);box-shadow:0 0 0 3px rgba(231,112,47,.12)}
+  .reflect-input::placeholder{color:var(--ink-soft);opacity:.7}
+  .closing{text-align:center;background:var(--brown);color:#fdf7ec;border-radius:20px;padding:38px 30px;margin:30px 0}
+  .closing h2{color:#fdf7ec;font-size:1.6rem;margin-bottom:10px}
+  .closing p{color:#e7d8c2;max-width:30em;margin:0 auto}
+  .saved{text-align:center;font-size:.8rem;color:var(--sage-deep);margin:-6px 0 22px;min-height:1em}
+  .actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin:8px 0 40px}
+  .btn{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:.95rem;padding:13px 24px;border-radius:100px;cursor:pointer;border:0}
+  .btn-primary{background:var(--ember-deep);color:#fff}
+  .btn-ghost{background:transparent;border:1.5px solid var(--line);color:var(--charcoal)}
+  .disclaimer{background:var(--cream-2);border-top:1px solid var(--line);padding:26px 0;color:var(--ink-soft);font-size:.88rem;text-align:center;font-style:italic}
+  footer{background:var(--charcoal);color:rgba(255,255,255,.6);padding:30px 0;font-size:.86rem;text-align:center}
+  @media print{nav,.actions,.back,.saved{display:none}body{background:#fff}.prompt{break-inside:avoid;box-shadow:none}.reflect-input{border-color:#ccc}header,.closing,.exercise,.reflect-input{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+  @media(max-width:560px){header{padding:42px 0 36px}.prompt{padding:22px 20px}}
+</style>
+</head>
+<body>
+<nav><div class="nav-inner">
+  <a href="../../resource-library.html" class="brand"><svg class="flame" viewBox="0 0 24 24"><path d="M12 2c1.5 3.5-1 5-1 7.5 0 1.5 1 2.5 2 2.5s2-1 1.8-3c2 1.2 3.2 3.4 3.2 6 0 3.6-3 6.5-6 6.5S6 18.6 6 15c0-4 3-6.5 6-13z" fill="#e7702f"/></svg>Campfire Calm</a>
+  <a href="../../resource-library.html" class="back">← Library</a>
+</div></nav>
+<header><div class="wrap">
+  <div class="eyebrow">Guided Reflection Workbook</div>
+  <h1>Mindfulness Practice</h1>
+  <p>A guided self-reflection worksheet designed to help you explore your inner landscape through thoughtful prompts and exercises.</p>
+  <div class="meta"><div><b>20</b>Prompts</div><div><b>20</b>Insights</div><div><b>20</b>Exercises</div></div>
+</div></header>
+<main><div class="wrap">
+  <div class="prompt">
+    <div class="pnum">Prompt 01</div>
+    <h2>How can I notice when my mind is wandering without judging myself?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Recognize that mind-wandering is a natural part of being human. When you catch your thoughts drifting, gently label it as “wandering” and bring your focus back to the present moment without harsh self-criticism. This kindness helps build awareness without shame.</div>
+    <div class="block exercise"><div class="lab">Try this</div>For the next five minutes, sit quietly and observe your breath. Each time you notice your mind wandering, silently say “wandering” and return your attention to breathing. Afterwards, journal how it felt to notice without judgment.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 02</div>
+    <h2>What practical steps can I take to anchor myself in the present during a stressful moment?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Use your senses as anchors—notice three things you can see, two things you can hear, and one thing you can touch. This sensory check-in grounds your awareness and interrupts spiraling thoughts, helping you regain control over your reactions.</div>
+    <div class="block exercise"><div class="lab">Try this</div>When stress arises today, practice this 3-2-1 sensory grounding exercise. Write down the sensations you noticed and how it affected your emotional state.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 03</div>
+    <h2>How can mindful breathing help me manage overwhelming emotions?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Mindful breathing slows your physiological response, creating space between the emotion and your reaction. By focusing on each inhale and exhale, you calm your nervous system and gain clarity to choose your next step rather than reacting impulsively.</div>
+    <div class="block exercise"><div class="lab">Try this</div>The next time you feel overwhelmed, pause and take ten slow, deep breaths. Notice any shifts in tension or emotions before resuming your activity.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 04</div>
+    <h2>Why is it important to observe my thoughts as passing events rather than facts?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Thoughts often feel like absolute truths, but they are just mental events that come and go. Observing them as temporary phenomena reduces their power and prevents automatic reactions based on faulty assumptions or unhelpful beliefs.</div>
+    <div class="block exercise"><div class="lab">Try this</div>During your mindfulness practice, visualize your thoughts as clouds drifting across the sky. Practice letting them pass without grabbing on or pushing them away.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 05</div>
+    <h2>How can I use mindfulness to break the habit of negative self-talk?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Mindfulness creates awareness of negative self-talk the moment it arises. When you catch these thoughts, pause and question their accuracy or usefulness. This interruption weakens automatic negativity and opens space for kinder, more balanced perspectives.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Keep a “thought log” for one day. Each time you notice negative self-talk, write down the thought, its trigger, and how you could reframe it more realistically.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 06</div>
+    <h2>How do I make mindfulness a natural part of my daily routine rather than a forced task?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Integrate mindfulness into existing activities by fully engaging your senses and attention—like feeling the water on your hands during washing or savoring each bite during meals. This approach transforms mindfulness from a chore into a way of being.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Choose one daily activity and practice bringing your full attention to it for a week. Reflect on any changes in your experience of that task.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 07</div>
+    <h2>What role does acceptance play in mindful awareness of difficult emotions?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Acceptance doesn’t mean liking or resigning to pain; it means allowing emotions to be present without resistance. This openness reduces struggle, which often amplifies suffering, and creates space to respond wisely rather than react impulsively.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Next time a difficult emotion surfaces, try silently saying, “It’s okay to feel this,” and notice how your experience shifts. Journal the difference between accepting and fighting the feeling.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 08</div>
+    <h2>How can I use mindful observation to improve my listening skills in conversations?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Mindful listening means fully focusing on the speaker without planning your response or judging. This deep attention not only improves understanding but also fosters connection and reduces misunderstandings.</div>
+    <div class="block exercise"><div class="lab">Try this</div>During your next conversation, commit to listening silently for the first two minutes without interrupting or formulating your reply. Afterwards, note any changes in your engagement or the interaction’s quality.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 09</div>
+    <h2>What’s a simple mindfulness technique to reduce anxiety before a challenging event?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>A quick body scan helps you identify where anxiety manifests physically—like tight shoulders or a racing heart. Bringing gentle awareness to these sensations without trying to change them calms the nervous system and reduces anticipatory tension.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Before your next stressful event, spend two minutes scanning your body from head to toe. Simply notice sensations and breathe into areas of tension.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 10</div>
+    <h2>How can mindful journaling deepen self-awareness beyond surface-level thoughts?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Mindful journaling invites you to write slowly and with curiosity, noticing emotions, bodily sensations, and subtle thoughts as they arise. This deepens insight by connecting feelings and patterns that are often missed in hurried reflection.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Spend ten minutes writing about a recent experience, focusing on sensory details and emotions rather than just facts. Re-read it later to identify any new insights.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 11</div>
+    <h2>How do I gently bring myself back when I catch myself judging others during mindfulness practice?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Recognize judgment as a natural habit and a signal to return to curiosity and compassion. Instead of pushing the judgment away, acknowledge it briefly, then shift focus to understanding or common humanity, which softens harshness.</div>
+    <div class="block exercise"><div class="lab">Try this</div>During meditation or daily life, notice any judgments about others. Label them “judging” and then silently repeat a phrase like, “Everyone is doing their best,” before returning to your breath.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 12</div>
+    <h2>Can mindfulness help me change my relationship with pain or discomfort? How?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Mindfulness teaches us to observe pain without trying to escape or resist it. This reduces the secondary suffering caused by frustration or fear, allowing you to respond with acceptance and sometimes even discover that pain’s intensity shifts when met with awareness.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Next time you experience discomfort, focus on the exact sensations without labeling them as “bad.” Notice if your reaction changes when you simply observe rather than fight the feeling.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 13</div>
+    <h2>How can I use mindfulness to recognize and interrupt automatic habits that don’t serve me?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Mindfulness shines a light on habitual behaviors by increasing moment-to-moment awareness. When you notice a trigger or urge, you create a pause, giving yourself the chance to choose a different, healthier action instead of reacting on autopilot.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Pick one habit you want to change. Track triggers and urges mindfully for a day, noting moments when you can pause and choose differently.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 14</div>
+    <h2>How does cultivating curiosity during mindfulness practice benefit emotional regulation?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Curiosity shifts us from avoidance or judgment to open exploration of our inner experience. This openness reduces fear and defensiveness around difficult emotions, making it easier to tolerate and regulate them instead of being overwhelmed.</div>
+    <div class="block exercise"><div class="lab">Try this</div>When a strong emotion arises, ask yourself silently, “What is this feeling trying to tell me?” and explore sensations without rushing to fix or escape it.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 15</div>
+    <h2>What mindful approach can I take to manage distractions when trying to focus?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Instead of fighting distractions, gently acknowledge them and label each as “thinking,” “hearing,” or “feeling.” Accepting distractions without frustration reduces their hold and gradually strengthens your ability to return focus steadily.</div>
+    <div class="block exercise"><div class="lab">Try this</div>During your next focused task, when distracted, pause briefly to name the distraction and then return your attention to the task. Track how often you can do this.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 16</div>
+    <h2>How can I use mindfulness to enhance gratitude in my daily life?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Mindfulness helps you slow down enough to notice small, positive moments that often go overlooked. By fully experiencing these moments with all your senses, gratitude becomes a natural response rather than a forced practice.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Each evening, mindfully recall three simple things you appreciated that day. Write them down with sensory details and how they made you feel.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 17</div>
+    <h2>How do mindful pauses between thoughts help reduce impulsive reactions?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>These pauses create a gap between stimulus and response, allowing your rational mind to engage and choose a measured reaction. Mindfulness trains you to notice that gap and use it rather than reacting automatically.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Practice taking a three-second pause before responding in conversations or stressful situations and notice how it changes your responses.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 18</div>
+    <h2>What role does body awareness play in deepening mindfulness practice?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>The body is an immediate source of sensory information and emotional clues. By tuning into bodily sensations, you anchor yourself in the present and uncover emotions or tension patterns that may not be fully conscious.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Spend five minutes focusing on different body parts, noticing sensations without trying to change them. Afterward, reflect on any emotions or thoughts that surfaced.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 19</div>
+    <h2>How can mindfulness help me respond to criticism with less defensiveness?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Mindfulness lets you observe your initial emotional reaction to criticism without immediately reacting. This space lets you consider the feedback more objectively and respond thoughtfully rather than defensively.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Next time you receive criticism, pause and take three mindful breaths before responding. Notice what shifts in your feelings and choice of words.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 20</div>
+    <h2>How can mindful self-compassion support me during times of failure or setback?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Mindful self-compassion combines awareness of your pain with kindness toward yourself. Instead of harsh self-judgment, you acknowledge your struggle as part of the shared human experience, which fosters resilience and healing.</div>
+    <div class="block exercise"><div class="lab">Try this</div>When facing a setback, place your hand over your heart and say, “May I be kind to myself in this moment.” Notice how this changes your inner dialogue.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="saved" id="savedNote"></div>
+  <div class="closing">
+    <h2>Your journey continues</h2>
+    <p>Reflection isn't a one-time exercise. Return to these prompts whenever you need a steady place to think.</p>
+  </div>
+  <div class="actions">
+    <button class="btn btn-primary" onclick="window.print()">Download / Print PDF</button>
+    <a href="../../resource-library.html" class="btn btn-ghost">← Back to library</a>
+  </div>
+</div></main>
+<div class="disclaimer"><div class="wrap">This workbook is for education and self-reflection. It is not a diagnosis or a substitute for therapy. If you are in crisis, call or text 988.</div></div>
+<footer><div class="wrap">© <span id="yr"></span> Campfire Calm™ · Jason M. Leclair, LPC</div></footer>
+<script>
+  document.getElementById('yr').textContent=new Date().getFullYear();
+  (function(){
+    var key="cc-reflect:mindfulness-practice:";
+    var areas=document.querySelectorAll('.reflect-input');
+    var note=document.getElementById('savedNote');
+    function save(i,v){try{localStorage.setItem(key+i,v);note.textContent='Saved on this device';clearTimeout(window._t);window._t=setTimeout(function(){note.textContent='';},1500);}catch(e){}}
+    areas.forEach(function(a,i){
+      try{var v=localStorage.getItem(key+i);if(v)a.value=v;}catch(e){}
+      a.addEventListener('input',function(){save(i,a.value);});
+    });
+  })();
+</script>
+</body>
+</html>

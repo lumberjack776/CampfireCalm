@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light">
+<title>Social Anxiety — Campfire Calm</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Mulish:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{color-scheme:light;--cream:#f9f2e7;--cream-2:#fef9ef;--paper:#fffdf8;--charcoal:#2a201a;--ember:#e7702f;--ember-deep:#cf551a;--amber:#f0a94f;--sage-deep:#4f7a5d;--ink:#352b23;--ink-soft:#6a5c4e;--line:rgba(60,50,42,.13);--brown:#2e2117;--shadow-sm:0 8px 24px -14px rgba(60,40,25,.3);--r:16px}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Mulish',sans-serif;color:var(--ink);background:linear-gradient(180deg,var(--cream),#fcefdf);line-height:1.7;-webkit-font-smoothing:antialiased}
+  h1,h2,h3{font-family:'Fraunces',serif;font-weight:500;color:var(--charcoal);letter-spacing:-.01em;line-height:1.15}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:760px;margin:0 auto;padding:0 24px}
+  nav{position:sticky;top:0;z-index:50;background:rgba(249,242,231,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px;max-width:760px;margin:0 auto;padding:0 24px}
+  .brand{display:flex;align-items:center;gap:9px;font-family:'Fraunces',serif;font-size:1.18rem;font-weight:600}
+  .flame{width:22px;height:22px}
+  .back{font-weight:700;font-size:.88rem;color:var(--ember-deep)}
+  header{background:var(--brown);color:#fdf7ec;padding:54px 0 48px;position:relative;overflow:hidden}
+  header::after{content:"";position:absolute;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,rgba(240,169,79,.32),transparent 65%);top:-130px;right:-90px}
+  .eyebrow{font-weight:700;text-transform:uppercase;letter-spacing:.18em;font-size:.7rem;color:var(--amber);margin-bottom:12px;position:relative}
+  header h1{color:#fdf7ec;font-size:clamp(2rem,6vw,3rem);margin-bottom:14px;position:relative}
+  header p{color:#e7d8c2;font-size:1.06rem;position:relative;max-width:34em}
+  .meta{display:flex;gap:22px;margin-top:22px;position:relative}
+  .meta div{font-size:.82rem;color:#cbb89f}
+  .meta b{display:block;font-family:'Fraunces',serif;font-size:1.5rem;color:var(--amber);font-weight:600}
+  main{padding:46px 0 20px}
+  .prompt{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:28px 26px;margin-bottom:22px;box-shadow:var(--shadow-sm)}
+  .pnum{font-family:'Fraunces',serif;font-size:.9rem;font-weight:600;color:var(--ember-deep);margin-bottom:8px}
+  .prompt h2{font-size:1.28rem;margin-bottom:18px}
+  .block{margin-bottom:16px}
+  .block .lab{font-weight:700;text-transform:uppercase;letter-spacing:.1em;font-size:.7rem;margin-bottom:6px}
+  .insight .lab{color:var(--sage-deep)}
+  .exercise{background:rgba(240,169,79,.1);border-left:3px solid var(--amber);border-radius:0 10px 10px 0;padding:14px 16px}
+  .exercise .lab{color:var(--ember-deep)}
+  .reflect{margin-top:18px}
+  .reflect .lab{font-weight:700;font-size:.78rem;color:var(--ink-soft);margin-bottom:8px}
+  .reflect-input{display:block;width:100%;min-height:132px;font-family:'Mulish',sans-serif;font-size:1rem;color:var(--ink);
+    line-height:32px;padding:5px 14px 8px;border:1px solid var(--line);border-radius:10px;resize:vertical;
+    background-color:var(--paper);
+    background-image:repeating-linear-gradient(transparent,transparent 31px,var(--line) 31px,var(--line) 32px);
+    background-attachment:local;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .reflect-input:focus{outline:none;border-color:var(--ember);box-shadow:0 0 0 3px rgba(231,112,47,.12)}
+  .reflect-input::placeholder{color:var(--ink-soft);opacity:.7}
+  .closing{text-align:center;background:var(--brown);color:#fdf7ec;border-radius:20px;padding:38px 30px;margin:30px 0}
+  .closing h2{color:#fdf7ec;font-size:1.6rem;margin-bottom:10px}
+  .closing p{color:#e7d8c2;max-width:30em;margin:0 auto}
+  .saved{text-align:center;font-size:.8rem;color:var(--sage-deep);margin:-6px 0 22px;min-height:1em}
+  .actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin:8px 0 40px}
+  .btn{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:.95rem;padding:13px 24px;border-radius:100px;cursor:pointer;border:0}
+  .btn-primary{background:var(--ember-deep);color:#fff}
+  .btn-ghost{background:transparent;border:1.5px solid var(--line);color:var(--charcoal)}
+  .disclaimer{background:var(--cream-2);border-top:1px solid var(--line);padding:26px 0;color:var(--ink-soft);font-size:.88rem;text-align:center;font-style:italic}
+  footer{background:var(--charcoal);color:rgba(255,255,255,.6);padding:30px 0;font-size:.86rem;text-align:center}
+  @media print{nav,.actions,.back,.saved{display:none}body{background:#fff}.prompt{break-inside:avoid;box-shadow:none}.reflect-input{border-color:#ccc}header,.closing,.exercise,.reflect-input{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+  @media(max-width:560px){header{padding:42px 0 36px}.prompt{padding:22px 20px}}
+</style>
+</head>
+<body>
+<nav><div class="nav-inner">
+  <a href="../../resource-library.html" class="brand"><svg class="flame" viewBox="0 0 24 24"><path d="M12 2c1.5 3.5-1 5-1 7.5 0 1.5 1 2.5 2 2.5s2-1 1.8-3c2 1.2 3.2 3.4 3.2 6 0 3.6-3 6.5-6 6.5S6 18.6 6 15c0-4 3-6.5 6-13z" fill="#e7702f"/></svg>Campfire Calm</a>
+  <a href="../../resource-library.html" class="back">← Library</a>
+</div></nav>
+<header><div class="wrap">
+  <div class="eyebrow">Guided Reflection Workbook</div>
+  <h1>Social Anxiety</h1>
+  <p>A guided self-reflection worksheet designed to help you explore your inner landscape through thoughtful prompts and exercises.</p>
+  <div class="meta"><div><b>20</b>Prompts</div><div><b>20</b>Insights</div><div><b>20</b>Exercises</div></div>
+</div></header>
+<main><div class="wrap">
+  <div class="prompt">
+    <div class="pnum">Prompt 01</div>
+    <h2>What specific social situations trigger your anxiety, and what thoughts run through your mind at those moments?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Identifying exact triggers helps you target the root of your anxiety. Notice the automatic thoughts—are you predicting rejection or judgment without evidence? Recognizing these patterns is the first step to challenging and reshaping them.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Write down three social situations that cause discomfort. Next to each, list the thoughts you have during those moments. Then, ask yourself: “What evidence do I have that these thoughts are true?”</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 02</div>
+    <h2>How do you physically experience social anxiety, and how do those sensations influence your behavior?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Anxiety often shows up as increased heart rate, sweating, or muscle tension. These sensations can make you want to avoid or escape social settings. Understanding this mind-body connection allows you to practice grounding techniques that interrupt the cycle.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Next time you feel anxious socially, pause and note your physical sensations. Practice deep, slow breathing and observe how it changes your feelings. Journal the before-and-after effects.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 03</div>
+    <h2>What role does self-criticism play in your social anxiety?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Harsh self-judgments amplify anxiety by making you hyper-aware of perceived flaws. Learning to speak to yourself with kindness reduces this internal pressure and opens space for more realistic self-assessment.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Catch yourself when a self-critical thought arises in social situations. Rewrite it into a compassionate statement, such as “It’s okay to feel nervous; I’m doing my best.”</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 04</div>
+    <h2>How might avoidance of social situations reinforce your anxiety over time?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Avoidance offers short-term relief but strengthens fear long-term by preventing you from learning that social situations are often manageable or even positive. Facing feared situations gradually weakens anxiety’s hold.</div>
+    <div class="block exercise"><div class="lab">Try this</div>List one social situation you’ve been avoiding. Break it into smaller steps and plan a gradual exposure, starting with the least intimidating part.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 05</div>
+    <h2>What assumptions do you make about how others perceive you in social interactions?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Often, we assume others are judging us negatively, but this is rarely accurate. People are usually focused on themselves. Challenging these assumptions reduces unnecessary anxiety.</div>
+    <div class="block exercise"><div class="lab">Try this</div>After a social interaction, write down what you thought others were thinking. Then, write more balanced alternatives, considering their perspective and lack of evidence for negative judgment.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 06</div>
+    <h2>How does your need for approval affect your social anxiety?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Seeking constant approval makes social interactions high-stakes and stressful. Learning to tolerate uncertainty and accept that you can’t control others’ opinions lessens this pressure.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Reflect on a recent social event where you sought approval. Identify moments where you could have accepted uncertainty instead and how that might have felt.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 07</div>
+    <h2>In what ways do safety behaviors (like avoiding eye contact or rehearsing what you say) impact your social anxiety?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Safety behaviors provide a false sense of control but actually maintain anxiety by preventing genuine engagement and feedback from others. Reducing these behaviors helps you build confidence through real experiences.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Notice one safety behavior you use socially. Challenge yourself to reduce it slightly in a safe setting and observe what happens.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 08</div>
+    <h2>How does your past experience with social rejection or embarrassment influence your current anxiety?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Past negative experiences can create a mental “lens” that colors present interactions, leading to overgeneralized fear. Recognizing this helps separate past from present and reduces reactive anxiety.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Write about a past social rejection or embarrassment. Identify how you might be applying that experience unfairly to current situations.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 09</div>
+    <h2>How do you interpret silence or pauses in conversations, and how does this affect your anxiety?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Many people view pauses as negative, assuming they indicate disinterest or judgment. But silence is normal and can be comfortable. Reframing these moments reduces pressure to “perform” constantly.</div>
+    <div class="block exercise"><div class="lab">Try this</div>During your next conversation, notice silences. Practice accepting them as natural and observe your anxiety level without rushing to fill the gap.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 10</div>
+    <h2>What internal dialogue do you have before entering a social situation, and how does it shape your experience?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>The thoughts you hold before an event often set the emotional tone. If your internal dialogue is negative or catastrophic, anxiety increases. Cultivating a supportive internal narrative can ease entry into social settings.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Before a social event, write down your self-talk. Identify unhelpful phrases and replace them with encouraging, realistic statements.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 11</div>
+    <h2>How might perfectionism in social settings contribute to your anxiety?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Perfectionism creates unrealistic standards that make any minor slip feel catastrophic, increasing anxiety. Allowing yourself to be imperfect reduces pressure and fosters authentic connection.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Reflect on a recent social interaction where you felt you didn’t meet your own standards. What would you say to a friend in the same situation?</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 12</div>
+    <h2>How can practicing mindfulness during social interactions help reduce anxiety?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Mindfulness anchors you in the present moment, reducing rumination on fears or judgments. It also helps you notice social cues more clearly, improving confidence and connection.</div>
+    <div class="block exercise"><div class="lab">Try this</div>During your next conversation, focus fully on the other person’s words and nonverbal cues. When your mind drifts, gently bring it back without judgment.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 13</div>
+    <h2>What are the consequences of overestimating the negative outcomes of social situations?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Overestimating negative outcomes magnifies anxiety and can lead to avoidance. Reality testing these predictions often reveals they are exaggerated or unlikely, which calms anxiety.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Think of a recent feared social scenario and your worst prediction. Rate how likely it was on a scale from 0 to 100%. Reflect on what actually happened and adjust your prediction accuracy over time.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 14</div>
+    <h2>How does your level of self-awareness during social interactions affect your anxiety?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Excessive self-focus can heighten anxiety by making you hyper-aware of perceived flaws. Shifting attention outward toward others and the environment can reduce self-consciousness and ease anxiety.</div>
+    <div class="block exercise"><div class="lab">Try this</div>During social events, practice directing your attention to the person you’re speaking with—their expressions, tone, and stories—rather than your own internal experience.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 15</div>
+    <h2>How do feelings of social anxiety impact your ability to assert your needs or opinions?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Anxiety often silences your voice out of fear of judgment or conflict. Practicing assertiveness in small, low-risk situations builds your confidence to express yourself authentically.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Identify a minor situation where you can assert a preference or opinion this week. Prepare and practice what you want to say, then reflect on the outcome.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 16</div>
+    <h2>What role does negative interpretation bias play in your social anxiety?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Negative interpretation bias leads you to read neutral or ambiguous social cues as negative, fueling anxiety. Training yourself to consider multiple interpretations reduces this automatic negativity.</div>
+    <div class="block exercise"><div class="lab">Try this</div>After a social interaction, write down any negative interpretations you had. Challenge each by listing alternative, neutral, or positive explanations.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 17</div>
+    <h2>How does your use of social media affect your social anxiety in real-life interactions?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Social media can distort reality and increase self-comparisons, worsening anxiety. Being mindful of your consumption and distinguishing online from real-life interactions protects your self-esteem.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Track your feelings after social media use. Notice any increase in anxiety or negative self-talk and plan a social media break or limit for a day.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 18</div>
+    <h2>How can you use behavioral experiments to test and reduce your social anxiety?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Behavioral experiments involve trying out new behaviors and observing outcomes to challenge anxious predictions. This experiential learning helps rewrite your beliefs about social situations.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Choose one anxious prediction (e.g., “If I speak up, people will reject me”). Plan a small test to challenge it, observe what happens, and record the results.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 19</div>
+    <h2>How do cultural or family messages about social interaction shape your anxiety?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Early messages about shyness, politeness, or social expectations can create rigid beliefs that fuel anxiety. Reflecting on and questioning these inherited beliefs helps you create your own healthy social narrative.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Write down messages you received about social behavior growing up. Consider which still serve you and which might be outdated or unhelpful.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 20</div>
+    <h2>How can developing a compassionate inner voice help you cope with social anxiety?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>A compassionate inner voice offers understanding and encouragement instead of criticism, reducing anxiety’s intensity and increasing resilience. It creates a safe internal environment to face social challenges.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Write a compassionate letter to yourself addressing your social anxiety struggles. Read it whenever self-doubt arises.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="saved" id="savedNote"></div>
+  <div class="closing">
+    <h2>Your journey continues</h2>
+    <p>Reflection isn't a one-time exercise. Return to these prompts whenever you need a steady place to think.</p>
+  </div>
+  <div class="actions">
+    <button class="btn btn-primary" onclick="window.print()">Download / Print PDF</button>
+    <a href="../../resource-library.html" class="btn btn-ghost">← Back to library</a>
+  </div>
+</div></main>
+<div class="disclaimer"><div class="wrap">This workbook is for education and self-reflection. It is not a diagnosis or a substitute for therapy. If you are in crisis, call or text 988.</div></div>
+<footer><div class="wrap">© <span id="yr"></span> Campfire Calm™ · Jason M. Leclair, LPC</div></footer>
+<script>
+  document.getElementById('yr').textContent=new Date().getFullYear();
+  (function(){
+    var key="cc-reflect:social-anxiety:";
+    var areas=document.querySelectorAll('.reflect-input');
+    var note=document.getElementById('savedNote');
+    function save(i,v){try{localStorage.setItem(key+i,v);note.textContent='Saved on this device';clearTimeout(window._t);window._t=setTimeout(function(){note.textContent='';},1500);}catch(e){}}
+    areas.forEach(function(a,i){
+      try{var v=localStorage.getItem(key+i);if(v)a.value=v;}catch(e){}
+      a.addEventListener('input',function(){save(i,a.value);});
+    });
+  })();
+</script>
+</body>
+</html>

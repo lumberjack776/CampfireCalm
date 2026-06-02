@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light">
+<title>Threat Perception — Campfire Calm</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Mulish:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{color-scheme:light;--cream:#f9f2e7;--cream-2:#fef9ef;--paper:#fffdf8;--charcoal:#2a201a;--ember:#e7702f;--ember-deep:#cf551a;--amber:#f0a94f;--sage-deep:#4f7a5d;--ink:#352b23;--ink-soft:#6a5c4e;--line:rgba(60,50,42,.13);--brown:#2e2117;--shadow-sm:0 8px 24px -14px rgba(60,40,25,.3);--r:16px}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Mulish',sans-serif;color:var(--ink);background:linear-gradient(180deg,var(--cream),#fcefdf);line-height:1.7;-webkit-font-smoothing:antialiased}
+  h1,h2,h3{font-family:'Fraunces',serif;font-weight:500;color:var(--charcoal);letter-spacing:-.01em;line-height:1.15}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:760px;margin:0 auto;padding:0 24px}
+  nav{position:sticky;top:0;z-index:50;background:rgba(249,242,231,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px;max-width:760px;margin:0 auto;padding:0 24px}
+  .brand{display:flex;align-items:center;gap:9px;font-family:'Fraunces',serif;font-size:1.18rem;font-weight:600}
+  .flame{width:22px;height:22px}
+  .back{font-weight:700;font-size:.88rem;color:var(--ember-deep)}
+  header{background:var(--brown);color:#fdf7ec;padding:54px 0 48px;position:relative;overflow:hidden}
+  header::after{content:"";position:absolute;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,rgba(240,169,79,.32),transparent 65%);top:-130px;right:-90px}
+  .eyebrow{font-weight:700;text-transform:uppercase;letter-spacing:.18em;font-size:.7rem;color:var(--amber);margin-bottom:12px;position:relative}
+  header h1{color:#fdf7ec;font-size:clamp(2rem,6vw,3rem);margin-bottom:14px;position:relative}
+  header p{color:#e7d8c2;font-size:1.06rem;position:relative;max-width:34em}
+  .meta{display:flex;gap:22px;margin-top:22px;position:relative}
+  .meta div{font-size:.82rem;color:#cbb89f}
+  .meta b{display:block;font-family:'Fraunces',serif;font-size:1.5rem;color:var(--amber);font-weight:600}
+  main{padding:46px 0 20px}
+  .prompt{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:28px 26px;margin-bottom:22px;box-shadow:var(--shadow-sm)}
+  .pnum{font-family:'Fraunces',serif;font-size:.9rem;font-weight:600;color:var(--ember-deep);margin-bottom:8px}
+  .prompt h2{font-size:1.28rem;margin-bottom:18px}
+  .block{margin-bottom:16px}
+  .block .lab{font-weight:700;text-transform:uppercase;letter-spacing:.1em;font-size:.7rem;margin-bottom:6px}
+  .insight .lab{color:var(--sage-deep)}
+  .exercise{background:rgba(240,169,79,.1);border-left:3px solid var(--amber);border-radius:0 10px 10px 0;padding:14px 16px}
+  .exercise .lab{color:var(--ember-deep)}
+  .reflect{margin-top:18px}
+  .reflect .lab{font-weight:700;font-size:.78rem;color:var(--ink-soft);margin-bottom:8px}
+  .reflect-input{display:block;width:100%;min-height:132px;font-family:'Mulish',sans-serif;font-size:1rem;color:var(--ink);
+    line-height:32px;padding:5px 14px 8px;border:1px solid var(--line);border-radius:10px;resize:vertical;
+    background-color:var(--paper);
+    background-image:repeating-linear-gradient(transparent,transparent 31px,var(--line) 31px,var(--line) 32px);
+    background-attachment:local;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .reflect-input:focus{outline:none;border-color:var(--ember);box-shadow:0 0 0 3px rgba(231,112,47,.12)}
+  .reflect-input::placeholder{color:var(--ink-soft);opacity:.7}
+  .closing{text-align:center;background:var(--brown);color:#fdf7ec;border-radius:20px;padding:38px 30px;margin:30px 0}
+  .closing h2{color:#fdf7ec;font-size:1.6rem;margin-bottom:10px}
+  .closing p{color:#e7d8c2;max-width:30em;margin:0 auto}
+  .saved{text-align:center;font-size:.8rem;color:var(--sage-deep);margin:-6px 0 22px;min-height:1em}
+  .actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin:8px 0 40px}
+  .btn{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:.95rem;padding:13px 24px;border-radius:100px;cursor:pointer;border:0}
+  .btn-primary{background:var(--ember-deep);color:#fff}
+  .btn-ghost{background:transparent;border:1.5px solid var(--line);color:var(--charcoal)}
+  .disclaimer{background:var(--cream-2);border-top:1px solid var(--line);padding:26px 0;color:var(--ink-soft);font-size:.88rem;text-align:center;font-style:italic}
+  footer{background:var(--charcoal);color:rgba(255,255,255,.6);padding:30px 0;font-size:.86rem;text-align:center}
+  @media print{nav,.actions,.back,.saved{display:none}body{background:#fff}.prompt{break-inside:avoid;box-shadow:none}.reflect-input{border-color:#ccc}header,.closing,.exercise,.reflect-input{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+  @media(max-width:560px){header{padding:42px 0 36px}.prompt{padding:22px 20px}}
+</style>
+</head>
+<body>
+<nav><div class="nav-inner">
+  <a href="../../resource-library.html" class="brand"><svg class="flame" viewBox="0 0 24 24"><path d="M12 2c1.5 3.5-1 5-1 7.5 0 1.5 1 2.5 2 2.5s2-1 1.8-3c2 1.2 3.2 3.4 3.2 6 0 3.6-3 6.5-6 6.5S6 18.6 6 15c0-4 3-6.5 6-13z" fill="#e7702f"/></svg>Campfire Calm</a>
+  <a href="../../resource-library.html" class="back">← Library</a>
+</div></nav>
+<header><div class="wrap">
+  <div class="eyebrow">Guided Reflection Workbook</div>
+  <h1>Threat Perception</h1>
+  <p>A guided self-reflection worksheet designed to help you explore your inner landscape through thoughtful prompts and exercises.</p>
+  <div class="meta"><div><b>21</b>Prompts</div><div><b>21</b>Insights</div><div><b>21</b>Exercises</div></div>
+</div></header>
+<main><div class="wrap">
+  <div class="prompt">
+    <div class="pnum">Prompt 01</div>
+    <h2>When you feel threatened, what physical sensations arise in your body, and how do you usually respond to them?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Notice your body’s early warning signs—tight chest, shallow breath, or muscle tension. These signals are your brain’s way of alerting you. Instead of reacting impulsively, pause to label the sensation calmly; this helps shift from automatic fight-or-flight to thoughtful action.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Next time you feel threatened, quietly name the physical sensation (“tight chest,” “racing heart”) and take three slow, deep breaths before deciding your next move.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 02</div>
+    <h2>How does your interpretation of a threat change when you consider alternative explanations for the situation?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Our minds often jump to worst-case scenarios. By deliberately considering other possible reasons—maybe the person is stressed or distracted—you reduce the emotional charge and gain clearer perspective, opening space for calmer choices.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Write down a recent threatening situation. List three alternative, less threatening explanations for what happened and notice how your feelings shift.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 03</div>
+    <h2>What role does past experience play in how you perceive current threats?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Past traumas or negative experiences can amplify threat perception, causing overreactions. Recognizing this pattern lets you separate then from now, reminding yourself that not every signal means danger today.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Reflect on a time when your past influenced your threat response. Write how today’s situation differs and what evidence supports your safety now.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 04</div>
+    <h2>How might catastrophizing amplify your sense of threat, and what can you do to interrupt this thought pattern?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Catastrophizing turns small risks into imagined disasters. Catching this “all-or-nothing” thinking early and gently challenging it with realistic outcomes prevents emotional overwhelm and helps you respond more effectively.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Next time you notice a catastrophic thought, write it down. Then list evidence that disproves or softens the worst-case scenario.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 05</div>
+    <h2>In what ways does labeling a situation as “threatening” influence your behavior and emotions?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Labels act like lenses, intensifying fear and narrowing options. By consciously choosing neutral or descriptive language, you reduce emotional escalation and can approach the situation with clearer problem-solving.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Reframe a recent threatening event using neutral language. Observe how this changes your emotional reaction and choices.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 06</div>
+    <h2>How do you differentiate between actual threats and perceived threats triggered by anxiety?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Actual threats require immediate action; perceived threats stem from internal fears. Learning to pause and assess evidence objectively helps you avoid unnecessary stress and respond appropriately.</div>
+    <div class="block exercise"><div class="lab">Try this</div>When anxious, list facts that support or refute the threat’s reality. Use this to guide your response.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 07</div>
+    <h2>How can mindfulness practice alter your perception of threat in everyday life?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Mindfulness anchors you in present reality, reducing the mind’s tendency to ruminate on potential dangers. This helps you see threats more clearly and respond with calm awareness rather than fear-driven impulses.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Spend five minutes daily observing your thoughts without judgment, noting when threat-related worries arise and letting them pass like clouds.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 08</div>
+    <h2>What cognitive distortions commonly skew your threat perception, and how can you identify them?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Distortions like “jumping to conclusions” or “emotional reasoning” skew threat perception. Recognizing these patterns is the first step to challenging and reframing them, reducing unnecessary anxiety.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Keep a thought journal focused on moments you felt threatened. Identify any cognitive distortions present and practice reframing them.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 09</div>
+    <h2>How does your personal sense of control affect how threatening a situation feels?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Feeling powerless magnifies threat; reclaiming even small control restores calm. Focusing on actionable steps—even minor ones—can reduce the overwhelming sense of danger.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Identify one small action you can take in a threatening situation to regain control and write down how it affects your feelings.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 10</div>
+    <h2>How do social environments influence your perception of threat?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Group dynamics, tone, and safety cues shape threat levels. Being aware of social context helps you distinguish between real threat and social tension, guiding more measured responses.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Reflect on a time group presence heightened threat perception. Consider what social cues influenced you and how you might reinterpret them.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 11</div>
+    <h2>What impact does past success in handling threats have on your current threat perception?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Remembering past effective coping boosts confidence and reduces perceived threat intensity. This positive reinforcement helps you approach challenges with resilience rather than fear.</div>
+    <div class="block exercise"><div class="lab">Try this</div>List three past situations where you managed threats well and note the strengths you used.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 12</div>
+    <h2>How do your beliefs about vulnerability influence your threat perception?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Believing vulnerability is weakness can increase threat sensitivity. Embracing vulnerability as strength allows you to face challenges with openness and less fear.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Write about a time you showed vulnerability and how it contributed to growth or connection.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 13</div>
+    <h2>In what ways does avoidance behavior maintain or worsen your threat perception?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Avoidance gives short-term relief but reinforces fear long-term by never testing the threat’s real danger. Gradual, controlled exposure reduces threat perception over time.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Identify one avoided situation. Create a step-by-step plan to face it gradually, noting feelings before and after each exposure.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 14</div>
+    <h2>How do your personal values shape which threats feel most significant to you?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Threats that oppose core values trigger stronger emotional reactions. Clarifying values helps prioritize responses and avoid overreacting to less relevant dangers.</div>
+    <div class="block exercise"><div class="lab">Try this</div>List your top three values and reflect on recent threats that challenged them. How did this affect your response?</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 15</div>
+    <h2>How do you differentiate between intuition about threat and anxiety-driven false alarms?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Intuition is calm, focused, and based on subtle cues; anxiety-driven alarms are often frantic and vague. Learning to pause and question initial feelings helps discern genuine threats.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Next time you feel a threat alert, note if your reaction feels calm or frantic. Reflect on clues that support or refute the intuition.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 16</div>
+    <h2>How can practicing self-compassion alter your perception of threat in difficult situations?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Self-compassion soothes internal criticism that amplifies threat feelings. Treating yourself kindly in moments of distress reduces fear intensity and encourages adaptive coping.</div>
+    <div class="block exercise"><div class="lab">Try this</div>When feeling threatened, silently offer yourself a compassionate phrase like, “It’s okay to feel this way; I’m here for myself.”</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 17</div>
+    <h2>How does your sleep quality influence your ability to accurately perceive threats?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Poor sleep heightens emotional reactivity, making benign situations feel threatening. Prioritizing rest improves emotional regulation and clearer threat assessment.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Track your sleep and note any connections between rest and perceived threat levels.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 18</div>
+    <h2>How does your use of technology and media consumption shape your threat perception?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Constant exposure to negative news or social media can amplify perceived threats by overstimulating fear responses. Setting healthy boundaries reduces this effect and restores balance.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Monitor your media use for a day and assess how it correlates with your feelings of threat or anxiety.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 19</div>
+    <h2>What role does your breathing pattern play when you perceive a threat, and how can you use it to regulate your response?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Shallow, rapid breathing feeds the body’s alarm system. Slowing and deepening your breath signals safety, calming mind and body to respond more thoughtfully.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Practice the 4-7-8 breathing technique during moments of perceived threat and note changes in your emotional state.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 20</div>
+    <h2>How can setting realistic expectations reduce your perception of threat in uncertain situations?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Unrealistic expectations create surprise and fear when outcomes deviate. Accepting uncertainty and focusing on what you can control diminishes threat intensity.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Identify an area of uncertainty causing threat feelings. Write down realistic expectations and focus on controllable actions.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 21</div>
+    <h2>How does your internal dialogue influence the way you perceive and respond to threats?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Negative self-talk can worsen threat perception by escalating fear and doubt. Shifting to supportive, problem-solving dialogue empowers you to face challenges calmly.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Catch yourself using harsh or fearful self-talk in threatening moments and replace it with constructive, encouraging statements.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="saved" id="savedNote"></div>
+  <div class="closing">
+    <h2>Your journey continues</h2>
+    <p>Reflection isn't a one-time exercise. Return to these prompts whenever you need a steady place to think.</p>
+  </div>
+  <div class="actions">
+    <button class="btn btn-primary" onclick="window.print()">Download / Print PDF</button>
+    <a href="../../resource-library.html" class="btn btn-ghost">← Back to library</a>
+  </div>
+</div></main>
+<div class="disclaimer"><div class="wrap">This workbook is for education and self-reflection. It is not a diagnosis or a substitute for therapy. If you are in crisis, call or text 988.</div></div>
+<footer><div class="wrap">© <span id="yr"></span> Campfire Calm™ · Jason M. Leclair, LPC</div></footer>
+<script>
+  document.getElementById('yr').textContent=new Date().getFullYear();
+  (function(){
+    var key="cc-reflect:threat-perception:";
+    var areas=document.querySelectorAll('.reflect-input');
+    var note=document.getElementById('savedNote');
+    function save(i,v){try{localStorage.setItem(key+i,v);note.textContent='Saved on this device';clearTimeout(window._t);window._t=setTimeout(function(){note.textContent='';},1500);}catch(e){}}
+    areas.forEach(function(a,i){
+      try{var v=localStorage.getItem(key+i);if(v)a.value=v;}catch(e){}
+      a.addEventListener('input',function(){save(i,a.value);});
+    });
+  })();
+</script>
+</body>
+</html>

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light">
+<title>Emotional Awareness — Campfire Calm</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Mulish:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{color-scheme:light;--cream:#f9f2e7;--cream-2:#fef9ef;--paper:#fffdf8;--charcoal:#2a201a;--ember:#e7702f;--ember-deep:#cf551a;--amber:#f0a94f;--sage-deep:#4f7a5d;--ink:#352b23;--ink-soft:#6a5c4e;--line:rgba(60,50,42,.13);--brown:#2e2117;--shadow-sm:0 8px 24px -14px rgba(60,40,25,.3);--r:16px}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Mulish',sans-serif;color:var(--ink);background:linear-gradient(180deg,var(--cream),#fcefdf);line-height:1.7;-webkit-font-smoothing:antialiased}
+  h1,h2,h3{font-family:'Fraunces',serif;font-weight:500;color:var(--charcoal);letter-spacing:-.01em;line-height:1.15}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:760px;margin:0 auto;padding:0 24px}
+  nav{position:sticky;top:0;z-index:50;background:rgba(249,242,231,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px;max-width:760px;margin:0 auto;padding:0 24px}
+  .brand{display:flex;align-items:center;gap:9px;font-family:'Fraunces',serif;font-size:1.18rem;font-weight:600}
+  .flame{width:22px;height:22px}
+  .back{font-weight:700;font-size:.88rem;color:var(--ember-deep)}
+  header{background:var(--brown);color:#fdf7ec;padding:54px 0 48px;position:relative;overflow:hidden}
+  header::after{content:"";position:absolute;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,rgba(240,169,79,.32),transparent 65%);top:-130px;right:-90px}
+  .eyebrow{font-weight:700;text-transform:uppercase;letter-spacing:.18em;font-size:.7rem;color:var(--amber);margin-bottom:12px;position:relative}
+  header h1{color:#fdf7ec;font-size:clamp(2rem,6vw,3rem);margin-bottom:14px;position:relative}
+  header p{color:#e7d8c2;font-size:1.06rem;position:relative;max-width:34em}
+  .meta{display:flex;gap:22px;margin-top:22px;position:relative}
+  .meta div{font-size:.82rem;color:#cbb89f}
+  .meta b{display:block;font-family:'Fraunces',serif;font-size:1.5rem;color:var(--amber);font-weight:600}
+  main{padding:46px 0 20px}
+  .prompt{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:28px 26px;margin-bottom:22px;box-shadow:var(--shadow-sm)}
+  .pnum{font-family:'Fraunces',serif;font-size:.9rem;font-weight:600;color:var(--ember-deep);margin-bottom:8px}
+  .prompt h2{font-size:1.28rem;margin-bottom:18px}
+  .block{margin-bottom:16px}
+  .block .lab{font-weight:700;text-transform:uppercase;letter-spacing:.1em;font-size:.7rem;margin-bottom:6px}
+  .insight .lab{color:var(--sage-deep)}
+  .exercise{background:rgba(240,169,79,.1);border-left:3px solid var(--amber);border-radius:0 10px 10px 0;padding:14px 16px}
+  .exercise .lab{color:var(--ember-deep)}
+  .reflect{margin-top:18px}
+  .reflect .lab{font-weight:700;font-size:.78rem;color:var(--ink-soft);margin-bottom:8px}
+  .reflect-input{display:block;width:100%;min-height:132px;font-family:'Mulish',sans-serif;font-size:1rem;color:var(--ink);
+    line-height:32px;padding:5px 14px 8px;border:1px solid var(--line);border-radius:10px;resize:vertical;
+    background-color:var(--paper);
+    background-image:repeating-linear-gradient(transparent,transparent 31px,var(--line) 31px,var(--line) 32px);
+    background-attachment:local;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .reflect-input:focus{outline:none;border-color:var(--ember);box-shadow:0 0 0 3px rgba(231,112,47,.12)}
+  .reflect-input::placeholder{color:var(--ink-soft);opacity:.7}
+  .closing{text-align:center;background:var(--brown);color:#fdf7ec;border-radius:20px;padding:38px 30px;margin:30px 0}
+  .closing h2{color:#fdf7ec;font-size:1.6rem;margin-bottom:10px}
+  .closing p{color:#e7d8c2;max-width:30em;margin:0 auto}
+  .saved{text-align:center;font-size:.8rem;color:var(--sage-deep);margin:-6px 0 22px;min-height:1em}
+  .actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin:8px 0 40px}
+  .btn{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:.95rem;padding:13px 24px;border-radius:100px;cursor:pointer;border:0}
+  .btn-primary{background:var(--ember-deep);color:#fff}
+  .btn-ghost{background:transparent;border:1.5px solid var(--line);color:var(--charcoal)}
+  .disclaimer{background:var(--cream-2);border-top:1px solid var(--line);padding:26px 0;color:var(--ink-soft);font-size:.88rem;text-align:center;font-style:italic}
+  footer{background:var(--charcoal);color:rgba(255,255,255,.6);padding:30px 0;font-size:.86rem;text-align:center}
+  @media print{nav,.actions,.back,.saved{display:none}body{background:#fff}.prompt{break-inside:avoid;box-shadow:none}.reflect-input{border-color:#ccc}header,.closing,.exercise,.reflect-input{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+  @media(max-width:560px){header{padding:42px 0 36px}.prompt{padding:22px 20px}}
+</style>
+</head>
+<body>
+<nav><div class="nav-inner">
+  <a href="../../resource-library.html" class="brand"><svg class="flame" viewBox="0 0 24 24"><path d="M12 2c1.5 3.5-1 5-1 7.5 0 1.5 1 2.5 2 2.5s2-1 1.8-3c2 1.2 3.2 3.4 3.2 6 0 3.6-3 6.5-6 6.5S6 18.6 6 15c0-4 3-6.5 6-13z" fill="#e7702f"/></svg>Campfire Calm</a>
+  <a href="../../resource-library.html" class="back">← Library</a>
+</div></nav>
+<header><div class="wrap">
+  <div class="eyebrow">Guided Reflection Workbook</div>
+  <h1>Emotional Awareness</h1>
+  <p>A guided self-reflection worksheet designed to help you explore your inner landscape through thoughtful prompts and exercises.</p>
+  <div class="meta"><div><b>20</b>Prompts</div><div><b>20</b>Insights</div><div><b>20</b>Exercises</div></div>
+</div></header>
+<main><div class="wrap">
+  <div class="prompt">
+    <div class="pnum">Prompt 01</div>
+    <h2>When you feel a sudden wave of emotion, how often do you pause to identify what you’re truly experiencing beneath the surface?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Often, intense emotions can feel overwhelming because we skip over naming them accurately. Slowing down to identify whether you’re feeling anger, sadness, fear, or something else can provide clarity and reduce the intensity. This awareness is the first step in managing emotions rather than being controlled by them.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Next time you feel a strong emotion, stop for 30 seconds and silently name it precisely. Ask yourself: “Is this anger, disappointment, or perhaps hurt?” Write down what you discover.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 02</div>
+    <h2>How do your body sensations signal the presence of an emotion before your mind fully registers it?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Emotions often manifest physically before we consciously recognize them—tightness in the chest, a knot in the stomach, or shallow breathing. Tuning into these early signals helps you catch emotions early, giving you more control over your reactions rather than being caught off guard.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Spend five minutes tuning into your body in a calm setting. Note any areas of tension or discomfort and try to connect them to an emotion or thought.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 03</div>
+    <h2>In moments of conflict, how aware are you of your emotional triggers versus the other person’s behavior?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Emotional triggers are often linked to past experiences and can distort how we interpret others’ actions. Recognizing your triggers allows you to respond with intention instead of reacting impulsively, creating space for healthier communication.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Recall a recent conflict. Identify what in the other person’s behavior triggered your emotional response and what past experience might be linked to that trigger.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 04</div>
+    <h2>How do you differentiate between feeling overwhelmed and feeling anxious when faced with a challenging situation?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Overwhelm often feels like too many demands at once, while anxiety carries a sense of future worry or dread. By distinguishing them, you can choose tailored coping strategies—like breaking tasks down for overwhelm or grounding techniques for anxiety.</div>
+    <div class="block exercise"><div class="lab">Try this</div>When stressed, pause and ask yourself if your experience is about current overload or future worry. Note your answer and pick one coping tool to try based on that awareness.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 05</div>
+    <h2>What role does self-compassion play in your emotional awareness during moments of self-criticism?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Recognizing harsh self-judgment as just another emotion opens the door to treating yourself with kindness. Self-compassion doesn’t ignore mistakes but soothes the emotional pain, reducing shame and increasing resilience.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Write down a recent self-critical thought. Then write a compassionate response to that thought, as if comforting a close friend.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 06</div>
+    <h2>How do you notice shifts in your mood throughout the day, and what patterns do those shifts reveal about your emotional needs?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Mood fluctuations often signal unmet emotional or physical needs like rest, social connection, or meaning. Tracking these shifts can reveal patterns to help you proactively care for yourself instead of reacting when emotions peak.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Keep a simple mood log for three days, noting time, mood, and context. At day’s end, reflect on what your emotions might be telling you about your needs.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 07</div>
+    <h2>When you experience emotional numbness, what do you think is the underlying message your mind or body is trying to communicate?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Emotional numbness is often a protective response to overwhelming pain or stress. It signals a need to slow down and safely process feelings rather than avoid them. Recognizing numbness as a message helps you gently reconnect with your inner experience.</div>
+    <div class="block exercise"><div class="lab">Try this</div>When feeling numb, sit quietly and ask yourself, “What am I protecting myself from right now?” Write down any insights without judgment.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 08</div>
+    <h2>How do you practice naming complex or mixed emotions that don’t fit neatly into one category?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Emotions are rarely singular; they can blend and shift rapidly. Accepting complexity without forcing a label reduces frustration and opens space for deeper understanding. Using descriptive phrases rather than single words can capture this nuance better.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Think of a recent emotional experience that felt confusing. Write a short paragraph describing all the feelings you noticed instead of trying to name one emotion.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 09</div>
+    <h2>How aware are you of the difference between feeling an emotion and acting on it impulsively?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Feeling an emotion is natural and valid; impulsive actions often come from reacting before processing. Building emotional awareness creates a pause that allows you to choose responses aligning with your values rather than immediate urges.</div>
+    <div class="block exercise"><div class="lab">Try this</div>The next time you feel a strong impulse, breathe deeply three times before acting. Reflect afterward on how this pause influenced your choice.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 10</div>
+    <h2>How do you recognize when you are suppressing emotions, and what impact does that have on your well-being?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Suppression often feels like emotional quieting or disconnection, but it usually intensifies stress and can cause physical symptoms. Becoming aware of suppression helps you find safer ways to express and process emotions, improving mental and physical health.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Reflect on a moment when you pushed down feelings. Write about what you were avoiding and how you might express that emotion safely.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 11</div>
+    <h2>How do you distinguish between emotions and the stories or judgments you tell yourself about those emotions?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Emotions are raw sensations, while stories are interpretations layered on top. Separating them allows you to experience emotions fully without getting trapped in negative thought loops that escalate distress.</div>
+    <div class="block exercise"><div class="lab">Try this</div>When upset, write down the emotion first, then write the story or judgment you’re telling yourself about it. Practice noticing the difference.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 12</div>
+    <h2>How do you cultivate curiosity about your emotional responses rather than judgment or avoidance?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Curiosity invites exploration and learning, which reduces fear and shame around emotions. Approaching feelings like a detective fosters insight and helps you develop adaptive coping rather than reactive patterns.</div>
+    <div class="block exercise"><div class="lab">Try this</div>When an emotion arises, ask yourself: “What can I learn from this feeling?” Write down your observations without judgment.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 13</div>
+    <h2>How do you handle emotions that arise unexpectedly in public or social settings?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Recognizing that emotions are normal and transient helps reduce embarrassment or shame. Using subtle grounding techniques or brief mental acknowledgment can help you stay present without distraction or shutdown.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Plan a simple grounding phrase or gesture (like pressing your thumb and finger together) to use discreetly when emotions arise in public. Practice it in a low-stakes environment.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 14</div>
+    <h2>How do past emotional wounds influence your current emotional awareness and reactions?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Past wounds often create emotional blind spots or heightened sensitivity, shaping how we perceive and react to situations. Bringing those connections to light fosters healing and greater choice in emotional responses.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Identify a recurring emotional reaction that feels intense. Reflect on whether it connects to a past hurt and write down what you discover.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 15</div>
+    <h2>What role does emotional awareness play in your decision-making process, especially when faced with uncertainty?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Emotions provide valuable information about your values and fears, which can guide decisions. Awareness helps you distinguish between helpful feelings and those that cloud judgment, leading to clearer, more aligned choices.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Before making a decision, pause to note all emotions present. Ask which feelings are guiding you toward what you truly want.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 16</div>
+    <h2>How do you recognize when your emotional expression matches the intensity of what you’re feeling inside?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Sometimes we downplay or exaggerate emotions to fit expectations or avoid vulnerability. Checking in on whether your expression feels authentic helps you communicate needs effectively and build genuine connections.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Think about a recent emotional moment. Rate your internal intensity and your outward expression separately, then reflect on any mismatch.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 17</div>
+    <h2>How do you notice the difference between feeling emotional pain and getting stuck in rumination about that pain?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Feeling pain is part of healing; rumination traps you in repetitive, unproductive thoughts that amplify distress. Awareness of this cycle empowers you to shift focus and engage in problem-solving or self-soothing.</div>
+    <div class="block exercise"><div class="lab">Try this</div>When you notice repetitive negative thoughts, pause and ask yourself: “Am I feeling pain or stuck in my story about the pain?” Practice redirecting your attention accordingly.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 18</div>
+    <h2>How do you build emotional vocabulary to deepen your awareness and communication of feelings?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Expanding your emotional vocabulary helps you identify subtle differences and express yourself more precisely, reducing confusion and frustration. It also enhances empathy when you understand your own emotions better.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Choose a new emotion word each week, look up its meaning, and notice when you experience it. Write a sentence describing a recent moment when you felt it.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 19</div>
+    <h2>How aware are you of how your cultural background shapes the way you experience and express emotions?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Culture influences which emotions feel safe to show and how they’re interpreted. Understanding this helps you discern whether your emotional responses are authentic or conditioned, opening space for more conscious choice.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Reflect on an emotion you tend to hide or suppress. Consider how cultural messages might influence this and write your thoughts.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 20</div>
+    <h2>When you experience emotional conflict—such as feeling both love and resentment toward someone—how do you hold those opposing feelings without judgment?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Accepting conflicting emotions as natural reduces inner tension and improves emotional flexibility. It allows you to see complexity in relationships and make decisions from a fuller understanding rather than oversimplified feelings.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Identify a relationship where you feel mixed emotions. Write down the conflicting feelings side by side and reflect on what each part of you wants.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="saved" id="savedNote"></div>
+  <div class="closing">
+    <h2>Your journey continues</h2>
+    <p>Reflection isn't a one-time exercise. Return to these prompts whenever you need a steady place to think.</p>
+  </div>
+  <div class="actions">
+    <button class="btn btn-primary" onclick="window.print()">Download / Print PDF</button>
+    <a href="../../resource-library.html" class="btn btn-ghost">← Back to library</a>
+  </div>
+</div></main>
+<div class="disclaimer"><div class="wrap">This workbook is for education and self-reflection. It is not a diagnosis or a substitute for therapy. If you are in crisis, call or text 988.</div></div>
+<footer><div class="wrap">© <span id="yr"></span> Campfire Calm™ · Jason M. Leclair, LPC</div></footer>
+<script>
+  document.getElementById('yr').textContent=new Date().getFullYear();
+  (function(){
+    var key="cc-reflect:emotional-awareness:";
+    var areas=document.querySelectorAll('.reflect-input');
+    var note=document.getElementById('savedNote');
+    function save(i,v){try{localStorage.setItem(key+i,v);note.textContent='Saved on this device';clearTimeout(window._t);window._t=setTimeout(function(){note.textContent='';},1500);}catch(e){}}
+    areas.forEach(function(a,i){
+      try{var v=localStorage.getItem(key+i);if(v)a.value=v;}catch(e){}
+      a.addEventListener('input',function(){save(i,a.value);});
+    });
+  })();
+</script>
+</body>
+</html>

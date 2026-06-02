@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light">
+<title>Decision-Making Psychology — Campfire Calm</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Mulish:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{color-scheme:light;--cream:#f9f2e7;--cream-2:#fef9ef;--paper:#fffdf8;--charcoal:#2a201a;--ember:#e7702f;--ember-deep:#cf551a;--amber:#f0a94f;--sage-deep:#4f7a5d;--ink:#352b23;--ink-soft:#6a5c4e;--line:rgba(60,50,42,.13);--brown:#2e2117;--shadow-sm:0 8px 24px -14px rgba(60,40,25,.3);--r:16px}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Mulish',sans-serif;color:var(--ink);background:linear-gradient(180deg,var(--cream),#fcefdf);line-height:1.7;-webkit-font-smoothing:antialiased}
+  h1,h2,h3{font-family:'Fraunces',serif;font-weight:500;color:var(--charcoal);letter-spacing:-.01em;line-height:1.15}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:760px;margin:0 auto;padding:0 24px}
+  nav{position:sticky;top:0;z-index:50;background:rgba(249,242,231,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px;max-width:760px;margin:0 auto;padding:0 24px}
+  .brand{display:flex;align-items:center;gap:9px;font-family:'Fraunces',serif;font-size:1.18rem;font-weight:600}
+  .flame{width:22px;height:22px}
+  .back{font-weight:700;font-size:.88rem;color:var(--ember-deep)}
+  header{background:var(--brown);color:#fdf7ec;padding:54px 0 48px;position:relative;overflow:hidden}
+  header::after{content:"";position:absolute;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,rgba(240,169,79,.32),transparent 65%);top:-130px;right:-90px}
+  .eyebrow{font-weight:700;text-transform:uppercase;letter-spacing:.18em;font-size:.7rem;color:var(--amber);margin-bottom:12px;position:relative}
+  header h1{color:#fdf7ec;font-size:clamp(2rem,6vw,3rem);margin-bottom:14px;position:relative}
+  header p{color:#e7d8c2;font-size:1.06rem;position:relative;max-width:34em}
+  .meta{display:flex;gap:22px;margin-top:22px;position:relative}
+  .meta div{font-size:.82rem;color:#cbb89f}
+  .meta b{display:block;font-family:'Fraunces',serif;font-size:1.5rem;color:var(--amber);font-weight:600}
+  main{padding:46px 0 20px}
+  .prompt{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:28px 26px;margin-bottom:22px;box-shadow:var(--shadow-sm)}
+  .pnum{font-family:'Fraunces',serif;font-size:.9rem;font-weight:600;color:var(--ember-deep);margin-bottom:8px}
+  .prompt h2{font-size:1.28rem;margin-bottom:18px}
+  .block{margin-bottom:16px}
+  .block .lab{font-weight:700;text-transform:uppercase;letter-spacing:.1em;font-size:.7rem;margin-bottom:6px}
+  .insight .lab{color:var(--sage-deep)}
+  .exercise{background:rgba(240,169,79,.1);border-left:3px solid var(--amber);border-radius:0 10px 10px 0;padding:14px 16px}
+  .exercise .lab{color:var(--ember-deep)}
+  .reflect{margin-top:18px}
+  .reflect .lab{font-weight:700;font-size:.78rem;color:var(--ink-soft);margin-bottom:8px}
+  .reflect-input{display:block;width:100%;min-height:132px;font-family:'Mulish',sans-serif;font-size:1rem;color:var(--ink);
+    line-height:32px;padding:5px 14px 8px;border:1px solid var(--line);border-radius:10px;resize:vertical;
+    background-color:var(--paper);
+    background-image:repeating-linear-gradient(transparent,transparent 31px,var(--line) 31px,var(--line) 32px);
+    background-attachment:local;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .reflect-input:focus{outline:none;border-color:var(--ember);box-shadow:0 0 0 3px rgba(231,112,47,.12)}
+  .reflect-input::placeholder{color:var(--ink-soft);opacity:.7}
+  .closing{text-align:center;background:var(--brown);color:#fdf7ec;border-radius:20px;padding:38px 30px;margin:30px 0}
+  .closing h2{color:#fdf7ec;font-size:1.6rem;margin-bottom:10px}
+  .closing p{color:#e7d8c2;max-width:30em;margin:0 auto}
+  .saved{text-align:center;font-size:.8rem;color:var(--sage-deep);margin:-6px 0 22px;min-height:1em}
+  .actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin:8px 0 40px}
+  .btn{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:.95rem;padding:13px 24px;border-radius:100px;cursor:pointer;border:0}
+  .btn-primary{background:var(--ember-deep);color:#fff}
+  .btn-ghost{background:transparent;border:1.5px solid var(--line);color:var(--charcoal)}
+  .disclaimer{background:var(--cream-2);border-top:1px solid var(--line);padding:26px 0;color:var(--ink-soft);font-size:.88rem;text-align:center;font-style:italic}
+  footer{background:var(--charcoal);color:rgba(255,255,255,.6);padding:30px 0;font-size:.86rem;text-align:center}
+  @media print{nav,.actions,.back,.saved{display:none}body{background:#fff}.prompt{break-inside:avoid;box-shadow:none}.reflect-input{border-color:#ccc}header,.closing,.exercise,.reflect-input{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+  @media(max-width:560px){header{padding:42px 0 36px}.prompt{padding:22px 20px}}
+</style>
+</head>
+<body>
+<nav><div class="nav-inner">
+  <a href="../../resource-library.html" class="brand"><svg class="flame" viewBox="0 0 24 24"><path d="M12 2c1.5 3.5-1 5-1 7.5 0 1.5 1 2.5 2 2.5s2-1 1.8-3c2 1.2 3.2 3.4 3.2 6 0 3.6-3 6.5-6 6.5S6 18.6 6 15c0-4 3-6.5 6-13z" fill="#e7702f"/></svg>Campfire Calm</a>
+  <a href="../../resource-library.html" class="back">← Library</a>
+</div></nav>
+<header><div class="wrap">
+  <div class="eyebrow">Guided Reflection Workbook</div>
+  <h1>Decision-Making Psychology</h1>
+  <p>A guided self-reflection worksheet designed to help you explore your inner landscape through thoughtful prompts and exercises.</p>
+  <div class="meta"><div><b>20</b>Prompts</div><div><b>20</b>Insights</div><div><b>20</b>Exercises</div></div>
+</div></header>
+<main><div class="wrap">
+  <div class="prompt">
+    <div class="pnum">Prompt 01</div>
+    <h2>When faced with a tough choice, how do your past experiences influence your current decision-making process?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Your past experiences act like mental shortcuts, shaping your expectations and fears. Sometimes they help you avoid repeating mistakes, but other times they may cause you to overgeneralize or avoid new opportunities. Recognizing when your past is guiding you in a helpful way—and when it’s holding you back—is key to clearer decisions.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Write down a recent decision and identify which parts of it were influenced by past experiences. Ask yourself if those influences were helpful or limiting, and consider how you might approach a similar decision without that bias next time.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 02</div>
+    <h2>How do emotions impact your ability to make logical decisions, especially under pressure?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Emotions can cloud your judgment by focusing your attention on short-term relief or avoidance rather than long-term benefits. They serve as important signals but can also hijack your reasoning if unchecked. Learning to acknowledge emotions without immediately acting on them allows you to pause and choose more intentional responses.</div>
+    <div class="block exercise"><div class="lab">Try this</div>The next time you feel emotionally charged about a decision, pause and label the emotion. Then write down what the emotion is telling you and what the logical pros and cons of the decision are, separating feelings from facts.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 03</div>
+    <h2>How does your tendency toward perfectionism affect the speed and quality of your decisions?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Perfectionism often leads to overthinking, causing delays and anxiety about making the “right” choice. This can result in missed opportunities or decision paralysis. Embracing “good enough” allows you to act while still aiming for quality, balancing thoroughness with flexibility.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Identify a recent decision where you delayed action seeking perfection. Reflect on what the worst-case scenario was and how likely it actually was to happen. Practice setting a realistic standard for your next decision and committing to it.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 04</div>
+    <h2>In what ways do social influences shape your decisions, and how can you maintain authenticity while considering others?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Social pressures often push us to conform or seek approval, sometimes at odds with our true values. Awareness of these influences helps you discern when you’re choosing for yourself versus others. Authentic decisions honor both your needs and respectful consideration of others’ perspectives.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Think about a recent decision influenced by others’ opinions. Write down what you truly wanted versus what you felt pressured to do. Explore how you can assert your values while communicating empathy toward others.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 05</div>
+    <h2>How do you differentiate between intuition and fear when making a decision?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Intuition tends to feel calm, clear, and arises from accumulated knowledge, whereas fear is more anxious, urgent, and focused on worst-case scenarios. Cultivating mindfulness helps you notice these subtle differences and trust your inner guidance without being paralyzed by fear.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Recall a decision where you relied on your gut feeling. Describe the physical sensations and thoughts you experienced. Contrast this with a time when fear dominated your thinking. Practice identifying these sensations to better distinguish intuition from fear.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 06</div>
+    <h2>How does framing a decision in terms of potential gains versus potential losses change your choice?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Our brains are wired to avoid losses more than to seek gains, often leading to risk aversion when decisions are framed negatively. Reframing a decision to focus on opportunities rather than threats can open up new possibilities and reduce anxiety-driven avoidance.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Take a current decision and write down both the losses you fear and the gains you hope for. Then rewrite the decision focusing solely on what you stand to gain if you take action. Notice how this shifts your motivation.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 07</div>
+    <h2>What role does self-doubt play in your decision-making, and how can you move beyond it?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Self-doubt can paralyze you or lead to second-guessing, often rooted in fear of failure or judgment. Counteracting it involves building evidence of your competence through small wins and reminding yourself that no decision is perfect; learning and adjustment are part of the process.</div>
+    <div class="block exercise"><div class="lab">Try this</div>List three decisions you made confidently in the past, what strengths you used, and how the outcomes shaped you. Use this to build a narrative of capability to counteract your self-doubt in future decisions.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 08</div>
+    <h2>How do habitual decision patterns limit your ability to adapt to new situations?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Habits simplify decisions but can create blind spots when situations change. Being mindful of your routines and intentionally questioning your usual responses can help you adapt and choose more effectively in novel contexts.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Identify one habitual decision you make regularly. Challenge yourself to approach it differently this week and observe what new information or feelings arise.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 09</div>
+    <h2>How can breaking big decisions into smaller steps reduce anxiety and improve clarity?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Large decisions can feel overwhelming, triggering avoidance or impulsivity. Dividing them into manageable parts allows you to focus on one aspect at a time, reducing stress and creating a clearer path forward through incremental progress.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Take a current big decision and break it down into three smaller, actionable steps. Commit to completing the first step within 48 hours and note how this changes your feelings about the overall decision.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 10</div>
+    <h2>How do you balance the need for information gathering with the risk of overanalyzing?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>While gathering information is essential, overanalyzing can lead to “analysis paralysis,” where fear of making a wrong choice stops you from acting. Setting a time or information limit helps you move from thinking to doing, trusting you can adjust as you go.</div>
+    <div class="block exercise"><div class="lab">Try this</div>For your next decision, decide on a clear cut-off point for research (e.g., 30 minutes or 3 sources). After reaching it, commit to making a choice based on what you know rather than seeking perfection.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 11</div>
+    <h2>How does your internal dialogue affect your confidence and decisiveness?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Your self-talk can either empower you or undermine your confidence. Negative, critical thoughts often create doubt and hesitation, while supportive, realistic self-talk promotes clarity and action. Becoming aware of this dialogue is the first step to reshaping it.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Monitor your internal dialogue during a decision-making moment. Write down any negative thoughts and then reframe them into balanced, encouraging statements. Practice repeating these reframes until they feel natural.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 12</div>
+    <h2>What is the impact of anticipating future regret on your choices?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Fear of future regret can cause indecision or overly cautious choices. Instead of trying to predict regret, focus on making decisions aligned with your values and what feels right in the present, knowing you can learn and adapt from any outcome.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Reflect on a past decision you regret and identify what you learned from it. Then, when facing a new choice, ask yourself what decision aligns best with your core values rather than trying to avoid hypothetical regret.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 13</div>
+    <h2>How do you incorporate feedback from others without losing your own perspective?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Feedback is valuable but can be confusing if you over-rely on it. Use it as data, not directive—consider others’ views, but weigh them against your values and goals to maintain ownership of your decisions.</div>
+    <div class="block exercise"><div class="lab">Try this</div>The next time you receive advice, write down the feedback and your initial reaction. Then evaluate how it fits with your priorities before deciding how much weight to give it in your choice.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 14</div>
+    <h2>How can visualizing the consequences of different choices improve your decision-making?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Visualization helps your brain simulate possible outcomes, making abstract futures feel more concrete. This process uncovers hidden feelings and practical considerations, helping you anticipate challenges and clarify your preferences.</div>
+    <div class="block exercise"><div class="lab">Try this</div>For an upcoming decision, spend 5 minutes imagining yourself having chosen each option. Note your emotional and physical reactions, then use these insights to guide your choice.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 15</div>
+    <h2>How does your level of tolerance for uncertainty influence your decision style?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Those with low tolerance for uncertainty may prefer quick, clear answers and avoid ambiguous options, sometimes missing out on growth opportunities. Developing comfort with uncertainty can expand your decision-making flexibility and resilience.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Identify a decision where uncertainty made you uncomfortable. Practice sitting with that discomfort for 5 minutes without trying to resolve it, noting what thoughts and sensations arise. Over time, build tolerance by increasing this practice.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 16</div>
+    <h2>In what ways do your core values serve as a compass in difficult decisions?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Core values anchor you when choices feel complex or conflicting. Clarifying what truly matters helps you prioritize options and feel more confident, even when outcomes are uncertain. Decisions aligned with values also foster long-term satisfaction.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Write down your top three core values. When facing a tough decision, ask how each option aligns or conflicts with these values and use this as a guide to choose.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 17</div>
+    <h2>How do time pressures change the quality and style of your decision-making?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Under time pressure, you may default to instinct or heuristics, which can be efficient but also prone to bias. Recognizing this tendency allows you to identify when you need to slow down or when speed is appropriate, balancing urgency with thoughtfulness.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Reflect on a decision made under time pressure. How did it turn out? Practice setting mini-deadlines for low-stakes decisions to build skill in making timely yet thoughtful choices.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 18</div>
+    <h2>How do you know when it’s better to stick with a decision versus reevaluating and changing course?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Commitment is important, but so is flexibility. Monitor for signs like persistent negative outcomes or new information contradicting your assumptions. Being willing to adjust shows strength, not weakness, and prevents sunk-cost traps.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Choose a current commitment and list reasons to continue and reasons to reconsider. Evaluate which list feels more compelling based on evidence rather than emotion.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 19</div>
+    <h2>How does your perception of control affect your motivation to make decisions?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Feeling in control fuels motivation and responsibility, while feeling helpless can lead to avoidance and passivity. Enhancing your sense of agency—even in small ways—empowers you to act rather than wait for circumstances to change.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Identify one area where you feel little control. Brainstorm three small actions you can take to increase your influence in that area and commit to one this week.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 20</div>
+    <h2>How can recognizing cognitive biases improve your decision outcomes?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Awareness of biases like confirmation bias or anchoring helps you question automatic judgments and seek balanced information. This critical thinking reduces errors and leads to more informed, effective decisions.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Pick a recent decision and identify any biases that may have influenced it. Practice challenging those biases by looking for evidence that contradicts your initial assumptions.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="saved" id="savedNote"></div>
+  <div class="closing">
+    <h2>Your journey continues</h2>
+    <p>Reflection isn't a one-time exercise. Return to these prompts whenever you need a steady place to think.</p>
+  </div>
+  <div class="actions">
+    <button class="btn btn-primary" onclick="window.print()">Download / Print PDF</button>
+    <a href="../../resource-library.html" class="btn btn-ghost">← Back to library</a>
+  </div>
+</div></main>
+<div class="disclaimer"><div class="wrap">This workbook is for education and self-reflection. It is not a diagnosis or a substitute for therapy. If you are in crisis, call or text 988.</div></div>
+<footer><div class="wrap">© <span id="yr"></span> Campfire Calm™ · Jason M. Leclair, LPC</div></footer>
+<script>
+  document.getElementById('yr').textContent=new Date().getFullYear();
+  (function(){
+    var key="cc-reflect:decision-making-psychology:";
+    var areas=document.querySelectorAll('.reflect-input');
+    var note=document.getElementById('savedNote');
+    function save(i,v){try{localStorage.setItem(key+i,v);note.textContent='Saved on this device';clearTimeout(window._t);window._t=setTimeout(function(){note.textContent='';},1500);}catch(e){}}
+    areas.forEach(function(a,i){
+      try{var v=localStorage.getItem(key+i);if(v)a.value=v;}catch(e){}
+      a.addEventListener('input',function(){save(i,a.value);});
+    });
+  })();
+</script>
+</body>
+</html>

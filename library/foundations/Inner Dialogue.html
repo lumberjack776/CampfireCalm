@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light">
+<title>Inner Dialogue — Campfire Calm</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Mulish:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{color-scheme:light;--cream:#f9f2e7;--cream-2:#fef9ef;--paper:#fffdf8;--charcoal:#2a201a;--ember:#e7702f;--ember-deep:#cf551a;--amber:#f0a94f;--sage-deep:#4f7a5d;--ink:#352b23;--ink-soft:#6a5c4e;--line:rgba(60,50,42,.13);--brown:#2e2117;--shadow-sm:0 8px 24px -14px rgba(60,40,25,.3);--r:16px}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Mulish',sans-serif;color:var(--ink);background:linear-gradient(180deg,var(--cream),#fcefdf);line-height:1.7;-webkit-font-smoothing:antialiased}
+  h1,h2,h3{font-family:'Fraunces',serif;font-weight:500;color:var(--charcoal);letter-spacing:-.01em;line-height:1.15}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:760px;margin:0 auto;padding:0 24px}
+  nav{position:sticky;top:0;z-index:50;background:rgba(249,242,231,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px;max-width:760px;margin:0 auto;padding:0 24px}
+  .brand{display:flex;align-items:center;gap:9px;font-family:'Fraunces',serif;font-size:1.18rem;font-weight:600}
+  .flame{width:22px;height:22px}
+  .back{font-weight:700;font-size:.88rem;color:var(--ember-deep)}
+  header{background:var(--brown);color:#fdf7ec;padding:54px 0 48px;position:relative;overflow:hidden}
+  header::after{content:"";position:absolute;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,rgba(240,169,79,.32),transparent 65%);top:-130px;right:-90px}
+  .eyebrow{font-weight:700;text-transform:uppercase;letter-spacing:.18em;font-size:.7rem;color:var(--amber);margin-bottom:12px;position:relative}
+  header h1{color:#fdf7ec;font-size:clamp(2rem,6vw,3rem);margin-bottom:14px;position:relative}
+  header p{color:#e7d8c2;font-size:1.06rem;position:relative;max-width:34em}
+  .meta{display:flex;gap:22px;margin-top:22px;position:relative}
+  .meta div{font-size:.82rem;color:#cbb89f}
+  .meta b{display:block;font-family:'Fraunces',serif;font-size:1.5rem;color:var(--amber);font-weight:600}
+  main{padding:46px 0 20px}
+  .prompt{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:28px 26px;margin-bottom:22px;box-shadow:var(--shadow-sm)}
+  .pnum{font-family:'Fraunces',serif;font-size:.9rem;font-weight:600;color:var(--ember-deep);margin-bottom:8px}
+  .prompt h2{font-size:1.28rem;margin-bottom:18px}
+  .block{margin-bottom:16px}
+  .block .lab{font-weight:700;text-transform:uppercase;letter-spacing:.1em;font-size:.7rem;margin-bottom:6px}
+  .insight .lab{color:var(--sage-deep)}
+  .exercise{background:rgba(240,169,79,.1);border-left:3px solid var(--amber);border-radius:0 10px 10px 0;padding:14px 16px}
+  .exercise .lab{color:var(--ember-deep)}
+  .reflect{margin-top:18px}
+  .reflect .lab{font-weight:700;font-size:.78rem;color:var(--ink-soft);margin-bottom:8px}
+  .reflect-input{display:block;width:100%;min-height:132px;font-family:'Mulish',sans-serif;font-size:1rem;color:var(--ink);
+    line-height:32px;padding:5px 14px 8px;border:1px solid var(--line);border-radius:10px;resize:vertical;
+    background-color:var(--paper);
+    background-image:repeating-linear-gradient(transparent,transparent 31px,var(--line) 31px,var(--line) 32px);
+    background-attachment:local;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .reflect-input:focus{outline:none;border-color:var(--ember);box-shadow:0 0 0 3px rgba(231,112,47,.12)}
+  .reflect-input::placeholder{color:var(--ink-soft);opacity:.7}
+  .closing{text-align:center;background:var(--brown);color:#fdf7ec;border-radius:20px;padding:38px 30px;margin:30px 0}
+  .closing h2{color:#fdf7ec;font-size:1.6rem;margin-bottom:10px}
+  .closing p{color:#e7d8c2;max-width:30em;margin:0 auto}
+  .saved{text-align:center;font-size:.8rem;color:var(--sage-deep);margin:-6px 0 22px;min-height:1em}
+  .actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin:8px 0 40px}
+  .btn{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:.95rem;padding:13px 24px;border-radius:100px;cursor:pointer;border:0}
+  .btn-primary{background:var(--ember-deep);color:#fff}
+  .btn-ghost{background:transparent;border:1.5px solid var(--line);color:var(--charcoal)}
+  .disclaimer{background:var(--cream-2);border-top:1px solid var(--line);padding:26px 0;color:var(--ink-soft);font-size:.88rem;text-align:center;font-style:italic}
+  footer{background:var(--charcoal);color:rgba(255,255,255,.6);padding:30px 0;font-size:.86rem;text-align:center}
+  @media print{nav,.actions,.back,.saved{display:none}body{background:#fff}.prompt{break-inside:avoid;box-shadow:none}.reflect-input{border-color:#ccc}header,.closing,.exercise,.reflect-input{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+  @media(max-width:560px){header{padding:42px 0 36px}.prompt{padding:22px 20px}}
+</style>
+</head>
+<body>
+<nav><div class="nav-inner">
+  <a href="../../resource-library.html" class="brand"><svg class="flame" viewBox="0 0 24 24"><path d="M12 2c1.5 3.5-1 5-1 7.5 0 1.5 1 2.5 2 2.5s2-1 1.8-3c2 1.2 3.2 3.4 3.2 6 0 3.6-3 6.5-6 6.5S6 18.6 6 15c0-4 3-6.5 6-13z" fill="#e7702f"/></svg>Campfire Calm</a>
+  <a href="../../resource-library.html" class="back">← Library</a>
+</div></nav>
+<header><div class="wrap">
+  <div class="eyebrow">Guided Reflection Workbook</div>
+  <h1>Inner Dialogue</h1>
+  <p>A guided self-reflection worksheet designed to help you explore your inner landscape through thoughtful prompts and exercises.</p>
+  <div class="meta"><div><b>20</b>Prompts</div><div><b>20</b>Insights</div><div><b>20</b>Exercises</div></div>
+</div></header>
+<main><div class="wrap">
+  <div class="prompt">
+    <div class="pnum">Prompt 01</div>
+    <h2>How do you talk to yourself when you make a mistake, and how does that impact your next steps?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Notice if your inner voice is harsh or forgiving after an error. A critical inner dialogue can freeze progress, while a compassionate tone encourages learning. Shift your self-talk to focus on growth instead of blame to build resilience.</div>
+    <div class="block exercise"><div class="lab">Try this</div>After your next mistake, write down what your inner voice says. Then, rewrite it as if you were supporting a friend in the same situation. Compare the two and practice using the kinder version.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 02</div>
+    <h2>When faced with a tough decision, what internal conversations help you clarify your values?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Your inner dialogue can be a tool for aligning choices with what truly matters. Ask yourself questions like “What outcome feels most authentic to me?” or “Which option supports my long-term well-being?” This helps transform abstract values into concrete decisions.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Identify a current dilemma and journal a dialogue between your “values advocate” and your “doubting critic.” Notice which perspective feels more aligned with your true self.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 03</div>
+    <h2>How often do you catch your inner voice jumping to worst-case scenarios, and what effect does that have?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Catastrophic thinking fuels anxiety and paralysis. When you notice your mind racing to the worst outcomes, pause and challenge those predictions with evidence. This practice weakens the grip of fear and opens space for rational problem-solving.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Track moments when you imagine worst-case scenarios. Write down the evidence for and against these thoughts, then create a balanced alternative thought.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 04</div>
+    <h2>In moments of stress, does your inner dialogue focus more on problems or solutions? How does that shape your coping?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Problem-focused self-talk can trap you in rumination, while solution-focused dialogue mobilizes action and hope. Training your mind to ask “What can I do now?” instead of “Why is this happening to me?” shifts your energy toward constructive coping.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Next time you feel stressed, pause and list three possible actions or shifts you can take. Repeat these aloud as a mental anchor.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 05</div>
+    <h2>How do you speak to yourself about your strengths, and does this influence your confidence?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Many overlook affirming their strengths internally, which can undermine confidence. Regularly acknowledging your capabilities in your inner dialogue builds a foundation of self-trust that steadies you in challenges.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Each evening, write down three things you did well that day and say them to yourself as if you were giving praise.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 06</div>
+    <h2>When you face social rejection, what story does your inner voice tell, and how does it affect your self-worth?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Inner narratives about rejection often lean toward global self-judgments (“I’m unlovable”), which are rarely true and deeply painful. Recognizing that rejection is situational and doesn’t define your whole worth helps you preserve healthy self-esteem.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Recall a recent rejection and write down your automatic thoughts. Then, rewrite them focusing on the specific situation rather than your overall value.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 07</div>
+    <h2>How do you internally respond to compliments, and what does that reveal about your self-acceptance?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>If your inner voice dismisses compliments (“They’re just being nice”), it signals a gap in self-acceptance. Practicing acceptance of positive feedback helps rewire your self-view toward warmth and validation.</div>
+    <div class="block exercise"><div class="lab">Try this</div>The next time someone compliments you, pause and silently say “Thank you” to yourself. Notice any resistance and gently explore its origins.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 08</div>
+    <h2>When you experience setbacks, does your inner dialogue encourage persistence or resignation?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>The way you talk to yourself in setbacks can either fuel quit tendencies or perseverance. Using encouraging, task-focused language (“This is tough, but I can try a new approach”) strengthens your grit and problem-solving mindset.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Identify a recent setback and write a motivational inner dialogue script that you could have used to keep going.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 09</div>
+    <h2>How do you frame your inner narrative about your past—does it emphasize learning or regret?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>A narrative focused on regret traps you in the past, while a learning-oriented story fosters growth. Reframing your history as a series of lessons empowers you to move forward with self-compassion and agency.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Choose a past mistake and write a brief paragraph focusing on what that experience taught you, not what you wish had been different.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 10</div>
+    <h2>What is the tone of your inner voice when you set personal boundaries, and how does that affect your assertiveness?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>A skeptical or fearful inner voice can undermine boundary-setting by planting doubts or guilt. Cultivating an inner dialogue that affirms your right to say no builds assertiveness and emotional safety.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Practice saying “No” in your mind with a supportive inner voice. Write down affirmations that reinforce your right to set boundaries.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 11</div>
+    <h2>How do you mentally prepare yourself before entering a challenging social situation?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Your inner dialogue before social interactions sets the stage for either anxiety or calm. Using grounding, realistic self-talk (“I can handle this; I don’t need to be perfect”) reduces anticipatory stress and enhances presence.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Before your next social event, spend five minutes rehearsing positive, calming self-statements and notice how this affects your mood.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 12</div>
+    <h2>When you catch yourself procrastinating, what does your inner dialogue say, and how can you shift it?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Procrastination often thrives on self-criticism or overwhelm. An inner voice that breaks tasks into small, manageable steps and offers encouragement can interrupt avoidance and spark momentum.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Next time you procrastinate, write down what your inner voice says and then reframe those thoughts into actionable, compassionate prompts.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 13</div>
+    <h2>How do you talk to yourself about your emotions, especially difficult ones like anger or sadness?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>An accepting inner dialogue towards emotions reduces shame and avoidance. Saying “It’s okay to feel this” instead of “I shouldn’t be upset” promotes emotional processing and healthier regulation.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Practice naming your feelings throughout the day and silently affirm that experiencing them is natural and temporary.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 14</div>
+    <h2>What kind of inner dialogue do you use when trying to break a bad habit, and how does it influence your success?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>A dialogue that balances accountability with kindness prevents the all-or-nothing mindset that sabotages change. Encouraging yourself through setbacks as learning moments sustains progress.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Identify a habit you want to change and write a compassionate script to say to yourself when urges arise.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 15</div>
+    <h2>How do you internally respond to uncertainty, and what impact does that have on your decision-making?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Inner voices that catastrophize uncertainty increase anxiety and indecision. A curious and tolerant dialogue (“It’s okay not to have all the answers”) fosters flexibility and reduces pressure.</div>
+    <div class="block exercise"><div class="lab">Try this</div>When faced with uncertainty, pause and write down three possible positive outcomes or lessons you could gain.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 16</div>
+    <h2>How does your inner dialogue handle feelings of jealousy or envy, and what could shift it toward healthier perspectives?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Jealous inner talk often involves harsh comparisons that lower self-esteem. Shifting to a dialogue that acknowledges your unique journey and celebrates others’ successes without self-devaluation promotes emotional balance.</div>
+    <div class="block exercise"><div class="lab">Try this</div>When you notice jealousy, write a short inner speech that affirms your own strengths and reframes envy as inspiration.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 17</div>
+    <h2>What messages does your inner voice convey about seeking help or support, and how does that affect your behavior?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>If your inner dialogue stigmatizes asking for help (“I should handle this alone”), it can isolate you. Cultivating a supportive self-talk that normalizes and values connection encourages reaching out when needed.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Reflect on a time you hesitated to ask for help. Write an inner dialogue that counters shame and highlights the strength in seeking support.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 18</div>
+    <h2>When you achieve a goal, how does your inner dialogue celebrate or diminish your accomplishment?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Minimizing achievements internally undermines motivation and self-worth. Developing an inner voice that genuinely acknowledges success fosters pride and fuels future efforts.</div>
+    <div class="block exercise"><div class="lab">Try this</div>After your next achievement, pause and write down what you tell yourself. Practice amplifying positive acknowledgment in your inner speech.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 19</div>
+    <h2>How do you internally handle feelings of guilt, and can your inner dialogue make guilt more constructive?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Guilt becomes harmful when it leads to rumination and self-punishment. An inner voice that recognizes guilt as a signal for repair or change, rather than a permanent flaw, transforms guilt into growth.</div>
+    <div class="block exercise"><div class="lab">Try this</div>When you feel guilty, journal what the feeling is telling you and write a compassionate plan for making amends or adjusting behavior.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 20</div>
+    <h2>How does your inner dialogue influence your ability to forgive yourself and others?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Inner dialogue steeped in blame or resentment keeps wounds open. Practicing a forgiving inner voice that acknowledges pain but chooses release promotes healing and emotional freedom.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Write an inner monologue from the perspective of forgiveness toward yourself or someone else, emphasizing understanding and letting go.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="saved" id="savedNote"></div>
+  <div class="closing">
+    <h2>Your journey continues</h2>
+    <p>Reflection isn't a one-time exercise. Return to these prompts whenever you need a steady place to think.</p>
+  </div>
+  <div class="actions">
+    <button class="btn btn-primary" onclick="window.print()">Download / Print PDF</button>
+    <a href="../../resource-library.html" class="btn btn-ghost">← Back to library</a>
+  </div>
+</div></main>
+<div class="disclaimer"><div class="wrap">This workbook is for education and self-reflection. It is not a diagnosis or a substitute for therapy. If you are in crisis, call or text 988.</div></div>
+<footer><div class="wrap">© <span id="yr"></span> Campfire Calm™ · Jason M. Leclair, LPC</div></footer>
+<script>
+  document.getElementById('yr').textContent=new Date().getFullYear();
+  (function(){
+    var key="cc-reflect:inner-dialogue:";
+    var areas=document.querySelectorAll('.reflect-input');
+    var note=document.getElementById('savedNote');
+    function save(i,v){try{localStorage.setItem(key+i,v);note.textContent='Saved on this device';clearTimeout(window._t);window._t=setTimeout(function(){note.textContent='';},1500);}catch(e){}}
+    areas.forEach(function(a,i){
+      try{var v=localStorage.getItem(key+i);if(v)a.value=v;}catch(e){}
+      a.addEventListener('input',function(){save(i,a.value);});
+    });
+  })();
+</script>
+</body>
+</html>

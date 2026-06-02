@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light">
+<title>Analysis Paralysis — Campfire Calm</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Mulish:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{color-scheme:light;--cream:#f9f2e7;--cream-2:#fef9ef;--paper:#fffdf8;--charcoal:#2a201a;--ember:#e7702f;--ember-deep:#cf551a;--amber:#f0a94f;--sage-deep:#4f7a5d;--ink:#352b23;--ink-soft:#6a5c4e;--line:rgba(60,50,42,.13);--brown:#2e2117;--shadow-sm:0 8px 24px -14px rgba(60,40,25,.3);--r:16px}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Mulish',sans-serif;color:var(--ink);background:linear-gradient(180deg,var(--cream),#fcefdf);line-height:1.7;-webkit-font-smoothing:antialiased}
+  h1,h2,h3{font-family:'Fraunces',serif;font-weight:500;color:var(--charcoal);letter-spacing:-.01em;line-height:1.15}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:760px;margin:0 auto;padding:0 24px}
+  nav{position:sticky;top:0;z-index:50;background:rgba(249,242,231,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px;max-width:760px;margin:0 auto;padding:0 24px}
+  .brand{display:flex;align-items:center;gap:9px;font-family:'Fraunces',serif;font-size:1.18rem;font-weight:600}
+  .flame{width:22px;height:22px}
+  .back{font-weight:700;font-size:.88rem;color:var(--ember-deep)}
+  header{background:var(--brown);color:#fdf7ec;padding:54px 0 48px;position:relative;overflow:hidden}
+  header::after{content:"";position:absolute;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,rgba(240,169,79,.32),transparent 65%);top:-130px;right:-90px}
+  .eyebrow{font-weight:700;text-transform:uppercase;letter-spacing:.18em;font-size:.7rem;color:var(--amber);margin-bottom:12px;position:relative}
+  header h1{color:#fdf7ec;font-size:clamp(2rem,6vw,3rem);margin-bottom:14px;position:relative}
+  header p{color:#e7d8c2;font-size:1.06rem;position:relative;max-width:34em}
+  .meta{display:flex;gap:22px;margin-top:22px;position:relative}
+  .meta div{font-size:.82rem;color:#cbb89f}
+  .meta b{display:block;font-family:'Fraunces',serif;font-size:1.5rem;color:var(--amber);font-weight:600}
+  main{padding:46px 0 20px}
+  .prompt{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:28px 26px;margin-bottom:22px;box-shadow:var(--shadow-sm)}
+  .pnum{font-family:'Fraunces',serif;font-size:.9rem;font-weight:600;color:var(--ember-deep);margin-bottom:8px}
+  .prompt h2{font-size:1.28rem;margin-bottom:18px}
+  .block{margin-bottom:16px}
+  .block .lab{font-weight:700;text-transform:uppercase;letter-spacing:.1em;font-size:.7rem;margin-bottom:6px}
+  .insight .lab{color:var(--sage-deep)}
+  .exercise{background:rgba(240,169,79,.1);border-left:3px solid var(--amber);border-radius:0 10px 10px 0;padding:14px 16px}
+  .exercise .lab{color:var(--ember-deep)}
+  .reflect{margin-top:18px}
+  .reflect .lab{font-weight:700;font-size:.78rem;color:var(--ink-soft);margin-bottom:8px}
+  .reflect-input{display:block;width:100%;min-height:132px;font-family:'Mulish',sans-serif;font-size:1rem;color:var(--ink);
+    line-height:32px;padding:5px 14px 8px;border:1px solid var(--line);border-radius:10px;resize:vertical;
+    background-color:var(--paper);
+    background-image:repeating-linear-gradient(transparent,transparent 31px,var(--line) 31px,var(--line) 32px);
+    background-attachment:local;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .reflect-input:focus{outline:none;border-color:var(--ember);box-shadow:0 0 0 3px rgba(231,112,47,.12)}
+  .reflect-input::placeholder{color:var(--ink-soft);opacity:.7}
+  .closing{text-align:center;background:var(--brown);color:#fdf7ec;border-radius:20px;padding:38px 30px;margin:30px 0}
+  .closing h2{color:#fdf7ec;font-size:1.6rem;margin-bottom:10px}
+  .closing p{color:#e7d8c2;max-width:30em;margin:0 auto}
+  .saved{text-align:center;font-size:.8rem;color:var(--sage-deep);margin:-6px 0 22px;min-height:1em}
+  .actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin:8px 0 40px}
+  .btn{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:.95rem;padding:13px 24px;border-radius:100px;cursor:pointer;border:0}
+  .btn-primary{background:var(--ember-deep);color:#fff}
+  .btn-ghost{background:transparent;border:1.5px solid var(--line);color:var(--charcoal)}
+  .disclaimer{background:var(--cream-2);border-top:1px solid var(--line);padding:26px 0;color:var(--ink-soft);font-size:.88rem;text-align:center;font-style:italic}
+  footer{background:var(--charcoal);color:rgba(255,255,255,.6);padding:30px 0;font-size:.86rem;text-align:center}
+  @media print{nav,.actions,.back,.saved{display:none}body{background:#fff}.prompt{break-inside:avoid;box-shadow:none}.reflect-input{border-color:#ccc}header,.closing,.exercise,.reflect-input{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+  @media(max-width:560px){header{padding:42px 0 36px}.prompt{padding:22px 20px}}
+</style>
+</head>
+<body>
+<nav><div class="nav-inner">
+  <a href="../../resource-library.html" class="brand"><svg class="flame" viewBox="0 0 24 24"><path d="M12 2c1.5 3.5-1 5-1 7.5 0 1.5 1 2.5 2 2.5s2-1 1.8-3c2 1.2 3.2 3.4 3.2 6 0 3.6-3 6.5-6 6.5S6 18.6 6 15c0-4 3-6.5 6-13z" fill="#e7702f"/></svg>Campfire Calm</a>
+  <a href="../../resource-library.html" class="back">← Library</a>
+</div></nav>
+<header><div class="wrap">
+  <div class="eyebrow">Guided Reflection Workbook</div>
+  <h1>Analysis Paralysis</h1>
+  <p>A guided self-reflection worksheet designed to help you explore your inner landscape through thoughtful prompts and exercises.</p>
+  <div class="meta"><div><b>20</b>Prompts</div><div><b>20</b>Insights</div><div><b>20</b>Exercises</div></div>
+</div></header>
+<main><div class="wrap">
+  <div class="prompt">
+    <div class="pnum">Prompt 01</div>
+    <h2>What specific fears or doubts tend to freeze you when you face an important decision?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Often, paralysis stems from an underlying fear of making the wrong choice or fear of negative consequences. Identifying these fears helps you confront them rather than avoid decisions. Try to distinguish between realistic concerns and exaggerated worries</div>
+    <div class="block exercise"><div class="lab">Try this</div>Write down your top three fears about the decision you’re avoiding. Next to each, list evidence that supports and contradicts that fear.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 02</div>
+    <h2>How do you typically react emotionally when you face too many options?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Overwhelm can trigger anxiety or frustration, which clouds your thinking. Recognizing your emotional state allows you to pause and use calming techniques before deciding, rather than reacting impulsively or freezing</div>
+    <div class="block exercise"><div class="lab">Try this</div>The next time you feel overwhelmed by choices, pause and note your feelings. Practice three deep breaths and label the emotions you experience before proceeding.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 03</div>
+    <h2>What past experiences have reinforced your tendency to overthink decisions?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Sometimes, early failures or criticism create a mental script that mistakes are catastrophic. Recognizing these patterns helps reframe your mindset to see decisions as opportunities to learn, not threats</div>
+    <div class="block exercise"><div class="lab">Try this</div>Reflect on one decision you delayed in the past and how it turned out. Write what you learned rather than focusing on what went wrong.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 04</div>
+    <h2>How might breaking your decision into smaller steps reduce your feeling of paralysis?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Complex decisions feel less daunting when divided into manageable parts. This shifts your focus from the overwhelming ‘big picture’ to achievable actions, building momentum and confidence</div>
+    <div class="block exercise"><div class="lab">Try this</div>Take one overwhelming decision and list three smaller steps you can take today to move forward.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 05</div>
+    <h2>In what ways do you seek external validation before making choices, and how does that affect your ability to decide?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Relying heavily on others’ opinions can delay decisions and reduce your trust in your own judgment. Strengthening self-reliance involves balancing input with your values and preferences</div>
+    <div class="block exercise"><div class="lab">Try this</div>Identify a recent decision where you sought others’ approval excessively. Journal about what you personally wanted versus what others suggested.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 06</div>
+    <h2>How does your desire for “perfect” outcomes contribute to analysis paralysis?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Perfectionism creates unrealistic standards that make any choice feel inadequate. Accepting that no decision guarantees perfect results frees you to act with imperfect information</div>
+    <div class="block exercise"><div class="lab">Try this</div>Recall a time when something imperfect turned out just fine or even better than expected. Write about how embracing imperfection might help now.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 07</div>
+    <h2>What role does your inner critic play in stopping you from making decisions?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>The inner critic often magnifies doubts and discourages action by predicting failure or ridicule. Learning to recognize and challenge these negative voices can restore your decision-making power</div>
+    <div class="block exercise"><div class="lab">Try this</div>When you feel stuck, write down the critical thoughts you hear. Then, write a supportive, realistic response to each.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 08</div>
+    <h2>How do you differentiate between gathering useful information and over-researching to avoid deciding?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Useful information clarifies options and consequences, while over-researching becomes avoidance. Set a time limit for research to prevent it from turning into procrastination</div>
+    <div class="block exercise"><div class="lab">Try this</div>Set a 30-minute timer to gather facts on your decision. When time’s up, review what you’ve learned and make a preliminary choice.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 09</div>
+    <h2>What practical strategies can you use to manage anxiety that arises during decision-making?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Techniques like grounding exercises, mindfulness, and breaking the decision into concrete steps help reduce anxiety’s grip, allowing clearer thinking and action</div>
+    <div class="block exercise"><div class="lab">Try this</div>Practice a five-minute grounding exercise (e.g., focusing on your breath or senses) before tackling your next decision.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 10</div>
+    <h2>How might embracing “good enough” decisions improve your ability to move forward?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>“Good enough” decisions acknowledge that waiting for perfect clarity is unrealistic, allowing you to act and adapt as you go. This flexibility builds resilience and momentum</div>
+    <div class="block exercise"><div class="lab">Try this</div>Choose a low-risk decision and commit to a “good enough” choice within 24 hours. Afterward, reflect on what you learned.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 11</div>
+    <h2>When have you experienced positive outcomes after making a quick decision, and what did you learn from that?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Reflecting on successful quick decisions reminds you that speed doesn’t always sacrifice quality. Trusting your intuition can sometimes yield effective results</div>
+    <div class="block exercise"><div class="lab">Try this</div>Write about a time you decided quickly and what made it successful or a valuable learning experience.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 12</div>
+    <h2>How do you feel about making mistakes, and how might this affect your decision-making process?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Fear of mistakes can freeze you. Shifting perspective to see mistakes as natural growth steps diminishes their power to immobilize you</div>
+    <div class="block exercise"><div class="lab">Try this</div>List three mistakes you made that led to important personal growth or insight.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 13</div>
+    <h2>What small, low-stakes decisions can you practice making more quickly to build confidence?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Practicing fast decisions in low-risk areas strengthens your decision muscles and reduces anxiety when bigger choices come up</div>
+    <div class="block exercise"><div class="lab">Try this</div>Identify three everyday choices (e.g., what to eat, what to wear) and make them without overthinking for one week.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 14</div>
+    <h2>How do you balance intuition and logic when making decisions?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Intuition offers quick, experience-based insights; logic provides structure and analysis. Combining both leads to balanced, practical decisions</div>
+    <div class="block exercise"><div class="lab">Try this</div>For your next decision, write down your gut feeling and logical reasons separately, then integrate them into your final choice.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 15</div>
+    <h2>How can visualizing the worst-case scenario help reduce your fear of making a decision?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Imagining the worst outcome and planning how you’d cope demystifies fears and reveals that you can handle setbacks. This reduces avoidance and builds courage</div>
+    <div class="block exercise"><div class="lab">Try this</div>Write down the worst-case scenario for your decision and three realistic ways you could respond if it happens.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 16</div>
+    <h2>What role does time pressure play in your decision-making, and how can you use it constructively?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Deadlines can either increase stress or motivate action. Setting self-imposed, reasonable deadlines helps prevent endless procrastination</div>
+    <div class="block exercise"><div class="lab">Try this</div>Choose a looming decision and set a firm deadline to decide. Use that pressure as motivation rather than a source of anxiety.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 17</div>
+    <h2>How do you respond internally when you hear yourself say “I don’t know” or “I can’t decide”?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Notice if these phrases reflect genuine uncertainty or avoidance. Challenging this language shifts your mindset from stuck to solution-focused</div>
+    <div class="block exercise"><div class="lab">Try this</div>Replace “I don’t know” with “I need more information” or “I will decide by…” and observe how it changes your thinking.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 18</div>
+    <h2>What past successes can you draw upon to boost your confidence in decision-making?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Reminding yourself of previous effective decisions builds self-trust and reduces fear of failure. Confidence grows through recognition of your competence</div>
+    <div class="block exercise"><div class="lab">Try this</div>List five decisions you made that had positive outcomes and what qualities helped you succeed.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 19</div>
+    <h2>How might sharing your decision-making process with a trusted person help reduce analysis paralysis?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Talking through options aloud provides clarity, feedback, and accountability, moving you from isolation to action</div>
+    <div class="block exercise"><div class="lab">Try this</div>Choose a trusted friend or mentor and explain your decision dilemma, then note insights or encouragement you receive.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 20</div>
+    <h2>How do you define success and failure in decision-making, and how might shifting these definitions free you?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Narrow definitions trap you in rigid outcomes. Viewing success as effort and learning, and failure as feedback, reduces fear and encourages experimentation</div>
+    <div class="block exercise"><div class="lab">Try this</div>Write your current definitions of success and failure regarding decisions, then rewrite them to emphasize growth and resilience.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="saved" id="savedNote"></div>
+  <div class="closing">
+    <h2>Your journey continues</h2>
+    <p>Reflection isn't a one-time exercise. Return to these prompts whenever you need a steady place to think.</p>
+  </div>
+  <div class="actions">
+    <button class="btn btn-primary" onclick="window.print()">Download / Print PDF</button>
+    <a href="../../resource-library.html" class="btn btn-ghost">← Back to library</a>
+  </div>
+</div></main>
+<div class="disclaimer"><div class="wrap">This workbook is for education and self-reflection. It is not a diagnosis or a substitute for therapy. If you are in crisis, call or text 988.</div></div>
+<footer><div class="wrap">© <span id="yr"></span> Campfire Calm™ · Jason M. Leclair, LPC</div></footer>
+<script>
+  document.getElementById('yr').textContent=new Date().getFullYear();
+  (function(){
+    var key="cc-reflect:analysis-paralysis:";
+    var areas=document.querySelectorAll('.reflect-input');
+    var note=document.getElementById('savedNote');
+    function save(i,v){try{localStorage.setItem(key+i,v);note.textContent='Saved on this device';clearTimeout(window._t);window._t=setTimeout(function(){note.textContent='';},1500);}catch(e){}}
+    areas.forEach(function(a,i){
+      try{var v=localStorage.getItem(key+i);if(v)a.value=v;}catch(e){}
+      a.addEventListener('input',function(){save(i,a.value);});
+    });
+  })();
+</script>
+</body>
+</html>
