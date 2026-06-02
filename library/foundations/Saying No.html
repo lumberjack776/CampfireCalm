@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light">
+<title>Saying No — Campfire Calm</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Mulish:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{color-scheme:light;--cream:#f9f2e7;--cream-2:#fef9ef;--paper:#fffdf8;--charcoal:#2a201a;--ember:#e7702f;--ember-deep:#cf551a;--amber:#f0a94f;--sage-deep:#4f7a5d;--ink:#352b23;--ink-soft:#6a5c4e;--line:rgba(60,50,42,.13);--brown:#2e2117;--shadow-sm:0 8px 24px -14px rgba(60,40,25,.3);--r:16px}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Mulish',sans-serif;color:var(--ink);background:linear-gradient(180deg,var(--cream),#fcefdf);line-height:1.7;-webkit-font-smoothing:antialiased}
+  h1,h2,h3{font-family:'Fraunces',serif;font-weight:500;color:var(--charcoal);letter-spacing:-.01em;line-height:1.15}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:760px;margin:0 auto;padding:0 24px}
+  nav{position:sticky;top:0;z-index:50;background:rgba(249,242,231,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px;max-width:760px;margin:0 auto;padding:0 24px}
+  .brand{display:flex;align-items:center;gap:9px;font-family:'Fraunces',serif;font-size:1.18rem;font-weight:600}
+  .flame{width:22px;height:22px}
+  .back{font-weight:700;font-size:.88rem;color:var(--ember-deep)}
+  header{background:var(--brown);color:#fdf7ec;padding:54px 0 48px;position:relative;overflow:hidden}
+  header::after{content:"";position:absolute;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,rgba(240,169,79,.32),transparent 65%);top:-130px;right:-90px}
+  .eyebrow{font-weight:700;text-transform:uppercase;letter-spacing:.18em;font-size:.7rem;color:var(--amber);margin-bottom:12px;position:relative}
+  header h1{color:#fdf7ec;font-size:clamp(2rem,6vw,3rem);margin-bottom:14px;position:relative}
+  header p{color:#e7d8c2;font-size:1.06rem;position:relative;max-width:34em}
+  .meta{display:flex;gap:22px;margin-top:22px;position:relative}
+  .meta div{font-size:.82rem;color:#cbb89f}
+  .meta b{display:block;font-family:'Fraunces',serif;font-size:1.5rem;color:var(--amber);font-weight:600}
+  main{padding:46px 0 20px}
+  .prompt{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:28px 26px;margin-bottom:22px;box-shadow:var(--shadow-sm)}
+  .pnum{font-family:'Fraunces',serif;font-size:.9rem;font-weight:600;color:var(--ember-deep);margin-bottom:8px}
+  .prompt h2{font-size:1.28rem;margin-bottom:18px}
+  .block{margin-bottom:16px}
+  .block .lab{font-weight:700;text-transform:uppercase;letter-spacing:.1em;font-size:.7rem;margin-bottom:6px}
+  .insight .lab{color:var(--sage-deep)}
+  .exercise{background:rgba(240,169,79,.1);border-left:3px solid var(--amber);border-radius:0 10px 10px 0;padding:14px 16px}
+  .exercise .lab{color:var(--ember-deep)}
+  .reflect{margin-top:18px}
+  .reflect .lab{font-weight:700;font-size:.78rem;color:var(--ink-soft);margin-bottom:8px}
+  .reflect-input{display:block;width:100%;min-height:132px;font-family:'Mulish',sans-serif;font-size:1rem;color:var(--ink);
+    line-height:32px;padding:5px 14px 8px;border:1px solid var(--line);border-radius:10px;resize:vertical;
+    background-color:var(--paper);
+    background-image:repeating-linear-gradient(transparent,transparent 31px,var(--line) 31px,var(--line) 32px);
+    background-attachment:local;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .reflect-input:focus{outline:none;border-color:var(--ember);box-shadow:0 0 0 3px rgba(231,112,47,.12)}
+  .reflect-input::placeholder{color:var(--ink-soft);opacity:.7}
+  .closing{text-align:center;background:var(--brown);color:#fdf7ec;border-radius:20px;padding:38px 30px;margin:30px 0}
+  .closing h2{color:#fdf7ec;font-size:1.6rem;margin-bottom:10px}
+  .closing p{color:#e7d8c2;max-width:30em;margin:0 auto}
+  .saved{text-align:center;font-size:.8rem;color:var(--sage-deep);margin:-6px 0 22px;min-height:1em}
+  .actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin:8px 0 40px}
+  .btn{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:.95rem;padding:13px 24px;border-radius:100px;cursor:pointer;border:0}
+  .btn-primary{background:var(--ember-deep);color:#fff}
+  .btn-ghost{background:transparent;border:1.5px solid var(--line);color:var(--charcoal)}
+  .disclaimer{background:var(--cream-2);border-top:1px solid var(--line);padding:26px 0;color:var(--ink-soft);font-size:.88rem;text-align:center;font-style:italic}
+  footer{background:var(--charcoal);color:rgba(255,255,255,.6);padding:30px 0;font-size:.86rem;text-align:center}
+  @media print{nav,.actions,.back,.saved{display:none}body{background:#fff}.prompt{break-inside:avoid;box-shadow:none}.reflect-input{border-color:#ccc}header,.closing,.exercise,.reflect-input{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+  @media(max-width:560px){header{padding:42px 0 36px}.prompt{padding:22px 20px}}
+</style>
+</head>
+<body>
+<nav><div class="nav-inner">
+  <a href="../../resource-library.html" class="brand"><svg class="flame" viewBox="0 0 24 24"><path d="M12 2c1.5 3.5-1 5-1 7.5 0 1.5 1 2.5 2 2.5s2-1 1.8-3c2 1.2 3.2 3.4 3.2 6 0 3.6-3 6.5-6 6.5S6 18.6 6 15c0-4 3-6.5 6-13z" fill="#e7702f"/></svg>Campfire Calm</a>
+  <a href="../../resource-library.html" class="back">← Library</a>
+</div></nav>
+<header><div class="wrap">
+  <div class="eyebrow">Guided Reflection Workbook</div>
+  <h1>Saying No</h1>
+  <p>A guided self-reflection worksheet designed to help you explore your inner landscape through thoughtful prompts and exercises.</p>
+  <div class="meta"><div><b>24</b>Prompts</div><div><b>24</b>Insights</div><div><b>24</b>Exercises</div></div>
+</div></header>
+<main><div class="wrap">
+  <div class="prompt">
+    <div class="pnum">Prompt 01</div>
+    <h2>What feelings arise when you consider saying no to a request, and where do you notice them in your body?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Often, saying no triggers discomfort because we fear rejection or disappointing others. Notice tension or tightness in your chest or stomach—these physical signals can guide you to pause and reflect before reacting. Recognizing these feelings helps you separate your emotions from the request itself.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Next time you hesitate to say no, take a moment to identify where the discomfort appears physically. Breathe into that area, and remind yourself that feeling uneasy is natural but doesn’t have to dictate your choice.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 02</div>
+    <h2>How can setting clear personal boundaries around saying no improve your relationships over time?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Clear boundaries foster respect and honesty. When you say no thoughtfully, you communicate your limits, which encourages others to value your time and needs. This honesty can deepen trust, as people learn to understand the real you rather than guessing your feelings.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Write down three boundaries you want to uphold in your relationships. Practice saying no to small requests that cross these boundaries and observe how others respond.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 03</div>
+    <h2>What beliefs about yourself might make it harder for you to say no?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Beliefs like “I must always please others” or “My worth depends on being available” create pressure to say yes, even when it harms you. Challenging these beliefs helps you see that your value is inherent and not tied to constant approval.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Identify one belief that makes saying no difficult. Write a balanced statement that challenges it, such as “It’s okay to prioritize my needs,” and repeat it when you feel pressured.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 04</div>
+    <h2>How can reframing saying no as an act of self-care change your mindset?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Viewing no as self-care shifts the focus from rejection to protection. It’s not about denying others but about preserving your energy and mental health. This perspective reduces guilt and empowers you to make choices aligned with your well-being.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Reflect on a recent time you said no. Acknowledge how that choice helped you maintain your balance or boundaries, reinforcing its positive impact.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 05</div>
+    <h2>What small, manageable no’s can you practice this week to build confidence?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Starting with low-stakes situations, like declining an extra task or a social invitation, allows you to practice without overwhelming anxiety. Each small no strengthens your ability to assert yourself in bigger moments.</div>
+    <div class="block exercise"><div class="lab">Try this</div>List three minor requests you can say no to this week. After each, note how you felt before, during, and after saying no.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 06</div>
+    <h2>How do you differentiate between guilt that is your own and guilt imposed by others when saying no?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Your own guilt often signals a conflict with your values, while imposed guilt arises from manipulation or others’ expectations. Learning to recognize the source helps you respond appropriately—either by reflecting on your choices or standing firm against pressure.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Next time you feel guilty after saying no, ask yourself: “Is this guilt coming from my values or from someone else’s demands?” Journal your answer and consider your next step.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 07</div>
+    <h2>How can preparing a few polite but firm phrases help you express no without feeling awkward?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Having ready phrases reduces anxiety and gives you a clear script to follow, preventing over-explaining or apologizing excessively. Politeness combined with firmness shows respect for both yourself and the other person.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Create three no-phrases that feel natural to you, like “I appreciate you asking, but I can’t commit right now.” Practice saying them aloud until they feel comfortable.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 08</div>
+    <h2>What role does fear of conflict play in your difficulty saying no, and how can you address it?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Fear of conflict often leads to avoidance, sacrificing your needs to keep peace. Embracing that healthy conflict is normal and can lead to growth reduces this fear. Setting boundaries kindly can prevent resentment and promote clearer communication.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Recall a time you avoided saying no to avoid conflict. Write what you feared and what actually happened. Reflect on how you might approach it differently next time.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 09</div>
+    <h2>How might your cultural or family background influence your patterns around saying no?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Some cultures or families emphasize harmony and obligation, making no feel taboo or selfish. Understanding these influences helps you decide which patterns serve your well-being and which you can gently challenge to create healthier dynamics.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Reflect on messages about saying no you received growing up. Identify one you want to keep and one you want to question or change.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 10</div>
+    <h2>How can recognizing your own limits improve your ability to say no before burnout occurs?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Awareness of your physical and emotional limits helps you catch signs of overload early. Saying no proactively protects your energy, preventing exhaustion and resentment. It’s a preventive step, not just a reaction.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Track your energy levels daily for a week. Notice when you feel drained and what requests pushed you there. Plan to say no earlier next time to protect your balance.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 11</div>
+    <h2>How can you handle feelings of obligation without automatically saying yes?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Feeling obligated doesn’t mean you must comply. Recognizing obligation as a feeling allows space to evaluate the request realistically. You can honor your values without sacrificing your needs by respectfully declining when necessary.</div>
+    <div class="block exercise"><div class="lab">Try this</div>When you feel obligated, pause and ask, “Do I want to do this? What will it cost me?” Practice responding with a thoughtful no when it doesn’t align.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 12</div>
+    <h2>How can visualizing a positive outcome after saying no reduce anxiety about the response?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Anxiety often imagines worst-case scenarios. Visualizing a calm, respectful response helps rewire your expectations, making the act less intimidating and more manageable. This mental rehearsal builds confidence.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Before saying no, close your eyes and picture the conversation going well. Focus on your calm tone and the other person’s understanding.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 13</div>
+    <h2>What are some ways to say no that maintain connection rather than sever it?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Using empathetic language, offering alternatives, or expressing appreciation keeps communication open. Saying no doesn’t have to mean rejection—it can be an invitation to dialogue around your limits.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Write a no-response that includes appreciation and a suggestion, like “I can’t join this time, but I’d love to catch up next week.”</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 14</div>
+    <h2>How can recognizing your right to say no empower you in professional settings?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Understanding that your workload and boundaries affect your productivity and mental health legitimizes saying no at work. It helps prevent overcommitment and burnout, and promotes respect for your time.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Identify one professional scenario where you tend to say yes out of obligation. Plan a respectful no and rehearse it mentally.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 15</div>
+    <h2>How can you respond to persistent requests after you’ve already said no?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Reaffirm your no calmly and consistently, using assertive but polite language. Setting clear limits prevents erosion of your boundaries and communicates that your decision is firm.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Practice a script for repeated requests, like “I’ve already committed elsewhere, and can’t take this on.”</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 16</div>
+    <h2>How can journaling about your experiences saying no help you understand your progress?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Journaling captures your thoughts and feelings, revealing patterns and growth over time. It makes intangible progress visible and highlights areas needing more work or compassion.</div>
+    <div class="block exercise"><div class="lab">Try this</div>After each no, write down what happened, how you felt, and what you learned for future situations.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 17</div>
+    <h2>How can you balance kindness with firmness when saying no?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Kindness respects the other person’s feelings, while firmness respects your own needs. Combining both means acknowledging requests with warmth but holding your limits without wavering.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Role-play saying no with a friend or in front of a mirror, focusing on a warm tone and steady body language.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 18</div>
+    <h2>How can you use cognitive restructuring to challenge thoughts that prevent you from saying no?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Cognitive restructuring involves identifying and disputing irrational thoughts like “They’ll hate me if I say no.” Replacing these with balanced thoughts reduces anxiety and supports assertive choices.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Write down a fear about saying no. Challenge it with evidence and create a more balanced thought to repeat when needed.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 19</div>
+    <h2>How can practicing mindfulness help you respond rather than react when asked for something you want to say no to?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Mindfulness helps you notice impulses and emotions without immediately acting on them. This pause provides space to choose a response aligned with your values instead of automatic compliance.</div>
+    <div class="block exercise"><div class="lab">Try this</div>When a request arises, take three deep breaths before answering. Notice your urge to say yes or no, then respond intentionally.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 20</div>
+    <h2>How might your fear of disappointing others be linked to past experiences, and how can understanding this help you say no?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Past experiences where disappointment led to rejection or conflict can create lasting fear. Understanding this connection allows you to separate past from present and build new, healthier responses to saying no.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Reflect on a memory where saying no led to disappointment. Consider what you would tell your younger self now to feel safer setting boundaries.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 21</div>
+    <h2>How can you prioritize your goals and values to guide your decisions about saying no?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>When you’re clear about what matters most, saying no becomes a way to protect your path. This clarity reduces guilt and makes decisions easier because they align with your authentic priorities.</div>
+    <div class="block exercise"><div class="lab">Try this</div>List your top three personal goals or values. Before saying yes or no, ask if the request supports or hinders them.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 22</div>
+    <h2>How can you recognize manipulative tactics that pressure you into saying yes, and respond effectively?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Manipulation often uses guilt, flattery, or threats. Recognizing these tactics helps you stay grounded and respond with firm no’s that protect your boundaries without escalation.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Recall a time you felt pressured. Identify what tactic was used and write a calm, assertive no you could use next time.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 23</div>
+    <h2>How do you feel after you say no, and how can you cultivate self-compassion during that time?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Feelings may range from relief to guilt. Practicing self-compassion means acknowledging your courage and reminding yourself that prioritizing your needs is healthy and necessary.</div>
+    <div class="block exercise"><div class="lab">Try this</div>After each no, pause to say to yourself: “I did my best to honor my needs, and that’s enough.”</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 24</div>
+    <h2>How can you teach children or younger people healthy ways to say no?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Modeling assertiveness and explaining that no is a complete sentence teaches respect for boundaries early. Encouraging practice in safe settings builds their confidence for future situations.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Role-play scenarios with a younger person where they practice saying no kindly but firmly, discussing feelings afterward.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="saved" id="savedNote"></div>
+  <div class="closing">
+    <h2>Your journey continues</h2>
+    <p>Reflection isn't a one-time exercise. Return to these prompts whenever you need a steady place to think.</p>
+  </div>
+  <div class="actions">
+    <button class="btn btn-primary" onclick="window.print()">Download / Print PDF</button>
+    <a href="../../resource-library.html" class="btn btn-ghost">← Back to library</a>
+  </div>
+</div></main>
+<div class="disclaimer"><div class="wrap">This workbook is for education and self-reflection. It is not a diagnosis or a substitute for therapy. If you are in crisis, call or text 988.</div></div>
+<footer><div class="wrap">© <span id="yr"></span> Campfire Calm™ · Jason M. Leclair, LPC</div></footer>
+<script>
+  document.getElementById('yr').textContent=new Date().getFullYear();
+  (function(){
+    var key="cc-reflect:saying-no:";
+    var areas=document.querySelectorAll('.reflect-input');
+    var note=document.getElementById('savedNote');
+    function save(i,v){try{localStorage.setItem(key+i,v);note.textContent='Saved on this device';clearTimeout(window._t);window._t=setTimeout(function(){note.textContent='';},1500);}catch(e){}}
+    areas.forEach(function(a,i){
+      try{var v=localStorage.getItem(key+i);if(v)a.value=v;}catch(e){}
+      a.addEventListener('input',function(){save(i,a.value);});
+    });
+  })();
+</script>
+</body>
+</html>

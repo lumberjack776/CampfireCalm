@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light">
+<title>Habit Formation — Campfire Calm</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Mulish:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{color-scheme:light;--cream:#f9f2e7;--cream-2:#fef9ef;--paper:#fffdf8;--charcoal:#2a201a;--ember:#e7702f;--ember-deep:#cf551a;--amber:#f0a94f;--sage-deep:#4f7a5d;--ink:#352b23;--ink-soft:#6a5c4e;--line:rgba(60,50,42,.13);--brown:#2e2117;--shadow-sm:0 8px 24px -14px rgba(60,40,25,.3);--r:16px}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Mulish',sans-serif;color:var(--ink);background:linear-gradient(180deg,var(--cream),#fcefdf);line-height:1.7;-webkit-font-smoothing:antialiased}
+  h1,h2,h3{font-family:'Fraunces',serif;font-weight:500;color:var(--charcoal);letter-spacing:-.01em;line-height:1.15}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:760px;margin:0 auto;padding:0 24px}
+  nav{position:sticky;top:0;z-index:50;background:rgba(249,242,231,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px;max-width:760px;margin:0 auto;padding:0 24px}
+  .brand{display:flex;align-items:center;gap:9px;font-family:'Fraunces',serif;font-size:1.18rem;font-weight:600}
+  .flame{width:22px;height:22px}
+  .back{font-weight:700;font-size:.88rem;color:var(--ember-deep)}
+  header{background:var(--brown);color:#fdf7ec;padding:54px 0 48px;position:relative;overflow:hidden}
+  header::after{content:"";position:absolute;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,rgba(240,169,79,.32),transparent 65%);top:-130px;right:-90px}
+  .eyebrow{font-weight:700;text-transform:uppercase;letter-spacing:.18em;font-size:.7rem;color:var(--amber);margin-bottom:12px;position:relative}
+  header h1{color:#fdf7ec;font-size:clamp(2rem,6vw,3rem);margin-bottom:14px;position:relative}
+  header p{color:#e7d8c2;font-size:1.06rem;position:relative;max-width:34em}
+  .meta{display:flex;gap:22px;margin-top:22px;position:relative}
+  .meta div{font-size:.82rem;color:#cbb89f}
+  .meta b{display:block;font-family:'Fraunces',serif;font-size:1.5rem;color:var(--amber);font-weight:600}
+  main{padding:46px 0 20px}
+  .prompt{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:28px 26px;margin-bottom:22px;box-shadow:var(--shadow-sm)}
+  .pnum{font-family:'Fraunces',serif;font-size:.9rem;font-weight:600;color:var(--ember-deep);margin-bottom:8px}
+  .prompt h2{font-size:1.28rem;margin-bottom:18px}
+  .block{margin-bottom:16px}
+  .block .lab{font-weight:700;text-transform:uppercase;letter-spacing:.1em;font-size:.7rem;margin-bottom:6px}
+  .insight .lab{color:var(--sage-deep)}
+  .exercise{background:rgba(240,169,79,.1);border-left:3px solid var(--amber);border-radius:0 10px 10px 0;padding:14px 16px}
+  .exercise .lab{color:var(--ember-deep)}
+  .reflect{margin-top:18px}
+  .reflect .lab{font-weight:700;font-size:.78rem;color:var(--ink-soft);margin-bottom:8px}
+  .reflect-input{display:block;width:100%;min-height:132px;font-family:'Mulish',sans-serif;font-size:1rem;color:var(--ink);
+    line-height:32px;padding:5px 14px 8px;border:1px solid var(--line);border-radius:10px;resize:vertical;
+    background-color:var(--paper);
+    background-image:repeating-linear-gradient(transparent,transparent 31px,var(--line) 31px,var(--line) 32px);
+    background-attachment:local;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .reflect-input:focus{outline:none;border-color:var(--ember);box-shadow:0 0 0 3px rgba(231,112,47,.12)}
+  .reflect-input::placeholder{color:var(--ink-soft);opacity:.7}
+  .closing{text-align:center;background:var(--brown);color:#fdf7ec;border-radius:20px;padding:38px 30px;margin:30px 0}
+  .closing h2{color:#fdf7ec;font-size:1.6rem;margin-bottom:10px}
+  .closing p{color:#e7d8c2;max-width:30em;margin:0 auto}
+  .saved{text-align:center;font-size:.8rem;color:var(--sage-deep);margin:-6px 0 22px;min-height:1em}
+  .actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin:8px 0 40px}
+  .btn{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:.95rem;padding:13px 24px;border-radius:100px;cursor:pointer;border:0}
+  .btn-primary{background:var(--ember-deep);color:#fff}
+  .btn-ghost{background:transparent;border:1.5px solid var(--line);color:var(--charcoal)}
+  .disclaimer{background:var(--cream-2);border-top:1px solid var(--line);padding:26px 0;color:var(--ink-soft);font-size:.88rem;text-align:center;font-style:italic}
+  footer{background:var(--charcoal);color:rgba(255,255,255,.6);padding:30px 0;font-size:.86rem;text-align:center}
+  @media print{nav,.actions,.back,.saved{display:none}body{background:#fff}.prompt{break-inside:avoid;box-shadow:none}.reflect-input{border-color:#ccc}header,.closing,.exercise,.reflect-input{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+  @media(max-width:560px){header{padding:42px 0 36px}.prompt{padding:22px 20px}}
+</style>
+</head>
+<body>
+<nav><div class="nav-inner">
+  <a href="../../resource-library.html" class="brand"><svg class="flame" viewBox="0 0 24 24"><path d="M12 2c1.5 3.5-1 5-1 7.5 0 1.5 1 2.5 2 2.5s2-1 1.8-3c2 1.2 3.2 3.4 3.2 6 0 3.6-3 6.5-6 6.5S6 18.6 6 15c0-4 3-6.5 6-13z" fill="#e7702f"/></svg>Campfire Calm</a>
+  <a href="../../resource-library.html" class="back">← Library</a>
+</div></nav>
+<header><div class="wrap">
+  <div class="eyebrow">Guided Reflection Workbook</div>
+  <h1>Habit Formation</h1>
+  <p>A guided self-reflection worksheet designed to help you explore your inner landscape through thoughtful prompts and exercises.</p>
+  <div class="meta"><div><b>20</b>Prompts</div><div><b>20</b>Insights</div><div><b>20</b>Exercises</div></div>
+</div></header>
+<main><div class="wrap">
+  <div class="prompt">
+    <div class="pnum">Prompt 01</div>
+    <h2>What small daily action can I commit to that aligns with my long-term values, even if progress feels invisible at first?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Choose a tiny habit that directly reflects what matters most to you—like drinking a glass of water each morning if health is key. This anchors your behavior in purpose, making consistency easier despite slow visible change. Your brain starts rewiring through repetition, building momentum beneath awareness.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Identify one core value and brainstorm three micro-actions that honor it. Commit to one for a week, noting any shifts in motivation or self-perception.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 02</div>
+    <h2>How do I effectively break a habit that provides immediate reward but harms my goals?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Recognize the trigger and the reward your habit delivers, then experiment with alternative behaviors that satisfy the same need but support your goals. This rewires your brain’s habit loop gradually, reducing cravings without harsh self-judgment.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Track one habit you want to change for three days, noting triggers and feelings. Design one alternative action for the same trigger and try it next time.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 03</div>
+    <h2>Why do I struggle with motivation after missing a habit for a day, and how can I reframe this setback?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Missing a day often triggers all-or-nothing thinking, making us feel like failures. Instead, treat lapses as data—not defeat. Reflect on what disrupted your routine and plan a practical solution. This approach preserves self-compassion and keeps progress sustainable.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Write about the last time you missed a habit, focusing on what you learned, not what you lost. Plan a simple, flexible adjustment to avoid similar obstacles.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 04</div>
+    <h2>How can I design my environment to naturally support my new habit without relying solely on willpower?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Modify your surroundings to reduce friction and increase cues for your desired habit—for example, placing workout clothes by your bed or keeping healthy snacks visible. Environmental design leverages automatic behavior, easing the mental energy needed to start.</div>
+    <div class="block exercise"><div class="lab">Try this</div>List your current environment’s barriers to a habit you want. Brainstorm three changes that make the habit easier or the old habit harder, then implement one.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 05</div>
+    <h2>How can I use “if-then” planning to strengthen my habit formation?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>“If-then” plans create mental links between specific situations and new behaviors, increasing automaticity. For example, “If I feel stressed, then I will take three deep breaths.” This pre-commitment reduces decision fatigue and anchors your habit in real-life triggers.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Identify one challenging situation and craft an “if-then” statement to respond with your desired habit. Practice visualizing yourself following through.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 06</div>
+    <h2>How do I handle negative self-talk that undermines my habit-building efforts?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Notice negative self-talk as a separate mental event, not an absolute truth. Challenge its accuracy and replace it with realistic, supportive statements. This cognitive shift reduces emotional barriers and strengthens your belief in your ability to change.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Write down a recent negative thought about your habit progress. Question its evidence and reframe it into a compassionate, motivating affirmation.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 07</div>
+    <h2>How can tracking progress help me stay committed to a habit, and what’s the best way to track without becoming obsessive?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Tracking provides tangible evidence of progress, reinforcing motivation and highlighting patterns. Use simple, non-judgmental methods—like checkmarks or brief notes—to celebrate consistency without fixating on perfection.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Create a minimalist habit tracker for one week. Reflect daily on how tracking affects your motivation and adjust the method if it feels stressful.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 08</div>
+    <h2>What role does identity play in habit formation, and how can I leverage this to make habits stick?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Habits are more sustainable when tied to your self-identity—for example, seeing yourself as a “runner” rather than someone who runs occasionally. Shift your focus from outcomes to who you want to become, which aligns behaviors with your core sense of self.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Write a positive “identity statement” related to your habit (e.g., “I am someone who prioritizes health”). Repeat it daily and notice how it influences your choices.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 09</div>
+    <h2>How can I manage boredom or loss of interest that often disrupts habit routines?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Boredom signals your brain craving novelty. Introduce variety or mini-challenges within your habit to keep engagement high. This refreshes motivation without abandoning your core behavior.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Think of one way to tweak your habit to make it more interesting (e.g., new routes for walking). Experiment with this variation and journal your experience.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 10</div>
+    <h2>How do I balance flexibility and consistency in habit formation to avoid rigidity or giving up?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Commit to your habit’s intention rather than strict rules—allowing for adjustments when life shifts. This compassionate flexibility prevents burnout and maintains momentum through ups and downs.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Choose a habit and write down the essential purpose behind it. Identify two ways you can adapt it without losing that purpose during challenging days.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 11</div>
+    <h2>How can social support influence habit formation, and what kind of support is most effective?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Accountability, encouragement, and shared goals from others amplify habit success. However, support works best when it feels non-judgmental and autonomy-respecting, fostering intrinsic motivation rather than pressure.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Identify one person who could support your habit. Plan a brief conversation to share your goal and discuss how they can encourage you in a positive way.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 12</div>
+    <h2>What cognitive distortions commonly sabotage habit formation, and how do I counteract them?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Distortions like catastrophizing (“One slip means failure”) or all-or-nothing thinking undermine progress. Counter them by spotting these thoughts early and applying balanced perspectives that focus on gradual improvement.</div>
+    <div class="block exercise"><div class="lab">Try this</div>When you notice a harsh thought about your habit, write it down, then write a balanced response that acknowledges progress and imperfections.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 13</div>
+    <h2>How can I create a reward system that strengthens my habit without fostering dependence on external validation?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Use intrinsic rewards—like a sense of mastery or improved mood—over external treats. Celebrate small wins internally by acknowledging effort and growth, which deepens habit resilience beyond fleeting incentives.</div>
+    <div class="block exercise"><div class="lab">Try this</div>After completing your habit each day, pause to note one positive feeling or skill you developed. Record these reflections to build internal motivation.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 14</div>
+    <h2>How can I recognize and manage “habit fatigue” when motivation naturally dips over time?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Habit fatigue is normal and signals your brain adapting to new patterns. Address it by varying your routine, reminding yourself of your “why,” and scheduling rest without guilt to restore energy.</div>
+    <div class="block exercise"><div class="lab">Try this</div>When feeling fatigued, write down your main reason for starting the habit. Plan one small change or break to refresh your commitment.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 15</div>
+    <h2>How do I integrate new habits into an already busy schedule without feeling overwhelmed?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Embed habits into existing routines by stacking them—linking new habits onto established ones. This reduces extra time demands and creates natural flow in your day.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Identify one daily habit and brainstorm a new habit that fits immediately before or after it. Try stacking them tomorrow and reflect on ease or challenges.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 16</div>
+    <h2>How can I use visualization to enhance my commitment to habit change?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Visualizing yourself successfully performing a habit activates the brain’s planning and reward systems, increasing confidence and readiness. It primes your mind to notice opportunities and overcome obstacles.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Spend five minutes imagining a detailed scene where you complete your habit smoothly and feel proud. Repeat before your habit time.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 17</div>
+    <h2>How do I handle competing habits that interfere with the new one I want to build?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Identify conflicting habits and evaluate their triggers and rewards. Gradually reduce or replace competing habits with alternatives that align better with your goals, using patience rather than force.</div>
+    <div class="block exercise"><div class="lab">Try this</div>List habits that conflict with your target habit. Choose one to modify or replace and create a step-by-step plan to do so over the next week.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 18</div>
+    <h2>How can I cultivate patience and tolerance for slow progress during habit formation?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Reframe progress as nonlinear and celebrate small wins rather than fixating on quick results. Patience builds resilience and reduces frustration, which are key for lasting change.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Journal about a past experience where persistence led to meaningful growth. Apply that mindset to your current habit journey.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 19</div>
+    <h2>How can I use self-monitoring to anticipate and prevent habit relapse?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Self-monitoring helps you detect early warning signs—like skipping days or losing enthusiasm—so you can intervene before relapse deepens. Use gentle check-ins to stay connected to your goals and challenges.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Create a simple daily or weekly log noting your habit performance and mood. Review it weekly to identify patterns and plan proactive steps.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 20</div>
+    <h2>How can I celebrate progress in a way that reinforces the habit rather than distracting from it?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Choose celebrations that enhance your habit’s values—like sharing progress with a supportive friend or enjoying a mindful moment—rather than unrelated treats. This reinforces your identity and commitment.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Plan a meaningful, habit-aligned way to reward yourself after one week of consistent effort. Reflect on how it impacts your motivation.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="saved" id="savedNote"></div>
+  <div class="closing">
+    <h2>Your journey continues</h2>
+    <p>Reflection isn't a one-time exercise. Return to these prompts whenever you need a steady place to think.</p>
+  </div>
+  <div class="actions">
+    <button class="btn btn-primary" onclick="window.print()">Download / Print PDF</button>
+    <a href="../../resource-library.html" class="btn btn-ghost">← Back to library</a>
+  </div>
+</div></main>
+<div class="disclaimer"><div class="wrap">This workbook is for education and self-reflection. It is not a diagnosis or a substitute for therapy. If you are in crisis, call or text 988.</div></div>
+<footer><div class="wrap">© <span id="yr"></span> Campfire Calm™ · Jason M. Leclair, LPC</div></footer>
+<script>
+  document.getElementById('yr').textContent=new Date().getFullYear();
+  (function(){
+    var key="cc-reflect:habit-formation:";
+    var areas=document.querySelectorAll('.reflect-input');
+    var note=document.getElementById('savedNote');
+    function save(i,v){try{localStorage.setItem(key+i,v);note.textContent='Saved on this device';clearTimeout(window._t);window._t=setTimeout(function(){note.textContent='';},1500);}catch(e){}}
+    areas.forEach(function(a,i){
+      try{var v=localStorage.getItem(key+i);if(v)a.value=v;}catch(e){}
+      a.addEventListener('input',function(){save(i,a.value);});
+    });
+  })();
+</script>
+</body>
+</html>

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light">
+<title>Present Awareness — Campfire Calm</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Mulish:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{color-scheme:light;--cream:#f9f2e7;--cream-2:#fef9ef;--paper:#fffdf8;--charcoal:#2a201a;--ember:#e7702f;--ember-deep:#cf551a;--amber:#f0a94f;--sage-deep:#4f7a5d;--ink:#352b23;--ink-soft:#6a5c4e;--line:rgba(60,50,42,.13);--brown:#2e2117;--shadow-sm:0 8px 24px -14px rgba(60,40,25,.3);--r:16px}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Mulish',sans-serif;color:var(--ink);background:linear-gradient(180deg,var(--cream),#fcefdf);line-height:1.7;-webkit-font-smoothing:antialiased}
+  h1,h2,h3{font-family:'Fraunces',serif;font-weight:500;color:var(--charcoal);letter-spacing:-.01em;line-height:1.15}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:760px;margin:0 auto;padding:0 24px}
+  nav{position:sticky;top:0;z-index:50;background:rgba(249,242,231,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px;max-width:760px;margin:0 auto;padding:0 24px}
+  .brand{display:flex;align-items:center;gap:9px;font-family:'Fraunces',serif;font-size:1.18rem;font-weight:600}
+  .flame{width:22px;height:22px}
+  .back{font-weight:700;font-size:.88rem;color:var(--ember-deep)}
+  header{background:var(--brown);color:#fdf7ec;padding:54px 0 48px;position:relative;overflow:hidden}
+  header::after{content:"";position:absolute;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,rgba(240,169,79,.32),transparent 65%);top:-130px;right:-90px}
+  .eyebrow{font-weight:700;text-transform:uppercase;letter-spacing:.18em;font-size:.7rem;color:var(--amber);margin-bottom:12px;position:relative}
+  header h1{color:#fdf7ec;font-size:clamp(2rem,6vw,3rem);margin-bottom:14px;position:relative}
+  header p{color:#e7d8c2;font-size:1.06rem;position:relative;max-width:34em}
+  .meta{display:flex;gap:22px;margin-top:22px;position:relative}
+  .meta div{font-size:.82rem;color:#cbb89f}
+  .meta b{display:block;font-family:'Fraunces',serif;font-size:1.5rem;color:var(--amber);font-weight:600}
+  main{padding:46px 0 20px}
+  .prompt{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:28px 26px;margin-bottom:22px;box-shadow:var(--shadow-sm)}
+  .pnum{font-family:'Fraunces',serif;font-size:.9rem;font-weight:600;color:var(--ember-deep);margin-bottom:8px}
+  .prompt h2{font-size:1.28rem;margin-bottom:18px}
+  .block{margin-bottom:16px}
+  .block .lab{font-weight:700;text-transform:uppercase;letter-spacing:.1em;font-size:.7rem;margin-bottom:6px}
+  .insight .lab{color:var(--sage-deep)}
+  .exercise{background:rgba(240,169,79,.1);border-left:3px solid var(--amber);border-radius:0 10px 10px 0;padding:14px 16px}
+  .exercise .lab{color:var(--ember-deep)}
+  .reflect{margin-top:18px}
+  .reflect .lab{font-weight:700;font-size:.78rem;color:var(--ink-soft);margin-bottom:8px}
+  .reflect-input{display:block;width:100%;min-height:132px;font-family:'Mulish',sans-serif;font-size:1rem;color:var(--ink);
+    line-height:32px;padding:5px 14px 8px;border:1px solid var(--line);border-radius:10px;resize:vertical;
+    background-color:var(--paper);
+    background-image:repeating-linear-gradient(transparent,transparent 31px,var(--line) 31px,var(--line) 32px);
+    background-attachment:local;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .reflect-input:focus{outline:none;border-color:var(--ember);box-shadow:0 0 0 3px rgba(231,112,47,.12)}
+  .reflect-input::placeholder{color:var(--ink-soft);opacity:.7}
+  .closing{text-align:center;background:var(--brown);color:#fdf7ec;border-radius:20px;padding:38px 30px;margin:30px 0}
+  .closing h2{color:#fdf7ec;font-size:1.6rem;margin-bottom:10px}
+  .closing p{color:#e7d8c2;max-width:30em;margin:0 auto}
+  .saved{text-align:center;font-size:.8rem;color:var(--sage-deep);margin:-6px 0 22px;min-height:1em}
+  .actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin:8px 0 40px}
+  .btn{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:.95rem;padding:13px 24px;border-radius:100px;cursor:pointer;border:0}
+  .btn-primary{background:var(--ember-deep);color:#fff}
+  .btn-ghost{background:transparent;border:1.5px solid var(--line);color:var(--charcoal)}
+  .disclaimer{background:var(--cream-2);border-top:1px solid var(--line);padding:26px 0;color:var(--ink-soft);font-size:.88rem;text-align:center;font-style:italic}
+  footer{background:var(--charcoal);color:rgba(255,255,255,.6);padding:30px 0;font-size:.86rem;text-align:center}
+  @media print{nav,.actions,.back,.saved{display:none}body{background:#fff}.prompt{break-inside:avoid;box-shadow:none}.reflect-input{border-color:#ccc}header,.closing,.exercise,.reflect-input{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+  @media(max-width:560px){header{padding:42px 0 36px}.prompt{padding:22px 20px}}
+</style>
+</head>
+<body>
+<nav><div class="nav-inner">
+  <a href="../../resource-library.html" class="brand"><svg class="flame" viewBox="0 0 24 24"><path d="M12 2c1.5 3.5-1 5-1 7.5 0 1.5 1 2.5 2 2.5s2-1 1.8-3c2 1.2 3.2 3.4 3.2 6 0 3.6-3 6.5-6 6.5S6 18.6 6 15c0-4 3-6.5 6-13z" fill="#e7702f"/></svg>Campfire Calm</a>
+  <a href="../../resource-library.html" class="back">← Library</a>
+</div></nav>
+<header><div class="wrap">
+  <div class="eyebrow">Guided Reflection Workbook</div>
+  <h1>Present Awareness</h1>
+  <p>A guided self-reflection worksheet designed to help you explore your inner landscape through thoughtful prompts and exercises.</p>
+  <div class="meta"><div><b>20</b>Prompts</div><div><b>20</b>Insights</div><div><b>20</b>Exercises</div></div>
+</div></header>
+<main><div class="wrap">
+  <div class="prompt">
+    <div class="pnum">Prompt 01</div>
+    <h2>When you notice your mind drifting to worries about the future, how can you gently bring your focus back to what you’re experiencing right now?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Recognize that your mind is naturally drawn to concerns, but you can train it to return by grounding yourself in sensory details—what you see, hear, or feel. This isn’t about forcing thoughts away but kindly redirecting attention to the present moment without judgment.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Pause three times a day to name five things you can see, four you can touch, three you can hear, two you can smell, and one you can taste.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 02</div>
+    <h2>How does your body signal when you’re fully present versus when you’re distracted or anxious?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Your body often gives clues—when present, breathing tends to be steady, muscles relaxed, and posture open. When distracted, you might notice tension, shallow breaths, or restlessness. Tuning into these signals can help you catch yourself slipping out of the moment.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Set a timer for hourly checks where you scan your body for tension or ease, and consciously adjust your posture or breathing to reconnect with the present.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 03</div>
+    <h2>What small daily activity can you transform into a mindful moment to deepen your present awareness?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Mundane tasks like washing dishes or walking can become anchors by focusing fully on sensations—water temperature, soap texture, footfalls on the ground. This practice stretches your capacity to stay present through routine.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Choose one daily chore and dedicate five minutes to doing it with full attention, noticing every detail without rushing.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 04</div>
+    <h2>When overwhelmed by strong emotions, how can present awareness help you respond more skillfully?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Emotions often pull us into stories or judgments. By grounding yourself in the immediate physical sensations—tight chest, rapid breath—you create a pause that interrupts automatic reactions, allowing more thoughtful choices.</div>
+    <div class="block exercise"><div class="lab">Try this</div>The next time you feel upset, take three slow breaths and describe silently what your body feels before you act or speak.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 05</div>
+    <h2>How can you use your breath as a tool to anchor yourself when your mind races?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Breath is always with you and can be a steady anchor. Focusing on each inhale and exhale slows your mind and body, creating a rhythm that calms mental chaos without needing to suppress thoughts.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Practice a 5-minute breathing exercise daily, counting to four on each inhale and exhale, gently returning your focus when distracted.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 06</div>
+    <h2>What role does non-judgmental awareness play in staying present, and how can you cultivate it?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Judging your thoughts or feelings pulls you away from the moment into criticism or avoidance. Embracing non-judgmental awareness means noticing experience as it is, which reduces struggle and opens space for clarity.</div>
+    <div class="block exercise"><div class="lab">Try this</div>When you catch yourself labeling an experience as “bad” or “wrong,” pause and reframe it as simply “present experience” without added meaning.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 07</div>
+    <h2>How might your relationship with technology affect your present awareness, and what boundaries can help?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Technology often fragments attention and fuels distraction. Setting intentional limits—like no devices during meals or before bed—creates space to reconnect with your immediate environment and feelings.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Commit to one tech-free zone or time daily and observe how your sense of presence shifts.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 08</div>
+    <h2>How can present awareness improve your communication with others?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Being fully present when listening allows you to catch subtle cues and respond thoughtfully, rather than reacting from assumptions or internal chatter, deepening connection and understanding.</div>
+    <div class="block exercise"><div class="lab">Try this</div>In your next conversation, focus solely on the speaker’s words and tone, silently noting when your mind wanders, and gently bring it back.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 09</div>
+    <h2>When stuck in regret about the past, how can present awareness help you break free?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Regret pulls you into a story that no longer exists, but your body and breath remain in the now. Grounding in the present helps you let go of unchangeable history and focus on what you can influence now.</div>
+    <div class="block exercise"><div class="lab">Try this</div>When regret arises, place your hand on your chest and take three deep breaths, naming something in your current environment you feel grateful for.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 10</div>
+    <h2>How does practicing present awareness affect your ability to manage pain or discomfort?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Instead of resisting pain, observing it with curiosity and acceptance reduces its emotional intensity. This mindful stance shifts your relationship with discomfort, making it more manageable.</div>
+    <div class="block exercise"><div class="lab">Try this</div>The next time you feel physical discomfort, describe its qualities (location, intensity, texture) without trying to change it, noticing how your perception shifts.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 11</div>
+    <h2>How can you create a ritual that signals your mind to return to present awareness during stressful moments?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>A consistent ritual—like touching your thumb to each finger or saying a calming phrase—acts as a cue to interrupt stress and anchor you back in the here and now.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Develop a simple, repeatable action or phrase you can use anytime stress hits, and practice it until it becomes automatic.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 12</div>
+    <h2>What differences do you notice in your experience when you approach tasks with full presence versus multitasking?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Full presence often leads to deeper engagement, better quality, and less mental fatigue, while multitasking scatters attention and drains energy. Being mindful enhances both performance and satisfaction.</div>
+    <div class="block exercise"><div class="lab">Try this</div>For one hour, do one task at a time, noticing how your focus and feelings differ from usual multitasking habits.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 13</div>
+    <h2>How can you use journaling to deepen your present awareness?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Writing about your immediate thoughts and feelings without editing encourages honesty and helps you observe patterns without getting lost in them, anchoring you in the present moment.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Spend five minutes daily writing about what you notice around you and within you right now, avoiding analysis or judgment.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 14</div>
+    <h2>How can recognizing automatic pilot mode in your daily routines increase your present awareness?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Automatic behaviors disconnect you from experience. Spotting when you’re on autopilot gives you the chance to pause, choose consciously, and infuse intention into your actions.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Identify one habitual activity you perform without thinking and deliberately slow down to notice every step tomorrow.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 15</div>
+    <h2>How does accepting uncertainty in the present moment reduce anxiety?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Anxiety often stems from needing control or certainty. Embracing the unknown as part of now lessens resistance and opens you to adapt rather than worry.</div>
+    <div class="block exercise"><div class="lab">Try this</div>When anxious, remind yourself “It’s okay not to know,” and bring focus to your immediate breath and surroundings for two minutes.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 16</div>
+    <h2>How can present awareness reshape your perception of time and increase your sense of fulfillment?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Living fully in the moment slows subjective time and deepens experience, making life feel richer rather than rushed or fragmented.</div>
+    <div class="block exercise"><div class="lab">Try this</div>During a pleasant activity, consciously slow down and savor every detail for five minutes, observing how time feels.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 17</div>
+    <h2>How can you use your senses deliberately to snap out of unhelpful mental loops?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Sensory input is a direct path to the present. Engaging your senses intentionally interrupts repetitive thoughts and grounds you in reality.</div>
+    <div class="block exercise"><div class="lab">Try this</div>When stuck in a negative thought cycle, name three things you can touch, two you can hear, and one you can smell to shift focus.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 18</div>
+    <h2>How does cultivating present awareness influence your ability to set healthy boundaries?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Being present helps you recognize your feelings and limits clearly in real time, empowering you to assert boundaries before resentment builds.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Practice checking in with your feelings during social interactions to notice discomfort early, and practice saying “no” or pausing when needed.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 19</div>
+    <h2>How can mindful movement practices enhance your present awareness?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Activities like yoga or walking with attention connect mind and body, making you more attuned to subtle sensations and thoughts as they arise.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Dedicate 10 minutes to slow, deliberate movement focusing on how your body feels with each step or stretch.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 20</div>
+    <h2>What is one way to practice present awareness when feeling disconnected or numb?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Numbness often blocks connection to the present. Gently noticing small sensations—temperature, texture, or breath—can gradually restore feeling without overwhelm.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Place your hand on your skin and describe the sensations without expectation, allowing feelings to emerge naturally.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="saved" id="savedNote"></div>
+  <div class="closing">
+    <h2>Your journey continues</h2>
+    <p>Reflection isn't a one-time exercise. Return to these prompts whenever you need a steady place to think.</p>
+  </div>
+  <div class="actions">
+    <button class="btn btn-primary" onclick="window.print()">Download / Print PDF</button>
+    <a href="../../resource-library.html" class="btn btn-ghost">← Back to library</a>
+  </div>
+</div></main>
+<div class="disclaimer"><div class="wrap">This workbook is for education and self-reflection. It is not a diagnosis or a substitute for therapy. If you are in crisis, call or text 988.</div></div>
+<footer><div class="wrap">© <span id="yr"></span> Campfire Calm™ · Jason M. Leclair, LPC</div></footer>
+<script>
+  document.getElementById('yr').textContent=new Date().getFullYear();
+  (function(){
+    var key="cc-reflect:present-awareness:";
+    var areas=document.querySelectorAll('.reflect-input');
+    var note=document.getElementById('savedNote');
+    function save(i,v){try{localStorage.setItem(key+i,v);note.textContent='Saved on this device';clearTimeout(window._t);window._t=setTimeout(function(){note.textContent='';},1500);}catch(e){}}
+    areas.forEach(function(a,i){
+      try{var v=localStorage.getItem(key+i);if(v)a.value=v;}catch(e){}
+      a.addEventListener('input',function(){save(i,a.value);});
+    });
+  })();
+</script>
+</body>
+</html>

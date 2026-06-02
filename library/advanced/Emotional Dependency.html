@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light">
+<title>Emotional Dependency — Campfire Calm</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Mulish:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{color-scheme:light;--cream:#f9f2e7;--cream-2:#fef9ef;--paper:#fffdf8;--charcoal:#2a201a;--ember:#e7702f;--ember-deep:#cf551a;--amber:#f0a94f;--sage-deep:#4f7a5d;--ink:#352b23;--ink-soft:#6a5c4e;--line:rgba(60,50,42,.13);--brown:#2e2117;--shadow-sm:0 8px 24px -14px rgba(60,40,25,.3);--r:16px}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Mulish',sans-serif;color:var(--ink);background:linear-gradient(180deg,var(--cream),#fcefdf);line-height:1.7;-webkit-font-smoothing:antialiased}
+  h1,h2,h3{font-family:'Fraunces',serif;font-weight:500;color:var(--charcoal);letter-spacing:-.01em;line-height:1.15}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:760px;margin:0 auto;padding:0 24px}
+  nav{position:sticky;top:0;z-index:50;background:rgba(249,242,231,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px;max-width:760px;margin:0 auto;padding:0 24px}
+  .brand{display:flex;align-items:center;gap:9px;font-family:'Fraunces',serif;font-size:1.18rem;font-weight:600}
+  .flame{width:22px;height:22px}
+  .back{font-weight:700;font-size:.88rem;color:var(--ember-deep)}
+  header{background:var(--brown);color:#fdf7ec;padding:54px 0 48px;position:relative;overflow:hidden}
+  header::after{content:"";position:absolute;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,rgba(240,169,79,.32),transparent 65%);top:-130px;right:-90px}
+  .eyebrow{font-weight:700;text-transform:uppercase;letter-spacing:.18em;font-size:.7rem;color:var(--amber);margin-bottom:12px;position:relative}
+  header h1{color:#fdf7ec;font-size:clamp(2rem,6vw,3rem);margin-bottom:14px;position:relative}
+  header p{color:#e7d8c2;font-size:1.06rem;position:relative;max-width:34em}
+  .meta{display:flex;gap:22px;margin-top:22px;position:relative}
+  .meta div{font-size:.82rem;color:#cbb89f}
+  .meta b{display:block;font-family:'Fraunces',serif;font-size:1.5rem;color:var(--amber);font-weight:600}
+  main{padding:46px 0 20px}
+  .prompt{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:28px 26px;margin-bottom:22px;box-shadow:var(--shadow-sm)}
+  .pnum{font-family:'Fraunces',serif;font-size:.9rem;font-weight:600;color:var(--ember-deep);margin-bottom:8px}
+  .prompt h2{font-size:1.28rem;margin-bottom:18px}
+  .block{margin-bottom:16px}
+  .block .lab{font-weight:700;text-transform:uppercase;letter-spacing:.1em;font-size:.7rem;margin-bottom:6px}
+  .insight .lab{color:var(--sage-deep)}
+  .exercise{background:rgba(240,169,79,.1);border-left:3px solid var(--amber);border-radius:0 10px 10px 0;padding:14px 16px}
+  .exercise .lab{color:var(--ember-deep)}
+  .reflect{margin-top:18px}
+  .reflect .lab{font-weight:700;font-size:.78rem;color:var(--ink-soft);margin-bottom:8px}
+  .reflect-input{display:block;width:100%;min-height:132px;font-family:'Mulish',sans-serif;font-size:1rem;color:var(--ink);
+    line-height:32px;padding:5px 14px 8px;border:1px solid var(--line);border-radius:10px;resize:vertical;
+    background-color:var(--paper);
+    background-image:repeating-linear-gradient(transparent,transparent 31px,var(--line) 31px,var(--line) 32px);
+    background-attachment:local;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .reflect-input:focus{outline:none;border-color:var(--ember);box-shadow:0 0 0 3px rgba(231,112,47,.12)}
+  .reflect-input::placeholder{color:var(--ink-soft);opacity:.7}
+  .closing{text-align:center;background:var(--brown);color:#fdf7ec;border-radius:20px;padding:38px 30px;margin:30px 0}
+  .closing h2{color:#fdf7ec;font-size:1.6rem;margin-bottom:10px}
+  .closing p{color:#e7d8c2;max-width:30em;margin:0 auto}
+  .saved{text-align:center;font-size:.8rem;color:var(--sage-deep);margin:-6px 0 22px;min-height:1em}
+  .actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin:8px 0 40px}
+  .btn{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:.95rem;padding:13px 24px;border-radius:100px;cursor:pointer;border:0}
+  .btn-primary{background:var(--ember-deep);color:#fff}
+  .btn-ghost{background:transparent;border:1.5px solid var(--line);color:var(--charcoal)}
+  .disclaimer{background:var(--cream-2);border-top:1px solid var(--line);padding:26px 0;color:var(--ink-soft);font-size:.88rem;text-align:center;font-style:italic}
+  footer{background:var(--charcoal);color:rgba(255,255,255,.6);padding:30px 0;font-size:.86rem;text-align:center}
+  @media print{nav,.actions,.back,.saved{display:none}body{background:#fff}.prompt{break-inside:avoid;box-shadow:none}.reflect-input{border-color:#ccc}header,.closing,.exercise,.reflect-input{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+  @media(max-width:560px){header{padding:42px 0 36px}.prompt{padding:22px 20px}}
+</style>
+</head>
+<body>
+<nav><div class="nav-inner">
+  <a href="../../resource-library.html" class="brand"><svg class="flame" viewBox="0 0 24 24"><path d="M12 2c1.5 3.5-1 5-1 7.5 0 1.5 1 2.5 2 2.5s2-1 1.8-3c2 1.2 3.2 3.4 3.2 6 0 3.6-3 6.5-6 6.5S6 18.6 6 15c0-4 3-6.5 6-13z" fill="#e7702f"/></svg>Campfire Calm</a>
+  <a href="../../resource-library.html" class="back">← Library</a>
+</div></nav>
+<header><div class="wrap">
+  <div class="eyebrow">Guided Reflection Workbook</div>
+  <h1>Emotional Dependency</h1>
+  <p>A guided self-reflection worksheet designed to help you explore your inner landscape through thoughtful prompts and exercises.</p>
+  <div class="meta"><div><b>20</b>Prompts</div><div><b>20</b>Insights</div><div><b>20</b>Exercises</div></div>
+</div></header>
+<main><div class="wrap">
+  <div class="prompt">
+    <div class="pnum">Prompt 01</div>
+    <h2>How do I recognize when my emotional needs are becoming overly dependent on a specific person?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Notice if your mood heavily shifts based on their availability or reactions. When your sense of worth or happiness consistently hinges on their presence or approval, you’re likely leaning into emotional dependency. Awareness is the first step to reclaiming your emotional balance.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Write down moments this week when your mood changed significantly after interacting with someone important to you. Identify patterns and feelings linked to their responses or absence.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 02</div>
+    <h2>What practical steps can I take to build emotional resilience instead of relying on others for comfort?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Start by developing small routines that soothe you independently—like deep breathing, journaling, or mindful walks. Over time, these self-soothing habits create a stronger internal support system, reducing the urge to seek constant reassurance from others.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Create a daily “self-care check-in” list featuring three calming activities you can do alone. Track how your emotional state changes after these practices.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 03</div>
+    <h2>How can I set healthy boundaries without feeling guilty or fearing abandonment?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Understand that boundaries protect your well-being and foster mutual respect. Practice small boundary-setting moments with kindness and clarity. Remind yourself that needing space or saying no doesn’t diminish your relationships; it actually strengthens them by promoting honesty.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Identify one area where you struggle to say no. Role-play a respectful boundary statement in writing, then reflect on how it feels to prioritize your needs.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 04</div>
+    <h2>Why do I sometimes feel like I “need” someone else’s validation to feel okay?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>This often stems from early experiences where your worth was tied to approval. Recognize this pattern as learned, not fixed. Challenge the belief by asking, “What evidence do I have that I’m valuable without their validation?” and practice affirming your intrinsic worth.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Write a list of qualities or achievements that make you proud, independent of others’ opinions. Read it aloud when you feel unworthy.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 05</div>
+    <h2>How can I distinguish between healthy emotional support and unhealthy emotional dependency?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Healthy support involves mutual give-and-take and doesn’t cause you to lose your sense of self. Dependency feels like an emotional void filled only when another person is present. Reflect on whether you feel empowered or drained after interactions to gauge the balance.</div>
+    <div class="block exercise"><div class="lab">Try this</div>After your next meaningful conversation, journal how you feel: energized and understood, or anxious and empty. Note what this reveals about your emotional reliance.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 06</div>
+    <h2>What role does self-talk play in reducing emotional dependency?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Self-talk shapes your internal narrative. Shift from “I can’t handle this alone” to “I have survived challenges before and can find support within myself.” This rewiring helps build confidence and decreases the impulse to seek constant external comfort.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Catch yourself in moments of doubt and write down a compassionate, empowering statement to replace negative self-talk.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 07</div>
+    <h2>How can I practice emotional autonomy while still maintaining close relationships?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Emotional autonomy means feeling secure in yourself without isolating others. Practice expressing your feelings honestly without expecting others to fix them. Share your needs clearly but also cultivate hobbies and friendships that sustain your sense of self.</div>
+    <div class="block exercise"><div class="lab">Try this</div>List three interests or activities you enjoy independently. Schedule time this week to engage in each, noticing how this supports your emotional balance.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 08</div>
+    <h2>Why do I sometimes cling more tightly to others during stressful times, and how can I change that?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Stress triggers a survival instinct to seek safety in others, but over-clinging can backfire by overwhelming relationships. Instead, develop small stress-management habits (breathing, grounding) to calm yourself first, then reach out with balanced needs.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Identify a recent stressful event and note your emotional responses. Plan a calming strategy you can use before seeking support next time.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 09</div>
+    <h2>How do past attachment experiences influence my current emotional dependency patterns?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Early attachments teach us how to seek comfort and trust. If past bonds were inconsistent or neglectful, you might now over-rely on others to fill emotional gaps. Recognizing this allows you to consciously choose healthier ways to connect and self-soothe.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Reflect on your childhood relationships. Write how they may influence your current emotional needs and what you can do differently now.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 10</div>
+    <h2>How can I avoid losing my identity in emotionally dependent relationships?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Maintain your interests, opinions, and boundaries even when close to someone else. Regularly check in with yourself: “Am I expressing my true feelings or adapting to please?” Cultivating self-awareness protects your individuality and strengthens your connection.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Choose a recent conversation where you felt you compromised your true feelings. Reflect on what you would like to express differently next time.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 11</div>
+    <h2>What are some signs that emotional dependency is negatively impacting my mental health?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Look for patterns like persistent anxiety when apart from someone, neglecting self-care, or sacrificing your goals to maintain a relationship. These signs mean your emotional needs aren’t balanced and professional support might help you reestablish healthy patterns.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Track your emotional state over a week, noting any distress linked to reliance on others. Consider reaching out to a therapist if these feelings feel overwhelming.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 12</div>
+    <h2>How can journaling help me manage emotional dependency?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Journaling provides a private space to explore your feelings and triggers without judgment. Writing helps separate your emotions from others’ influence, build self-understanding, and develop strategies for self-support.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Each evening, write about a moment you felt emotionally dependent. Explore what you needed and how you might meet that need independently.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 13</div>
+    <h2>When I feel abandoned, why do I sometimes react with anger or blame, and how can I respond differently?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Anger often masks deeper fears of rejection and vulnerability. Instead of reacting impulsively, pause and acknowledge your hurt. Naming your feelings helps you communicate your needs more clearly and reduces conflict.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Next time you feel abandoned, write down your immediate emotional reaction, then reframe it by naming the underlying fear or sadness.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 14</div>
+    <h2>How do I rebuild trust in myself when I’ve depended too heavily on others for emotional validation?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Start small by making promises to yourself and following through—like setting daily goals or self-care routines. Each success, no matter how small, reinforces your reliability and shifts your trust inward.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Choose one small commitment today (e.g., drink water, take a walk). After completing it, reflect on how keeping this promise affects your self-trust.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 15</div>
+    <h2>What strategies help me consciously shift from seeking emotional dependency to cultivating emotional interdependence?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Emotional interdependence balances self-sufficiency with connection. Practice sharing feelings without expecting others to fix them, and offer support without losing your autonomy. Mutual respect for boundaries fosters this healthy exchange.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Reflect on a relationship where support feels balanced. List behaviors that encourage this balance and consider how to apply them elsewhere.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 16</div>
+    <h2>How can mindfulness practices reduce impulsive emotional dependency behaviors?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Mindfulness trains you to observe urges without immediate reaction. When you notice the impulse to seek reassurance, pause, breathe, and assess if the need is urgent or habitual. This space creates choice and reduces reactive dependency.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Practice a 5-minute mindful breathing exercise daily. When strong emotions arise, use this pause to check in before acting.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 17</div>
+    <h2>How can I communicate my emotional needs clearly without becoming overly reliant on others?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Use “I” statements to express feelings and needs without blaming or demanding. This invites connection while keeping responsibility for your emotions with you. For example, “I feel lonely and would appreciate some time together” is clearer and healthier than “You never spend time with me.”</div>
+    <div class="block exercise"><div class="lab">Try this</div>Write three “I” statements about your emotions and practice saying them aloud with calm confidence.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 18</div>
+    <h2>How do I differentiate between emotional dependency and genuine emotional intimacy?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Intimacy involves sharing feelings openly while maintaining personal boundaries and self-awareness. Dependency feels like losing yourself in another’s emotions or needing constant approval. Healthy intimacy feels freeing, not confining.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Reflect on a close relationship. Write how you experience both connection and autonomy, noting any moments where boundaries blurred.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 19</div>
+    <h2>What role does self-compassion play in overcoming emotional dependency?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Self-compassion gently acknowledges your struggles without self-judgment, reducing shame that feeds dependency. Treat yourself as you would a close friend, offering kindness and patience during emotional challenges.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Write a compassionate letter to yourself addressing your feelings of dependency. Include affirmations of your worth and resilience.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 20</div>
+    <h2>How can I slowly practice emotional independence without fearing loneliness?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Start with short periods of solitude focused on enjoyable activities. Recognize that solitude can be enriching, not threatening. Gradually increase this time to build comfort with your own company, which strengthens emotional independence.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Schedule 15 minutes today for a solo activity you enjoy. Afterward, journal how being alone felt and what you discovered about yourself.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="saved" id="savedNote"></div>
+  <div class="closing">
+    <h2>Your journey continues</h2>
+    <p>Reflection isn't a one-time exercise. Return to these prompts whenever you need a steady place to think.</p>
+  </div>
+  <div class="actions">
+    <button class="btn btn-primary" onclick="window.print()">Download / Print PDF</button>
+    <a href="../../resource-library.html" class="btn btn-ghost">← Back to library</a>
+  </div>
+</div></main>
+<div class="disclaimer"><div class="wrap">This workbook is for education and self-reflection. It is not a diagnosis or a substitute for therapy. If you are in crisis, call or text 988.</div></div>
+<footer><div class="wrap">© <span id="yr"></span> Campfire Calm™ · Jason M. Leclair, LPC</div></footer>
+<script>
+  document.getElementById('yr').textContent=new Date().getFullYear();
+  (function(){
+    var key="cc-reflect:emotional-dependency:";
+    var areas=document.querySelectorAll('.reflect-input');
+    var note=document.getElementById('savedNote');
+    function save(i,v){try{localStorage.setItem(key+i,v);note.textContent='Saved on this device';clearTimeout(window._t);window._t=setTimeout(function(){note.textContent='';},1500);}catch(e){}}
+    areas.forEach(function(a,i){
+      try{var v=localStorage.getItem(key+i);if(v)a.value=v;}catch(e){}
+      a.addEventListener('input',function(){save(i,a.value);});
+    });
+  })();
+</script>
+</body>
+</html>

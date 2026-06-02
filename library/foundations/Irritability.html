@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light">
+<title>Irritability — Campfire Calm</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Mulish:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{color-scheme:light;--cream:#f9f2e7;--cream-2:#fef9ef;--paper:#fffdf8;--charcoal:#2a201a;--ember:#e7702f;--ember-deep:#cf551a;--amber:#f0a94f;--sage-deep:#4f7a5d;--ink:#352b23;--ink-soft:#6a5c4e;--line:rgba(60,50,42,.13);--brown:#2e2117;--shadow-sm:0 8px 24px -14px rgba(60,40,25,.3);--r:16px}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Mulish',sans-serif;color:var(--ink);background:linear-gradient(180deg,var(--cream),#fcefdf);line-height:1.7;-webkit-font-smoothing:antialiased}
+  h1,h2,h3{font-family:'Fraunces',serif;font-weight:500;color:var(--charcoal);letter-spacing:-.01em;line-height:1.15}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:760px;margin:0 auto;padding:0 24px}
+  nav{position:sticky;top:0;z-index:50;background:rgba(249,242,231,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px;max-width:760px;margin:0 auto;padding:0 24px}
+  .brand{display:flex;align-items:center;gap:9px;font-family:'Fraunces',serif;font-size:1.18rem;font-weight:600}
+  .flame{width:22px;height:22px}
+  .back{font-weight:700;font-size:.88rem;color:var(--ember-deep)}
+  header{background:var(--brown);color:#fdf7ec;padding:54px 0 48px;position:relative;overflow:hidden}
+  header::after{content:"";position:absolute;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,rgba(240,169,79,.32),transparent 65%);top:-130px;right:-90px}
+  .eyebrow{font-weight:700;text-transform:uppercase;letter-spacing:.18em;font-size:.7rem;color:var(--amber);margin-bottom:12px;position:relative}
+  header h1{color:#fdf7ec;font-size:clamp(2rem,6vw,3rem);margin-bottom:14px;position:relative}
+  header p{color:#e7d8c2;font-size:1.06rem;position:relative;max-width:34em}
+  .meta{display:flex;gap:22px;margin-top:22px;position:relative}
+  .meta div{font-size:.82rem;color:#cbb89f}
+  .meta b{display:block;font-family:'Fraunces',serif;font-size:1.5rem;color:var(--amber);font-weight:600}
+  main{padding:46px 0 20px}
+  .prompt{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:28px 26px;margin-bottom:22px;box-shadow:var(--shadow-sm)}
+  .pnum{font-family:'Fraunces',serif;font-size:.9rem;font-weight:600;color:var(--ember-deep);margin-bottom:8px}
+  .prompt h2{font-size:1.28rem;margin-bottom:18px}
+  .block{margin-bottom:16px}
+  .block .lab{font-weight:700;text-transform:uppercase;letter-spacing:.1em;font-size:.7rem;margin-bottom:6px}
+  .insight .lab{color:var(--sage-deep)}
+  .exercise{background:rgba(240,169,79,.1);border-left:3px solid var(--amber);border-radius:0 10px 10px 0;padding:14px 16px}
+  .exercise .lab{color:var(--ember-deep)}
+  .reflect{margin-top:18px}
+  .reflect .lab{font-weight:700;font-size:.78rem;color:var(--ink-soft);margin-bottom:8px}
+  .reflect-input{display:block;width:100%;min-height:132px;font-family:'Mulish',sans-serif;font-size:1rem;color:var(--ink);
+    line-height:32px;padding:5px 14px 8px;border:1px solid var(--line);border-radius:10px;resize:vertical;
+    background-color:var(--paper);
+    background-image:repeating-linear-gradient(transparent,transparent 31px,var(--line) 31px,var(--line) 32px);
+    background-attachment:local;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .reflect-input:focus{outline:none;border-color:var(--ember);box-shadow:0 0 0 3px rgba(231,112,47,.12)}
+  .reflect-input::placeholder{color:var(--ink-soft);opacity:.7}
+  .closing{text-align:center;background:var(--brown);color:#fdf7ec;border-radius:20px;padding:38px 30px;margin:30px 0}
+  .closing h2{color:#fdf7ec;font-size:1.6rem;margin-bottom:10px}
+  .closing p{color:#e7d8c2;max-width:30em;margin:0 auto}
+  .saved{text-align:center;font-size:.8rem;color:var(--sage-deep);margin:-6px 0 22px;min-height:1em}
+  .actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin:8px 0 40px}
+  .btn{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:.95rem;padding:13px 24px;border-radius:100px;cursor:pointer;border:0}
+  .btn-primary{background:var(--ember-deep);color:#fff}
+  .btn-ghost{background:transparent;border:1.5px solid var(--line);color:var(--charcoal)}
+  .disclaimer{background:var(--cream-2);border-top:1px solid var(--line);padding:26px 0;color:var(--ink-soft);font-size:.88rem;text-align:center;font-style:italic}
+  footer{background:var(--charcoal);color:rgba(255,255,255,.6);padding:30px 0;font-size:.86rem;text-align:center}
+  @media print{nav,.actions,.back,.saved{display:none}body{background:#fff}.prompt{break-inside:avoid;box-shadow:none}.reflect-input{border-color:#ccc}header,.closing,.exercise,.reflect-input{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+  @media(max-width:560px){header{padding:42px 0 36px}.prompt{padding:22px 20px}}
+</style>
+</head>
+<body>
+<nav><div class="nav-inner">
+  <a href="../../resource-library.html" class="brand"><svg class="flame" viewBox="0 0 24 24"><path d="M12 2c1.5 3.5-1 5-1 7.5 0 1.5 1 2.5 2 2.5s2-1 1.8-3c2 1.2 3.2 3.4 3.2 6 0 3.6-3 6.5-6 6.5S6 18.6 6 15c0-4 3-6.5 6-13z" fill="#e7702f"/></svg>Campfire Calm</a>
+  <a href="../../resource-library.html" class="back">← Library</a>
+</div></nav>
+<header><div class="wrap">
+  <div class="eyebrow">Guided Reflection Workbook</div>
+  <h1>Irritability</h1>
+  <p>A guided self-reflection worksheet designed to help you explore your inner landscape through thoughtful prompts and exercises.</p>
+  <div class="meta"><div><b>20</b>Prompts</div><div><b>20</b>Insights</div><div><b>20</b>Exercises</div></div>
+</div></header>
+<main><div class="wrap">
+  <div class="prompt">
+    <div class="pnum">Prompt 01</div>
+    <h2>What specific situations or triggers tend to spark your irritability most often?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Identifying your irritability triggers helps you gain control over your reactions. Notice patterns—are certain people, environments, or times of day involved? This awareness allows you to prepare or adjust your responses before irritability takes hold.</div>
+    <div class="block exercise"><div class="lab">Try this</div>For one week, jot down moments you feel irritable, noting the time, place, people involved, and what was happening right before. Review to identify common triggers.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 02</div>
+    <h2>How do you typically express your irritability, and what impact does this have on your relationships?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Recognizing how irritability shows—whether through tone, words, or withdrawal—helps you understand its ripple effects. Often, irritability can unintentionally push others away or create conflict, worsening your mood. Conscious changes in expression can improve connection and reduce stress.</div>
+    <div class="block exercise"><div class="lab">Try this</div>After an irritable episode, write down exactly what you said or did and how others responded. Then, imagine a calmer alternative response and how that might change the interaction.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 03</div>
+    <h2>When you feel irritable, what thoughts run through your mind, and how do they shape your feelings?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Irritability often stems from negative or rigid thinking—like “This is unfair” or “I can’t handle this.” These thoughts fuel emotional reactions. Challenging and reframing them can reduce irritability by shifting your perspective toward problem-solving or acceptance.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Next time you’re irritable, pause and write down your immediate thoughts. Ask yourself: “Is this thought 100% true? What’s another way to view this situation?” Practice reframing.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 04</div>
+    <h2>How does your body physically react when you start to feel irritable?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Physical signs—such as muscle tension, increased heart rate, or shallow breathing—often precede emotional irritability. Recognizing these cues early lets you intervene with calming strategies before irritability escalates.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Spend five minutes focusing on your body throughout the day. When you notice tension or discomfort, stop and take three deep, slow breaths, observing how your body and mood change.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 05</div>
+    <h2>In what ways might unmet needs be contributing to your irritability?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Irritability can be a signal that basic needs—like rest, connection, or autonomy—aren’t being met. Instead of pushing through, acknowledging and addressing these needs can reduce frustration and improve your emotional balance.</div>
+    <div class="block exercise"><div class="lab">Try this</div>List your current unmet needs. Choose one to prioritize this week, and plan one small action to meet it. Reflect later on how this affects your irritability.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 06</div>
+    <h2>How do your expectations of yourself or others influence your feelings of irritability?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>High or rigid expectations often set us up for disappointment and irritability. When reality doesn’t match our ideal, frustration grows. Adjusting expectations to be more flexible and compassionate can ease emotional tension.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Identify one recent situation where your expectations led to irritability. Ask yourself: “Was my expectation realistic? How might I adjust it to be more forgiving?” Write a kinder, balanced expectation.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 07</div>
+    <h2>What role does fatigue or sleep quality play in your experience of irritability?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Poor sleep depletes emotional resilience and increases irritability. When tired, your brain’s ability to regulate emotions weakens, making small annoyances feel overwhelming. Prioritizing rest can dramatically improve mood stability.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Track your sleep and irritability levels daily for a week. Note correlations and create a bedtime routine aimed at improving sleep quality.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 08</div>
+    <h2>How effective are your current coping strategies when you feel irritable?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Some coping methods may inadvertently reinforce irritability (e.g., venting without problem-solving). Reflecting on their effectiveness and experimenting with healthier techniques like mindfulness or problem-focused action can reduce irritability’s hold.</div>
+    <div class="block exercise"><div class="lab">Try this</div>List your go-to coping strategies for irritability. Rate each for how well it calms you or solves the issue. Choose one less effective method to replace with a new, healthier one this week.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 09</div>
+    <h2>How do you perceive control in situations that trigger your irritability?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Feeling powerless can amplify irritability. Sometimes, focusing on what you can control—even small choices or attitudes—can restore calm. Accepting what’s outside your control reduces frustration and helps you respond more adaptively.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Identify a recent irritability-triggering event. List what aspects you controlled and what you didn’t. Practice letting go of the uncontrollable parts and focusing your energy on your responses.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 10</div>
+    <h2>How might your past experiences or learned behaviors influence your current irritability patterns?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Early life experiences shape how we react emotionally. If irritability was a common response in your family or environment, it can become a default pattern. Understanding this origin provides insight and motivation for change.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Reflect on your family or cultural background regarding emotional expression. Write about how this might have shaped your irritability. Consider one new behavior to practice that feels healthier.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 11</div>
+    <h2>What role does your self-talk play in escalating or soothing your irritability?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>The way you talk to yourself during irritation can either fuel the fire or cool it down. Harsh, judgmental self-talk increases stress, while compassionate, problem-solving self-talk helps you regain control and calm.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Next time you feel irritable, note your inner dialogue. Replace critical statements with gentle, encouraging ones. For instance, “This is tough, but I can handle it.”</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 12</div>
+    <h2>How does your environment affect your irritability levels?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Cluttered, noisy, or chaotic environments can heighten irritability by overstimulating your senses and reducing your ability to focus. Creating calming, orderly spaces can help soothe your nervous system and lower irritability.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Choose one space you spend time in and make a small change to reduce clutter or noise. Observe if this shift impacts your mood over the next few days.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 13</div>
+    <h2>When irritable, how do you balance expressing your feelings honestly and maintaining constructive communication?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Expressing irritability constructively means owning your feelings without blaming others. Using “I” statements and focusing on solutions fosters understanding rather than conflict, preserving relationships and reducing tension.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Role-play or write out how you would express irritation about a real situation using “I feel… when… because…” language, ending with a request or solution.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 14</div>
+    <h2>How does practicing mindfulness influence your ability to manage irritability?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Mindfulness helps by anchoring you in the present moment, reducing automatic, reactive responses. It cultivates awareness of your emotional state and fosters choice in how you respond rather than reacting impulsively.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Practice a 3-minute mindfulness breathing exercise daily. When irritability arises, use this tool to pause, observe your feelings, and choose a calm response.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 15</div>
+    <h2>How do your beliefs about vulnerability and emotional expression affect your willingness to acknowledge irritability?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>If you view showing irritability as weakness, you might suppress it, which often intensifies internal tension. Embracing vulnerability as a form of strength allows you to process emotions openly and seek support when needed.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Journal about your beliefs around expressing irritability. Write a compassionate letter to yourself endorsing the value of acknowledging emotions honestly.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 16</div>
+    <h2>What small, immediate actions can you take when you recognize the first signs of irritability?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Early intervention prevents escalation. Simple actions like stepping away briefly, taking deep breaths, or engaging in a grounding activity can interrupt the irritability cycle and create space for calmer choices.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Develop a personal “irritability pause” plan listing 3 quick actions you can take when you notice early signs. Practice using this plan when irritability arises.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 17</div>
+    <h2>How do external stressors compound your irritability and what strategies help you manage this buildup?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Stress acts like fuel for irritability, making you more sensitive to minor annoyances. Building resilience through stress management—such as exercise, social support, or time management—reduces this buildup and improves emotional regulation.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Identify your top three external stressors. For each, brainstorm one practical way to reduce or manage it. Implement one this week and note changes in irritability.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 18</div>
+    <h2>How does your sense of self-compassion influence your reaction to feeling irritable?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>When irritated, harsh self-judgment adds emotional weight, intensifying your mood. Practicing self-compassion softens this inner critique, allowing you to accept your feelings without shame and move forward more peacefully.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Write down your inner critical thoughts during irritability. Then, rewrite them as if speaking kindly to a close friend. Repeat these compassionate phrases when you feel irritable next.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 19</div>
+    <h2>How might setting clearer boundaries reduce the frequency or intensity of your irritability?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Overextending yourself or tolerating disrespect can drain emotional reserves and spark irritability. Defining and communicating boundaries protects your well-being and reduces frustration from unmet needs or overload.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Identify one boundary you find difficult to enforce. Plan a respectful way to communicate it this week. Reflect on how this affects your irritability afterward.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 20</div>
+    <h2>What long-term lifestyle changes could help you cultivate greater emotional stability and reduce irritability?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Consistent habits like regular exercise, balanced nutrition, adequate sleep, and meaningful social connections build emotional resilience over time. These foundations support better mood regulation and reduce irritability’s frequency and intensity.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Choose one lifestyle area (sleep, diet, exercise, relationships) to improve gradually over the next month. Set a specific, achievable goal and track how it influences your irritability levels.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="saved" id="savedNote"></div>
+  <div class="closing">
+    <h2>Your journey continues</h2>
+    <p>Reflection isn't a one-time exercise. Return to these prompts whenever you need a steady place to think.</p>
+  </div>
+  <div class="actions">
+    <button class="btn btn-primary" onclick="window.print()">Download / Print PDF</button>
+    <a href="../../resource-library.html" class="btn btn-ghost">← Back to library</a>
+  </div>
+</div></main>
+<div class="disclaimer"><div class="wrap">This workbook is for education and self-reflection. It is not a diagnosis or a substitute for therapy. If you are in crisis, call or text 988.</div></div>
+<footer><div class="wrap">© <span id="yr"></span> Campfire Calm™ · Jason M. Leclair, LPC</div></footer>
+<script>
+  document.getElementById('yr').textContent=new Date().getFullYear();
+  (function(){
+    var key="cc-reflect:irritability:";
+    var areas=document.querySelectorAll('.reflect-input');
+    var note=document.getElementById('savedNote');
+    function save(i,v){try{localStorage.setItem(key+i,v);note.textContent='Saved on this device';clearTimeout(window._t);window._t=setTimeout(function(){note.textContent='';},1500);}catch(e){}}
+    areas.forEach(function(a,i){
+      try{var v=localStorage.getItem(key+i);if(v)a.value=v;}catch(e){}
+      a.addEventListener('input',function(){save(i,a.value);});
+    });
+  })();
+</script>
+</body>
+</html>

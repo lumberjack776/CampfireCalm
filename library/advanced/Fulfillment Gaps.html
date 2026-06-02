@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light">
+<title>Fulfillment Gaps — Campfire Calm</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Mulish:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{color-scheme:light;--cream:#f9f2e7;--cream-2:#fef9ef;--paper:#fffdf8;--charcoal:#2a201a;--ember:#e7702f;--ember-deep:#cf551a;--amber:#f0a94f;--sage-deep:#4f7a5d;--ink:#352b23;--ink-soft:#6a5c4e;--line:rgba(60,50,42,.13);--brown:#2e2117;--shadow-sm:0 8px 24px -14px rgba(60,40,25,.3);--r:16px}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Mulish',sans-serif;color:var(--ink);background:linear-gradient(180deg,var(--cream),#fcefdf);line-height:1.7;-webkit-font-smoothing:antialiased}
+  h1,h2,h3{font-family:'Fraunces',serif;font-weight:500;color:var(--charcoal);letter-spacing:-.01em;line-height:1.15}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:760px;margin:0 auto;padding:0 24px}
+  nav{position:sticky;top:0;z-index:50;background:rgba(249,242,231,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px;max-width:760px;margin:0 auto;padding:0 24px}
+  .brand{display:flex;align-items:center;gap:9px;font-family:'Fraunces',serif;font-size:1.18rem;font-weight:600}
+  .flame{width:22px;height:22px}
+  .back{font-weight:700;font-size:.88rem;color:var(--ember-deep)}
+  header{background:var(--brown);color:#fdf7ec;padding:54px 0 48px;position:relative;overflow:hidden}
+  header::after{content:"";position:absolute;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,rgba(240,169,79,.32),transparent 65%);top:-130px;right:-90px}
+  .eyebrow{font-weight:700;text-transform:uppercase;letter-spacing:.18em;font-size:.7rem;color:var(--amber);margin-bottom:12px;position:relative}
+  header h1{color:#fdf7ec;font-size:clamp(2rem,6vw,3rem);margin-bottom:14px;position:relative}
+  header p{color:#e7d8c2;font-size:1.06rem;position:relative;max-width:34em}
+  .meta{display:flex;gap:22px;margin-top:22px;position:relative}
+  .meta div{font-size:.82rem;color:#cbb89f}
+  .meta b{display:block;font-family:'Fraunces',serif;font-size:1.5rem;color:var(--amber);font-weight:600}
+  main{padding:46px 0 20px}
+  .prompt{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:28px 26px;margin-bottom:22px;box-shadow:var(--shadow-sm)}
+  .pnum{font-family:'Fraunces',serif;font-size:.9rem;font-weight:600;color:var(--ember-deep);margin-bottom:8px}
+  .prompt h2{font-size:1.28rem;margin-bottom:18px}
+  .block{margin-bottom:16px}
+  .block .lab{font-weight:700;text-transform:uppercase;letter-spacing:.1em;font-size:.7rem;margin-bottom:6px}
+  .insight .lab{color:var(--sage-deep)}
+  .exercise{background:rgba(240,169,79,.1);border-left:3px solid var(--amber);border-radius:0 10px 10px 0;padding:14px 16px}
+  .exercise .lab{color:var(--ember-deep)}
+  .reflect{margin-top:18px}
+  .reflect .lab{font-weight:700;font-size:.78rem;color:var(--ink-soft);margin-bottom:8px}
+  .reflect-input{display:block;width:100%;min-height:132px;font-family:'Mulish',sans-serif;font-size:1rem;color:var(--ink);
+    line-height:32px;padding:5px 14px 8px;border:1px solid var(--line);border-radius:10px;resize:vertical;
+    background-color:var(--paper);
+    background-image:repeating-linear-gradient(transparent,transparent 31px,var(--line) 31px,var(--line) 32px);
+    background-attachment:local;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .reflect-input:focus{outline:none;border-color:var(--ember);box-shadow:0 0 0 3px rgba(231,112,47,.12)}
+  .reflect-input::placeholder{color:var(--ink-soft);opacity:.7}
+  .closing{text-align:center;background:var(--brown);color:#fdf7ec;border-radius:20px;padding:38px 30px;margin:30px 0}
+  .closing h2{color:#fdf7ec;font-size:1.6rem;margin-bottom:10px}
+  .closing p{color:#e7d8c2;max-width:30em;margin:0 auto}
+  .saved{text-align:center;font-size:.8rem;color:var(--sage-deep);margin:-6px 0 22px;min-height:1em}
+  .actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin:8px 0 40px}
+  .btn{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:.95rem;padding:13px 24px;border-radius:100px;cursor:pointer;border:0}
+  .btn-primary{background:var(--ember-deep);color:#fff}
+  .btn-ghost{background:transparent;border:1.5px solid var(--line);color:var(--charcoal)}
+  .disclaimer{background:var(--cream-2);border-top:1px solid var(--line);padding:26px 0;color:var(--ink-soft);font-size:.88rem;text-align:center;font-style:italic}
+  footer{background:var(--charcoal);color:rgba(255,255,255,.6);padding:30px 0;font-size:.86rem;text-align:center}
+  @media print{nav,.actions,.back,.saved{display:none}body{background:#fff}.prompt{break-inside:avoid;box-shadow:none}.reflect-input{border-color:#ccc}header,.closing,.exercise,.reflect-input{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+  @media(max-width:560px){header{padding:42px 0 36px}.prompt{padding:22px 20px}}
+</style>
+</head>
+<body>
+<nav><div class="nav-inner">
+  <a href="../../resource-library.html" class="brand"><svg class="flame" viewBox="0 0 24 24"><path d="M12 2c1.5 3.5-1 5-1 7.5 0 1.5 1 2.5 2 2.5s2-1 1.8-3c2 1.2 3.2 3.4 3.2 6 0 3.6-3 6.5-6 6.5S6 18.6 6 15c0-4 3-6.5 6-13z" fill="#e7702f"/></svg>Campfire Calm</a>
+  <a href="../../resource-library.html" class="back">← Library</a>
+</div></nav>
+<header><div class="wrap">
+  <div class="eyebrow">Guided Reflection Workbook</div>
+  <h1>Fulfillment Gaps</h1>
+  <p>A guided self-reflection worksheet designed to help you explore your inner landscape through thoughtful prompts and exercises.</p>
+  <div class="meta"><div><b>20</b>Prompts</div><div><b>20</b>Insights</div><div><b>20</b>Exercises</div></div>
+</div></header>
+<main><div class="wrap">
+  <div class="prompt">
+    <div class="pnum">Prompt 01</div>
+    <h2>What specific moments in your day leave you feeling empty or disconnected, despite being busy or productive?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>These moments often reveal a misalignment between your actions and your core values or needs. Instead of pushing through, pause to identify what’s missing—whether it’s meaningful connection, creativity, or rest. Recognizing these gaps helps you prioritize what truly enriches your life.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Keep a journal for 3 days, noting every time you feel a subtle sense of emptiness. Write down what you were doing, who you were with, and what you wished was different in that moment.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 02</div>
+    <h2>How do you differentiate between temporary dissatisfaction and a deeper sense of unfulfillment in your life?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Temporary dissatisfaction often resolves with small changes or rest, while unfulfillment persists despite those fixes. It’s important to explore whether your current goals and routines genuinely reflect your authentic desires or if they’re driven by external expectations.</div>
+    <div class="block exercise"><div class="lab">Try this</div>List your current goals and routines, then ask yourself which you pursue out of obligation versus genuine passion. Reflect on any patterns of disconnect or resentment.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 03</div>
+    <h2>When was the last time you felt truly fulfilled, and what were you doing differently then compared to now?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Revisiting your last experience of true fulfillment can reveal which elements are missing now—be it the people involved, the type of activity, or your mindset. This awareness guides you to recreate or adapt those elements in your current life.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Write a detailed narrative of your last deeply fulfilling experience and highlight the key factors that contributed to it.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 04</div>
+    <h2>How does your inner critic contribute to the gap between your achievements and your sense of fulfillment?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>The inner critic often minimizes accomplishments and sets unrealistic standards, making it hard to feel satisfied. Learning to recognize and challenge these harsh self-judgments can open space for genuine appreciation and contentment.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Identify a recent achievement you dismissed or downplayed. Write down your inner critic’s words, then write a compassionate, balanced response to counter those criticisms.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 05</div>
+    <h2>In what ways might your pursuit of external validation be creating a fulfillment gap?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Relying on others’ approval can disconnect you from your own values and desires, leaving you feeling hollow despite positive feedback. Shifting focus inward helps build a more stable sense of fulfillment rooted in self-worth.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Reflect on the last three times you sought validation. Ask yourself what you were hoping to feel and how you might meet those needs internally instead.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 06</div>
+    <h2>How do your daily habits support or undermine your deeper need for fulfillment?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Habits that prioritize distraction or avoidance can widen the gap, while habits aligned with your values foster fulfillment. Assessing and adjusting habits consciously can create a lifestyle that nurtures your true self.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Track your daily habits for a week, categorizing each as either fulfilling or draining. Identify one habit to reduce and one to cultivate that aligns with your core values.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 07</div>
+    <h2>What role does fear of failure or fear of success play in maintaining your fulfillment gap?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Fear can trap you in comfort zones, preventing meaningful growth or authentic expression. Understanding how fear operates in your decisions allows you to take small steps beyond it, gradually closing the gap.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Write about a goal you’ve avoided due to fear. Break it down into the smallest possible action and commit to taking that step this week.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 08</div>
+    <h2>How might unresolved past experiences be influencing your current sense of unfulfillment?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Unprocessed emotions or limiting beliefs from the past can create invisible barriers, keeping you stuck in dissatisfaction. Gently exploring and reframing these experiences can free you to pursue fulfillment more fully.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Identify a past event that still feels unresolved. Write a letter to your past self expressing understanding and compassion, then outline one way to move forward.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 09</div>
+    <h2>When you imagine your ideal life, what feelings arise, and how do they differ from your current emotional state?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>The emotional contrast between your ideal and current life points to what’s truly missing—not just external changes but emotional needs such as joy, peace, or connection. Focusing on these feelings guides meaningful action beyond surface-level goals.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Visualize your ideal day and write down the emotions you experience. Compare these with your usual feelings and identify one emotional need to prioritize.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 10</div>
+    <h2>How does your sense of meaning or purpose relate to your experience of fulfillment, and where might there be a disconnect?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Fulfillment often depends on feeling that your actions contribute to something meaningful. A disconnect arises when daily tasks feel pointless or misaligned. Clarifying your purpose helps integrate small actions into a bigger, satisfying picture.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Write a personal mission statement that reflects what matters most to you. Review your daily activities and note where they align or clash with this mission.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 11</div>
+    <h2>What impact does your social environment have on your fulfillment gap?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Relationships can either nourish or drain your sense of meaning and satisfaction. Surrounding yourself with people who support your authentic self and encourage growth can close fulfillment gaps significantly.</div>
+    <div class="block exercise"><div class="lab">Try this</div>List your closest relationships and assess how each one affects your sense of fulfillment. Identify one relationship that could benefit from clearer boundaries or deeper connection.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 12</div>
+    <h2>How do your expectations about happiness influence your experience of fulfillment?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Unrealistic expectations can cause persistent dissatisfaction by setting fulfillment out of reach. Accepting that fulfillment fluctuates and includes challenges allows for a more compassionate, balanced experience of life.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Reflect on a recent disappointment related to unmet expectations. Write about how adjusting your expectations could change your feelings in similar future situations.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 13</div>
+    <h2>What small, consistent actions could you integrate into your routine to bridge the gap between feeling stuck and finding fulfillment?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Small habits that align with your values create momentum and build a foundation for sustained fulfillment. Consistency matters more than intensity, as it strengthens your connection to what truly matters daily.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Choose one small action that reflects your values and commit to doing it daily for one week. Note how it affects your sense of fulfillment.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 14</div>
+    <h2>How does your physical environment contribute to your feelings of fulfillment or emptiness?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>A cluttered or uninspiring environment can drain energy and obscure what’s meaningful. Creating a space that reflects your values and supports your well-being can enhance your daily experience of fulfillment.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Spend 15 minutes decluttering or rearranging a space you use often. Notice how the change affects your mood and motivation.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 15</div>
+    <h2>When you feel a lack of fulfillment, how do you typically respond, and does this response help or hinder closing the gap?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Common responses like avoidance, numbing, or overworking may temporarily distract but prolong unfulfillment. Learning to sit with uncomfortable feelings and explore their source encourages growth and authentic satisfaction.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Next time you feel unfulfilled, pause and journal about what you’re feeling and why, resisting the urge to distract yourself immediately.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 16</div>
+    <h2>How do you balance striving for improvement with accepting your current state in your journey toward fulfillment?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Overemphasis on improvement can fuel dissatisfaction, while acceptance fosters peace. Integrating both—acknowledging progress and embracing where you are—creates a sustainable path to fulfillment.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Write a balanced statement recognizing both your recent growth and areas you accept as they are right now.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 17</div>
+    <h2>How might perfectionism be creating unseen barriers to your fulfillment?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Perfectionism often sets impossible standards that prevent celebrating progress and enjoying the present. Challenging these demands by embracing imperfection encourages a more compassionate and fulfilling experience.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Identify one area where perfectionism limits you. Practice intentionally doing something “good enough” and note your feelings afterward.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 18</div>
+    <h2>What role does gratitude play in your experience of fulfillment, and how could it be deepened?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Gratitude shifts focus from what’s lacking to what’s present, cultivating contentment. Deepening this practice involves noticing subtle positives and appreciating small moments, which cumulatively narrow fulfillment gaps.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Each evening, write down three specific things you noticed or appreciated that day, focusing on details often overlooked.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 19</div>
+    <h2>How do you navigate conflicting desires or values that pull you in different directions, impacting your sense of fulfillment?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Conflicting desires can cause internal tension and dissatisfaction. Clarifying priorities and accepting that some tension is natural enables more intentional choices that honor your whole self.</div>
+    <div class="block exercise"><div class="lab">Try this</div>List two conflicting desires or values and write about what each means to you. Reflect on how you might balance or sequence them rather than choosing one exclusively.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 20</div>
+    <h2>How can cultivating self-compassion help you address gaps in fulfillment caused by self-judgment or shame?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Self-compassion creates a safe emotional space to explore shortcomings without harshness, reducing shame that blocks fulfillment. It empowers you to respond to challenges with kindness, promoting resilience and growth.</div>
+    <div class="block exercise"><div class="lab">Try this</div>When you notice self-judgment, pause and silently repeat a compassionate phrase to yourself, such as “I am doing my best right now,” and journal about the experience.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="saved" id="savedNote"></div>
+  <div class="closing">
+    <h2>Your journey continues</h2>
+    <p>Reflection isn't a one-time exercise. Return to these prompts whenever you need a steady place to think.</p>
+  </div>
+  <div class="actions">
+    <button class="btn btn-primary" onclick="window.print()">Download / Print PDF</button>
+    <a href="../../resource-library.html" class="btn btn-ghost">← Back to library</a>
+  </div>
+</div></main>
+<div class="disclaimer"><div class="wrap">This workbook is for education and self-reflection. It is not a diagnosis or a substitute for therapy. If you are in crisis, call or text 988.</div></div>
+<footer><div class="wrap">© <span id="yr"></span> Campfire Calm™ · Jason M. Leclair, LPC</div></footer>
+<script>
+  document.getElementById('yr').textContent=new Date().getFullYear();
+  (function(){
+    var key="cc-reflect:fulfillment-gaps:";
+    var areas=document.querySelectorAll('.reflect-input');
+    var note=document.getElementById('savedNote');
+    function save(i,v){try{localStorage.setItem(key+i,v);note.textContent='Saved on this device';clearTimeout(window._t);window._t=setTimeout(function(){note.textContent='';},1500);}catch(e){}}
+    areas.forEach(function(a,i){
+      try{var v=localStorage.getItem(key+i);if(v)a.value=v;}catch(e){}
+      a.addEventListener('input',function(){save(i,a.value);});
+    });
+  })();
+</script>
+</body>
+</html>

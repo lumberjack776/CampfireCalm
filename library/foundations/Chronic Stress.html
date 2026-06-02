@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light">
+<title>Chronic Stress — Campfire Calm</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Mulish:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{color-scheme:light;--cream:#f9f2e7;--cream-2:#fef9ef;--paper:#fffdf8;--charcoal:#2a201a;--ember:#e7702f;--ember-deep:#cf551a;--amber:#f0a94f;--sage-deep:#4f7a5d;--ink:#352b23;--ink-soft:#6a5c4e;--line:rgba(60,50,42,.13);--brown:#2e2117;--shadow-sm:0 8px 24px -14px rgba(60,40,25,.3);--r:16px}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Mulish',sans-serif;color:var(--ink);background:linear-gradient(180deg,var(--cream),#fcefdf);line-height:1.7;-webkit-font-smoothing:antialiased}
+  h1,h2,h3{font-family:'Fraunces',serif;font-weight:500;color:var(--charcoal);letter-spacing:-.01em;line-height:1.15}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:760px;margin:0 auto;padding:0 24px}
+  nav{position:sticky;top:0;z-index:50;background:rgba(249,242,231,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px;max-width:760px;margin:0 auto;padding:0 24px}
+  .brand{display:flex;align-items:center;gap:9px;font-family:'Fraunces',serif;font-size:1.18rem;font-weight:600}
+  .flame{width:22px;height:22px}
+  .back{font-weight:700;font-size:.88rem;color:var(--ember-deep)}
+  header{background:var(--brown);color:#fdf7ec;padding:54px 0 48px;position:relative;overflow:hidden}
+  header::after{content:"";position:absolute;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,rgba(240,169,79,.32),transparent 65%);top:-130px;right:-90px}
+  .eyebrow{font-weight:700;text-transform:uppercase;letter-spacing:.18em;font-size:.7rem;color:var(--amber);margin-bottom:12px;position:relative}
+  header h1{color:#fdf7ec;font-size:clamp(2rem,6vw,3rem);margin-bottom:14px;position:relative}
+  header p{color:#e7d8c2;font-size:1.06rem;position:relative;max-width:34em}
+  .meta{display:flex;gap:22px;margin-top:22px;position:relative}
+  .meta div{font-size:.82rem;color:#cbb89f}
+  .meta b{display:block;font-family:'Fraunces',serif;font-size:1.5rem;color:var(--amber);font-weight:600}
+  main{padding:46px 0 20px}
+  .prompt{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:28px 26px;margin-bottom:22px;box-shadow:var(--shadow-sm)}
+  .pnum{font-family:'Fraunces',serif;font-size:.9rem;font-weight:600;color:var(--ember-deep);margin-bottom:8px}
+  .prompt h2{font-size:1.28rem;margin-bottom:18px}
+  .block{margin-bottom:16px}
+  .block .lab{font-weight:700;text-transform:uppercase;letter-spacing:.1em;font-size:.7rem;margin-bottom:6px}
+  .insight .lab{color:var(--sage-deep)}
+  .exercise{background:rgba(240,169,79,.1);border-left:3px solid var(--amber);border-radius:0 10px 10px 0;padding:14px 16px}
+  .exercise .lab{color:var(--ember-deep)}
+  .reflect{margin-top:18px}
+  .reflect .lab{font-weight:700;font-size:.78rem;color:var(--ink-soft);margin-bottom:8px}
+  .reflect-input{display:block;width:100%;min-height:132px;font-family:'Mulish',sans-serif;font-size:1rem;color:var(--ink);
+    line-height:32px;padding:5px 14px 8px;border:1px solid var(--line);border-radius:10px;resize:vertical;
+    background-color:var(--paper);
+    background-image:repeating-linear-gradient(transparent,transparent 31px,var(--line) 31px,var(--line) 32px);
+    background-attachment:local;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .reflect-input:focus{outline:none;border-color:var(--ember);box-shadow:0 0 0 3px rgba(231,112,47,.12)}
+  .reflect-input::placeholder{color:var(--ink-soft);opacity:.7}
+  .closing{text-align:center;background:var(--brown);color:#fdf7ec;border-radius:20px;padding:38px 30px;margin:30px 0}
+  .closing h2{color:#fdf7ec;font-size:1.6rem;margin-bottom:10px}
+  .closing p{color:#e7d8c2;max-width:30em;margin:0 auto}
+  .saved{text-align:center;font-size:.8rem;color:var(--sage-deep);margin:-6px 0 22px;min-height:1em}
+  .actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin:8px 0 40px}
+  .btn{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:.95rem;padding:13px 24px;border-radius:100px;cursor:pointer;border:0}
+  .btn-primary{background:var(--ember-deep);color:#fff}
+  .btn-ghost{background:transparent;border:1.5px solid var(--line);color:var(--charcoal)}
+  .disclaimer{background:var(--cream-2);border-top:1px solid var(--line);padding:26px 0;color:var(--ink-soft);font-size:.88rem;text-align:center;font-style:italic}
+  footer{background:var(--charcoal);color:rgba(255,255,255,.6);padding:30px 0;font-size:.86rem;text-align:center}
+  @media print{nav,.actions,.back,.saved{display:none}body{background:#fff}.prompt{break-inside:avoid;box-shadow:none}.reflect-input{border-color:#ccc}header,.closing,.exercise,.reflect-input{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+  @media(max-width:560px){header{padding:42px 0 36px}.prompt{padding:22px 20px}}
+</style>
+</head>
+<body>
+<nav><div class="nav-inner">
+  <a href="../../resource-library.html" class="brand"><svg class="flame" viewBox="0 0 24 24"><path d="M12 2c1.5 3.5-1 5-1 7.5 0 1.5 1 2.5 2 2.5s2-1 1.8-3c2 1.2 3.2 3.4 3.2 6 0 3.6-3 6.5-6 6.5S6 18.6 6 15c0-4 3-6.5 6-13z" fill="#e7702f"/></svg>Campfire Calm</a>
+  <a href="../../resource-library.html" class="back">← Library</a>
+</div></nav>
+<header><div class="wrap">
+  <div class="eyebrow">Guided Reflection Workbook</div>
+  <h1>Chronic Stress</h1>
+  <p>A guided self-reflection worksheet designed to help you explore your inner landscape through thoughtful prompts and exercises.</p>
+  <div class="meta"><div><b>21</b>Prompts</div><div><b>21</b>Insights</div><div><b>21</b>Exercises</div></div>
+</div></header>
+<main><div class="wrap">
+  <div class="prompt">
+    <div class="pnum">Prompt 01</div>
+    <h2>When you notice your body tensing up under stress, what specific sensations do you feel, and how do you usually respond to them?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Becoming aware of your body&#x27;s tension is the first step to interrupting the stress cycle. Instead of pushing away discomfort, gently observe where stress gathers—tight shoulders, clenched jaw—and allow yourself to consciously relax those areas. This breaks the automatic &quot;fight or flight&quot; habit.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Set a timer three times a day to pause and scan your body from head to toe. Note any tension without judgment, then take three slow, deep breaths, focusing on releasing tightness with each exhale.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 02</div>
+    <h2>How do your daily thoughts contribute to the buildup of chronic stress, and which patterns tend to make you feel overwhelmed?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Chronic stress often thrives on repetitive negative thoughts—catastrophizing, &quot;should&quot; statements, or all-or-nothing thinking. Identifying these patterns helps you catch the mind&#x27;s traps and replace them with balanced, realistic perspectives that reduce emotional pressure.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Write down a recent stressful thought and challenge it by asking: “Is this 100% true? What evidence do I have? What’s a more balanced way to see this?” Practice this daily with different thoughts.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 03</div>
+    <h2>What role does your daily routine play in either escalating or alleviating your chronic stress?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Small habits—like irregular sleep, skipping meals, or constant multitasking—can silently fuel stress. Creating consistent, manageable routines that prioritize rest, nourishment, and focused work time builds resilience against chronic stress over time.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Track your activities for three days and identify one habit that increases stress and one that helps calm you. Plan one small adjustment to strengthen your calming habit tomorrow.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 04</div>
+    <h2>How do you typically handle situations when stress triggers feelings of helplessness or loss of control?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Feeling out of control can intensify stress, but focusing on what you can influence, even if small, restores power. Identifying actionable steps, no matter how minor, breaks the paralysis and reduces the emotional overwhelm.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Think of a recent stressful event where you felt helpless. List three things you could do differently next time to regain a sense of control, even if they are small actions.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 05</div>
+    <h2>In what ways do you notice chronic stress impacting your relationships, and how do you usually communicate when you’re under stress?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Chronic stress can narrow your emotional bandwidth, making communication more reactive or withdrawn. Practicing honest, calm expression of needs and feelings helps prevent misunderstandings and fosters connection rather than isolation.</div>
+    <div class="block exercise"><div class="lab">Try this</div>The next time you feel stressed, pause before responding. Name your emotion out loud (“I’m feeling overwhelmed right now”) and state one need (“I need a few minutes to collect my thoughts”).</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 06</div>
+    <h2>What are your common coping mechanisms when stress feels unmanageable, and which of these actually help versus worsen your stress?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Coping strategies that numb or avoid—like excessive screen time, overeating, or procrastination—may provide temporary relief but often deepen stress later. Choosing active coping, such as problem-solving or mindful breaks, builds long-term stress tolerance.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Make a list of your current coping habits. For each, ask: “Does this help me feel better in the long run or just distract me?” Plan to replace one unhelpful habit with a healthier alternative this week.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 07</div>
+    <h2>How do you differentiate between normal stress and chronic stress in your life, and what signs indicate you might be tipping into chronic stress?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Normal stress is acute and usually resolves after the stressor passes. Chronic stress lingers, causing persistent irritability, fatigue, or sleep problems. Recognizing these signs early allows you to intervene before stress affects your health more deeply.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Reflect on the past month: list symptoms you’ve experienced (like headaches, mood swings). Mark which have been consistent for more than two weeks and consider what ongoing stresses might be contributing.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 08</div>
+    <h2>What internal messages do you tell yourself about your ability to handle stress, and how might these beliefs influence your experience of chronic stress?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Self-critical or defeatist thoughts like “I can’t handle this” create a self-fulfilling prophecy, increasing stress vulnerability. Cultivating compassionate, empowering self-talk strengthens your mental “muscle” to cope better.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Write down a stressful thought about your abilities. Then, reframe it with kindness and encouragement, such as “I’m doing my best, and I can learn to manage this step by step.”</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 09</div>
+    <h2>How does chronic stress affect your decision-making, and what strategies can help you make clearer choices during stressful periods?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Stress narrows focus, often pushing impulsive or avoidance decisions. Slowing down, breaking decisions into smaller parts, and seeking external input can help you make choices aligned with your values rather than immediate pressure.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Next time you face a stressful decision, pause to write down pros and cons. If stuck, ask a trusted friend for perspective before acting.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 10</div>
+    <h2>When your mind races with worries, how do you bring yourself back to the present moment?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Chronic stress often pulls you into future “what ifs.” Grounding techniques—like focusing on breath or sensory details—anchor you in now, reducing anxiety and helping you respond more thoughtfully.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Practice a 5-minute grounding exercise daily: name five things you see, four you hear, three you feel, two you smell, and one you taste.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 11</div>
+    <h2>How do you balance the need to “push through” stress with the need to rest and recover?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Endurance is valuable, but ignoring your body’s signals leads to burnout. Learning to recognize early signs of fatigue and giving yourself permission to pause improves long-term productivity and wellbeing.</div>
+    <div class="block exercise"><div class="lab">Try this</div>At the end of each day, ask: “Did I notice signs of exhaustion today? How did I respond?” Plan one small rest activity tomorrow.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 12</div>
+    <h2>How do your expectations for yourself and others contribute to your chronic stress levels?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Unrealistic or rigid expectations create constant pressure and disappointment. Flexibility in expectations allows acceptance of imperfections, reducing stress and improving relationships.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Identify one expectation you hold that feels stressful. Challenge its fairness and consider a more flexible, compassionate alternative.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 13</div>
+    <h2>In what ways does chronic stress affect your sleep, and what small changes could improve your rest?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Stress disrupts sleep by activating the nervous system when it should be winding down. Creating a calming pre-sleep routine and limiting stimulating activities before bed can restore better rest.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Choose one calming bedtime habit (like reading or deep breathing) to practice nightly for a week. Track any changes in your sleep quality.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 14</div>
+    <h2>How do you acknowledge and celebrate small wins during periods of chronic stress?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Chronic stress can blind you to progress, making you feel stuck. Recognizing small successes builds motivation and shifts focus from problems to strengths.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Each evening, write down one small thing you accomplished or handled well. Reflect on how it shows your resilience.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 15</div>
+    <h2>How does your environment—physical or social—either support or worsen your chronic stress?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Cluttered spaces or toxic social interactions add invisible stress layers. Creating calm environments and nurturing supportive relationships provides a buffer against chronic stress.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Identify one change to your physical space or social circle that could reduce stress. Take one step toward implementing it this week.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 16</div>
+    <h2>How do you practice self-compassion when chronic stress makes you feel inadequate or overwhelmed?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Self-compassion is choosing kindness over criticism, recognizing your struggles as part of the human experience. This mindset reduces shame and opens space for healing.</div>
+    <div class="block exercise"><div class="lab">Try this</div>When feeling overwhelmed, say to yourself: “It’s okay to feel this way—I’m doing my best.” Write down three supportive phrases you can repeat during tough moments.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 17</div>
+    <h2>What role does physical activity play in managing your chronic stress, and how can you incorporate movement that feels doable and enjoyable?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Exercise helps regulate stress hormones and improve mood, but forcing intense workouts can add pressure. Gentle, consistent movement aligned with your preferences provides sustainable benefits.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Experiment with one new form of movement this week—like walking, stretching, or dancing—and notice how it affects your stress levels.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 18</div>
+    <h2>How do you handle setbacks or relapses in your stress management efforts without losing motivation?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Setbacks are part of growth, not failure. Viewing them as learning opportunities rather than proof of inadequacy helps you stay committed and adapt strategies.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Recall a recent setback. Write down what you learned from it and one concrete adjustment you can make moving forward.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 19</div>
+    <h2>How do you differentiate between stress that signals a real problem versus stress that amplifies worries without solution?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Real problem stress calls for action; amplified worries often loop without productive outcomes. Learning to identify actionable stress versus rumination allows you to focus energy wisely.</div>
+    <div class="block exercise"><div class="lab">Try this</div>When stressed, ask yourself: “Is there something concrete I can do about this now?” If yes, plan a step. If no, practice letting go of the worry.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 20</div>
+    <h2>How can developing a personal mantra or affirmation help you manage moments of intense chronic stress?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>A mantra anchors your mind, interrupts negative spirals, and reinforces your ability to cope. It becomes a mental tool you can summon anytime for calm and focus.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Create a short, positive affirmation that resonates with your experience (e.g., “I am capable of handling this”). Repeat it silently whenever stress spikes.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 21</div>
+    <h2>How do you incorporate moments of joy or playfulness into your life to counterbalance chronic stress?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Joy activates positive emotions that buffer stress effects. Scheduling even brief moments of fun or creativity replenishes your emotional reserves and shifts perspective.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Plan one enjoyable activity this week, no matter how small (listening to music, drawing, playing a game), and fully engage in it without guilt.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="saved" id="savedNote"></div>
+  <div class="closing">
+    <h2>Your journey continues</h2>
+    <p>Reflection isn't a one-time exercise. Return to these prompts whenever you need a steady place to think.</p>
+  </div>
+  <div class="actions">
+    <button class="btn btn-primary" onclick="window.print()">Download / Print PDF</button>
+    <a href="../../resource-library.html" class="btn btn-ghost">← Back to library</a>
+  </div>
+</div></main>
+<div class="disclaimer"><div class="wrap">This workbook is for education and self-reflection. It is not a diagnosis or a substitute for therapy. If you are in crisis, call or text 988.</div></div>
+<footer><div class="wrap">© <span id="yr"></span> Campfire Calm™ · Jason M. Leclair, LPC</div></footer>
+<script>
+  document.getElementById('yr').textContent=new Date().getFullYear();
+  (function(){
+    var key="cc-reflect:chronic-stress:";
+    var areas=document.querySelectorAll('.reflect-input');
+    var note=document.getElementById('savedNote');
+    function save(i,v){try{localStorage.setItem(key+i,v);note.textContent='Saved on this device';clearTimeout(window._t);window._t=setTimeout(function(){note.textContent='';},1500);}catch(e){}}
+    areas.forEach(function(a,i){
+      try{var v=localStorage.getItem(key+i);if(v)a.value=v;}catch(e){}
+      a.addEventListener('input',function(){save(i,a.value);});
+    });
+  })();
+</script>
+</body>
+</html>

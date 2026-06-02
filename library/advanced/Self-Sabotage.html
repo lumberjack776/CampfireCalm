@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light">
+<title>Self-Sabotage — Campfire Calm</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Mulish:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{color-scheme:light;--cream:#f9f2e7;--cream-2:#fef9ef;--paper:#fffdf8;--charcoal:#2a201a;--ember:#e7702f;--ember-deep:#cf551a;--amber:#f0a94f;--sage-deep:#4f7a5d;--ink:#352b23;--ink-soft:#6a5c4e;--line:rgba(60,50,42,.13);--brown:#2e2117;--shadow-sm:0 8px 24px -14px rgba(60,40,25,.3);--r:16px}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Mulish',sans-serif;color:var(--ink);background:linear-gradient(180deg,var(--cream),#fcefdf);line-height:1.7;-webkit-font-smoothing:antialiased}
+  h1,h2,h3{font-family:'Fraunces',serif;font-weight:500;color:var(--charcoal);letter-spacing:-.01em;line-height:1.15}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:760px;margin:0 auto;padding:0 24px}
+  nav{position:sticky;top:0;z-index:50;background:rgba(249,242,231,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px;max-width:760px;margin:0 auto;padding:0 24px}
+  .brand{display:flex;align-items:center;gap:9px;font-family:'Fraunces',serif;font-size:1.18rem;font-weight:600}
+  .flame{width:22px;height:22px}
+  .back{font-weight:700;font-size:.88rem;color:var(--ember-deep)}
+  header{background:var(--brown);color:#fdf7ec;padding:54px 0 48px;position:relative;overflow:hidden}
+  header::after{content:"";position:absolute;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,rgba(240,169,79,.32),transparent 65%);top:-130px;right:-90px}
+  .eyebrow{font-weight:700;text-transform:uppercase;letter-spacing:.18em;font-size:.7rem;color:var(--amber);margin-bottom:12px;position:relative}
+  header h1{color:#fdf7ec;font-size:clamp(2rem,6vw,3rem);margin-bottom:14px;position:relative}
+  header p{color:#e7d8c2;font-size:1.06rem;position:relative;max-width:34em}
+  .meta{display:flex;gap:22px;margin-top:22px;position:relative}
+  .meta div{font-size:.82rem;color:#cbb89f}
+  .meta b{display:block;font-family:'Fraunces',serif;font-size:1.5rem;color:var(--amber);font-weight:600}
+  main{padding:46px 0 20px}
+  .prompt{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:28px 26px;margin-bottom:22px;box-shadow:var(--shadow-sm)}
+  .pnum{font-family:'Fraunces',serif;font-size:.9rem;font-weight:600;color:var(--ember-deep);margin-bottom:8px}
+  .prompt h2{font-size:1.28rem;margin-bottom:18px}
+  .block{margin-bottom:16px}
+  .block .lab{font-weight:700;text-transform:uppercase;letter-spacing:.1em;font-size:.7rem;margin-bottom:6px}
+  .insight .lab{color:var(--sage-deep)}
+  .exercise{background:rgba(240,169,79,.1);border-left:3px solid var(--amber);border-radius:0 10px 10px 0;padding:14px 16px}
+  .exercise .lab{color:var(--ember-deep)}
+  .reflect{margin-top:18px}
+  .reflect .lab{font-weight:700;font-size:.78rem;color:var(--ink-soft);margin-bottom:8px}
+  .reflect-input{display:block;width:100%;min-height:132px;font-family:'Mulish',sans-serif;font-size:1rem;color:var(--ink);
+    line-height:32px;padding:5px 14px 8px;border:1px solid var(--line);border-radius:10px;resize:vertical;
+    background-color:var(--paper);
+    background-image:repeating-linear-gradient(transparent,transparent 31px,var(--line) 31px,var(--line) 32px);
+    background-attachment:local;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .reflect-input:focus{outline:none;border-color:var(--ember);box-shadow:0 0 0 3px rgba(231,112,47,.12)}
+  .reflect-input::placeholder{color:var(--ink-soft);opacity:.7}
+  .closing{text-align:center;background:var(--brown);color:#fdf7ec;border-radius:20px;padding:38px 30px;margin:30px 0}
+  .closing h2{color:#fdf7ec;font-size:1.6rem;margin-bottom:10px}
+  .closing p{color:#e7d8c2;max-width:30em;margin:0 auto}
+  .saved{text-align:center;font-size:.8rem;color:var(--sage-deep);margin:-6px 0 22px;min-height:1em}
+  .actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin:8px 0 40px}
+  .btn{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:.95rem;padding:13px 24px;border-radius:100px;cursor:pointer;border:0}
+  .btn-primary{background:var(--ember-deep);color:#fff}
+  .btn-ghost{background:transparent;border:1.5px solid var(--line);color:var(--charcoal)}
+  .disclaimer{background:var(--cream-2);border-top:1px solid var(--line);padding:26px 0;color:var(--ink-soft);font-size:.88rem;text-align:center;font-style:italic}
+  footer{background:var(--charcoal);color:rgba(255,255,255,.6);padding:30px 0;font-size:.86rem;text-align:center}
+  @media print{nav,.actions,.back,.saved{display:none}body{background:#fff}.prompt{break-inside:avoid;box-shadow:none}.reflect-input{border-color:#ccc}header,.closing,.exercise,.reflect-input{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+  @media(max-width:560px){header{padding:42px 0 36px}.prompt{padding:22px 20px}}
+</style>
+</head>
+<body>
+<nav><div class="nav-inner">
+  <a href="../../resource-library.html" class="brand"><svg class="flame" viewBox="0 0 24 24"><path d="M12 2c1.5 3.5-1 5-1 7.5 0 1.5 1 2.5 2 2.5s2-1 1.8-3c2 1.2 3.2 3.4 3.2 6 0 3.6-3 6.5-6 6.5S6 18.6 6 15c0-4 3-6.5 6-13z" fill="#e7702f"/></svg>Campfire Calm</a>
+  <a href="../../resource-library.html" class="back">← Library</a>
+</div></nav>
+<header><div class="wrap">
+  <div class="eyebrow">Guided Reflection Workbook</div>
+  <h1>Self-Sabotage</h1>
+  <p>A guided self-reflection worksheet designed to help you explore your inner landscape through thoughtful prompts and exercises.</p>
+  <div class="meta"><div><b>19</b>Prompts</div><div><b>19</b>Insights</div><div><b>19</b>Exercises</div></div>
+</div></header>
+<main><div class="wrap">
+  <div class="prompt">
+    <div class="pnum">Prompt 01</div>
+    <h2>When you think about a personal goal, what specific fears or doubts quietly stop you from taking the first step?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>These fears often stem from past experiences where you felt vulnerable or failed. Notice how your mind protects you by avoiding risk, but this safety comes at the cost of growth. Naming these fears allows you to challenge their truth and gently reframe your narrative around failure.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Write down your goal and list the exact fears that arise. For each fear, ask yourself: “What evidence do I have that this fear will come true?” and “What’s one small action I can take despite this fear?”</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 02</div>
+    <h2>How do you typically respond when you receive positive feedback or success? Do you accept it or dismiss it? Why?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Many self-sabotaging patterns come from discomfort with praise, often rooted in low self-worth. When you dismiss success, you keep yourself in a familiar “safe” zone of self-criticism, which paradoxically feels more controlled than vulnerability.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Next time you succeed, pause and write down three positive things about yourself related to that success. Repeat each aloud with the intention of truly accepting them.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 03</div>
+    <h2>What recurring thoughts or beliefs arise when you’re about to start something important, but then you procrastinate or give up?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>These thoughts often carry hidden assumptions like “I’m not ready,” or “This won’t work.” They serve as mental blocks that stop you from risking discomfort. Recognizing these beliefs as just thoughts—not facts—helps you create space for new possibilities.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Track your thoughts for one week before tasks you avoid. Write down each negative or doubting thought and then write a balanced, fact-based response to challenge it.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 04</div>
+    <h2>In moments when you self-sabotage, what emotions are you trying to avoid or escape?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Self-sabotage frequently masks underlying feelings such as fear, shame, or vulnerability. By identifying these emotions, you can learn to tolerate them without reacting impulsively, transforming avoidance into mindful acceptance.</div>
+    <div class="block exercise"><div class="lab">Try this</div>When you notice self-sabotaging behavior, pause and journal: “What am I feeling right now?” Rate the intensity and simply observe without judgment.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 05</div>
+    <h2>How does your environment (people, places, routines) support or hinder your patterns of self-sabotage?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Environments that reinforce negative self-beliefs or offer easy distractions can unconsciously feed self-sabotage. By intentionally shaping your surroundings, you can reduce triggers and create cues that promote healthier habits.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Identify three environmental triggers linked to self-sabotage. Create one small change for each—like removing distractions or seeking supportive company—and note the impact.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 06</div>
+    <h2>What role does perfectionism play in your tendency to self-sabotage?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Perfectionism often leads to procrastination or giving up because the fear of imperfection feels overwhelming. Understanding that progress, not perfection, creates value helps break this cycle and encourages compassionate self-action.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Choose a task you’ve avoided due to perfectionism. Commit to doing just 50% of it today. Reflect on how this feels compared to your typical all-or-nothing approach.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 07</div>
+    <h2>How do you interpret mistakes or failures, and how does this interpretation influence your future actions?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Viewing mistakes as personal flaws fuels self-sabotage, while seeing them as learning opportunities empowers you. Shifting your mindset from judgment to curiosity opens the door to resilience and growth.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Recall a recent mistake. Write down what you learned from it and one way you can apply that insight moving forward.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 08</div>
+    <h2>When you imagine success in your mind, what internal dialogue comes up? Is it supportive or critical?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Your internal dialogue shapes your motivation. If it’s critical, it’s likely undermining your efforts before they even begin. Cultivating a compassionate inner voice helps build confidence and persistence.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Practice rewriting one negative self-statement you often say into a kind, encouraging phrase. Repeat it daily, especially before challenging tasks.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 09</div>
+    <h2>How do you balance the desire for control with the need to take risks in your life?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Over-control can lead to paralysis and self-sabotage, while healthy risk-taking requires trust in yourself and the process. Learning to tolerate uncertainty incrementally strengthens your ability to act despite discomfort.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Identify one small risk you’ve avoided. Plan and take a tiny step toward it, then reflect on what you learned about control and uncertainty.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 10</div>
+    <h2>What subconscious messages about worthiness might be fueling your self-sabotage?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Deep-seated beliefs like “I don’t deserve success” often operate beneath awareness, driving unconscious self-defeating actions. Bringing these to light allows you to question and replace them with affirming truths.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Write a letter to your younger self addressing these beliefs with compassion and reassurance. Read it whenever you feel undeserving.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 11</div>
+    <h2>How does your relationship with time affect your procrastination and self-sabotage?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Viewing time as scarce or overwhelming can trigger avoidance as a defense mechanism. Developing a flexible, present-focused relationship with time reduces pressure and encourages steady progress.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Practice a simple time-awareness exercise: set a timer for 10 minutes and work on a task without judgment. Notice how breaking time into manageable chunks affects your motivation.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 12</div>
+    <h2>When you set boundaries, do you notice any self-sabotaging behaviors that undermine them? Why might that happen?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Undermining boundaries can be a way to avoid discomfort or conflict, often linked to fear of rejection. Strengthening your boundary awareness helps you respect your own needs and reduces internal resistance.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Reflect on one boundary you struggle to maintain. Identify one thought or feeling that makes it hard, then practice assertive but gentle self-talk to reinforce that boundary.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 13</div>
+    <h2>How do you respond internally when someone else succeeds in an area you desire? Does this affect your own motivation?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Feelings of envy or inadequacy can trigger self-sabotage by feeding negative self-comparisons. Recognizing these emotions as signals rather than facts helps you transform them into inspiration or self-compassion.</div>
+    <div class="block exercise"><div class="lab">Try this</div>The next time you feel envious, write down what that success represents to you. Then, list one realistic step you can take toward your own version of success.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 14</div>
+    <h2>What role does self-forgiveness play in your journey to overcome self-sabotage?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Without self-forgiveness, guilt and shame become heavy anchors that keep you stuck. Embracing forgiveness opens space for learning and forward movement, freeing you from cycles of self-punishment.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Identify a past self-sabotaging incident. Write a forgiving statement to yourself, acknowledging your humanity and commitment to change.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 15</div>
+    <h2>How do you notice your body reacts before or during self-sabotage episodes? What sensations arise?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Physical sensations like tension, nausea, or fatigue can signal emotional distress before self-sabotage. Developing body awareness helps you catch these moments early and use grounding techniques to interrupt the pattern.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Practice a body scan meditation for five minutes daily, noting where you hold tension and experimenting with releasing it gently.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 16</div>
+    <h2>How do your core values align or conflict with the areas where you self-sabotage?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>When your actions contradict your values, internal conflict can trigger self-sabotage as a form of resistance. Clarifying your values and reconnecting with them strengthens your motivation toward authentic goals.</div>
+    <div class="block exercise"><div class="lab">Try this</div>List your top three values. For each area you self-sabotage, ask how aligning more closely with these values might change your behavior.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 17</div>
+    <h2>What small, manageable habit could you implement to interrupt your self-sabotage cycle?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Introducing micro-habits builds momentum and rewires automatic responses. These small wins accumulate, making it easier to replace old patterns with healthier ones.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Choose one tiny habit related to your goal—like a 2-minute mindfulness pause before work—and practice it daily for a week. Track how it influences your self-sabotage urges.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 18</div>
+    <h2>How do you differentiate between healthy self-care and self-sabotage disguised as self-care?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Self-care replenishes and supports goals, while self-sabotage disguised as self-care often avoids discomfort or responsibility. Reflecting on intention helps you distinguish between the two and make wiser choices.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Next time you engage in a self-care activity, ask yourself: “Is this helping me move forward or avoiding something important?” Journal your insights.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 19</div>
+    <h2>When you imagine your life without self-sabotage, what feelings and possibilities emerge?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Visualizing a self-sabotage-free life can evoke hope and motivation but also fear of change. Embracing these mixed emotions prepares you for gradual transformation rather than overnight perfection.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Create a detailed mental image of your life after overcoming self-sabotage. Write down the emotions and specific changes you notice, revisiting this vision regularly to inspire action.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="saved" id="savedNote"></div>
+  <div class="closing">
+    <h2>Your journey continues</h2>
+    <p>Reflection isn't a one-time exercise. Return to these prompts whenever you need a steady place to think.</p>
+  </div>
+  <div class="actions">
+    <button class="btn btn-primary" onclick="window.print()">Download / Print PDF</button>
+    <a href="../../resource-library.html" class="btn btn-ghost">← Back to library</a>
+  </div>
+</div></main>
+<div class="disclaimer"><div class="wrap">This workbook is for education and self-reflection. It is not a diagnosis or a substitute for therapy. If you are in crisis, call or text 988.</div></div>
+<footer><div class="wrap">© <span id="yr"></span> Campfire Calm™ · Jason M. Leclair, LPC</div></footer>
+<script>
+  document.getElementById('yr').textContent=new Date().getFullYear();
+  (function(){
+    var key="cc-reflect:self-sabotage:";
+    var areas=document.querySelectorAll('.reflect-input');
+    var note=document.getElementById('savedNote');
+    function save(i,v){try{localStorage.setItem(key+i,v);note.textContent='Saved on this device';clearTimeout(window._t);window._t=setTimeout(function(){note.textContent='';},1500);}catch(e){}}
+    areas.forEach(function(a,i){
+      try{var v=localStorage.getItem(key+i);if(v)a.value=v;}catch(e){}
+      a.addEventListener('input',function(){save(i,a.value);});
+    });
+  })();
+</script>
+</body>
+</html>

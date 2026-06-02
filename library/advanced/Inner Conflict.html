@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light">
+<title>Inner Conflict — Campfire Calm</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Mulish:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{color-scheme:light;--cream:#f9f2e7;--cream-2:#fef9ef;--paper:#fffdf8;--charcoal:#2a201a;--ember:#e7702f;--ember-deep:#cf551a;--amber:#f0a94f;--sage-deep:#4f7a5d;--ink:#352b23;--ink-soft:#6a5c4e;--line:rgba(60,50,42,.13);--brown:#2e2117;--shadow-sm:0 8px 24px -14px rgba(60,40,25,.3);--r:16px}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Mulish',sans-serif;color:var(--ink);background:linear-gradient(180deg,var(--cream),#fcefdf);line-height:1.7;-webkit-font-smoothing:antialiased}
+  h1,h2,h3{font-family:'Fraunces',serif;font-weight:500;color:var(--charcoal);letter-spacing:-.01em;line-height:1.15}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:760px;margin:0 auto;padding:0 24px}
+  nav{position:sticky;top:0;z-index:50;background:rgba(249,242,231,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px;max-width:760px;margin:0 auto;padding:0 24px}
+  .brand{display:flex;align-items:center;gap:9px;font-family:'Fraunces',serif;font-size:1.18rem;font-weight:600}
+  .flame{width:22px;height:22px}
+  .back{font-weight:700;font-size:.88rem;color:var(--ember-deep)}
+  header{background:var(--brown);color:#fdf7ec;padding:54px 0 48px;position:relative;overflow:hidden}
+  header::after{content:"";position:absolute;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,rgba(240,169,79,.32),transparent 65%);top:-130px;right:-90px}
+  .eyebrow{font-weight:700;text-transform:uppercase;letter-spacing:.18em;font-size:.7rem;color:var(--amber);margin-bottom:12px;position:relative}
+  header h1{color:#fdf7ec;font-size:clamp(2rem,6vw,3rem);margin-bottom:14px;position:relative}
+  header p{color:#e7d8c2;font-size:1.06rem;position:relative;max-width:34em}
+  .meta{display:flex;gap:22px;margin-top:22px;position:relative}
+  .meta div{font-size:.82rem;color:#cbb89f}
+  .meta b{display:block;font-family:'Fraunces',serif;font-size:1.5rem;color:var(--amber);font-weight:600}
+  main{padding:46px 0 20px}
+  .prompt{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:28px 26px;margin-bottom:22px;box-shadow:var(--shadow-sm)}
+  .pnum{font-family:'Fraunces',serif;font-size:.9rem;font-weight:600;color:var(--ember-deep);margin-bottom:8px}
+  .prompt h2{font-size:1.28rem;margin-bottom:18px}
+  .block{margin-bottom:16px}
+  .block .lab{font-weight:700;text-transform:uppercase;letter-spacing:.1em;font-size:.7rem;margin-bottom:6px}
+  .insight .lab{color:var(--sage-deep)}
+  .exercise{background:rgba(240,169,79,.1);border-left:3px solid var(--amber);border-radius:0 10px 10px 0;padding:14px 16px}
+  .exercise .lab{color:var(--ember-deep)}
+  .reflect{margin-top:18px}
+  .reflect .lab{font-weight:700;font-size:.78rem;color:var(--ink-soft);margin-bottom:8px}
+  .reflect-input{display:block;width:100%;min-height:132px;font-family:'Mulish',sans-serif;font-size:1rem;color:var(--ink);
+    line-height:32px;padding:5px 14px 8px;border:1px solid var(--line);border-radius:10px;resize:vertical;
+    background-color:var(--paper);
+    background-image:repeating-linear-gradient(transparent,transparent 31px,var(--line) 31px,var(--line) 32px);
+    background-attachment:local;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .reflect-input:focus{outline:none;border-color:var(--ember);box-shadow:0 0 0 3px rgba(231,112,47,.12)}
+  .reflect-input::placeholder{color:var(--ink-soft);opacity:.7}
+  .closing{text-align:center;background:var(--brown);color:#fdf7ec;border-radius:20px;padding:38px 30px;margin:30px 0}
+  .closing h2{color:#fdf7ec;font-size:1.6rem;margin-bottom:10px}
+  .closing p{color:#e7d8c2;max-width:30em;margin:0 auto}
+  .saved{text-align:center;font-size:.8rem;color:var(--sage-deep);margin:-6px 0 22px;min-height:1em}
+  .actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin:8px 0 40px}
+  .btn{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:.95rem;padding:13px 24px;border-radius:100px;cursor:pointer;border:0}
+  .btn-primary{background:var(--ember-deep);color:#fff}
+  .btn-ghost{background:transparent;border:1.5px solid var(--line);color:var(--charcoal)}
+  .disclaimer{background:var(--cream-2);border-top:1px solid var(--line);padding:26px 0;color:var(--ink-soft);font-size:.88rem;text-align:center;font-style:italic}
+  footer{background:var(--charcoal);color:rgba(255,255,255,.6);padding:30px 0;font-size:.86rem;text-align:center}
+  @media print{nav,.actions,.back,.saved{display:none}body{background:#fff}.prompt{break-inside:avoid;box-shadow:none}.reflect-input{border-color:#ccc}header,.closing,.exercise,.reflect-input{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+  @media(max-width:560px){header{padding:42px 0 36px}.prompt{padding:22px 20px}}
+</style>
+</head>
+<body>
+<nav><div class="nav-inner">
+  <a href="../../resource-library.html" class="brand"><svg class="flame" viewBox="0 0 24 24"><path d="M12 2c1.5 3.5-1 5-1 7.5 0 1.5 1 2.5 2 2.5s2-1 1.8-3c2 1.2 3.2 3.4 3.2 6 0 3.6-3 6.5-6 6.5S6 18.6 6 15c0-4 3-6.5 6-13z" fill="#e7702f"/></svg>Campfire Calm</a>
+  <a href="../../resource-library.html" class="back">← Library</a>
+</div></nav>
+<header><div class="wrap">
+  <div class="eyebrow">Guided Reflection Workbook</div>
+  <h1>Inner Conflict</h1>
+  <p>A guided self-reflection worksheet designed to help you explore your inner landscape through thoughtful prompts and exercises.</p>
+  <div class="meta"><div><b>18</b>Prompts</div><div><b>18</b>Insights</div><div><b>18</b>Exercises</div></div>
+</div></header>
+<main><div class="wrap">
+  <div class="prompt">
+    <div class="pnum">Prompt 01</div>
+    <h2>What is one recurring inner conflict you notice in yourself that creates tension or stress?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Identifying a recurring conflict helps you understand what values or desires are clashing inside you. Instead of pushing the discomfort away, try to see what each side of the conflict is trying to protect or achieve. This awareness opens the door to more compassionate self-dialogue.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Write down the two opposing parts of this conflict. For each, list what it fears losing or gaining. Reflect on how both parts might want your well-being in their own way.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 02</div>
+    <h2>How do you usually respond when your inner values seem to contradict your current behavior?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Many people react with self-criticism or avoidance, which only deepens the conflict. Instead, pause and ask yourself what small step could honor your values right now. This breaks the cycle of guilt and creates space for change.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Recall a recent moment when your actions clashed with your values. Jot down one compassionate action you can take this week to realign with your values, even if it’s small.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 03</div>
+    <h2>When faced with a tough decision, how does your inner conflict influence your ability to choose?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Inner conflict often creates paralysis or rushed decisions driven by anxiety. Recognize that uncertainty is part of growth. By breaking the choice into manageable pieces, you reduce overwhelm and give yourself permission to adjust as you learn more.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Identify a current decision causing inner conflict. Break it into smaller questions or steps. Commit to answering or acting on just one small part this week.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 04</div>
+    <h2>In what ways does your inner critic contribute to your internal conflicts?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>The inner critic often frames conflicts as personal failures, increasing shame and rigidity. Try to notice when this voice speaks, and gently question its accuracy. Your inner critic is a part, not the whole story, and doesn’t always have your best interest at heart.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Write down a recent self-critical thought related to your inner conflict. Then, write a balanced response from a caring friend or mentor’s perspective.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 05</div>
+    <h2>How might your past experiences be fueling your current inner conflicts?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Unresolved past wounds can create patterns of fear or resistance that show up as inner conflict today. By noticing these influences, you can start to separate who you are now from past pain, allowing more flexibility and healing in your choices.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Reflect on a past event that feels linked to your current inner conflict. Write a letter to your younger self offering understanding and support.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 06</div>
+    <h2>What role does fear play in the inner conflicts you experience?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Fear often anchors us to safety by resisting change, even when that change aligns with our deeper goals. Recognizing fear as a protective signal, not an enemy, helps you explore it curiously and choose courageously despite discomfort.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Identify a fear connected to your inner conflict. Describe what this fear is trying to protect you from, and brainstorm one small act of courage you can practice this week.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 07</div>
+    <h2>How do you balance your conflicting needs for independence and connection?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>This tension is common and reflects core human desires. Instead of seeing them as opposing, try to view them as parts that can take turns leading, depending on context. Flexibility in meeting these needs reduces inner turmoil.</div>
+    <div class="block exercise"><div class="lab">Try this</div>List moments when you prioritized independence over connection, and vice versa. Reflect on how you felt in each case and how you might create space for both needs daily.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 08</div>
+    <h2>When your emotions and logic clash internally, how do you find clarity?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Emotions provide valuable information about your values and unmet needs, while logic offers practical evaluation. Instead of suppressing either, create a mental dialogue where both sides express their concerns, helping you reach a balanced decision.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Next time you feel conflicted between emotion and logic, write down what each side says. Then, identify a solution that honors both perspectives as much as possible.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 09</div>
+    <h2>What inner messages do you give yourself when you feel stuck between two choices?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Often, these messages are harsh or dismissive, increasing your sense of being trapped. Shift your self-talk to curiosity and kindness, asking what you need to feel supported in making this decision rather than demanding immediate answers.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Notice your self-talk during inner conflict. Write down one compassionate phrase you can repeat to yourself when stuck, such as “It’s okay to take my time.”</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 10</div>
+    <h2>How does your body react when you experience inner conflict, and what can it teach you?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Physical sensations like tightness or restlessness are signals that your mind and body disagree. Paying attention to these cues can help you slow down and explore the conflict with more awareness, grounding decisions in your whole self.</div>
+    <div class="block exercise"><div class="lab">Try this</div>The next time you feel inner tension, pause and scan your body. Note what sensations arise and gently breathe into those areas, asking what message your body has for you.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 11</div>
+    <h2>How do you distinguish between a genuine inner conflict and temporary discomfort or doubt?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Inner conflict often involves deeper values or identity aspects, while discomfort can be a sign of growth or new learning. By reflecting on the source and duration of your feelings, you can decide whether to sit with discomfort or seek resolution for conflict.</div>
+    <div class="block exercise"><div class="lab">Try this</div>When you feel unsettled, ask yourself: “Is this tied to a core value or belief, or is it a sign of adjustment to something new?” Journal your insights.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 12</div>
+    <h2>How do you integrate opposing desires for change and stability within yourself?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Change and stability are not enemies but complementary forces. Acknowledge your need for both by creating routines that provide safety while experimenting with small changes, gradually expanding your comfort zone without overwhelming yourself.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Identify one area in your life where you crave stability and another where you want change. Design a small daily practice that honors both, such as a comforting morning ritual alongside a new hobby.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 13</div>
+    <h2>How might perfectionism be intensifying your inner conflicts?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Perfectionism can trap you in “all or nothing” thinking, making it harder to accept uncertainty or mistakes. Recognize that imperfection is part of the human experience and allows for growth. Compassionate self-acceptance can ease the tension.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Reflect on a recent situation where perfectionism heightened your inner conflict. Challenge yourself to identify one imperfection you can accept today as part of progress.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 14</div>
+    <h2>How do your personal boundaries help resolve or worsen your inner conflicts?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Clear boundaries can protect your values and reduce conflicting demands, but rigid boundaries may create isolation or guilt. Review your boundaries with flexibility and self-compassion, adjusting them as needed to maintain balance.</div>
+    <div class="block exercise"><div class="lab">Try this</div>List your current boundaries related to your conflict. Ask yourself if any could be softened or strengthened to better support your well-being.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 15</div>
+    <h2>How does your need for approval from others create inner conflict?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Seeking approval can pull you away from your authentic desires, creating tension between pleasing others and honoring yourself. Practice recognizing when you act from approval-seeking and gently remind yourself that your worth isn’t dependent on others’ opinions.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Recall a recent choice influenced by others’ expectations. Write down how you might assert your true preference next time, even if it feels uncomfortable.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 16</div>
+    <h2>In moments of inner conflict, how do you distinguish between intuition and anxiety?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Intuition usually feels calm, steady, and clear, while anxiety tends to be urgent and turbulent. When unsure, slow down and observe your feelings without immediate reaction. Over time, this practice sharpens your ability to trust your inner wisdom.</div>
+    <div class="block exercise"><div class="lab">Try this</div>When conflicted, pause and note the quality of your feelings. Practice mindful breathing for two minutes to ease anxiety and listen for the quieter voice of intuition.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 17</div>
+    <h2>How can accepting ambiguity reduce the intensity of your inner conflict?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Inner conflict often arises from the desire for certainty and clear answers. By embracing ambiguity as a natural part of life, you reduce pressure to resolve everything immediately and open yourself to new possibilities and growth.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Choose an area of your life where you crave certainty. Write down three “what if” statements embracing uncertainty, such as “What if not knowing is okay?”</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="prompt">
+    <div class="pnum">Prompt 18</div>
+    <h2>How might you use your inner conflict as a source of personal growth rather than a source of distress?</h2>
+    <div class="block insight"><div class="lab">Guided insight</div>Inner conflict signals areas where your values, needs, and identity are evolving. By approaching conflict with curiosity and patience, you transform it into a compass guiding deeper self-understanding and meaningful change.</div>
+    <div class="block exercise"><div class="lab">Try this</div>Reflect on a past inner conflict that led to growth. Write about what you learned and how you might welcome your current conflicts as opportunities for insight.</div>
+    <div class="reflect"><div class="lab">Your reflection</div><textarea class="reflect-input" placeholder="Tap here to write… your notes save on this device."></textarea></div>
+  </div>
+  <div class="saved" id="savedNote"></div>
+  <div class="closing">
+    <h2>Your journey continues</h2>
+    <p>Reflection isn't a one-time exercise. Return to these prompts whenever you need a steady place to think.</p>
+  </div>
+  <div class="actions">
+    <button class="btn btn-primary" onclick="window.print()">Download / Print PDF</button>
+    <a href="../../resource-library.html" class="btn btn-ghost">← Back to library</a>
+  </div>
+</div></main>
+<div class="disclaimer"><div class="wrap">This workbook is for education and self-reflection. It is not a diagnosis or a substitute for therapy. If you are in crisis, call or text 988.</div></div>
+<footer><div class="wrap">© <span id="yr"></span> Campfire Calm™ · Jason M. Leclair, LPC</div></footer>
+<script>
+  document.getElementById('yr').textContent=new Date().getFullYear();
+  (function(){
+    var key="cc-reflect:inner-conflict:";
+    var areas=document.querySelectorAll('.reflect-input');
+    var note=document.getElementById('savedNote');
+    function save(i,v){try{localStorage.setItem(key+i,v);note.textContent='Saved on this device';clearTimeout(window._t);window._t=setTimeout(function(){note.textContent='';},1500);}catch(e){}}
+    areas.forEach(function(a,i){
+      try{var v=localStorage.getItem(key+i);if(v)a.value=v;}catch(e){}
+      a.addEventListener('input',function(){save(i,a.value);});
+    });
+  })();
+</script>
+</body>
+</html>
